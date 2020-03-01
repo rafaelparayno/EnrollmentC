@@ -21,12 +21,12 @@ namespace CST
             txtUN.Text = MyLabelText;
             txtUT.Text = hi;
            
-            globalVariables.myServer = globalVariables.IPv4_Address;
-            globalVariables.myDatabase = "final_enroll";
-            globalVariables.myUsername = "cst_db";
-            globalVariables.myPassword = "Sohhrs6d2F1PBOQR";
+            //globalVariables.myServer = globalVariables.IPv4_Address;
+            //globalVariables.myDatabase = "final_enroll";
+            //globalVariables.myUsername = "cst_db";
+            //globalVariables.myPassword = "Sohhrs6d2F1PBOQR";
 
-            btnSave.Enabled = false;    
+            //btnSave.Enabled = false;    
 
 
 
@@ -35,68 +35,68 @@ namespace CST
         private void UserAccount_Load(object sender, EventArgs e)
 
         {
-            globalVariables.myConnection = "SERVER =" + globalVariables.myServer + ";" + "DATABASE =" + globalVariables.myDatabase + ";" + "UID =" + globalVariables.myUsername + ";" + "PASSWORD =" + globalVariables.myPassword + ";";
-            gv.cn = new MySqlConnection(globalVariables.myConnection);
+            //globalVariables.myConnection = "SERVER =" + globalVariables.myServer + ";" + "DATABASE =" + globalVariables.myDatabase + ";" + "UID =" + globalVariables.myUsername + ";" + "PASSWORD =" + globalVariables.myPassword + ";";
+            //gv.cn = new MySqlConnection(globalVariables.myConnection);
 
-            gv.cn.Open();
-            MySqlCommand command;
-            MySqlDataReader mdr;
+            //gv.cn.Open();
+            //MySqlCommand command;
+            //MySqlDataReader mdr;
 
-            string selectQuery = "  select * FROM school_year where sy_status='activate'";
+            //string selectQuery = "  select * FROM school_year where sy_status='activate'";
 
 
-            command = new MySqlCommand(selectQuery, gv.cn);
+            //command = new MySqlCommand(selectQuery, gv.cn);
 
-            mdr = command.ExecuteReader();
-            int count = 0;
-            string SY = string.Empty;
-            string sy_status = string.Empty;
+            //mdr = command.ExecuteReader();
+            //int count = 0;
+            //string SY = string.Empty;
+            //string sy_status = string.Empty;
 
-            while (mdr.Read())
-            {
-                count = count + 1;
-                SY = mdr["school_year"].ToString();
-                sy_status = mdr["sy_status"].ToString();
+            //while (mdr.Read())
+            //{
+            //    count = count + 1;
+            //    SY = mdr["school_year"].ToString();
+            //    sy_status = mdr["sy_status"].ToString();
 
-            }
+            //}
 
-            if (count == 1)
-            {
+            //if (count == 1)
+            //{
 
-                if (sy_status == "activate")
-                {       //show admin windows
+            //    if (sy_status == "activate")
+            //    {       //show admin windows
 
-                    label8.Text = SY;
+            //        label8.Text = SY;
 
-                }
-            }
-            gv.cn.Close(); txtUN.Hide();
-            gbResetPass.Hide();
+            //    }
+            //}
+            //gv.cn.Close(); txtUN.Hide();
+            //gbResetPass.Hide();
            
-            gbTeachForm.Hide();
-            txtUT.Hide();
-            label8.Hide();
-            MySqlCommand cmd = new MySqlCommand();
+            //gbTeachForm.Hide();
+            //txtUT.Hide();
+            //label8.Hide();
+            //MySqlCommand cmd = new MySqlCommand();
             
-            globalVariables.myConnection = "SERVER =" + globalVariables.myServer + ";" + "DATABASE =" + globalVariables.myDatabase + ";" + "UID =" + globalVariables.myUsername + ";" + "PASSWORD =" + globalVariables.myPassword + ";";
-            gv.cn = new MySqlConnection(globalVariables.myConnection);
+            //globalVariables.myConnection = "SERVER =" + globalVariables.myServer + ";" + "DATABASE =" + globalVariables.myDatabase + ";" + "UID =" + globalVariables.myUsername + ";" + "PASSWORD =" + globalVariables.myPassword + ";";
+            //gv.cn = new MySqlConnection(globalVariables.myConnection);
 
-            MySqlDataAdapter sqlda = new MySqlDataAdapter("SELECT * FROM `useraccounts` ", gv.cn);
-            DataTable dtbl = new DataTable();
-            sqlda.Fill(dtbl);
+            //MySqlDataAdapter sqlda = new MySqlDataAdapter("SELECT * FROM `useraccounts` ", gv.cn);
+            //DataTable dtbl = new DataTable();
+            //sqlda.Fill(dtbl);
 
-            dgUserAccounts.DataSource = dtbl;
-            dgUserAccounts.DisplayedRowCount(true);
-            DateTime my = DateTimeOffset.Now.DateTime.ToLocalTime().ToUniversalTime();
+            //dgUserAccounts.DataSource = dtbl;
+            //dgUserAccounts.DisplayedRowCount(true);
+            //DateTime my = DateTimeOffset.Now.DateTime.ToLocalTime().ToUniversalTime();
 
 
-            DateTime mys = DateTimeOffset.Now.UtcDateTime.ToLocalTime();
+            //DateTime mys = DateTimeOffset.Now.UtcDateTime.ToLocalTime();
 
-            Console.WriteLine(mys);
+            //Console.WriteLine(mys);
 
-            label7.Text = my.ToString("MM/dd/yyyy  hh:mm:ss tt");
+            //label7.Text = my.ToString("MM/dd/yyyy  hh:mm:ss tt");
 
-            timer1.Enabled = true;
+            //timer1.Enabled = true;
         }
         
         private void btnResetPass_Click(object sender, EventArgs e)
