@@ -1,0 +1,451 @@
+C:\Users\User\Desktop\CST\CST\bin\Release\CST.exe.config
+C:\Users\User\Desktop\CST\CST\bin\Release\CST.exe
+C:\Users\User\Desktop\CST\CST\bin\Release\CST.pdb
+C:\Users\User\Desktop\CST\CST\bin\Release\MySql.Data.dll
+C:\Users\User\Desktop\CST\CST\bin\Release\Google.Protobuf.dll
+C:\Users\User\Desktop\CST\CST\bin\Release\BouncyCastle.Crypto.dll
+C:\Users\User\Desktop\CST\CST\bin\Release\Ubiety.Dns.Core.dll
+C:\Users\User\Desktop\CST\CST\bin\Release\Renci.SshNet.dll
+C:\Users\User\Desktop\CST\CST\bin\Release\MySql.Data.xml
+C:\Users\User\Desktop\CST\CST\obj\Release\CST.AddMiscellaneousFee.resources
+C:\Users\User\Desktop\CST\CST\obj\Release\CST.AddTuitionFee.resources
+C:\Users\User\Desktop\CST\CST\obj\Release\CST.Generated.resources
+C:\Users\User\Desktop\CST\CST\obj\Release\CST.BackupAndRestore.resources
+C:\Users\User\Desktop\CST\CST\obj\Release\CST.Classroom.resources
+C:\Users\User\Desktop\CST\CST\obj\Release\CST.Facilities.resources
+C:\Users\User\Desktop\CST\CST\obj\Release\CST.GradeLevel.resources
+C:\Users\User\Desktop\CST\CST\obj\Release\CST.EnrollmentSchedule.resources
+C:\Users\User\Desktop\CST\CST\obj\Release\CST.RemainingBalance.resources
+C:\Users\User\Desktop\CST\CST\obj\Release\CST.ListofSection.resources
+C:\Users\User\Desktop\CST\CST\obj\Release\CST.Records.resources
+C:\Users\User\Desktop\CST\CST\obj\Release\CST.Payment_Form.resources
+C:\Users\User\Desktop\CST\CST\obj\Release\CST.Payment.resources
+C:\Users\User\Desktop\CST\CST\obj\Release\CST.ModeOfPaymentDiscount.resources
+C:\Users\User\Desktop\CST\CST\obj\Release\CST.Scheduling.resources
+C:\Users\User\Desktop\CST\CST\obj\Release\CST.SchoolFees.resources
+C:\Users\User\Desktop\CST\CST\obj\Release\CST.SchoolRequirements.resources
+C:\Users\User\Desktop\CST\CST\obj\Release\CST.Section.resources
+C:\Users\User\Desktop\CST\CST\obj\Release\CST.StudentGrades.resources
+C:\Users\User\Desktop\CST\CST\obj\Release\CST.Subject.resources
+C:\Users\User\Desktop\CST\CST\obj\Release\CST.StudentSchedule.resources
+C:\Users\User\Desktop\CST\CST\obj\Release\CST.AuditTrail.resources
+C:\Users\User\Desktop\CST\CST\obj\Release\CST.Cashier.resources
+C:\Users\User\Desktop\CST\CST\obj\Release\CST.EnrollmentAdmin.resources
+C:\Users\User\Desktop\CST\CST\obj\Release\CST.SchoolYear.resources
+C:\Users\User\Desktop\CST\CST\obj\Release\CST.Admin.resources
+C:\Users\User\Desktop\CST\CST\obj\Release\CST.ListOfStudents.resources
+C:\Users\User\Desktop\CST\CST\obj\Release\CST.Login.resources
+C:\Users\User\Desktop\CST\CST\obj\Release\CST.NewStudents.resources
+C:\Users\User\Desktop\CST\CST\obj\Release\CST.OldStudents.resources
+C:\Users\User\Desktop\CST\CST\obj\Release\CST.Properties.Resources.resources
+C:\Users\User\Desktop\CST\CST\obj\Release\CST.Enrollment.resources
+C:\Users\User\Desktop\CST\CST\obj\Release\CST.RegistrarForm.resources
+C:\Users\User\Desktop\CST\CST\obj\Release\CST.RegistrarRecord.resources
+C:\Users\User\Desktop\CST\CST\obj\Release\CST.ReturneeStudents.resources
+C:\Users\User\Desktop\CST\CST\obj\Release\CST.StudentForm.resources
+C:\Users\User\Desktop\CST\CST\obj\Release\CST.TransfereeStudents.resources
+C:\Users\User\Desktop\CST\CST\obj\Release\CST.UserAccount.resources
+C:\Users\User\Desktop\CST\CST\obj\Release\CST.TeacherSchedule.resources
+C:\Users\User\Desktop\CST\CST\obj\Release\CST.TeachersSpecialization.resources
+C:\Users\User\Desktop\CST\CST\obj\Release\CST.Teacher.resources
+C:\Users\User\Desktop\CST\CST\obj\Release\CST.UpdateTeacherSpecialization.resources
+C:\Users\User\Desktop\CST\CST\obj\Release\CST.csproj.GenerateResource.Cache
+C:\Users\User\Desktop\CST\CST\obj\Release\CST.exe
+C:\Users\User\Desktop\CST\CST\obj\Release\CST.pdb
+C:\Users\User\Desktop\CST\CST\obj\Release\CST.csprojResolveAssemblyReference.cache
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\CST\CST\bin\Release\CST.exe.config
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\CST\CST\obj\Release\CST.exe
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\CST\CST\obj\Release\CST.pdb
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\CST\CST\bin\Release\CST.exe
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\CST\CST\bin\Release\CST.pdb
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\CST\CST\bin\Release\MySql.Data.dll
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\CST\CST\bin\Release\Google.Protobuf.dll
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\CST\CST\bin\Release\BouncyCastle.Crypto.dll
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\CST\CST\bin\Release\Ubiety.Dns.Core.dll
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\CST\CST\bin\Release\Renci.SshNet.dll
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\CST\CST\bin\Release\MySql.Data.xml
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\CST\CST\obj\Release\CST.csprojResolveAssemblyReference.cache
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\CST\CST\obj\Release\CST.AddMiscellaneousFee.resources
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\CST\CST\obj\Release\CST.AddTuitionFee.resources
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\CST\CST\obj\Release\CST.Generated.resources
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\CST\CST\obj\Release\CST.BackupAndRestore.resources
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\CST\CST\obj\Release\CST.Classroom.resources
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\CST\CST\obj\Release\CST.Facilities.resources
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\CST\CST\obj\Release\CST.GradeLevel.resources
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\CST\CST\obj\Release\CST.EnrollmentSchedule.resources
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\CST\CST\obj\Release\CST.RemainingBalance.resources
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\CST\CST\obj\Release\CST.ListofSection.resources
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\CST\CST\obj\Release\CST.Records.resources
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\CST\CST\obj\Release\CST.Payment_Form.resources
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\CST\CST\obj\Release\CST.Payment.resources
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\CST\CST\obj\Release\CST.ModeOfPaymentDiscount.resources
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\CST\CST\obj\Release\CST.Scheduling.resources
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\CST\CST\obj\Release\CST.SchoolFees.resources
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\CST\CST\obj\Release\CST.SchoolRequirements.resources
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\CST\CST\obj\Release\CST.Section.resources
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\CST\CST\obj\Release\CST.StudentGrades.resources
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\CST\CST\obj\Release\CST.Subject.resources
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\CST\CST\obj\Release\CST.StudentSchedule.resources
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\CST\CST\obj\Release\CST.AuditTrail.resources
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\CST\CST\obj\Release\CST.Cashier.resources
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\CST\CST\obj\Release\CST.EnrollmentAdmin.resources
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\CST\CST\obj\Release\CST.SchoolYear.resources
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\CST\CST\obj\Release\CST.Admin.resources
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\CST\CST\obj\Release\CST.ListOfStudents.resources
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\CST\CST\obj\Release\CST.Login.resources
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\CST\CST\obj\Release\CST.NewStudents.resources
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\CST\CST\obj\Release\CST.OldStudents.resources
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\CST\CST\obj\Release\CST.Properties.Resources.resources
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\CST\CST\obj\Release\CST.Enrollment.resources
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\CST\CST\obj\Release\CST.RegistrarForm.resources
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\CST\CST\obj\Release\CST.RegistrarRecord.resources
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\CST\CST\obj\Release\CST.ReturneeStudents.resources
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\CST\CST\obj\Release\CST.StudentForm.resources
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\CST\CST\obj\Release\CST.TransfereeStudents.resources
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\CST\CST\obj\Release\CST.UserAccount.resources
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\CST\CST\obj\Release\CST.TeacherSchedule.resources
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\CST\CST\obj\Release\CST.TeachersSpecialization.resources
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\CST\CST\obj\Release\CST.Teacher.resources
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\CST\CST\obj\Release\CST.UpdateTeacherSpecialization.resources
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\CST\CST\obj\Release\CST.csproj.GenerateResource.Cache
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\CST newest\CST\bin\Release\CST.exe.config
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\CST newest\CST\obj\Release\CST.exe
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\CST newest\CST\obj\Release\CST.pdb
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\CST newest\CST\bin\Release\CST.exe
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\CST newest\CST\bin\Release\CST.pdb
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\CST newest\CST\bin\Release\MySql.Data.dll
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\CST newest\CST\bin\Release\Google.Protobuf.dll
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\CST newest\CST\bin\Release\BouncyCastle.Crypto.dll
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\CST newest\CST\bin\Release\Ubiety.Dns.Core.dll
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\CST newest\CST\bin\Release\Renci.SshNet.dll
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\CST newest\CST\bin\Release\MySql.Data.xml
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\CST newest\CST\obj\Release\CST.AddMiscellaneousFee.resources
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\CST newest\CST\obj\Release\CST.AddTuitionFee.resources
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\CST newest\CST\obj\Release\CST.Generated.resources
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\CST newest\CST\obj\Release\CST.BackupAndRestore.resources
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\CST newest\CST\obj\Release\CST.Classroom.resources
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\CST newest\CST\obj\Release\CST.Facilities.resources
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\CST newest\CST\obj\Release\CST.GradeLevel.resources
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\CST newest\CST\obj\Release\CST.EnrollmentSchedule.resources
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\CST newest\CST\obj\Release\CST.RemainingBalance.resources
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\CST newest\CST\obj\Release\CST.ListofSection.resources
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\CST newest\CST\obj\Release\CST.Records.resources
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\CST newest\CST\obj\Release\CST.Payment_Form.resources
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\CST newest\CST\obj\Release\CST.Payment.resources
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\CST newest\CST\obj\Release\CST.ModeOfPaymentDiscount.resources
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\CST newest\CST\obj\Release\CST.Scheduling.resources
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\CST newest\CST\obj\Release\CST.SchoolFees.resources
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\CST newest\CST\obj\Release\CST.SchoolRequirements.resources
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\CST newest\CST\obj\Release\CST.Section.resources
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\CST newest\CST\obj\Release\CST.StudentGrades.resources
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\CST newest\CST\obj\Release\CST.Subject.resources
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\CST newest\CST\obj\Release\CST.StudentSchedule.resources
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\CST newest\CST\obj\Release\CST.AuditTrail.resources
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\CST newest\CST\obj\Release\CST.Cashier.resources
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\CST newest\CST\obj\Release\CST.EnrollmentAdmin.resources
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\CST newest\CST\obj\Release\CST.SchoolYear.resources
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\CST newest\CST\obj\Release\CST.Admin.resources
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\CST newest\CST\obj\Release\CST.ListOfStudents.resources
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\CST newest\CST\obj\Release\CST.Login.resources
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\CST newest\CST\obj\Release\CST.NewStudents.resources
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\CST newest\CST\obj\Release\CST.OldStudents.resources
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\CST newest\CST\obj\Release\CST.Properties.Resources.resources
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\CST newest\CST\obj\Release\CST.Enrollment.resources
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\CST newest\CST\obj\Release\CST.RegistrarForm.resources
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\CST newest\CST\obj\Release\CST.RegistrarRecord.resources
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\CST newest\CST\obj\Release\CST.ReturneeStudents.resources
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\CST newest\CST\obj\Release\CST.StudentForm.resources
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\CST newest\CST\obj\Release\CST.TransfereeStudents.resources
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\CST newest\CST\obj\Release\CST.UserAccount.resources
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\CST newest\CST\obj\Release\CST.TeacherSchedule.resources
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\CST newest\CST\obj\Release\CST.TeachersSpecialization.resources
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\CST newest\CST\obj\Release\CST.Teacher.resources
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\CST newest\CST\obj\Release\CST.UpdateTeacherSpecialization.resources
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\CST newest\CST\obj\Release\CST.csproj.GenerateResource.Cache
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\WAG TO\CST newest\CST\bin\Release\CST.exe.config
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\WAG TO\CST newest\CST\obj\Release\CST.exe
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\WAG TO\CST newest\CST\obj\Release\CST.pdb
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\WAG TO\CST newest\CST\bin\Release\CST.exe
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\WAG TO\CST newest\CST\bin\Release\CST.pdb
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\WAG TO\CST newest\CST\bin\Release\MySql.Data.dll
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\WAG TO\CST newest\CST\bin\Release\Google.Protobuf.dll
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\WAG TO\CST newest\CST\bin\Release\BouncyCastle.Crypto.dll
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\WAG TO\CST newest\CST\bin\Release\Ubiety.Dns.Core.dll
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\WAG TO\CST newest\CST\bin\Release\Renci.SshNet.dll
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\WAG TO\CST newest\CST\bin\Release\MySql.Data.xml
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\WAG TO\CST newest\CST\obj\Release\CST.csprojResolveAssemblyReference.cache
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\WAG TO\CST newest\CST\obj\Release\CST.AddMiscellaneousFee.resources
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\WAG TO\CST newest\CST\obj\Release\CST.AddTuitionFee.resources
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\WAG TO\CST newest\CST\obj\Release\CST.Generated.resources
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\WAG TO\CST newest\CST\obj\Release\CST.BackupAndRestore.resources
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\WAG TO\CST newest\CST\obj\Release\CST.Classroom.resources
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\WAG TO\CST newest\CST\obj\Release\CST.Facilities.resources
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\WAG TO\CST newest\CST\obj\Release\CST.GradeLevel.resources
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\WAG TO\CST newest\CST\obj\Release\CST.EnrollmentSchedule.resources
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\WAG TO\CST newest\CST\obj\Release\CST.RemainingBalance.resources
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\WAG TO\CST newest\CST\obj\Release\CST.ListofSection.resources
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\WAG TO\CST newest\CST\obj\Release\CST.Records.resources
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\WAG TO\CST newest\CST\obj\Release\CST.Payment_Form.resources
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\WAG TO\CST newest\CST\obj\Release\CST.Payment.resources
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\WAG TO\CST newest\CST\obj\Release\CST.ModeOfPaymentDiscount.resources
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\WAG TO\CST newest\CST\obj\Release\CST.Scheduling.resources
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\WAG TO\CST newest\CST\obj\Release\CST.SchoolFees.resources
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\WAG TO\CST newest\CST\obj\Release\CST.SchoolRequirements.resources
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\WAG TO\CST newest\CST\obj\Release\CST.Section.resources
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\WAG TO\CST newest\CST\obj\Release\CST.StudentGrades.resources
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\WAG TO\CST newest\CST\obj\Release\CST.Subject.resources
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\WAG TO\CST newest\CST\obj\Release\CST.StudentSchedule.resources
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\WAG TO\CST newest\CST\obj\Release\CST.AuditTrail.resources
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\WAG TO\CST newest\CST\obj\Release\CST.Cashier.resources
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\WAG TO\CST newest\CST\obj\Release\CST.EnrollmentAdmin.resources
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\WAG TO\CST newest\CST\obj\Release\CST.SchoolYear.resources
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\WAG TO\CST newest\CST\obj\Release\CST.Admin.resources
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\WAG TO\CST newest\CST\obj\Release\CST.ListOfStudents.resources
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\WAG TO\CST newest\CST\obj\Release\CST.Login.resources
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\WAG TO\CST newest\CST\obj\Release\CST.NewStudents.resources
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\WAG TO\CST newest\CST\obj\Release\CST.OldStudents.resources
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\WAG TO\CST newest\CST\obj\Release\CST.Properties.Resources.resources
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\WAG TO\CST newest\CST\obj\Release\CST.Enrollment.resources
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\WAG TO\CST newest\CST\obj\Release\CST.RegistrarForm.resources
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\WAG TO\CST newest\CST\obj\Release\CST.RegistrarRecord.resources
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\WAG TO\CST newest\CST\obj\Release\CST.ReturneeStudents.resources
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\WAG TO\CST newest\CST\obj\Release\CST.StudentForm.resources
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\WAG TO\CST newest\CST\obj\Release\CST.TransfereeStudents.resources
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\WAG TO\CST newest\CST\obj\Release\CST.UserAccount.resources
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\WAG TO\CST newest\CST\obj\Release\CST.TeacherSchedule.resources
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\WAG TO\CST newest\CST\obj\Release\CST.TeachersSpecialization.resources
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\WAG TO\CST newest\CST\obj\Release\CST.Teacher.resources
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\WAG TO\CST newest\CST\obj\Release\CST.UpdateTeacherSpecialization.resources
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\WAG TO\CST newest\CST\obj\Release\CST.csproj.GenerateResource.Cache
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\CST newest\CST\obj\Release\CST.IPConfigFormcs.resources
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\CST newest\CST\obj\Release\CST.csprojResolveAssemblyReference.cache
+C:\Users\Melvin\Desktop\Final\CST newest\CST\bin\Release\CST.exe.config
+C:\Users\Melvin\Desktop\Final\CST newest\CST\obj\Release\CST.exe
+C:\Users\Melvin\Desktop\Final\CST newest\CST\obj\Release\CST.pdb
+C:\Users\Melvin\Desktop\Final\CST newest\CST\bin\Release\CST.exe
+C:\Users\Melvin\Desktop\Final\CST newest\CST\bin\Release\CST.pdb
+C:\Users\Melvin\Desktop\Final\CST newest\CST\bin\Release\Google.Protobuf.dll
+C:\Users\Melvin\Desktop\Final\CST newest\CST\bin\Release\BouncyCastle.Crypto.dll
+C:\Users\Melvin\Desktop\Final\CST newest\CST\bin\Release\Renci.SshNet.dll
+C:\Users\Melvin\Desktop\Final\CST newest\CST\obj\Release\CST.csprojResolveAssemblyReference.cache
+C:\Users\Melvin\Desktop\Final\CST newest\CST\obj\Release\CST.AddMiscellaneousFee.resources
+C:\Users\Melvin\Desktop\Final\CST newest\CST\obj\Release\CST.AddTuitionFee.resources
+C:\Users\Melvin\Desktop\Final\CST newest\CST\obj\Release\CST.Generated.resources
+C:\Users\Melvin\Desktop\Final\CST newest\CST\obj\Release\CST.IPConfigFormcs.resources
+C:\Users\Melvin\Desktop\Final\CST newest\CST\obj\Release\CST.BackupAndRestore.resources
+C:\Users\Melvin\Desktop\Final\CST newest\CST\obj\Release\CST.Classroom.resources
+C:\Users\Melvin\Desktop\Final\CST newest\CST\obj\Release\CST.Facilities.resources
+C:\Users\Melvin\Desktop\Final\CST newest\CST\obj\Release\CST.GradeLevel.resources
+C:\Users\Melvin\Desktop\Final\CST newest\CST\obj\Release\CST.EnrollmentSchedule.resources
+C:\Users\Melvin\Desktop\Final\CST newest\CST\obj\Release\CST.RemainingBalance.resources
+C:\Users\Melvin\Desktop\Final\CST newest\CST\obj\Release\CST.ListofSection.resources
+C:\Users\Melvin\Desktop\Final\CST newest\CST\obj\Release\CST.Records.resources
+C:\Users\Melvin\Desktop\Final\CST newest\CST\obj\Release\CST.Payment_Form.resources
+C:\Users\Melvin\Desktop\Final\CST newest\CST\obj\Release\CST.Payment.resources
+C:\Users\Melvin\Desktop\Final\CST newest\CST\obj\Release\CST.ModeOfPaymentDiscount.resources
+C:\Users\Melvin\Desktop\Final\CST newest\CST\obj\Release\CST.Scheduling.resources
+C:\Users\Melvin\Desktop\Final\CST newest\CST\obj\Release\CST.SchoolFees.resources
+C:\Users\Melvin\Desktop\Final\CST newest\CST\obj\Release\CST.SchoolRequirements.resources
+C:\Users\Melvin\Desktop\Final\CST newest\CST\obj\Release\CST.Section.resources
+C:\Users\Melvin\Desktop\Final\CST newest\CST\obj\Release\CST.StudentGrades.resources
+C:\Users\Melvin\Desktop\Final\CST newest\CST\obj\Release\CST.Subject.resources
+C:\Users\Melvin\Desktop\Final\CST newest\CST\obj\Release\CST.StudentSchedule.resources
+C:\Users\Melvin\Desktop\Final\CST newest\CST\obj\Release\CST.AuditTrail.resources
+C:\Users\Melvin\Desktop\Final\CST newest\CST\obj\Release\CST.Cashier.resources
+C:\Users\Melvin\Desktop\Final\CST newest\CST\obj\Release\CST.EnrollmentAdmin.resources
+C:\Users\Melvin\Desktop\Final\CST newest\CST\obj\Release\CST.SchoolYear.resources
+C:\Users\Melvin\Desktop\Final\CST newest\CST\obj\Release\CST.Admin.resources
+C:\Users\Melvin\Desktop\Final\CST newest\CST\obj\Release\CST.ListOfStudents.resources
+C:\Users\Melvin\Desktop\Final\CST newest\CST\obj\Release\CST.Login.resources
+C:\Users\Melvin\Desktop\Final\CST newest\CST\obj\Release\CST.NewStudents.resources
+C:\Users\Melvin\Desktop\Final\CST newest\CST\obj\Release\CST.OldStudents.resources
+C:\Users\Melvin\Desktop\Final\CST newest\CST\obj\Release\CST.Properties.Resources.resources
+C:\Users\Melvin\Desktop\Final\CST newest\CST\obj\Release\CST.Enrollment.resources
+C:\Users\Melvin\Desktop\Final\CST newest\CST\obj\Release\CST.RegistrarForm.resources
+C:\Users\Melvin\Desktop\Final\CST newest\CST\obj\Release\CST.RegistrarRecord.resources
+C:\Users\Melvin\Desktop\Final\CST newest\CST\obj\Release\CST.ReturneeStudents.resources
+C:\Users\Melvin\Desktop\Final\CST newest\CST\obj\Release\CST.StudentForm.resources
+C:\Users\Melvin\Desktop\Final\CST newest\CST\obj\Release\CST.TransfereeStudents.resources
+C:\Users\Melvin\Desktop\Final\CST newest\CST\obj\Release\CST.UserAccount.resources
+C:\Users\Melvin\Desktop\Final\CST newest\CST\obj\Release\CST.TeacherSchedule.resources
+C:\Users\Melvin\Desktop\Final\CST newest\CST\obj\Release\CST.TeachersSpecialization.resources
+C:\Users\Melvin\Desktop\Final\CST newest\CST\obj\Release\CST.Teacher.resources
+C:\Users\Melvin\Desktop\Final\CST newest\CST\obj\Release\CST.UpdateTeacherSpecialization.resources
+C:\Users\Melvin\Desktop\Final\CST newest\CST\obj\Release\CST.csproj.GenerateResource.Cache
+F:\CST newest\CST\bin\Release\CST.exe.config
+F:\CST newest\CST\obj\Release\CST.exe
+F:\CST newest\CST\obj\Release\CST.pdb
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\CST newest\CST\bin\Release\MySqlBackup.dll
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\CST newest\CST\obj\Release\CST.csproj.CST.exe.config
+C:\Users\Melvin\Desktop\Final\CST newest 02-25-20\CST\bin\Release\CST.exe.config
+C:\Users\Melvin\Desktop\Final\CST newest 02-25-20\CST\obj\Release\CST.exe
+C:\Users\Melvin\Desktop\Final\CST newest 02-25-20\CST\obj\Release\CST.pdb
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\CST newest 02-25-20\CST\bin\Release\CST.exe.config
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\CST newest 02-25-20\CST\obj\Release\CST.exe
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\CST newest 02-25-20\CST\obj\Release\CST.pdb
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\CST newest 02-25-20\CST\obj\Release\CST.csproj.CST.exe.config
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\CST newest 02-25-20\CST\obj\Release\CST.AddMiscellaneousFee.resources
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\CST newest 02-25-20\CST\obj\Release\CST.AddTuitionFee.resources
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\CST newest 02-25-20\CST\obj\Release\CST.Generated.resources
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\CST newest 02-25-20\CST\obj\Release\CST.IPConfigFormcs.resources
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\CST newest 02-25-20\CST\obj\Release\CST.BackupAndRestore.resources
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\CST newest 02-25-20\CST\obj\Release\CST.Classroom.resources
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\CST newest 02-25-20\CST\obj\Release\CST.Facilities.resources
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\CST newest 02-25-20\CST\obj\Release\CST.GradeLevel.resources
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\CST newest 02-25-20\CST\obj\Release\CST.EnrollmentSchedule.resources
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\CST newest 02-25-20\CST\obj\Release\CST.RemainingBalance.resources
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\CST newest 02-25-20\CST\obj\Release\CST.ListofSection.resources
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\CST newest 02-25-20\CST\obj\Release\CST.Records.resources
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\CST newest 02-25-20\CST\obj\Release\CST.Payment_Form.resources
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\CST newest 02-25-20\CST\obj\Release\CST.Payment.resources
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\CST newest 02-25-20\CST\obj\Release\CST.ModeOfPaymentDiscount.resources
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\CST newest 02-25-20\CST\obj\Release\CST.Scheduling.resources
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\CST newest 02-25-20\CST\obj\Release\CST.SchoolFees.resources
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\CST newest 02-25-20\CST\obj\Release\CST.SchoolRequirements.resources
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\CST newest 02-25-20\CST\obj\Release\CST.Section.resources
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\CST newest 02-25-20\CST\obj\Release\CST.StudentGrades.resources
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\CST newest 02-25-20\CST\obj\Release\CST.Subject.resources
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\CST newest 02-25-20\CST\obj\Release\CST.StudentSchedule.resources
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\CST newest 02-25-20\CST\obj\Release\CST.AuditTrail.resources
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\CST newest 02-25-20\CST\obj\Release\CST.Cashier.resources
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\CST newest 02-25-20\CST\obj\Release\CST.EnrollmentAdmin.resources
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\CST newest 02-25-20\CST\obj\Release\CST.SchoolYear.resources
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\CST newest 02-25-20\CST\obj\Release\CST.Admin.resources
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\CST newest 02-25-20\CST\obj\Release\CST.ListOfStudents.resources
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\CST newest 02-25-20\CST\obj\Release\CST.Login.resources
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\CST newest 02-25-20\CST\obj\Release\CST.NewStudents.resources
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\CST newest 02-25-20\CST\obj\Release\CST.OldStudents.resources
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\CST newest 02-25-20\CST\obj\Release\CST.Properties.Resources.resources
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\CST newest 02-25-20\CST\obj\Release\CST.Enrollment.resources
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\CST newest 02-25-20\CST\obj\Release\CST.RegistrarForm.resources
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\CST newest 02-25-20\CST\obj\Release\CST.RegistrarRecord.resources
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\CST newest 02-25-20\CST\obj\Release\CST.ReturneeStudents.resources
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\CST newest 02-25-20\CST\obj\Release\CST.StudentForm.resources
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\CST newest 02-25-20\CST\obj\Release\CST.TransfereeStudents.resources
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\CST newest 02-25-20\CST\obj\Release\CST.UserAccount.resources
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\CST newest 02-25-20\CST\obj\Release\CST.TeacherSchedule.resources
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\CST newest 02-25-20\CST\obj\Release\CST.TeachersSpecialization.resources
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\CST newest 02-25-20\CST\obj\Release\CST.Teacher.resources
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\CST newest 02-25-20\CST\obj\Release\CST.UpdateTeacherSpecialization.resources
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\CST newest 02-25-20\CST\obj\Release\CST.csproj.GenerateResource.Cache
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\CST newest 02-25-20\CST\bin\Release\CST.exe
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\CST newest 02-25-20\CST\bin\Release\CST.pdb
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\CST newest 02-25-20\CST\bin\Release\MySql.Data.dll
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\CST newest 02-25-20\CST\bin\Release\MySqlBackup.dll
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\CST newest 02-25-20\CST\bin\Release\Google.Protobuf.dll
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\CST newest 02-25-20\CST\bin\Release\BouncyCastle.Crypto.dll
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\CST newest 02-25-20\CST\bin\Release\Ubiety.Dns.Core.dll
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\CST newest 02-25-20\CST\bin\Release\Renci.SshNet.dll
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\CST newest 02-25-20\CST\bin\Release\MySql.Data.xml
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\CST newest 02-25-20\CST\obj\Release\CST.csprojResolveAssemblyReference.cache
+C:\Users\Melvin\Desktop\Final\CST newest 02-25-20\CST\obj\Release\CST.csproj.CST.exe.config
+C:\Users\Melvin\Desktop\Final\CST newest 02-25-20\CST\obj\Release\CST.AddMiscellaneousFee.resources
+C:\Users\Melvin\Desktop\Final\CST newest 02-25-20\CST\obj\Release\CST.AddTuitionFee.resources
+C:\Users\Melvin\Desktop\Final\CST newest 02-25-20\CST\obj\Release\CST.Generated.resources
+C:\Users\Melvin\Desktop\Final\CST newest 02-25-20\CST\obj\Release\CST.IPConfigFormcs.resources
+C:\Users\Melvin\Desktop\Final\CST newest 02-25-20\CST\obj\Release\CST.BackupAndRestore.resources
+C:\Users\Melvin\Desktop\Final\CST newest 02-25-20\CST\obj\Release\CST.Classroom.resources
+C:\Users\Melvin\Desktop\Final\CST newest 02-25-20\CST\obj\Release\CST.Facilities.resources
+C:\Users\Melvin\Desktop\Final\CST newest 02-25-20\CST\obj\Release\CST.GradeLevel.resources
+C:\Users\Melvin\Desktop\Final\CST newest 02-25-20\CST\obj\Release\CST.EnrollmentSchedule.resources
+C:\Users\Melvin\Desktop\Final\CST newest 02-25-20\CST\obj\Release\CST.RemainingBalance.resources
+C:\Users\Melvin\Desktop\Final\CST newest 02-25-20\CST\obj\Release\CST.ListofSection.resources
+C:\Users\Melvin\Desktop\Final\CST newest 02-25-20\CST\obj\Release\CST.Records.resources
+C:\Users\Melvin\Desktop\Final\CST newest 02-25-20\CST\obj\Release\CST.Payment_Form.resources
+C:\Users\Melvin\Desktop\Final\CST newest 02-25-20\CST\obj\Release\CST.Payment.resources
+C:\Users\Melvin\Desktop\Final\CST newest 02-25-20\CST\obj\Release\CST.ModeOfPaymentDiscount.resources
+C:\Users\Melvin\Desktop\Final\CST newest 02-25-20\CST\obj\Release\CST.Scheduling.resources
+C:\Users\Melvin\Desktop\Final\CST newest 02-25-20\CST\obj\Release\CST.SchoolFees.resources
+C:\Users\Melvin\Desktop\Final\CST newest 02-25-20\CST\obj\Release\CST.SchoolRequirements.resources
+C:\Users\Melvin\Desktop\Final\CST newest 02-25-20\CST\obj\Release\CST.Section.resources
+C:\Users\Melvin\Desktop\Final\CST newest 02-25-20\CST\obj\Release\CST.StudentGrades.resources
+C:\Users\Melvin\Desktop\Final\CST newest 02-25-20\CST\obj\Release\CST.Subject.resources
+C:\Users\Melvin\Desktop\Final\CST newest 02-25-20\CST\obj\Release\CST.StudentSchedule.resources
+C:\Users\Melvin\Desktop\Final\CST newest 02-25-20\CST\obj\Release\CST.AuditTrail.resources
+C:\Users\Melvin\Desktop\Final\CST newest 02-25-20\CST\obj\Release\CST.Cashier.resources
+C:\Users\Melvin\Desktop\Final\CST newest 02-25-20\CST\obj\Release\CST.EnrollmentAdmin.resources
+C:\Users\Melvin\Desktop\Final\CST newest 02-25-20\CST\obj\Release\CST.SchoolYear.resources
+C:\Users\Melvin\Desktop\Final\CST newest 02-25-20\CST\obj\Release\CST.Admin.resources
+C:\Users\Melvin\Desktop\Final\CST newest 02-25-20\CST\obj\Release\CST.ListOfStudents.resources
+C:\Users\Melvin\Desktop\Final\CST newest 02-25-20\CST\obj\Release\CST.Login.resources
+C:\Users\Melvin\Desktop\Final\CST newest 02-25-20\CST\obj\Release\CST.NewStudents.resources
+C:\Users\Melvin\Desktop\Final\CST newest 02-25-20\CST\obj\Release\CST.OldStudents.resources
+C:\Users\Melvin\Desktop\Final\CST newest 02-25-20\CST\obj\Release\CST.Properties.Resources.resources
+C:\Users\Melvin\Desktop\Final\CST newest 02-25-20\CST\obj\Release\CST.Enrollment.resources
+C:\Users\Melvin\Desktop\Final\CST newest 02-25-20\CST\obj\Release\CST.RegistrarForm.resources
+C:\Users\Melvin\Desktop\Final\CST newest 02-25-20\CST\obj\Release\CST.RegistrarRecord.resources
+C:\Users\Melvin\Desktop\Final\CST newest 02-25-20\CST\obj\Release\CST.ReturneeStudents.resources
+C:\Users\Melvin\Desktop\Final\CST newest 02-25-20\CST\obj\Release\CST.StudentForm.resources
+C:\Users\Melvin\Desktop\Final\CST newest 02-25-20\CST\obj\Release\CST.TransfereeStudents.resources
+C:\Users\Melvin\Desktop\Final\CST newest 02-25-20\CST\obj\Release\CST.UserAccount.resources
+C:\Users\Melvin\Desktop\Final\CST newest 02-25-20\CST\obj\Release\CST.TeacherSchedule.resources
+C:\Users\Melvin\Desktop\Final\CST newest 02-25-20\CST\obj\Release\CST.TeachersSpecialization.resources
+C:\Users\Melvin\Desktop\Final\CST newest 02-25-20\CST\obj\Release\CST.Teacher.resources
+C:\Users\Melvin\Desktop\Final\CST newest 02-25-20\CST\obj\Release\CST.UpdateTeacherSpecialization.resources
+C:\Users\Melvin\Desktop\Final\CST newest 02-25-20\CST\obj\Release\CST.csproj.GenerateResource.Cache
+C:\Users\Melvin\Desktop\Final\CST newest 02-25-20\CST\bin\Release\CST.exe
+C:\Users\Melvin\Desktop\Final\CST newest 02-25-20\CST\bin\Release\CST.pdb
+C:\Users\Melvin\Desktop\Final\CST newest 02-25-20\CST\bin\Release\Google.Protobuf.dll
+C:\Users\Melvin\Desktop\Final\CST newest 02-25-20\CST\bin\Release\BouncyCastle.Crypto.dll
+C:\Users\Melvin\Desktop\Final\CST newest 02-25-20\CST\bin\Release\Renci.SshNet.dll
+C:\Users\Melvin\Desktop\Final\CST newest 02-25-20\CST\obj\Release\CST.csprojResolveAssemblyReference.cache
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\CST newest 02-27-20\CST\bin\Release\CST.exe.config
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\CST newest 02-27-20\CST\obj\Release\CST.exe
+C:\Users\User\Desktop\CODING KO TO PO HAHAHAH\CST newest 02-27-20\CST\obj\Release\CST.pdb
+D:\CST newest 02-27-20\CST\bin\Release\CST.exe.config
+D:\CST newest 02-27-20\CST\obj\Release\CST.exe
+D:\CST newest 02-27-20\CST\obj\Release\CST.pdb
+C:\Users\Julz\Desktop\CST newest 02-27-20\CST\bin\Release\CST.exe.config
+C:\Users\Julz\Desktop\CST newest 02-27-20\CST\obj\Release\CST.exe
+C:\Users\Julz\Desktop\CST newest 02-27-20\CST\obj\Release\CST.pdb
+C:\Users\Julz\Desktop\CST newest 02-27-20\CST\bin\Release\CST.exe
+C:\Users\Julz\Desktop\CST newest 02-27-20\CST\bin\Release\CST.pdb
+C:\Users\Julz\Desktop\CST newest 02-27-20\CST\bin\Release\Google.Protobuf.dll
+C:\Users\Julz\Desktop\CST newest 02-27-20\CST\bin\Release\BouncyCastle.Crypto.dll
+C:\Users\Julz\Desktop\CST newest 02-27-20\CST\bin\Release\Renci.SshNet.dll
+C:\Users\Julz\Desktop\CST newest 02-27-20\CST\obj\Release\CST.csprojResolveAssemblyReference.cache
+C:\Users\Julz\Desktop\CST newest 02-27-20\CST\obj\Release\CST.csproj.CST.exe.config
+C:\Users\Julz\Desktop\CST newest 02-27-20\CST\obj\Release\CST.AddMiscellaneousFee.resources
+C:\Users\Julz\Desktop\CST newest 02-27-20\CST\obj\Release\CST.AddTuitionFee.resources
+C:\Users\Julz\Desktop\CST newest 02-27-20\CST\obj\Release\CST.Generated.resources
+C:\Users\Julz\Desktop\CST newest 02-27-20\CST\obj\Release\CST.IPConfigFormcs.resources
+C:\Users\Julz\Desktop\CST newest 02-27-20\CST\obj\Release\CST.BackupAndRestore.resources
+C:\Users\Julz\Desktop\CST newest 02-27-20\CST\obj\Release\CST.Classroom.resources
+C:\Users\Julz\Desktop\CST newest 02-27-20\CST\obj\Release\CST.Facilities.resources
+C:\Users\Julz\Desktop\CST newest 02-27-20\CST\obj\Release\CST.GradeLevel.resources
+C:\Users\Julz\Desktop\CST newest 02-27-20\CST\obj\Release\CST.EnrollmentSchedule.resources
+C:\Users\Julz\Desktop\CST newest 02-27-20\CST\obj\Release\CST.RemainingBalance.resources
+C:\Users\Julz\Desktop\CST newest 02-27-20\CST\obj\Release\CST.ListofSection.resources
+C:\Users\Julz\Desktop\CST newest 02-27-20\CST\obj\Release\CST.Records.resources
+C:\Users\Julz\Desktop\CST newest 02-27-20\CST\obj\Release\CST.Payment_Form.resources
+C:\Users\Julz\Desktop\CST newest 02-27-20\CST\obj\Release\CST.Payment.resources
+C:\Users\Julz\Desktop\CST newest 02-27-20\CST\obj\Release\CST.ModeOfPaymentDiscount.resources
+C:\Users\Julz\Desktop\CST newest 02-27-20\CST\obj\Release\CST.Scheduling.resources
+C:\Users\Julz\Desktop\CST newest 02-27-20\CST\obj\Release\CST.SchoolFees.resources
+C:\Users\Julz\Desktop\CST newest 02-27-20\CST\obj\Release\CST.SchoolRequirements.resources
+C:\Users\Julz\Desktop\CST newest 02-27-20\CST\obj\Release\CST.Section.resources
+C:\Users\Julz\Desktop\CST newest 02-27-20\CST\obj\Release\CST.StudentGrades.resources
+C:\Users\Julz\Desktop\CST newest 02-27-20\CST\obj\Release\CST.Subject.resources
+C:\Users\Julz\Desktop\CST newest 02-27-20\CST\obj\Release\CST.StudentSchedule.resources
+C:\Users\Julz\Desktop\CST newest 02-27-20\CST\obj\Release\CST.AuditTrail.resources
+C:\Users\Julz\Desktop\CST newest 02-27-20\CST\obj\Release\CST.Cashier.resources
+C:\Users\Julz\Desktop\CST newest 02-27-20\CST\obj\Release\CST.EnrollmentAdmin.resources
+C:\Users\Julz\Desktop\CST newest 02-27-20\CST\obj\Release\CST.SchoolYear.resources
+C:\Users\Julz\Desktop\CST newest 02-27-20\CST\obj\Release\CST.Admin.resources
+C:\Users\Julz\Desktop\CST newest 02-27-20\CST\obj\Release\CST.ListOfStudents.resources
+C:\Users\Julz\Desktop\CST newest 02-27-20\CST\obj\Release\CST.Login.resources
+C:\Users\Julz\Desktop\CST newest 02-27-20\CST\obj\Release\CST.NewStudents.resources
+C:\Users\Julz\Desktop\CST newest 02-27-20\CST\obj\Release\CST.OldStudents.resources
+C:\Users\Julz\Desktop\CST newest 02-27-20\CST\obj\Release\CST.Properties.Resources.resources
+C:\Users\Julz\Desktop\CST newest 02-27-20\CST\obj\Release\CST.Enrollment.resources
+C:\Users\Julz\Desktop\CST newest 02-27-20\CST\obj\Release\CST.RegistrarForm.resources
+C:\Users\Julz\Desktop\CST newest 02-27-20\CST\obj\Release\CST.RegistrarRecord.resources
+C:\Users\Julz\Desktop\CST newest 02-27-20\CST\obj\Release\CST.ReturneeStudents.resources
+C:\Users\Julz\Desktop\CST newest 02-27-20\CST\obj\Release\CST.StudentForm.resources
+C:\Users\Julz\Desktop\CST newest 02-27-20\CST\obj\Release\CST.TransfereeStudents.resources
+C:\Users\Julz\Desktop\CST newest 02-27-20\CST\obj\Release\CST.UserAccount.resources
+C:\Users\Julz\Desktop\CST newest 02-27-20\CST\obj\Release\CST.TeacherSchedule.resources
+C:\Users\Julz\Desktop\CST newest 02-27-20\CST\obj\Release\CST.TeachersSpecialization.resources
+C:\Users\Julz\Desktop\CST newest 02-27-20\CST\obj\Release\CST.Teacher.resources
+C:\Users\Julz\Desktop\CST newest 02-27-20\CST\obj\Release\CST.UpdateTeacherSpecialization.resources
+C:\Users\Julz\Desktop\CST newest 02-27-20\CST\obj\Release\CST.csproj.GenerateResource.Cache

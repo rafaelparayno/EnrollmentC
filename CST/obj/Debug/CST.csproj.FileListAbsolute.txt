@@ -1,0 +1,212 @@
+c:\users\khris\documents\visual studio 2015\Projects\CST\CST\bin\Debug\CST.exe.config
+c:\users\khris\documents\visual studio 2015\Projects\CST\CST\bin\Debug\CST.exe
+c:\users\khris\documents\visual studio 2015\Projects\CST\CST\bin\Debug\CST.pdb
+c:\users\khris\documents\visual studio 2015\Projects\CST\CST\obj\Debug\CST.csprojResolveAssemblyReference.cache
+c:\users\khris\documents\visual studio 2015\Projects\CST\CST\obj\Debug\CST.Login.resources
+c:\users\khris\documents\visual studio 2015\Projects\CST\CST\obj\Debug\CST.Properties.Resources.resources
+c:\users\khris\documents\visual studio 2015\Projects\CST\CST\obj\Debug\CST.csproj.GenerateResource.Cache
+c:\users\khris\documents\visual studio 2015\Projects\CST\CST\obj\Debug\CST.exe
+c:\users\khris\documents\visual studio 2015\Projects\CST\CST\obj\Debug\CST.pdb
+c:\users\khris\documents\visual studio 2015\Projects\CST\CST\obj\Debug\CST.RegistrarForm.resources
+c:\users\khris\documents\visual studio 2015\Projects\CST\CST\obj\Debug\CST.Enrollment.resources
+C:\Users\khris\documents\visual studio 2015\Projects\CST\CST\obj\Debug\CST.OldStudents.resources
+C:\Users\khris\documents\visual studio 2015\Projects\CST\CST\obj\Debug\CST.ListOfStudents.resources
+C:\Users\khris\documents\visual studio 2015\Projects\CST\CST\obj\Debug\CST.NewStudents.resources
+C:\Users\khris\documents\visual studio 2015\Projects\CST\CST\obj\Debug\CST.ReturneeStudents.resources
+C:\Users\khris\documents\visual studio 2015\Projects\CST\CST\obj\Debug\CST.TransfereeStudents.resources
+C:\Users\Jayveen Samson\Desktop\CST\CST\bin\Debug\CST.exe.config
+C:\Users\Jayveen Samson\Desktop\CST\CST\obj\Debug\CST.exe
+C:\Users\Jayveen Samson\Desktop\CST\CST\obj\Debug\CST.pdb
+C:\Users\Jayveen Samson\Desktop\CST\CST\obj\Debug\CST.csprojResolveAssemblyReference.cache
+C:\Users\Jayveen Samson\Desktop\CST\CST\obj\Debug\CST.ListOfStudents.resources
+C:\Users\Jayveen Samson\Desktop\CST\CST\obj\Debug\CST.Login.resources
+C:\Users\Jayveen Samson\Desktop\CST\CST\obj\Debug\CST.NewStudents.resources
+C:\Users\Jayveen Samson\Desktop\CST\CST\obj\Debug\CST.OldStudents.resources
+C:\Users\Jayveen Samson\Desktop\CST\CST\obj\Debug\CST.Properties.Resources.resources
+C:\Users\Jayveen Samson\Desktop\CST\CST\obj\Debug\CST.Enrollment.resources
+C:\Users\Jayveen Samson\Desktop\CST\CST\obj\Debug\CST.RegistrarForm.resources
+C:\Users\Jayveen Samson\Desktop\CST\CST\obj\Debug\CST.ReturneeStudents.resources
+C:\Users\Jayveen Samson\Desktop\CST\CST\obj\Debug\CST.TransfereeStudents.resources
+C:\Users\Jayveen Samson\Desktop\CST\CST\obj\Debug\CST.csproj.GenerateResource.Cache
+C:\Users\Jayveen Samson\Desktop\CST\CST\bin\Debug\CST.exe
+C:\Users\Jayveen Samson\Desktop\CST\CST\bin\Debug\CST.pdb
+C:\Users\Jayveen Samson\Desktop\CST\CST\obj\Debug\CST.Admin.resources
+C:\Users\Jayveen Samson\Desktop\CST\CST\obj\Debug\CST.EnrollmentMaintenance.resources
+C:\Users\Jayveen Samson\Desktop\CST\CST\obj\Debug\CST.RegistrarRecord.resources
+C:\Users\Jayveen Samson\Desktop\CST\CST\obj\Debug\CST.StudentForm.resources
+C:\Users\Jayveen Samson\Desktop\CST\CST\obj\Debug\CST.UserAccount.resources
+E:\CST\CST\bin\Debug\CST.exe.config
+E:\CST\CST\obj\Debug\CST.exe
+E:\CST\CST\obj\Debug\CST.pdb
+C:\Users\User\Desktop\New folder\CST\CST\bin\Debug\CST.exe.config
+C:\Users\User\Desktop\New folder\CST\CST\obj\Debug\CST.exe
+C:\Users\User\Desktop\New folder\CST\CST\obj\Debug\CST.pdb
+C:\Users\khris\Desktop\CST\CST\bin\Debug\CST.exe.config
+C:\Users\khris\Desktop\CST\CST\obj\Debug\CST.exe
+C:\Users\khris\Desktop\CST\CST\obj\Debug\CST.pdb
+C:\Users\User\Desktop\CST\CST\bin\Debug\CST.exe.config
+C:\Users\User\Desktop\CST\CST\bin\Debug\CST.exe
+C:\Users\User\Desktop\CST\CST\bin\Debug\CST.pdb
+C:\Users\User\Desktop\CST\CST\bin\Debug\MySql.Data.dll
+C:\Users\User\Desktop\CST\CST\bin\Debug\Google.Protobuf.dll
+C:\Users\User\Desktop\CST\CST\bin\Debug\BouncyCastle.Crypto.dll
+C:\Users\User\Desktop\CST\CST\bin\Debug\Ubiety.Dns.Core.dll
+C:\Users\User\Desktop\CST\CST\bin\Debug\Renci.SshNet.dll
+C:\Users\User\Desktop\CST\CST\bin\Debug\MySql.Data.xml
+C:\Users\User\Desktop\CST\CST\obj\Debug\CST.AddMiscellaneousFee.resources
+C:\Users\User\Desktop\CST\CST\obj\Debug\CST.AddTuitionFee.resources
+C:\Users\User\Desktop\CST\CST\obj\Debug\CST.Generated.resources
+C:\Users\User\Desktop\CST\CST\obj\Debug\CST.BackupAndRestore.resources
+C:\Users\User\Desktop\CST\CST\obj\Debug\CST.Classroom.resources
+C:\Users\User\Desktop\CST\CST\obj\Debug\CST.Facilities.resources
+C:\Users\User\Desktop\CST\CST\obj\Debug\CST.GradeLevel.resources
+C:\Users\User\Desktop\CST\CST\obj\Debug\CST.EnrollmentSchedule.resources
+C:\Users\User\Desktop\CST\CST\obj\Debug\CST.RemainingBalance.resources
+C:\Users\User\Desktop\CST\CST\obj\Debug\CST.ListofSection.resources
+C:\Users\User\Desktop\CST\CST\obj\Debug\CST.Records.resources
+C:\Users\User\Desktop\CST\CST\obj\Debug\CST.Payment_Form.resources
+C:\Users\User\Desktop\CST\CST\obj\Debug\CST.Payment.resources
+C:\Users\User\Desktop\CST\CST\obj\Debug\CST.ModeOfPaymentDiscount.resources
+C:\Users\User\Desktop\CST\CST\obj\Debug\CST.Scheduling.resources
+C:\Users\User\Desktop\CST\CST\obj\Debug\CST.SchoolFees.resources
+C:\Users\User\Desktop\CST\CST\obj\Debug\CST.SchoolRequirements.resources
+C:\Users\User\Desktop\CST\CST\obj\Debug\CST.Section.resources
+C:\Users\User\Desktop\CST\CST\obj\Debug\CST.StudentGrades.resources
+C:\Users\User\Desktop\CST\CST\obj\Debug\CST.Subject.resources
+C:\Users\User\Desktop\CST\CST\obj\Debug\CST.StudentSchedule.resources
+C:\Users\User\Desktop\CST\CST\obj\Debug\CST.AuditTrail.resources
+C:\Users\User\Desktop\CST\CST\obj\Debug\CST.Cashier.resources
+C:\Users\User\Desktop\CST\CST\obj\Debug\CST.EnrollmentAdmin.resources
+C:\Users\User\Desktop\CST\CST\obj\Debug\CST.SchoolYear.resources
+C:\Users\User\Desktop\CST\CST\obj\Debug\CST.Admin.resources
+C:\Users\User\Desktop\CST\CST\obj\Debug\CST.ListOfStudents.resources
+C:\Users\User\Desktop\CST\CST\obj\Debug\CST.Login.resources
+C:\Users\User\Desktop\CST\CST\obj\Debug\CST.NewStudents.resources
+C:\Users\User\Desktop\CST\CST\obj\Debug\CST.OldStudents.resources
+C:\Users\User\Desktop\CST\CST\obj\Debug\CST.Properties.Resources.resources
+C:\Users\User\Desktop\CST\CST\obj\Debug\CST.Enrollment.resources
+C:\Users\User\Desktop\CST\CST\obj\Debug\CST.RegistrarForm.resources
+C:\Users\User\Desktop\CST\CST\obj\Debug\CST.RegistrarRecord.resources
+C:\Users\User\Desktop\CST\CST\obj\Debug\CST.ReturneeStudents.resources
+C:\Users\User\Desktop\CST\CST\obj\Debug\CST.StudentForm.resources
+C:\Users\User\Desktop\CST\CST\obj\Debug\CST.TransfereeStudents.resources
+C:\Users\User\Desktop\CST\CST\obj\Debug\CST.UserAccount.resources
+C:\Users\User\Desktop\CST\CST\obj\Debug\CST.TeacherSchedule.resources
+C:\Users\User\Desktop\CST\CST\obj\Debug\CST.TeachersSpecialization.resources
+C:\Users\User\Desktop\CST\CST\obj\Debug\CST.Teacher.resources
+C:\Users\User\Desktop\CST\CST\obj\Debug\CST.UpdateTeacherSpecialization.resources
+C:\Users\User\Desktop\CST\CST\obj\Debug\CST.csproj.GenerateResource.Cache
+C:\Users\User\Desktop\CST\CST\obj\Debug\CST.exe
+C:\Users\User\Desktop\CST\CST\obj\Debug\CST.pdb
+C:\Users\Xorn\Desktop\C#\CST newest 02-27-20-20200301T050233Z-001\CST newest 02-27-20\CST\obj\Debug\CST.csprojAssemblyReference.cache
+C:\Users\Xorn\Desktop\C#\CST newest 02-27-20-20200301T050233Z-001\CST newest 02-27-20\CST\obj\Debug\CST.AddMiscellaneousFee.resources
+C:\Users\Xorn\Desktop\C#\CST newest 02-27-20-20200301T050233Z-001\CST newest 02-27-20\CST\obj\Debug\CST.AddTuitionFee.resources
+C:\Users\Xorn\Desktop\C#\CST newest 02-27-20-20200301T050233Z-001\CST newest 02-27-20\CST\obj\Debug\CST.Generated.resources
+C:\Users\Xorn\Desktop\C#\CST newest 02-27-20-20200301T050233Z-001\CST newest 02-27-20\CST\obj\Debug\CST.IPConfigFormcs.resources
+C:\Users\Xorn\Desktop\C#\CST newest 02-27-20-20200301T050233Z-001\CST newest 02-27-20\CST\obj\Debug\CST.BackupAndRestore.resources
+C:\Users\Xorn\Desktop\C#\CST newest 02-27-20-20200301T050233Z-001\CST newest 02-27-20\CST\obj\Debug\CST.Classroom.resources
+C:\Users\Xorn\Desktop\C#\CST newest 02-27-20-20200301T050233Z-001\CST newest 02-27-20\CST\obj\Debug\CST.Facilities.resources
+C:\Users\Xorn\Desktop\C#\CST newest 02-27-20-20200301T050233Z-001\CST newest 02-27-20\CST\obj\Debug\CST.GradeLevel.resources
+C:\Users\Xorn\Desktop\C#\CST newest 02-27-20-20200301T050233Z-001\CST newest 02-27-20\CST\obj\Debug\CST.EnrollmentSchedule.resources
+C:\Users\Xorn\Desktop\C#\CST newest 02-27-20-20200301T050233Z-001\CST newest 02-27-20\CST\obj\Debug\CST.RemainingBalance.resources
+C:\Users\Xorn\Desktop\C#\CST newest 02-27-20-20200301T050233Z-001\CST newest 02-27-20\CST\obj\Debug\CST.ListofSection.resources
+C:\Users\Xorn\Desktop\C#\CST newest 02-27-20-20200301T050233Z-001\CST newest 02-27-20\CST\obj\Debug\CST.Records.resources
+C:\Users\Xorn\Desktop\C#\CST newest 02-27-20-20200301T050233Z-001\CST newest 02-27-20\CST\obj\Debug\CST.Payment_Form.resources
+C:\Users\Xorn\Desktop\C#\CST newest 02-27-20-20200301T050233Z-001\CST newest 02-27-20\CST\obj\Debug\CST.Payment.resources
+C:\Users\Xorn\Desktop\C#\CST newest 02-27-20-20200301T050233Z-001\CST newest 02-27-20\CST\obj\Debug\CST.ModeOfPaymentDiscount.resources
+C:\Users\Xorn\Desktop\C#\CST newest 02-27-20-20200301T050233Z-001\CST newest 02-27-20\CST\obj\Debug\CST.Scheduling.resources
+C:\Users\Xorn\Desktop\C#\CST newest 02-27-20-20200301T050233Z-001\CST newest 02-27-20\CST\obj\Debug\CST.SchoolFees.resources
+C:\Users\Xorn\Desktop\C#\CST newest 02-27-20-20200301T050233Z-001\CST newest 02-27-20\CST\obj\Debug\CST.SchoolRequirements.resources
+C:\Users\Xorn\Desktop\C#\CST newest 02-27-20-20200301T050233Z-001\CST newest 02-27-20\CST\obj\Debug\CST.Section.resources
+C:\Users\Xorn\Desktop\C#\CST newest 02-27-20-20200301T050233Z-001\CST newest 02-27-20\CST\obj\Debug\CST.StudentGrades.resources
+C:\Users\Xorn\Desktop\C#\CST newest 02-27-20-20200301T050233Z-001\CST newest 02-27-20\CST\obj\Debug\CST.Subject.resources
+C:\Users\Xorn\Desktop\C#\CST newest 02-27-20-20200301T050233Z-001\CST newest 02-27-20\CST\obj\Debug\CST.StudentSchedule.resources
+C:\Users\Xorn\Desktop\C#\CST newest 02-27-20-20200301T050233Z-001\CST newest 02-27-20\CST\obj\Debug\CST.AuditTrail.resources
+C:\Users\Xorn\Desktop\C#\CST newest 02-27-20-20200301T050233Z-001\CST newest 02-27-20\CST\obj\Debug\CST.Cashier.resources
+C:\Users\Xorn\Desktop\C#\CST newest 02-27-20-20200301T050233Z-001\CST newest 02-27-20\CST\obj\Debug\CST.EnrollmentAdmin.resources
+C:\Users\Xorn\Desktop\C#\CST newest 02-27-20-20200301T050233Z-001\CST newest 02-27-20\CST\obj\Debug\CST.SchoolYear.resources
+C:\Users\Xorn\Desktop\C#\CST newest 02-27-20-20200301T050233Z-001\CST newest 02-27-20\CST\obj\Debug\CST.Admin.resources
+C:\Users\Xorn\Desktop\C#\CST newest 02-27-20-20200301T050233Z-001\CST newest 02-27-20\CST\obj\Debug\CST.ListOfStudents.resources
+C:\Users\Xorn\Desktop\C#\CST newest 02-27-20-20200301T050233Z-001\CST newest 02-27-20\CST\obj\Debug\CST.Login.resources
+C:\Users\Xorn\Desktop\C#\CST newest 02-27-20-20200301T050233Z-001\CST newest 02-27-20\CST\obj\Debug\CST.NewStudents.resources
+C:\Users\Xorn\Desktop\C#\CST newest 02-27-20-20200301T050233Z-001\CST newest 02-27-20\CST\obj\Debug\CST.OldStudents.resources
+C:\Users\Xorn\Desktop\C#\CST newest 02-27-20-20200301T050233Z-001\CST newest 02-27-20\CST\obj\Debug\CST.Properties.Resources.resources
+C:\Users\Xorn\Desktop\C#\CST newest 02-27-20-20200301T050233Z-001\CST newest 02-27-20\CST\obj\Debug\CST.Enrollment.resources
+C:\Users\Xorn\Desktop\C#\CST newest 02-27-20-20200301T050233Z-001\CST newest 02-27-20\CST\obj\Debug\CST.RegistrarForm.resources
+C:\Users\Xorn\Desktop\C#\CST newest 02-27-20-20200301T050233Z-001\CST newest 02-27-20\CST\obj\Debug\CST.RegistrarRecord.resources
+C:\Users\Xorn\Desktop\C#\CST newest 02-27-20-20200301T050233Z-001\CST newest 02-27-20\CST\obj\Debug\CST.ReturneeStudents.resources
+C:\Users\Xorn\Desktop\C#\CST newest 02-27-20-20200301T050233Z-001\CST newest 02-27-20\CST\obj\Debug\CST.StudentForm.resources
+C:\Users\Xorn\Desktop\C#\CST newest 02-27-20-20200301T050233Z-001\CST newest 02-27-20\CST\obj\Debug\CST.TransfereeStudents.resources
+C:\Users\Xorn\Desktop\C#\CST newest 02-27-20-20200301T050233Z-001\CST newest 02-27-20\CST\obj\Debug\CST.UserAccount.resources
+C:\Users\Xorn\Desktop\C#\CST newest 02-27-20-20200301T050233Z-001\CST newest 02-27-20\CST\obj\Debug\CST.TeacherSchedule.resources
+C:\Users\Xorn\Desktop\C#\CST newest 02-27-20-20200301T050233Z-001\CST newest 02-27-20\CST\obj\Debug\CST.TeachersSpecialization.resources
+C:\Users\Xorn\Desktop\C#\CST newest 02-27-20-20200301T050233Z-001\CST newest 02-27-20\CST\obj\Debug\CST.Teacher.resources
+C:\Users\Xorn\Desktop\C#\CST newest 02-27-20-20200301T050233Z-001\CST newest 02-27-20\CST\obj\Debug\CST.UpdateTeacherSpecialization.resources
+C:\Users\Xorn\Desktop\C#\CST newest 02-27-20-20200301T050233Z-001\CST newest 02-27-20\CST\obj\Debug\CST.csproj.GenerateResource.cache
+C:\Users\Xorn\Desktop\C#\CST newest 02-27-20-20200301T050233Z-001\CST newest 02-27-20\CST\obj\Debug\CST.exe
+C:\Users\Xorn\Desktop\C#\CST newest 02-27-20-20200301T050233Z-001\CST newest 02-27-20\CST\obj\Debug\CST.pdb
+C:\Users\Xorn\Desktop\C#\CST newest 02-27-20-20200301T050233Z-001\CST newest 02-27-20\CST\bin\Debug\CST.exe.config
+C:\Users\Xorn\Desktop\C#\CST newest 02-27-20-20200301T050233Z-001\CST newest 02-27-20\CST\bin\Debug\CST.exe
+C:\Users\Xorn\Desktop\C#\CST newest 02-27-20-20200301T050233Z-001\CST newest 02-27-20\CST\bin\Debug\CST.pdb
+C:\Users\Xorn\Desktop\C#\CST newest 02-27-20-20200301T050233Z-001\CST newest 02-27-20\CST\bin\Debug\Google.Protobuf.dll
+C:\Users\Xorn\Desktop\C#\CST newest 02-27-20-20200301T050233Z-001\CST newest 02-27-20\CST\bin\Debug\BouncyCastle.Crypto.dll
+C:\Users\Xorn\Desktop\C#\CST newest 02-27-20-20200301T050233Z-001\CST newest 02-27-20\CST\bin\Debug\Ubiety.Dns.Core.dll
+C:\Users\Xorn\Desktop\C#\CST newest 02-27-20-20200301T050233Z-001\CST newest 02-27-20\CST\bin\Debug\Renci.SshNet.dll
+C:\Users\Xorn\Desktop\C#\CST newest 02-27-20-20200301T050233Z-001\CST newest 02-27-20\CST\bin\Debug\MySql.Data.xml
+C:\Users\Xorn\Desktop\C#\CST newest 02-27-20-20200301T050233Z-001\CST newest 02-27-20\CST\obj\Debug\CST.csproj.CopyComplete
+C:\Users\Xorn\Desktop\C#\versionRaf\EnrollmentC\CST\bin\Debug\CST.exe.config
+C:\Users\Xorn\Desktop\C#\versionRaf\EnrollmentC\CST\bin\Debug\CST.exe
+C:\Users\Xorn\Desktop\C#\versionRaf\EnrollmentC\CST\bin\Debug\CST.pdb
+C:\Users\Xorn\Desktop\C#\versionRaf\EnrollmentC\CST\bin\Debug\Google.Protobuf.dll
+C:\Users\Xorn\Desktop\C#\versionRaf\EnrollmentC\CST\bin\Debug\BouncyCastle.Crypto.dll
+C:\Users\Xorn\Desktop\C#\versionRaf\EnrollmentC\CST\bin\Debug\Ubiety.Dns.Core.dll
+C:\Users\Xorn\Desktop\C#\versionRaf\EnrollmentC\CST\bin\Debug\Renci.SshNet.dll
+C:\Users\Xorn\Desktop\C#\versionRaf\EnrollmentC\CST\bin\Debug\MySql.Data.xml
+C:\Users\Xorn\Desktop\C#\versionRaf\EnrollmentC\CST\obj\Debug\CST.csprojAssemblyReference.cache
+C:\Users\Xorn\Desktop\C#\versionRaf\EnrollmentC\CST\obj\Debug\CST.AddMiscellaneousFee.resources
+C:\Users\Xorn\Desktop\C#\versionRaf\EnrollmentC\CST\obj\Debug\CST.AddTuitionFee.resources
+C:\Users\Xorn\Desktop\C#\versionRaf\EnrollmentC\CST\obj\Debug\CST.Generated.resources
+C:\Users\Xorn\Desktop\C#\versionRaf\EnrollmentC\CST\obj\Debug\CST.IPConfigFormcs.resources
+C:\Users\Xorn\Desktop\C#\versionRaf\EnrollmentC\CST\obj\Debug\CST.BackupAndRestore.resources
+C:\Users\Xorn\Desktop\C#\versionRaf\EnrollmentC\CST\obj\Debug\CST.Classroom.resources
+C:\Users\Xorn\Desktop\C#\versionRaf\EnrollmentC\CST\obj\Debug\CST.Facilities.resources
+C:\Users\Xorn\Desktop\C#\versionRaf\EnrollmentC\CST\obj\Debug\CST.GradeLevel.resources
+C:\Users\Xorn\Desktop\C#\versionRaf\EnrollmentC\CST\obj\Debug\CST.EnrollmentSchedule.resources
+C:\Users\Xorn\Desktop\C#\versionRaf\EnrollmentC\CST\obj\Debug\CST.RemainingBalance.resources
+C:\Users\Xorn\Desktop\C#\versionRaf\EnrollmentC\CST\obj\Debug\CST.ListofSection.resources
+C:\Users\Xorn\Desktop\C#\versionRaf\EnrollmentC\CST\obj\Debug\CST.Records.resources
+C:\Users\Xorn\Desktop\C#\versionRaf\EnrollmentC\CST\obj\Debug\CST.Payment_Form.resources
+C:\Users\Xorn\Desktop\C#\versionRaf\EnrollmentC\CST\obj\Debug\CST.Payment.resources
+C:\Users\Xorn\Desktop\C#\versionRaf\EnrollmentC\CST\obj\Debug\CST.ModeOfPaymentDiscount.resources
+C:\Users\Xorn\Desktop\C#\versionRaf\EnrollmentC\CST\obj\Debug\CST.Scheduling.resources
+C:\Users\Xorn\Desktop\C#\versionRaf\EnrollmentC\CST\obj\Debug\CST.SchoolFees.resources
+C:\Users\Xorn\Desktop\C#\versionRaf\EnrollmentC\CST\obj\Debug\CST.SchoolRequirements.resources
+C:\Users\Xorn\Desktop\C#\versionRaf\EnrollmentC\CST\obj\Debug\CST.Section.resources
+C:\Users\Xorn\Desktop\C#\versionRaf\EnrollmentC\CST\obj\Debug\CST.StudentGrades.resources
+C:\Users\Xorn\Desktop\C#\versionRaf\EnrollmentC\CST\obj\Debug\CST.Subject.resources
+C:\Users\Xorn\Desktop\C#\versionRaf\EnrollmentC\CST\obj\Debug\CST.StudentSchedule.resources
+C:\Users\Xorn\Desktop\C#\versionRaf\EnrollmentC\CST\obj\Debug\CST.AuditTrail.resources
+C:\Users\Xorn\Desktop\C#\versionRaf\EnrollmentC\CST\obj\Debug\CST.Cashier.resources
+C:\Users\Xorn\Desktop\C#\versionRaf\EnrollmentC\CST\obj\Debug\CST.EnrollmentAdmin.resources
+C:\Users\Xorn\Desktop\C#\versionRaf\EnrollmentC\CST\obj\Debug\CST.SchoolYear.resources
+C:\Users\Xorn\Desktop\C#\versionRaf\EnrollmentC\CST\obj\Debug\CST.Admin.resources
+C:\Users\Xorn\Desktop\C#\versionRaf\EnrollmentC\CST\obj\Debug\CST.ListOfStudents.resources
+C:\Users\Xorn\Desktop\C#\versionRaf\EnrollmentC\CST\obj\Debug\CST.Login.resources
+C:\Users\Xorn\Desktop\C#\versionRaf\EnrollmentC\CST\obj\Debug\CST.NewStudents.resources
+C:\Users\Xorn\Desktop\C#\versionRaf\EnrollmentC\CST\obj\Debug\CST.OldStudents.resources
+C:\Users\Xorn\Desktop\C#\versionRaf\EnrollmentC\CST\obj\Debug\CST.Properties.Resources.resources
+C:\Users\Xorn\Desktop\C#\versionRaf\EnrollmentC\CST\obj\Debug\CST.Enrollment.resources
+C:\Users\Xorn\Desktop\C#\versionRaf\EnrollmentC\CST\obj\Debug\CST.RegistrarForm.resources
+C:\Users\Xorn\Desktop\C#\versionRaf\EnrollmentC\CST\obj\Debug\CST.RegistrarRecord.resources
+C:\Users\Xorn\Desktop\C#\versionRaf\EnrollmentC\CST\obj\Debug\CST.ReturneeStudents.resources
+C:\Users\Xorn\Desktop\C#\versionRaf\EnrollmentC\CST\obj\Debug\CST.StudentForm.resources
+C:\Users\Xorn\Desktop\C#\versionRaf\EnrollmentC\CST\obj\Debug\CST.TransfereeStudents.resources
+C:\Users\Xorn\Desktop\C#\versionRaf\EnrollmentC\CST\obj\Debug\CST.UserAccount.resources
+C:\Users\Xorn\Desktop\C#\versionRaf\EnrollmentC\CST\obj\Debug\CST.TeacherSchedule.resources
+C:\Users\Xorn\Desktop\C#\versionRaf\EnrollmentC\CST\obj\Debug\CST.TeachersSpecialization.resources
+C:\Users\Xorn\Desktop\C#\versionRaf\EnrollmentC\CST\obj\Debug\CST.Teacher.resources
+C:\Users\Xorn\Desktop\C#\versionRaf\EnrollmentC\CST\obj\Debug\CST.UpdateTeacherSpecialization.resources
+C:\Users\Xorn\Desktop\C#\versionRaf\EnrollmentC\CST\obj\Debug\CST.csproj.GenerateResource.cache
+C:\Users\Xorn\Desktop\C#\versionRaf\EnrollmentC\CST\obj\Debug\CST.csproj.CopyComplete
+C:\Users\Xorn\Desktop\C#\versionRaf\EnrollmentC\CST\obj\Debug\CST.exe
+C:\Users\Xorn\Desktop\C#\versionRaf\EnrollmentC\CST\obj\Debug\CST.pdb

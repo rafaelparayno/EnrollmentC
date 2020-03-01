@@ -1,0 +1,537 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{5DBCD87E-8964-4797-B18F-021367A5060C}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CST</RootNamespace>
+    <AssemblyName>CST</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>true</UseVSHostingProcess>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="MySql.Data, Version=8.0.19.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
+    <Reference Include="MySqlBackup">
+      <HintPath>..\..\..\..\Downloads\MySqlBackup.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="crudFile.cs" />
+    <Compile Include="DbSettings\dbConfigFile.cs" />
+    <Compile Include="DbSettings\dbConnection.cs" />
+    <Compile Include="Models\SchoolYear\SchoolYear.cs" />
+    <Compile Include="Models\UserLog\UserLog.cs" />
+    <Compile Include="Enrollment Admin\AddMiscellaneousFee.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Enrollment Admin\AddMiscellaneousFee.Designer.cs">
+      <DependentUpon>AddMiscellaneousFee.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Enrollment Admin\AddTuitionFee.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Enrollment Admin\AddTuitionFee.Designer.cs">
+      <DependentUpon>AddTuitionFee.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Enrollment Admin\Classroom.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Enrollment Admin\Classroom.Designer.cs">
+      <DependentUpon>Classroom.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Enrollment Admin\GradeLevel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Enrollment Admin\GradeLevel.Designer.cs">
+      <DependentUpon>GradeLevel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Enrollment Admin\SchoolRequirements.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Enrollment Admin\SchoolRequirements.Designer.cs">
+      <DependentUpon>SchoolRequirements.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Enrollment Admin\Section.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Enrollment Admin\Section.Designer.cs">
+      <DependentUpon>Section.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Enrollment Admin\Subject.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Enrollment Admin\Subject.Designer.cs">
+      <DependentUpon>Subject.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Enrollment Admin\EnrollmentSchedule.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Enrollment Admin\EnrollmentSchedule.Designer.cs">
+      <DependentUpon>EnrollmentSchedule.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Enrollment Admin\StudentSchedule.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Enrollment Admin\StudentSchedule.Designer.cs">
+      <DependentUpon>StudentSchedule.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Cashier\Payment Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Cashier\Payment Form.Designer.cs">
+      <DependentUpon>Payment Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Cashier\Payment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Cashier\Payment.Designer.cs">
+      <DependentUpon>Payment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Cashier\ModeOfPaymentDiscount.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Cashier\ModeOfPaymentDiscount.Designer.cs">
+      <DependentUpon>ModeOfPaymentDiscount.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Cashier\Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Cashier\Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Generated.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Generated.Designer.cs">
+      <DependentUpon>Generated.cs</DependentUpon>
+    </Compile>
+    <Compile Include="globalVariables.cs" />
+    <Compile Include="IPConfigFormcs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IPConfigFormcs.Designer.cs">
+      <DependentUpon>IPConfigFormcs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AuditTrailControl.cs" />
+    <Compile Include="Models\loginController.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="System Admin\AuditTrail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="System Admin\AuditTrail.Designer.cs">
+      <DependentUpon>AuditTrail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="System Admin\BackupAndRestore.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="System Admin\BackupAndRestore.Designer.cs">
+      <DependentUpon>BackupAndRestore.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Cashier\Cashier.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Cashier\Cashier.Designer.cs">
+      <DependentUpon>Cashier.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Enrollment Admin\EnrollmentAdmin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Enrollment Admin\EnrollmentAdmin.Designer.cs">
+      <DependentUpon>EnrollmentAdmin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Enrollment Admin\Facilities.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Enrollment Admin\Facilities.Designer.cs">
+      <DependentUpon>Facilities.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Teacher\ListofSection.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Teacher\ListofSection.Designer.cs">
+      <DependentUpon>ListofSection.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Cashier\Records.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Cashier\Records.Designer.cs">
+      <DependentUpon>Records.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Enrollment Admin\Scheduling.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Enrollment Admin\Scheduling.Designer.cs">
+      <DependentUpon>Scheduling.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Enrollment Admin\SchoolFees.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Enrollment Admin\SchoolFees.Designer.cs">
+      <DependentUpon>SchoolFees.cs</DependentUpon>
+    </Compile>
+    <Compile Include="System Admin\SchoolYear.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="System Admin\SchoolYear.Designer.cs">
+      <DependentUpon>SchoolYear.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Teacher\StudentGrades.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Teacher\StudentGrades.Designer.cs">
+      <DependentUpon>StudentGrades.cs</DependentUpon>
+    </Compile>
+    <Compile Include="System Admin\Admin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="System Admin\Admin.Designer.cs">
+      <DependentUpon>Admin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Registrar\ListOfStudents.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Registrar\ListOfStudents.Designer.cs">
+      <DependentUpon>ListOfStudents.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Registrar\NewStudents.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Registrar\NewStudents.Designer.cs">
+      <DependentUpon>NewStudents.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Registrar\OldStudents.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Registrar\OldStudents.Designer.cs">
+      <DependentUpon>OldStudents.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Registrar\Registration.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Registrar\Registration.Designer.cs">
+      <DependentUpon>Registration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Registrar\RegistrarForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Registrar\RegistrarForm.Designer.cs">
+      <DependentUpon>RegistrarForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Registrar\RegistrarRecord.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Registrar\RegistrarRecord.Designer.cs">
+      <DependentUpon>RegistrarRecord.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Registrar\ReturneeStudents.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Registrar\ReturneeStudents.Designer.cs">
+      <DependentUpon>ReturneeStudents.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Registrar\StudentForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Registrar\StudentForm.Designer.cs">
+      <DependentUpon>StudentForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Teacher\TeacherSchedule.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Teacher\TeacherSchedule.Designer.cs">
+      <DependentUpon>TeacherSchedule.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Enrollment Admin\TeachersSpecialization.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Enrollment Admin\TeachersSpecialization.Designer.cs">
+      <DependentUpon>TeachersSpecialization.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Teacher\Teacher.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Teacher\Teacher.Designer.cs">
+      <DependentUpon>Teacher.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Registrar\TransfereeStudents.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Registrar\TransfereeStudents.Designer.cs">
+      <DependentUpon>TransfereeStudents.cs</DependentUpon>
+    </Compile>
+    <Compile Include="System Admin\UserAccount.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="System Admin\UserAccount.Designer.cs">
+      <DependentUpon>UserAccount.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Enrollment Admin\UpdateTeacherSpecialization.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Enrollment Admin\UpdateTeacherSpecialization.Designer.cs">
+      <DependentUpon>UpdateTeacherSpecialization.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Enrollment Admin\AddMiscellaneousFee.resx">
+      <DependentUpon>AddMiscellaneousFee.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Enrollment Admin\AddTuitionFee.resx">
+      <DependentUpon>AddTuitionFee.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Generated.resx">
+      <DependentUpon>Generated.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IPConfigFormcs.resx">
+      <DependentUpon>IPConfigFormcs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="System Admin\BackupAndRestore.resx">
+      <DependentUpon>BackupAndRestore.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Enrollment Admin\Classroom.resx">
+      <DependentUpon>Classroom.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Enrollment Admin\Facilities.resx">
+      <DependentUpon>Facilities.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Enrollment Admin\GradeLevel.resx">
+      <DependentUpon>GradeLevel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Enrollment Admin\EnrollmentSchedule.resx">
+      <DependentUpon>EnrollmentSchedule.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Cashier\Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Teacher\ListofSection.resx">
+      <DependentUpon>ListofSection.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Cashier\Records.resx">
+      <DependentUpon>Records.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Cashier\Payment Form.resx">
+      <DependentUpon>Payment Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Cashier\Payment.resx">
+      <DependentUpon>Payment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Cashier\ModeOfPaymentDiscount.resx">
+      <DependentUpon>ModeOfPaymentDiscount.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Enrollment Admin\Scheduling.resx">
+      <DependentUpon>Scheduling.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Enrollment Admin\SchoolFees.resx">
+      <DependentUpon>SchoolFees.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Enrollment Admin\SchoolRequirements.resx">
+      <DependentUpon>SchoolRequirements.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Enrollment Admin\Section.resx">
+      <DependentUpon>Section.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Teacher\StudentGrades.resx">
+      <DependentUpon>StudentGrades.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Enrollment Admin\Subject.resx">
+      <DependentUpon>Subject.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Enrollment Admin\StudentSchedule.resx">
+      <DependentUpon>StudentSchedule.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="System Admin\AuditTrail.resx">
+      <DependentUpon>AuditTrail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Cashier\Cashier.resx">
+      <DependentUpon>Cashier.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Enrollment Admin\EnrollmentAdmin.resx">
+      <DependentUpon>EnrollmentAdmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="System Admin\SchoolYear.resx">
+      <DependentUpon>SchoolYear.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="System Admin\Admin.resx">
+      <DependentUpon>Admin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Registrar\ListOfStudents.resx">
+      <DependentUpon>ListOfStudents.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Registrar\NewStudents.resx">
+      <DependentUpon>NewStudents.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Registrar\OldStudents.resx">
+      <DependentUpon>OldStudents.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Registrar\Registration.resx">
+      <DependentUpon>Registration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Registrar\RegistrarForm.resx">
+      <DependentUpon>RegistrarForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Registrar\RegistrarRecord.resx">
+      <DependentUpon>RegistrarRecord.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Registrar\ReturneeStudents.resx">
+      <DependentUpon>ReturneeStudents.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Registrar\StudentForm.resx">
+      <DependentUpon>StudentForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Registrar\TransfereeStudents.resx">
+      <DependentUpon>TransfereeStudents.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="System Admin\UserAccount.resx">
+      <DependentUpon>UserAccount.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Teacher\TeacherSchedule.resx">
+      <DependentUpon>TeacherSchedule.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Enrollment Admin\TeachersSpecialization.resx">
+      <DependentUpon>TeachersSpecialization.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Teacher\Teacher.resx">
+      <DependentUpon>Teacher.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Enrollment Admin\UpdateTeacherSpecialization.resx">
+      <DependentUpon>UpdateTeacherSpecialization.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Properties\DataSources\MySql.Data.MySqlClient.AuthenticationPluginConfigurationElement.datasource" />
+    <None Include="Properties\DataSources\MySql.Data.MySqlClient.BaseCommandInterceptor.datasource" />
+    <None Include="Properties\DataSources\MySql.Data.MySqlClient.BaseTableCache.datasource" />
+    <None Include="Properties\DataSources\MySql.Data.MySqlClient.CustomInstaller.datasource" />
+    <None Include="Properties\DataSources\MySql.Data.MySqlClient.InterceptorConfigurationElement.datasource" />
+    <None Include="Properties\DataSources\MySql.Data.MySqlClient.MySqlBaseConnectionStringBuilder.datasource" />
+    <None Include="Properties\DataSources\MySql.Data.MySqlClient.MySqlBulkLoader.datasource" />
+    <None Include="Properties\DataSources\MySql.Data.MySqlClient.MySqlClientFactory.datasource" />
+    <None Include="Properties\DataSources\MySql.Data.MySqlClient.MySqlClientPermission.datasource" />
+    <None Include="Properties\DataSources\MySql.Data.MySqlClient.MySqlClientPermissionAttribute.datasource" />
+    <None Include="Properties\DataSources\MySql.Data.MySqlClient.MySqlCommand.datasource" />
+    <None Include="Properties\DataSources\MySql.Data.MySqlClient.MySqlCommandBuilder.datasource" />
+    <None Include="Properties\DataSources\MySql.Data.MySqlClient.MySqlConfiguration.datasource" />
+    <None Include="Properties\DataSources\MySql.Data.MySqlClient.MySqlConnection.datasource" />
+    <None Include="Properties\DataSources\MySql.Data.MySqlClient.MySqlConnectionStringBuilder.datasource" />
+    <None Include="Properties\DataSources\MySql.Data.MySqlClient.MySqlDataAdapter.datasource" />
+    <None Include="Properties\DataSources\MySql.Data.MySqlClient.MySqlDataReader.datasource" />
+    <None Include="Properties\DataSources\MySql.Data.MySqlClient.MySqlError.datasource" />
+    <None Include="Properties\DataSources\MySql.Data.MySqlClient.MySqlException.datasource" />
+    <None Include="Properties\DataSources\MySql.Data.MySqlClient.MySqlHelper.datasource" />
+    <None Include="Properties\DataSources\MySql.Data.MySqlClient.MySqlInfoMessageEventArgs.datasource" />
+    <None Include="Properties\DataSources\MySql.Data.MySqlClient.MySqlInfoMessageEventHandler.datasource" />
+    <None Include="Properties\DataSources\MySql.Data.MySqlClient.MySqlParameter.datasource" />
+    <None Include="Properties\DataSources\MySql.Data.MySqlClient.MySqlParameterCollection.datasource" />
+    <None Include="Properties\DataSources\MySql.Data.MySqlClient.MySqlRowUpdatedEventArgs.datasource" />
+    <None Include="Properties\DataSources\MySql.Data.MySqlClient.MySqlRowUpdatedEventHandler.datasource" />
+    <None Include="Properties\DataSources\MySql.Data.MySqlClient.MySqlRowUpdatingEventArgs.datasource" />
+    <None Include="Properties\DataSources\MySql.Data.MySqlClient.MySqlRowUpdatingEventHandler.datasource" />
+    <None Include="Properties\DataSources\MySql.Data.MySqlClient.MySqlSchemaCollection.datasource" />
+    <None Include="Properties\DataSources\MySql.Data.MySqlClient.MySqlSchemaRow.datasource" />
+    <None Include="Properties\DataSources\MySql.Data.MySqlClient.MySqlScript.datasource" />
+    <None Include="Properties\DataSources\MySql.Data.MySqlClient.MySqlScriptErrorEventArgs.datasource" />
+    <None Include="Properties\DataSources\MySql.Data.MySqlClient.MySqlScriptErrorEventHandler.datasource" />
+    <None Include="Properties\DataSources\MySql.Data.MySqlClient.MySqlScriptEventArgs.datasource" />
+    <None Include="Properties\DataSources\MySql.Data.MySqlClient.MySqlSecurityPermission.datasource" />
+    <None Include="Properties\DataSources\MySql.Data.MySqlClient.MySqlStatementExecutedEventHandler.datasource" />
+    <None Include="Properties\DataSources\MySql.Data.MySqlClient.MySqlTrace.datasource" />
+    <None Include="Properties\DataSources\MySql.Data.MySqlClient.MySqlTransaction.datasource" />
+    <None Include="Properties\DataSources\MySql.Data.MySqlClient.ReplicationConfigurationElement.datasource" />
+    <None Include="Properties\DataSources\MySql.Data.MySqlClient.ReplicationServerConfigurationElement.datasource" />
+    <None Include="Properties\DataSources\MySql.Data.MySqlClient.ReplicationServerGroupConfigurationElement.datasource" />
+    <None Include="Properties\DataSources\MySql.Data.MySqlClient.SchemaColumn.datasource" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\App.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="System Admin\Resources\b.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="System Admin\Resources\images.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="System Admin\Resources\images.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\icon-backup.png" />
+    <Content Include="Resources\icon-database-connected.png" />
+    <Content Include="Resources\icon-database-disconnected.png" />
+    <Content Include="Resources\icon-database-setting.png" />
+    <Content Include="Resources\icon-refresh.png" />
+    <Content Include="Resources\icon_search.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
