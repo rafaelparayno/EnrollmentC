@@ -210,3 +210,4 @@ C:\Users\Xorn\Desktop\C#\versionRaf\EnrollmentC\CST\obj\Debug\CST.csproj.Generat
 C:\Users\Xorn\Desktop\C#\versionRaf\EnrollmentC\CST\obj\Debug\CST.csproj.CopyComplete
 C:\Users\Xorn\Desktop\C#\versionRaf\EnrollmentC\CST\obj\Debug\CST.exe
 C:\Users\Xorn\Desktop\C#\versionRaf\EnrollmentC\CST\obj\Debug\CST.pdb
+C:\Users\Xorn\Desktop\C#\versionRaf\EnrollmentC\CST\obj\Debug\CST.System_Admin.addUserAccounts.resources

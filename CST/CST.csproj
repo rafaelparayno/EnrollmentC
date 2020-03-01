@@ -58,6 +58,7 @@
     <Compile Include="DbSettings\dbConfigFile.cs" />
     <Compile Include="DbSettings\dbConnection.cs" />
     <Compile Include="Models\SchoolYear\SchoolYear.cs" />
+    <Compile Include="Models\UserController.cs" />
     <Compile Include="Models\UserLog\UserLog.cs" />
     <Compile Include="Enrollment Admin\AddMiscellaneousFee.cs">
       <SubType>Form</SubType>
@@ -156,6 +157,12 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="System Admin\addUserAccounts.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="System Admin\addUserAccounts.Designer.cs">
+      <DependentUpon>addUserAccounts.cs</DependentUpon>
     </Compile>
     <Compile Include="System Admin\AuditTrail.cs">
       <SubType>Form</SubType>
@@ -332,6 +339,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="IPConfigFormcs.resx">
       <DependentUpon>IPConfigFormcs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="System Admin\addUserAccounts.resx">
+      <DependentUpon>addUserAccounts.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="System Admin\BackupAndRestore.resx">
       <DependentUpon>BackupAndRestore.cs</DependentUpon>
@@ -519,6 +529,7 @@
     <None Include="System Admin\Resources\images.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\b.png" />
     <Content Include="Resources\icon-backup.png" />
     <Content Include="Resources\icon-database-connected.png" />
     <Content Include="Resources\icon-database-disconnected.png" />

@@ -38,7 +38,7 @@ namespace CST.Models
 			crud.RetrieveRecords(sql, ref reader);
 			if (reader.Read())
 			{
-				MessageBox.Show("login success");
+				MessageBox.Show("Login Success");
 				role = reader.GetString(6);
 				UserLog user = new UserLog(reader["Firstname"].ToString(), 
 											reader["Lastname"].ToString(), 
