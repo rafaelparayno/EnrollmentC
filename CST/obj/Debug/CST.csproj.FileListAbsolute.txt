@@ -211,3 +211,7 @@ C:\Users\Xorn\Desktop\C#\versionRaf\EnrollmentC\CST\obj\Debug\CST.csproj.CopyCom
 C:\Users\Xorn\Desktop\C#\versionRaf\EnrollmentC\CST\obj\Debug\CST.exe
 C:\Users\Xorn\Desktop\C#\versionRaf\EnrollmentC\CST\obj\Debug\CST.pdb
 C:\Users\Xorn\Desktop\C#\versionRaf\EnrollmentC\CST\obj\Debug\CST.System_Admin.addUserAccounts.resources
+C:\Users\Xorn\Desktop\C#\versionRaf\EnrollmentC\CST\bin\Debug\MySql.Data.dll
+C:\Users\Xorn\Desktop\C#\versionRaf\EnrollmentC\CST\bin\Debug\MySqlBackup.dll
+C:\Users\Xorn\Desktop\C#\versionRaf\EnrollmentC\CST\bin\Debug\Google.Protobuf.xml
+C:\Users\Xorn\Desktop\C#\versionRaf\EnrollmentC\CST\bin\Debug\Renci.SshNet.xml

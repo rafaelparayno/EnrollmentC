@@ -157,14 +157,14 @@ namespace CST {
         private void button1_Click(object sender, EventArgs e)
         {
             this.Hide();
-            BackupAndRestore fr2 = new BackupAndRestore(label5.Text, label1.Text);
+            BackupAndRestore fr2 = new BackupAndRestore();
             fr2.ShowDialog();  
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             this.Hide();
-            SchoolYear fr3 = new SchoolYear(label5.Text, label1.Text);
+            SchoolYear fr3 = new SchoolYear();
             fr3.ShowDialog();
             
         }

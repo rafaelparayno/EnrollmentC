@@ -26,12 +26,7 @@ namespace CST
             txtUN.Text = MyLabelText;
             txtUT.Text = hi;
             comboBox1.SelectedIndex = 0;
-            //globalVariables.myServer = globalVariables.IPv4_Address;
-            //globalVariables.myDatabase = "final_enroll";
-            //globalVariables.myUsername = "cst_db";
-            //globalVariables.myPassword = "Sohhrs6d2F1PBOQR";
-
-            //btnSave.Enabled = false;    
+          
 
 
 

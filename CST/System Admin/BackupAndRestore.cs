@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,16 +14,14 @@ namespace CST
 {
     public partial class BackupAndRestore : Form
     {
-        globalVariables gv = new globalVariables(); 
-        public BackupAndRestore(string MyLabelText, string hi)
+        globalVariables gv = new globalVariables();
+     
+        private string dateClicked = string.Empty;
+        private string timeClicked = string.Empty;
+        public BackupAndRestore()
         {
             InitializeComponent();
-            txtUN.Text = MyLabelText;
-            txtUT.Text = hi;
-            globalVariables.myServer = globalVariables.IPv4_Address;
-            globalVariables.myDatabase = "final_enroll";
-            globalVariables.myUsername = "cst_db";
-            globalVariables.myPassword = "Sohhrs6d2F1PBOQR";
+            
 
         }
 
@@ -35,42 +34,17 @@ namespace CST
             if (form1 == DialogResult.Yes)
                 
             {
-            //    globalVariables.myConnection = "SERVER =" + globalVariables.myServer + ";" + "DATABASE =" + globalVariables.myDatabase + ";" + "UID =" + globalVariables.myUsername + ";" + "PASSWORD =" + globalVariables.myPassword + ";";
-            //    gv.cn = new MySqlConnection(globalVariables.myConnection);
-
-                
-            //    string file = @"C:\Users\User\Desktop\back-up";
-            //using (MySqlConnection conn = new MySqlConnection(globalVariables.myConnection))
-            //{
-            //    using (MySqlCommand cmd = new MySqlCommand())
-            //    {
-            //        using (MySqlBackup mb = new MySqlBackup(cmd))
-            //        {
-            //            cmd.Connection = conn;  
-            //            conn.Open();
-            //            mb.ExportToFile(file);
-            //            conn.Close();
-            //        }
-            //    }
-            //}
-
-
-
-
+                csBackupAndRestore.DoBackup();
                 MessageBox.Show("Back Up Data Success");
+                reloadBackup();
             }
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            DialogResult form1 = MessageBox.Show("Do you really want to restore data?",
-                  "Exit", MessageBoxButtons.YesNo);
-
-
-            if (form1 == DialogResult.Yes)
-            {
-                MessageBox.Show("Restore Data  Success");
-            }
+            csBackupAndRestore.DoRestore(dateClicked, timeClicked);
+            MessageBox.Show("Recover Data Success");
+            reloadBackup();
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -82,55 +56,7 @@ namespace CST
 
         private void BackupAndRestore_Load(object sender, EventArgs e)
         {
-            globalVariables.myConnection = "SERVER =" + globalVariables.myServer + ";" + "DATABASE =" + globalVariables.myDatabase + ";" + "UID =" + globalVariables.myUsername + ";" + "PASSWORD =" + globalVariables.myPassword + ";";
-            gv.cn = new MySqlConnection(globalVariables.myConnection);
-
-            gv.cn.Open();
-            MySqlCommand command;
-            MySqlDataReader mdr;
-
-            string selectQuery = "  select * FROM school_year where sy_status='activate'";
-
-
-            command = new MySqlCommand(selectQuery, gv.cn);
-
-            mdr = command.ExecuteReader();
-            int count = 0;
-            string SY = string.Empty;
-            string sy_status = string.Empty;
-
-            while (mdr.Read())
-            {
-                count = count + 1;
-                SY = mdr["school_year"].ToString();
-                sy_status = mdr["sy_status"].ToString();
-
-            }
-
-            if (count == 1)
-            {
-
-                if (sy_status == "activate")
-                {       //show admin windows
-
-                    label2.Text = SY;
-
-                }
-            }
-            gv.cn.Close();
-            txtUN.Hide();
-            txtUT.Hide();
-            label2.Hide();
-            DateTime my = DateTimeOffset.Now.DateTime.ToLocalTime().ToUniversalTime();
-
-
-            DateTime mys = DateTimeOffset.Now.UtcDateTime.ToLocalTime();
-
-            Console.WriteLine(mys);
-
-            label7.Text = my.ToString("MM/dd/yyyy  hh:mm:ss tt");
-
-            timer1.Enabled = true;
+           
         }
 
         private void txtUT_Click(object sender, EventArgs e)
@@ -160,6 +86,72 @@ namespace CST
         private void label7_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void datePick_Logs_ValueChanged(object sender, EventArgs e)
+        {
+            reloadBackup();
+        }
+
+        private void btn_Refresh_Click(object sender, EventArgs e)
+        {
+            datePick_Logs.Value = DateTime.Now;
+        }
+
+        private void reloadBackup()
+        {
+            csBackupAndRestore.CreateDirectory();
+            DirectoryInfo d = new DirectoryInfo(@"C:\CST-backup\");
+            FileInfo[] Files = d.GetFiles("*.sql");
+            Array.Sort(Files, (f1, f2) => f1.Name.CompareTo(f2.Name));
+
+            int backupIndex = 1;
+
+            lv_Backup.Items.Clear();
+
+            for (int i = Files.Length - 1; i >= 0; i--)
+            {
+
+                string[] dateTime = Files[i].Name.Split(new[] { "--" }, StringSplitOptions.None);
+                string dateParse = dateTime[1] + "-" + dateTime[2] + "-" + dateTime[3];
+                string timeParse = dateTime[4] + ":" + dateTime[5] + ":" + dateTime[6] + " " + dateTime[7].Replace(".sql", "");
+
+
+                if (dateParse != datePick_Logs.Value.ToString("yyyy-MM-dd"))
+                {
+                    continue;
+                }
+
+
+                ListViewItem lv = new ListViewItem();
+                lv.Text = dateParse;
+                lv.SubItems.Add(timeParse);
+
+                lv_Backup.Items.Add(lv);
+                backupIndex++;
+            }
+
+           
+        }
+
+        private void lv_Backup_Click(object sender, EventArgs e)
+        {
+            if (lv_Backup.SelectedItems.Count == 1)
+            {
+                dateClicked = lv_Backup.SelectedItems[0].SubItems[0].Text;
+                timeClicked = lv_Backup.SelectedItems[0].SubItems[1].Text;
+
+                button3.Enabled = true;
+            }
+            else
+            {
+                button3.Enabled = false;
+            }
         }
     }
 }

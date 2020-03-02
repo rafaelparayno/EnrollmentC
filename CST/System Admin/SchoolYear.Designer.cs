@@ -43,7 +43,6 @@
             this.txtUT = new System.Windows.Forms.Label();
             this.txtUN = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.txtSY = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.panel4.SuspendLayout();
@@ -57,9 +56,9 @@
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button2.Location = new System.Drawing.Point(452, 290);
+            this.button2.Location = new System.Drawing.Point(12, 352);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(147, 35);
+            this.button2.Size = new System.Drawing.Size(195, 35);
             this.button2.TabIndex = 207;
             this.button2.Text = "Home";
             this.button2.UseVisualStyleBackColor = false;
@@ -98,9 +97,9 @@
             // dgSY
             // 
             this.dgSY.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgSY.Location = new System.Drawing.Point(6, 54);
+            this.dgSY.Location = new System.Drawing.Point(221, 60);
             this.dgSY.Name = "dgSY";
-            this.dgSY.Size = new System.Drawing.Size(401, 334);
+            this.dgSY.Size = new System.Drawing.Size(401, 327);
             this.dgSY.TabIndex = 208;
             this.dgSY.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
@@ -110,7 +109,7 @@
             this.textBox1.Enabled = false;
             this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox1.ForeColor = System.Drawing.Color.Black;
-            this.textBox1.Location = new System.Drawing.Point(547, 182);
+            this.textBox1.Location = new System.Drawing.Point(127, 89);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(80, 28);
@@ -124,7 +123,7 @@
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Black;
             this.label2.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label2.Location = new System.Drawing.Point(412, 149);
+            this.label2.Location = new System.Drawing.Point(67, 60);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(78, 16);
             this.label2.TabIndex = 211;
@@ -135,7 +134,7 @@
             this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox2.ForeColor = System.Drawing.Color.Black;
-            this.textBox2.Location = new System.Drawing.Point(427, 182);
+            this.textBox2.Location = new System.Drawing.Point(7, 89);
             this.textBox2.Multiline = true;
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(80, 28);
@@ -149,7 +148,7 @@
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.Black;
             this.label3.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label3.Location = new System.Drawing.Point(520, 189);
+            this.label3.Location = new System.Drawing.Point(100, 96);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(13, 16);
             this.label3.TabIndex = 213;
@@ -162,9 +161,9 @@
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button3.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button3.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button3.Location = new System.Drawing.Point(452, 249);
+            this.button3.Location = new System.Drawing.Point(12, 134);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(147, 35);
+            this.button3.Size = new System.Drawing.Size(195, 35);
             this.button3.TabIndex = 214;
             this.button3.Text = "Activate";
             this.button3.UseVisualStyleBackColor = false;
@@ -178,11 +177,12 @@
             this.txtUT.Enabled = false;
             this.txtUT.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtUT.ForeColor = System.Drawing.Color.Black;
-            this.txtUT.Location = new System.Drawing.Point(355, 9);
+            this.txtUT.Location = new System.Drawing.Point(392, 7);
             this.txtUT.Name = "txtUT";
             this.txtUT.Size = new System.Drawing.Size(120, 25);
             this.txtUT.TabIndex = 216;
             this.txtUT.Text = "User Type";
+            this.txtUT.Visible = false;
             // 
             // txtUN
             // 
@@ -193,11 +193,12 @@
             this.txtUN.Enabled = false;
             this.txtUN.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtUN.ForeColor = System.Drawing.Color.Black;
-            this.txtUN.Location = new System.Drawing.Point(112, 10);
+            this.txtUN.Location = new System.Drawing.Point(518, 7);
             this.txtUN.Name = "txtUN";
             this.txtUN.Size = new System.Drawing.Size(118, 25);
             this.txtUN.TabIndex = 215;
             this.txtUN.Text = "Username";
+            this.txtUN.Visible = false;
             // 
             // label4
             // 
@@ -208,30 +209,18 @@
             this.label4.Enabled = false;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.Black;
-            this.label4.Location = new System.Drawing.Point(231, 7);
+            this.label4.Location = new System.Drawing.Point(277, 7);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(118, 25);
             this.label4.TabIndex = 250;
             this.label4.Text = "Username";
-            // 
-            // txtSY
-            // 
-            this.txtSY.AutoSize = true;
-            this.txtSY.BackColor = System.Drawing.Color.Transparent;
-            this.txtSY.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSY.ForeColor = System.Drawing.Color.Black;
-            this.txtSY.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.txtSY.Location = new System.Drawing.Point(412, 86);
-            this.txtSY.Name = "txtSY";
-            this.txtSY.Size = new System.Drawing.Size(78, 16);
-            this.txtSY.TabIndex = 251;
-            this.txtSY.Text = "Input Year";
+            this.label4.Visible = false;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Lucida Sans Typewriter", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(413, 376);
+            this.label7.Location = new System.Drawing.Point(102, 20);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(47, 12);
             this.label7.TabIndex = 252;
@@ -248,9 +237,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(634, 400);
+            this.ClientSize = new System.Drawing.Size(634, 411);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.txtSY);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.txtUT);
             this.Controls.Add(this.txtUN);
@@ -266,6 +254,7 @@
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "SchoolYear";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "SchoolYear";
             this.Load += new System.EventHandler(this.SchoolYear_Load);
             this.panel4.ResumeLayout(false);
@@ -290,7 +279,6 @@
         private System.Windows.Forms.Label txtUT;
         public System.Windows.Forms.Label txtUN;
         public System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label txtSY;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Timer timer1;
     }

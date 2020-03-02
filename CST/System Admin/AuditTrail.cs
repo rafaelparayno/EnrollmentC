@@ -22,13 +22,7 @@ namespace CST
             InitializeComponent();
             timer1.Start();
             comboBox1.SelectedIndex = 0;
-            //txtUN.Text = MyLabelText;
-            //txtUT.Text = hi;
-
-            //globalVariables.myServer = globalVariables.IPv4_Address;
-            //globalVariables.myDatabase = "final_enroll";
-            //globalVariables.myUsername = "cst_db";
-            //globalVariables.myPassword = "Sohhrs6d2F1PBOQR";
+       
 
         }
 
@@ -59,33 +53,6 @@ namespace CST
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
 
-
-
-
-
-            //globalVariables.myConnection = "SERVER =" + globalVariables.myServer + ";" + "DATABASE =" + globalVariables.myDatabase + ";" + "UID =" + globalVariables.myUsername + ";" + "PASSWORD =" + globalVariables.myPassword + ";";
-            //gv.cn = new MySqlConnection(globalVariables.myConnection);
-            //gv.cn.Open();
-            //string s = string.Format("SELECT * FROM `audit_trail` WHERE Username LIKE '%{0}%'", textBox1.Text); 
-
-            // MySqlCommand cmd = new MySqlCommand(s,gv.cn);
-            //cmd.Parameters.AddWithValue("@username", textBox1.Text);
-            //     DataSet ds = new DataSet();
-            //    DataTable dt = new DataTable();
-            //    ds.Tables.Add(dt);
-            //    MySqlDataAdapter da = new MySqlDataAdapter(cmd);
-            //    da.Fill(dt);
-            //    dataGridView1.DataSource = dt.DefaultView;
-            //    gv.cn.Close();
-            
-
-            
-         
-        
-
-            //gv.cn.Close();
-
-            //
         }
 
         private void label7_Click(object sender, EventArgs e)

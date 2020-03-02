@@ -42,6 +42,11 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.lv_Backup = new System.Windows.Forms.ListView();
+            this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.btn_Refresh = new System.Windows.Forms.Button();
+            this.datePick_Logs = new System.Windows.Forms.DateTimePicker();
             this.panel4.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -52,7 +57,7 @@
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button2.Location = new System.Drawing.Point(234, 114);
+            this.button2.Location = new System.Drawing.Point(13, 461);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(147, 35);
             this.button2.TabIndex = 243;
@@ -97,7 +102,7 @@
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button1.Location = new System.Drawing.Point(71, 74);
+            this.button1.Location = new System.Drawing.Point(170, 461);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(147, 35);
             this.button1.TabIndex = 244;
@@ -109,10 +114,11 @@
             // 
             this.button3.BackColor = System.Drawing.Color.DarkSeaGreen;
             this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.button3.Enabled = false;
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button3.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button3.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button3.Location = new System.Drawing.Point(71, 114);
+            this.button3.Location = new System.Drawing.Point(327, 461);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(147, 35);
             this.button3.TabIndex = 245;
@@ -127,12 +133,13 @@
             this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button4.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button4.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button4.Location = new System.Drawing.Point(234, 74);
+            this.button4.Location = new System.Drawing.Point(484, 461);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(147, 35);
             this.button4.TabIndex = 246;
             this.button4.Text = "House Keeping";
             this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // txtUT
             // 
@@ -142,11 +149,12 @@
             this.txtUT.Enabled = false;
             this.txtUT.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtUT.ForeColor = System.Drawing.Color.Black;
-            this.txtUT.Location = new System.Drawing.Point(10, 137);
+            this.txtUT.Location = new System.Drawing.Point(531, 11);
             this.txtUT.Name = "txtUT";
             this.txtUT.Size = new System.Drawing.Size(120, 25);
             this.txtUT.TabIndex = 248;
             this.txtUT.Text = "User Type";
+            this.txtUT.Visible = false;
             this.txtUT.Click += new System.EventHandler(this.txtUT_Click);
             // 
             // txtUN
@@ -158,11 +166,12 @@
             this.txtUN.Enabled = false;
             this.txtUN.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtUN.ForeColor = System.Drawing.Color.Black;
-            this.txtUN.Location = new System.Drawing.Point(50, 98);
+            this.txtUN.Location = new System.Drawing.Point(515, 9);
             this.txtUN.Name = "txtUN";
             this.txtUN.Size = new System.Drawing.Size(118, 25);
             this.txtUN.TabIndex = 247;
             this.txtUN.Text = "Username";
+            this.txtUN.Visible = false;
             this.txtUN.Click += new System.EventHandler(this.txtUN_Click);
             // 
             // label2
@@ -174,11 +183,12 @@
             this.label2.Enabled = false;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(50, 59);
+            this.label2.Location = new System.Drawing.Point(533, 11);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(118, 25);
             this.label2.TabIndex = 249;
             this.label2.Text = "Username";
+            this.label2.Visible = false;
             // 
             // label7
             // 
@@ -186,7 +196,7 @@
             this.label7.BackColor = System.Drawing.Color.Transparent;
             this.label7.Font = new System.Drawing.Font("Lucida Sans Typewriter", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.Black;
-            this.label7.Location = new System.Drawing.Point(12, 196);
+            this.label7.Location = new System.Drawing.Point(184, 22);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(87, 15);
             this.label7.TabIndex = 250;
@@ -197,13 +207,78 @@
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // lv_Backup
+            // 
+            this.lv_Backup.Activation = System.Windows.Forms.ItemActivation.OneClick;
+            this.lv_Backup.BackColor = System.Drawing.Color.White;
+            this.lv_Backup.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader6,
+            this.columnHeader8});
+            this.lv_Backup.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lv_Backup.ForeColor = System.Drawing.Color.Gray;
+            this.lv_Backup.FullRowSelect = true;
+            this.lv_Backup.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
+            this.lv_Backup.HideSelection = false;
+            this.lv_Backup.LabelWrap = false;
+            this.lv_Backup.Location = new System.Drawing.Point(12, 82);
+            this.lv_Backup.Name = "lv_Backup";
+            this.lv_Backup.Size = new System.Drawing.Size(678, 369);
+            this.lv_Backup.TabIndex = 251;
+            this.lv_Backup.UseCompatibleStateImageBehavior = false;
+            this.lv_Backup.View = System.Windows.Forms.View.Details;
+            this.lv_Backup.Click += new System.EventHandler(this.lv_Backup_Click);
+            // 
+            // columnHeader6
+            // 
+            this.columnHeader6.Text = "Date";
+            this.columnHeader6.Width = 226;
+            // 
+            // columnHeader8
+            // 
+            this.columnHeader8.Text = "Time";
+            this.columnHeader8.Width = 716;
+            // 
+            // btn_Refresh
+            // 
+            this.btn_Refresh.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.btn_Refresh.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_Refresh.BackgroundImage")));
+            this.btn_Refresh.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_Refresh.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_Refresh.FlatAppearance.BorderSize = 0;
+            this.btn_Refresh.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.btn_Refresh.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.btn_Refresh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Refresh.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Refresh.ForeColor = System.Drawing.Color.White;
+            this.btn_Refresh.Location = new System.Drawing.Point(251, 51);
+            this.btn_Refresh.Name = "btn_Refresh";
+            this.btn_Refresh.Size = new System.Drawing.Size(44, 23);
+            this.btn_Refresh.TabIndex = 1046;
+            this.btn_Refresh.UseVisualStyleBackColor = false;
+            this.btn_Refresh.Click += new System.EventHandler(this.btn_Refresh_Click);
+            // 
+            // datePick_Logs
+            // 
+            this.datePick_Logs.CalendarForeColor = System.Drawing.Color.Gray;
+            this.datePick_Logs.CalendarTitleForeColor = System.Drawing.Color.Gray;
+            this.datePick_Logs.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.datePick_Logs.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.datePick_Logs.Location = new System.Drawing.Point(11, 51);
+            this.datePick_Logs.Name = "datePick_Logs";
+            this.datePick_Logs.Size = new System.Drawing.Size(234, 23);
+            this.datePick_Logs.TabIndex = 1045;
+            this.datePick_Logs.ValueChanged += new System.EventHandler(this.datePick_Logs_ValueChanged);
+            // 
             // BackupAndRestore
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(451, 220);
+            this.ClientSize = new System.Drawing.Size(701, 508);
+            this.Controls.Add(this.btn_Refresh);
+            this.Controls.Add(this.datePick_Logs);
+            this.Controls.Add(this.lv_Backup);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtUT);
@@ -240,5 +315,10 @@
         public System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Timer timer1;
+        public System.Windows.Forms.ListView lv_Backup;
+        private System.Windows.Forms.ColumnHeader columnHeader6;
+        private System.Windows.Forms.ColumnHeader columnHeader8;
+        public System.Windows.Forms.Button btn_Refresh;
+        public System.Windows.Forms.DateTimePicker datePick_Logs;
     }
 }
