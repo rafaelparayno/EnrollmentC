@@ -81,7 +81,7 @@ namespace CST.System_Admin
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            checkValidation();
+            bool valid = checkValidation();
             Random random = new Random();
             int value = random.Next(1000000);
             //   txtPassword.Text = value.ToString();
@@ -98,54 +98,61 @@ namespace CST.System_Admin
             //string newStrings = txtPassword.Text.Substring(0, 4);
             //txtUsername.Text = newString + txtLastname.Text + newStrings;
 
-
-            DialogResult form2 = MessageBox.Show("Do you really want to Save ?",
-                  "Exit", MessageBoxButtons.YesNo);
-
-            if (form2 == DialogResult.Yes)
+            if (valid)
             {
-                
-                //if (isEdited)
-                //{
-                    
-                //    userController.updateUser(textBox3.Text.Trim(), txtUsername.Text.Trim(), txtFirstname.Text.Trim(),
-                //                  txtLastname.Text.Trim(), txtMiddlename.Text.Trim(), cbUsertype.SelectedItem.ToString());
-                //    MessageBox.Show("Succesfully Updated");
-                //    auditTrail.addAudit(label7.Text, "Updated data User Accounts");
-                //    this.Hide();
-                //}
-                //else
-                //{
-                    
-                //    userController.addUser(userId, txtUsername.Text.Trim(), txtFirstname.Text.Trim(),
-                //                   txtLastname.Text.Trim(), txtMiddlename.Text.Trim(), cbUsertype.SelectedItem.ToString(),
-                //                   label7.Text);
-                //    MessageBox.Show("Succesfully Added");
-                //    auditTrail.addAudit(label7.Text, "Addded new User Accounts");
-                //    this.Hide();
 
-                //}
 
+                DialogResult form2 = MessageBox.Show("Do you really want to Save ?",
+                      "Exit", MessageBoxButtons.YesNo);
+
+                if (form2 == DialogResult.Yes)
+                {
+
+                    if (isEdited)
+                    {
+
+                        userController.updateUser(textBox3.Text.Trim(), txtUsername.Text.Trim(), txtFirstname.Text.Trim(),
+                                      txtLastname.Text.Trim(), txtMiddlename.Text.Trim(), cbUsertype.SelectedItem.ToString());
+                        MessageBox.Show("Succesfully Updated");
+                        auditTrail.addAudit(label7.Text, "Updated data User Accounts");
+                        this.Hide();
+                    }
+                    else
+                    {
+
+                        userController.addUser(userId, txtUsername.Text.Trim(), txtFirstname.Text.Trim(),
+                                       txtLastname.Text.Trim(), txtMiddlename.Text.Trim(), cbUsertype.SelectedItem.ToString(),
+                                       label7.Text);
+                        MessageBox.Show("Succesfully Added");
+                        auditTrail.addAudit(label7.Text, "Addded new User Accounts");
+                        this.Hide();
+
+                    }
+
+                }
             }
         }
 
         private bool checkValidation()
         {
             bool isValid = true;
-            if (txtFirstname.Text.Trim()== "") {
-                isValid = false;
-            }
+          
+            isValid = !(txtFirstname.Text.Trim() == "") && isValid;
 
-            if(txtLastname.Text.Trim() == "")
-            {
-                isValid = false;
-            }
+            isValid = !(txtLastname.Text.Trim() == "") && isValid;
+
+            isValid = !(txtUsername.Text.Trim() == "") && isValid;
+
+            isValid = cbUsertype.SelectedIndex > -1 && isValid;
+
 
             if (!isValid)
             {
-                MessageBox.Show("Please Complete required Data", "Validation", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
+                MessageBox.Show("Please Complete required Data", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
             }
+
+         
 
             return isValid;          
         }

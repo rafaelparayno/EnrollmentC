@@ -286,7 +286,7 @@ namespace CST
                 userController.deleteUser(userId);
                 auditTrail.addAudit(label7.Text, "Delete a User Account ");
                 userController.fillDataGridUser(ref dgUserAccounts);
-                
+                MessageBox.Show("Succesfully Remove Data");
 
             }
           
