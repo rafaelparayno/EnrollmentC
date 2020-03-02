@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CST.DbSettings.UserLog
+namespace CST.Models
 {
 	class UserLog
 	{

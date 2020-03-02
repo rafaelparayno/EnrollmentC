@@ -76,7 +76,7 @@ namespace CST
         private void button2_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Admin frm = new Admin(txtUN.Text, txtUT.Text);
+            Admin frm = new Admin();
             frm.Show();
         }
 

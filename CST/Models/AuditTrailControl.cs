@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using CST.DbSettings.UserLog;
+using CST.Models;
+using System.Windows.Forms;
 
 namespace CST.Models
 {
@@ -24,6 +25,22 @@ namespace CST.Models
 
 		}
 
-	 
+		public void fillDataGridAudit(ref DataGridView dg)
+		{
+			string sql = "SELECT * FROM audit_trail ORDER BY audit_id DESC";
+
+			cs.FillDataGrid(sql, ref dg);
+		}
+
+		public void searchGrid(string condition, string searchKeys, ref DataGridView dg)
+		{
+
+
+			string sql = String.Format(@"SELECT * FROM audit_trail WHERE {0} LIKE '%{1}%'", condition, searchKeys);
+
+			cs.FillDataGrid(sql, ref dg);
+		}
+
+
 	}
 }

@@ -8,111 +8,53 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
+using CST.Models;
 
 namespace CST
 {
     public partial class AuditTrail : Form
     {
         globalVariables gv = new globalVariables();
-        public AuditTrail(string MyLabelText, string hi)
-            
-           
+        AuditTrailControl auditTrailControl = new AuditTrailControl();
+        public AuditTrail(string MyLabelText, string hi)                 
         {
           
-
             InitializeComponent();
-            txtUN.Text = MyLabelText;
-            txtUT.Text = hi;
-           
-            globalVariables.myServer = globalVariables.IPv4_Address;
-            globalVariables.myDatabase = "final_enroll";
-            globalVariables.myUsername = "cst_db";
-            globalVariables.myPassword = "Sohhrs6d2F1PBOQR";
- 
+            timer1.Start();
+            comboBox1.SelectedIndex = 0;
+            //txtUN.Text = MyLabelText;
+            //txtUT.Text = hi;
+
+            //globalVariables.myServer = globalVariables.IPv4_Address;
+            //globalVariables.myDatabase = "final_enroll";
+            //globalVariables.myUsername = "cst_db";
+            //globalVariables.myPassword = "Sohhrs6d2F1PBOQR";
+
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void button2_Click(object sender, EventArgs e )
         { 
 
             this.Hide();
-            Admin frm = new Admin(txtUN.Text, txtUT.Text);
+            Admin frm = new Admin();
             frm.Show();
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
          
+
+
         }
 
         private void AuditTrail_Load(object sender, EventArgs e)
         {
-            globalVariables.myConnection = "SERVER =" + globalVariables.myServer + ";" + "DATABASE =" + globalVariables.myDatabase + ";" + "UID =" + globalVariables.myUsername + ";" + "PASSWORD =" + globalVariables.myPassword + ";";
-            gv.cn = new MySqlConnection(globalVariables.myConnection);
-
-            gv.cn.Open();
-            MySqlCommand command;
-            MySqlDataReader mdr;
-
-            string selectQuery = "  select * FROM school_year where sy_status='activate'";
 
 
-            command = new MySqlCommand(selectQuery, gv.cn);
-
-            mdr = command.ExecuteReader();
-            int count = 0;
-            string SY = string.Empty;
-            string sy_status = string.Empty;
-
-            while (mdr.Read())
-            {
-                count = count + 1;
-                SY = mdr["school_year"].ToString();
-                sy_status = mdr["sy_status"].ToString();
-
-            }
-
-            if (count == 1)
-            {
-
-                if (sy_status == "activate")
-                {       //show admin windows
-
-                    label2.Text = SY;
-
-                }
-            }
-            gv.cn.Close();
-            txtUN.Hide();
-            txtUT.Hide();
-            label2.Hide();
-            DateTime my = DateTimeOffset.Now.DateTime.ToLocalTime().ToUniversalTime();
+            auditTrailControl.fillDataGridAudit(ref dataGridView1);
 
 
-            DateTime mys = DateTimeOffset.Now.UtcDateTime.ToLocalTime();
-
-            Console.WriteLine(mys);
-
-            label7.Text = my.ToString("MM/dd/yyyy  hh:mm:ss tt");
-
-            timer1.Enabled = true;
-
-            MySqlCommand cmd = new MySqlCommand();
-            globalVariables.myConnection = "SERVER =" + globalVariables.myServer + ";" + "DATABASE =" + globalVariables.myDatabase + ";" + "UID =" + globalVariables.myUsername + ";" + "PASSWORD =" + globalVariables.myPassword + ";";
-            gv.cn = new MySqlConnection(globalVariables.myConnection);
-             gv.cn.Open();
-            MySqlDataAdapter sqldae = new MySqlDataAdapter("SELECT * FROM `audit_trail` ORDER BY `audit_trail`.`audit_id` DESC", gv.cn);
-            DataTable dtble = new DataTable();
-            sqldae.Fill(dtble);
-
-            dataGridView1.DataSource = dtble;
-            dataGridView1.DisplayedRowCount(true);
-
-
-            
-
-
-            }
+        }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
@@ -121,27 +63,27 @@ namespace CST
 
 
 
-            globalVariables.myConnection = "SERVER =" + globalVariables.myServer + ";" + "DATABASE =" + globalVariables.myDatabase + ";" + "UID =" + globalVariables.myUsername + ";" + "PASSWORD =" + globalVariables.myPassword + ";";
-            gv.cn = new MySqlConnection(globalVariables.myConnection);
-            gv.cn.Open();
-            string s = string.Format("SELECT * FROM `audit_trail` WHERE Username LIKE '%{0}%'", textBox1.Text); 
+            //globalVariables.myConnection = "SERVER =" + globalVariables.myServer + ";" + "DATABASE =" + globalVariables.myDatabase + ";" + "UID =" + globalVariables.myUsername + ";" + "PASSWORD =" + globalVariables.myPassword + ";";
+            //gv.cn = new MySqlConnection(globalVariables.myConnection);
+            //gv.cn.Open();
+            //string s = string.Format("SELECT * FROM `audit_trail` WHERE Username LIKE '%{0}%'", textBox1.Text); 
 
-             MySqlCommand cmd = new MySqlCommand(s,gv.cn);
-            cmd.Parameters.AddWithValue("@username", textBox1.Text);
-                 DataSet ds = new DataSet();
-                DataTable dt = new DataTable();
-                ds.Tables.Add(dt);
-                MySqlDataAdapter da = new MySqlDataAdapter(cmd);
-                da.Fill(dt);
-                dataGridView1.DataSource = dt.DefaultView;
-                gv.cn.Close();
+            // MySqlCommand cmd = new MySqlCommand(s,gv.cn);
+            //cmd.Parameters.AddWithValue("@username", textBox1.Text);
+            //     DataSet ds = new DataSet();
+            //    DataTable dt = new DataTable();
+            //    ds.Tables.Add(dt);
+            //    MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+            //    da.Fill(dt);
+            //    dataGridView1.DataSource = dt.DefaultView;
+            //    gv.cn.Close();
             
 
             
          
         
 
-            gv.cn.Close();
+            //gv.cn.Close();
 
             //
         }
@@ -165,6 +107,30 @@ namespace CST
             timer1.Enabled = true;
         }
 
-       
+        private void textBox1_TextChanged_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            if (textBox1.Text.Trim() == "")
+            {
+                auditTrailControl.fillDataGridAudit(ref dataGridView1);
+            }
+            else
+            {
+                string condition = "";
+                if (comboBox1.SelectedItem.ToString() == "Date")
+                {
+                    condition = "date_time";
+                }
+                else
+                {
+                    condition = comboBox1.SelectedItem.ToString();
+                }
+                auditTrailControl.searchGrid(condition, textBox1.Text.Trim(), ref dataGridView1);
+            }
+        }
     }
 }

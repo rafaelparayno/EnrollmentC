@@ -19,13 +19,13 @@ namespace CST
         globalVariables gv = new globalVariables();
         UserController userController = new UserController();
         AuditTrailControl auditTrail = new AuditTrailControl();
-        bool isEdited = false;
+      
         public UserAccount(string MyLabelText, string hi)
         {
             InitializeComponent();
             txtUN.Text = MyLabelText;
             txtUT.Text = hi;
-           
+            comboBox1.SelectedIndex = 0;
             //globalVariables.myServer = globalVariables.IPv4_Address;
             //globalVariables.myDatabase = "final_enroll";
             //globalVariables.myUsername = "cst_db";
@@ -50,68 +50,7 @@ namespace CST
 
 
             userController.fillDataGridUser(ref dgUserAccounts);
-            //globalVariables.myConnection = "SERVER =" + globalVariables.myServer + ";" + "DATABASE =" + globalVariables.myDatabase + ";" + "UID =" + globalVariables.myUsername + ";" + "PASSWORD =" + globalVariables.myPassword + ";";
-            //gv.cn = new MySqlConnection(globalVariables.myConnection);
-
-            //gv.cn.Open();
-            //MySqlCommand command;
-            //MySqlDataReader mdr;
-
-            //string selectQuery = "  select * FROM school_year where sy_status='activate'";
-
-
-            //command = new MySqlCommand(selectQuery, gv.cn);
-
-            //mdr = command.ExecuteReader();
-            //int count = 0;
-            //string SY = string.Empty;
-            //string sy_status = string.Empty;
-
-            //while (mdr.Read())
-            //{
-            //    count = count + 1;
-            //    SY = mdr["school_year"].ToString();
-            //    sy_status = mdr["sy_status"].ToString();
-
-            //}
-
-            //if (count == 1)
-            //{
-
-            //    if (sy_status == "activate")
-            //    {       //show admin windows
-
-            //        label8.Text = SY;
-
-            //    }
-            //}
-            //gv.cn.Close(); txtUN.Hide();
-            //gbResetPass.Hide();
-
-            //gbTeachForm.Hide();
-            //txtUT.Hide();
-            //label8.Hide();
-            //MySqlCommand cmd = new MySqlCommand();
-
-            //globalVariables.myConnection = "SERVER =" + globalVariables.myServer + ";" + "DATABASE =" + globalVariables.myDatabase + ";" + "UID =" + globalVariables.myUsername + ";" + "PASSWORD =" + globalVariables.myPassword + ";";
-            //gv.cn = new MySqlConnection(globalVariables.myConnection);
-
-            //MySqlDataAdapter sqlda = new MySqlDataAdapter("SELECT * FROM `useraccounts` ", gv.cn);
-            //DataTable dtbl = new DataTable();
-            //sqlda.Fill(dtbl);
-
-            //dgUserAccounts.DataSource = dtbl;
-            //dgUserAccounts.DisplayedRowCount(true);
-            //DateTime my = DateTimeOffset.Now.DateTime.ToLocalTime().ToUniversalTime();
-
-
-            //DateTime mys = DateTimeOffset.Now.UtcDateTime.ToLocalTime();
-
-            //Console.WriteLine(mys);
-
-            //label7.Text = my.ToString("MM/dd/yyyy  hh:mm:ss tt");
-
-            //timer1.Enabled = true;
+           
         }
         
         private void btnResetPass_Click(object sender, EventArgs e)
@@ -149,7 +88,7 @@ namespace CST
         private void button1_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Admin frm = new Admin(txtUN.Text,txtUT.Text);
+            Admin frm = new Admin();
             frm.Show();
         }
 
@@ -326,124 +265,6 @@ namespace CST
                 
             }
 
-            //if (form2 == DialogResult.Yes)
-            //{
-            //    MySqlCommand cmd = new MySqlCommand();
-
-            //    MySqlDataAdapter da = new MySqlDataAdapter();
-
-            //    globalVariables.myConnection = "SERVER =" + globalVariables.myServer + ";" + "DATABASE =" + globalVariables.myDatabase + ";" + "UID =" + globalVariables.myUsername + ";" + "PASSWORD =" + globalVariables.myPassword + ";";
-            //    gv.cn = new MySqlConnection(globalVariables.myConnection);
-            //    gv.cn.Open();
-            //    cmd = new MySqlCommand("Insert into useraccounts(acc_id,Username,Firstname,Middlename,Lastname,role,Password,create_at,status) VALUES(@ID,@Username,@Firstname,@Middlename,@Lastname,@role,@Password,@create_at,'offline')", gv.cn);
-
-            //    string m = "offfline";
-            //    cmd.Parameters.AddWithValue("@status", m);
-            //    cmd.Parameters.AddWithValue("@ID", textBox3.Text);
-            //    cmd.Parameters.AddWithValue("@Username", txtUsername.Text);
-            //    cmd.Parameters.AddWithValue("@Firstname", txtFirstname.Text);
-            //    cmd.Parameters.AddWithValue("@Lastname", txtLastname.Text);
-            //    cmd.Parameters.AddWithValue("@Middlename", txtMiddlename.Text);
-            //    cmd.Parameters.AddWithValue("@role", cbUsertype.SelectedItem.ToString());
-            //    cmd.Parameters.AddWithValue("@Password", txtPassword.Text);
-            //    cmd.Parameters.AddWithValue("@create_at", label7.Text);
-
-            //    cmd.ExecuteNonQuery();
-            //    txtuname.Text = txtUsername.Text;
-            //    MessageBox.Show("Add New User Success");
-
-            //    globalVariables.myConnection = "SERVER =" + globalVariables.myServer + ";" + "DATABASE =" + globalVariables.myDatabase + ";" + "UID =" + globalVariables.myUsername + ";" + "PASSWORD =" + globalVariables.myPassword + ";";
-            //    gv.cn = new MySqlConnection(globalVariables.myConnection);
-            //    MySqlCommand command;
-            //    MySqlDataReader mdr;
-
-            //    gv.cn.
-            //    string selectQuery = "SELECT * FROM useraccounts  WHERE  Binary Username = '" + txtUN.Text + "';";
-            //    command = new MySqlCommand(selectQuery, gv.cn);
-
-            //    mdr = command.ExecuteReader();
-            //    int count = 0;
-            //    string userRole = string.Empty;
-            //    string name = string.Empty;
-            //    string last = string.Empty;
-            //    string user = string.Empty;
-
-            //    while (mdr.Read())
-            //    {
-            //        count = count + 1;
-            //        userRole = mdr["Role"].ToString();
-            //        name = mdr["firstname"].ToString();
-            //        last = mdr["lastname"].ToString();
-
-            //        user = mdr["username"].ToString();
-
-            //    }
-
-            //    if (count == 1)
-            //    {
-
-            //        if (txtUN.Text == user)
-            //        {
-
-            //            gv.cn.Close();
-            //            gv.cn.Open();
-            //            string g = "User successfully added " + txtuname.Text;
-            //            string usr = name + " " + last;
-
-            //            command = new MySqlCommand("INSERT INTO `audit_trail`( `Username`, `Date_Time`, `Action`, `User_type`,`User`) VALUES (@Username,@Date_Time,@Action,@User_type,@user)", gv.cn);
-            //            command.Parameters.AddWithValue("@Username", user);
-            //            command.Parameters.AddWithValue("@Action", g);
-            //            command.Parameters.AddWithValue("@Date_Time", label7.Text);
-            //            command.Parameters.AddWithValue("@user_type", userRole);
-            //            command.Parameters.AddWithValue("@user", usr);
-
-
-            //            command.ExecuteNonQuery();
-
-            //            MySqlDataAdapter sqlda = new MySqlDataAdapter("SELECT * FROM `useraccounts` ORDER BY `Firstname` ASC", gv.cn);
-            //            DataTable dtbl = new DataTable();
-            //            sqlda.Fill(dtbl);
-
-            //            dgUserAccounts.DataSource = dtbl;
-            //            dgUserAccounts.DisplayedRowCount(true);
-
-            //        }
-            //    }
-            //    gv.cn.Close();
-
-
-
-            //    MessageBox.Show("New Password Success");
-            //    gbResetPass.Hide();
-
-
-
-
-            //    gbUserForm.Show();
-            //    btnRemove.Show();
-            //    btnResetPass.Show();
-            //    btnSave.Show();
-
-            //    foreach (Control c in gbUserForm.Controls)
-            //    {
-            //        if (c is TextBox)
-            //        {
-            //            c.Text = "";
-            //        }
-            //    }
-
-            //    txtFirstname.Enabled = true;
-            //    txtLastname.Enabled = true;
-            //    txtMiddlename.Enabled = true;
-            //    txtUsername.Enabled = true;
-            //    txtPassword.Enabled = true;
-            //    cbUsertype.Enabled = true;
-            //    btnSave.Enabled = true;
-            //    btnRemove.Enabled = false;
-
-            //    gv.cn.Close();
-            //}
-            //return;
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -777,7 +598,7 @@ namespace CST
             else
             {
                 string condition = "";
-                if(comboBox1.SelectedItem.ToString() == "ID")
+                if (comboBox1.SelectedItem.ToString() == "ID")
                 {
                     condition = "acc_id";
                 }
@@ -787,6 +608,11 @@ namespace CST
                 }
                 userController.searchGrid(condition, textBox1.Text.Trim(),ref dgUserAccounts);
             }
+        }
+
+        private void textBox1_TextChanged_1(object sender, EventArgs e)
+        {
+
         }
     }
 }

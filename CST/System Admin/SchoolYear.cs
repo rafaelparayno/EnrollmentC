@@ -326,7 +326,7 @@ namespace CST
 
         {
             this.Hide();
-            Admin frm = new Admin(txtUN.Text, txtUT.Text);
+            Admin frm = new Admin();
             frm.Show();
 
         }

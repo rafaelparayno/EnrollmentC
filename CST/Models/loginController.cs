@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
-using CST.DbSettings.UserLog;
+using CST.Models;
 
 namespace CST.Models
 {

@@ -8,23 +8,23 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
-
+using CST.Models;
 
 namespace CST {  
     public partial class Admin : Form
 
     {
         
-        globalVariables gv = new globalVariables();
-        public Admin(string MyLabelText,string hi)
+       
+        public Admin()
 
         {
             InitializeComponent();
 
-            //this.label5.Text = MyLabelText;
-            //this.label1.Text = hi;
-            
-         
+            this.label5.Text = UserLog.getUserName();
+            this.label1.Text = UserLog.getRole();
+
+
             //globalVariables.myServer = globalVariables.IPv4_Address;
             //globalVariables.myDatabase = "final_enroll";
             //globalVariables.myUsername = "cst_db";

@@ -10,8 +10,7 @@ using System.Timers;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using CST.Models;
-using CST.DbSettings;
-using CST.DbSettings.UserLog;
+
 
 namespace CST
 {
@@ -184,7 +183,7 @@ namespace CST
 
                     if (role == "System Admin")
                     {
-                        Admin frm = new Admin(UserLog.getUserName(), role);
+                        Admin frm = new Admin();
                         frm.Show();
                         this.Hide();
                     }
