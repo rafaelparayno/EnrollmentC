@@ -79,7 +79,7 @@
     <Compile Include="csBackupAndRestore.cs" />
     <Compile Include="DbSettings\dbConfigFile.cs" />
     <Compile Include="DbSettings\dbConnection.cs" />
-    <Compile Include="Models\SchoolYear\SchoolYear.cs" />
+    <Compile Include="Models\SchoolYear\SchoolYearModel.cs" />
     <Compile Include="Models\UserController.cs" />
     <Compile Include="Models\UserLog\UserLog.cs" />
     <Compile Include="Enrollment Admin\AddMiscellaneousFee.cs">
@@ -175,6 +175,7 @@
     </Compile>
     <Compile Include="Models\AuditTrailControl.cs" />
     <Compile Include="Models\loginController.cs" />
+    <Compile Include="Models\YearController.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

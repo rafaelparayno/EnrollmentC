@@ -46,7 +46,7 @@ namespace CST
                 file.WriteLine(lines);
                 file.Close();
                 this.Close();
-                Login l = new Login("", "");
+                Login l = new Login();
                 l.Show();
                
             }
@@ -81,7 +81,7 @@ namespace CST
         private void btnLogin_Click(object sender, EventArgs e)
         {
             this.Close();
-            Login l = new Login("", "");
+            Login l = new Login();
             l.Show();
         }
     }

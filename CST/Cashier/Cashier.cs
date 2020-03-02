@@ -102,7 +102,7 @@ namespace CST
                         gv.cn.Close();
 
                         this.Hide();
-                        Login ne2 = new Login(label5.Text, label1.Text);
+                        Login ne2 = new Login();
                         ne2.ShowDialog();
 
                         return;

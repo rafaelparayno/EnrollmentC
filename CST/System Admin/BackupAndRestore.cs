@@ -9,19 +9,21 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
+using CST.Models;
 
 namespace CST
 {
     public partial class BackupAndRestore : Form
     {
-        globalVariables gv = new globalVariables();
+            
      
         private string dateClicked = string.Empty;
         private string timeClicked = string.Empty;
+        AuditTrailControl auditTrailControl = new AuditTrailControl();
         public BackupAndRestore()
         {
             InitializeComponent();
-            
+            timer1.Start();
 
         }
 
@@ -36,15 +38,28 @@ namespace CST
             {
                 csBackupAndRestore.DoBackup();
                 MessageBox.Show("Back Up Data Success");
+
+
+                auditTrailControl.addAudit(label7.Text, "Backup a Data from" + dateClicked + " " + timeClicked);
                 reloadBackup();
             }
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            csBackupAndRestore.DoRestore(dateClicked, timeClicked);
-            MessageBox.Show("Recover Data Success");
-            reloadBackup();
+            if(dateClicked!= "" && timeClicked != "")
+            {
+                csBackupAndRestore.DoRestore(dateClicked, timeClicked);
+                MessageBox.Show("Recover Data Success");
+                reloadBackup();
+
+                auditTrailControl.addAudit(label7.Text, "Recover Data From " + dateClicked + " " + timeClicked);
+            }
+            else
+            {
+                MessageBox.Show("Please Choose Date to recover","Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
+            }
+          
         }
 
         private void button2_Click(object sender, EventArgs e)

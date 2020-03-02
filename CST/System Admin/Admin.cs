@@ -9,13 +9,14 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using CST.Models;
+using CST.Models.SchoolYear;
 
 namespace CST {  
     public partial class Admin : Form
 
     {
-        
-       
+
+        AuditTrailControl auditTrailControl = new AuditTrailControl();
         public Admin()
 
         {
@@ -23,12 +24,7 @@ namespace CST {
 
             this.label5.Text = UserLog.getUserName();
             this.label1.Text = UserLog.getRole();
-
-
-            //globalVariables.myServer = globalVariables.IPv4_Address;
-            //globalVariables.myDatabase = "final_enroll";
-            //globalVariables.myUsername = "cst_db";
-            //globalVariables.myPassword = "Sohhrs6d2F1PBOQR";
+            this.label6.Text = SchoolYearModel.getSchoolYear();
 
         }
 
@@ -57,81 +53,11 @@ namespace CST {
             if (form1 == DialogResult.Yes)
             {
 
-            //    globalVariables.myConnection = "SERVER =" + globalVariables.myServer + ";" + "DATABASE =" + globalVariables.myDatabase + ";" + "UID =" + globalVariables.myUsername + ";" + "PASSWORD =" + globalVariables.myPassword + ";";
-            //    gv.cn = new MySqlConnection(globalVariables.myConnection);
+                auditTrailControl.addAudit(label7.Text, UserLog.getUserName() + "Has Logged-out");
 
-            //    MySqlCommand command;
-            //    MySqlDataReader mdr;
-            //    gv.cn.Open();
-
-            //    string selectQuery = "SELECT * FROM useraccounts WHERE Username = '" + label5.Text +  "';";
-            //    command = new MySqlCommand(selectQuery,gv.cn);
-
-
-            //    mdr = command.ExecuteReader();
-            //    int count = 0;
-            //    string userRole = string.Empty;
-            //    string name = string.Empty;
-            //    string last = string.Empty;
-            //    string user = string.Empty;
-
-            //    while (mdr.Read())
-            //    {
-            //        count = count + 1;
-            //        userRole = mdr["Role"].ToString();
-            //        name = mdr["firstname"].ToString();
-            //        last = mdr["lastname"].ToString();
-
-            //        user = mdr["username"].ToString();
-
-            //    }
-
-            //    if (count == 1)
-            //    {
-
-            //        if (user == label5.Text)
-            //        {       //show admin wiNDOWS 
-                        
-                           
-            //            gv.cn.Close();
-            //            gv.cn.Open();
-
-            //            string g = "User has been Logout";
-            //            string usr = name + " " + last;
-            //            gv.cn.Close();
-            //            gv.cn.Open();
-            //            command = new MySqlCommand("INSERT INTO `audit_trail`( `Username`, `Date_Time`, `Action`, `User_type`,`User`) VALUES (@Username,@Date_Time,@Action,@User_type,@user)", gv.cn);
-            //            command.Parameters.AddWithValue("@Username", user);
-            //            command.Parameters.AddWithValue("@Action", g);
-            //            command.Parameters.AddWithValue("@Date_Time", label7.Text);
-            //            command.Parameters.AddWithValue("@user_type", userRole);
-            //            command.Parameters.AddWithValue("@user", usr);
-
-
-            //            command.ExecuteNonQuery();
-            //            gv.cn.Close();
-            //            gv.cn.Open();
-            //                       string m = "Offline";
-            //            MySqlCommand cmd = gv.cn.CreateCommand();
-
-            //            cmd.CommandType = CommandType.Text;
-            //            cmd.CommandText = "UPDATE useraccounts  set STATUS= '" + m + "'where username='" + label5.Text + "'";
-            //            cmd.ExecuteNonQuery();
-            //            gv.cn.Close();
- 
-            //            this.Hide();
-            //                Login ne2 = new Login(label5.Text,label1.Text);
-                      
-            //                ne2.ShowDialog();
-                        
-            //            return;
-  
-
-            //        }
-            //    }
-            //    gv.cn.Close();
-
-
+                Login f = new Login();
+                f.Show();
+                this.Hide();
                 
             }
 
@@ -177,6 +103,7 @@ namespace CST {
 
         private void Admin_Load(object sender, EventArgs e)
         {
+            timer1.Start();
             //globalVariables.myConnection = "SERVER =" + globalVariables.myServer + ";" + "DATABASE =" + globalVariables.myDatabase + ";" + "UID =" + globalVariables.myUsername + ";" + "PASSWORD =" + globalVariables.myPassword + ";";
             //gv.cn = new MySqlConnection(globalVariables.myConnection);
 

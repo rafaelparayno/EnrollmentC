@@ -200,6 +200,7 @@
             this.label6.Size = new System.Drawing.Size(43, 20);
             this.label6.TabIndex = 167;
             this.label6.Text = "S.Y.";
+            this.label6.Visible = false;
             this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
             // btnLogin
