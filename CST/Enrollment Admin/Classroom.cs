@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Timers;
 using System.Windows.Forms;
+using CST.Enrollment_Admin.AddUpdateDiags;
+using CST.Models;
 using MySql.Data.MySqlClient;
 
 
@@ -15,46 +17,23 @@ namespace CST
 {
     public partial class Classroom : Form
     {
-        globalVariables gv = new globalVariables();
-        public Classroom(string a, string b, string c)
+
+        YearController yr = new YearController();
+        RoomController rm = new RoomController();
+        private int syid = 0;
+        public Classroom()
         {
             InitializeComponent();
-            this.label4.Text = a;
-            this.label3.Text = b;
-            this.label5.Text = c;
-            globalVariables.myServer = globalVariables.IPv4_Address;
-            globalVariables.myDatabase = "final_enroll";
-            globalVariables.myUsername = "cst_db";
-            globalVariables.myPassword = "Sohhrs6d2F1PBOQR";
+        
         }
 
         private void Classroom_Load(object sender, EventArgs e)
         {
-            label3.Hide();
-            label5.Hide();
-            label4.Hide();
-            label7.Hide();
-            globalVariables.myConnection = "SERVER =" + globalVariables.myServer + ";" + "DATABASE =" + globalVariables.myDatabase + ";" + "UID =" + globalVariables.myUsername + ";" + "PASSWORD =" + globalVariables.myPassword + ";";
-            gv.cn = new MySqlConnection(globalVariables.myConnection);
-            gv.cn.Open();
+            timer1.Start();
+            label5.Text = yr.getSyActivated();
+            syid = yr.getSchoolYearId();
 
-            MySqlDataAdapter sqlda = new MySqlDataAdapter("SELECT * FROM `sections` ", gv.cn);
-            DataTable dtbl = new DataTable();
-            sqlda.Fill(dtbl);
-
-            dataGridView1.DataSource = dtbl;
-            dataGridView1.DisplayedRowCount(true);
-            gv.cn.Close();
-            DateTime my = DateTimeOffset.Now.DateTime.ToLocalTime().ToUniversalTime();
-
-
-            DateTime mys = DateTimeOffset.Now.UtcDateTime.ToLocalTime();
-
-            Console.WriteLine(mys);
-
-            label7.Text = my.ToString("MM/dd/yyyy  hh:mm:ss tt");
-
-            timer1.Enabled = true;
+            refreshGrid();
         }
 
         private void label22_Click(object sender, EventArgs e)
@@ -73,11 +52,6 @@ namespace CST
         }
 
         private void txtCapacity_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }
@@ -128,6 +102,39 @@ namespace CST
         private void button1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            AddUpdateRoom frm = new AddUpdateRoom();
+            frm.ShowDialog();
+            refreshGrid();
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+
+            DialogResult form1 = MessageBox.Show("Do you really want to Remove?",
+                   "Exit", MessageBoxButtons.YesNo);
+
+
+            if (form1 == DialogResult.Yes)
+            {
+                rm.removeRoom(int.Parse(dataGridView1.SelectedRows[0].Cells[0].Value.ToString()));
+                MessageBox.Show("Succesfully Remove Room");
+                refreshGrid();
+            }
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void refreshGrid()
+        {
+            rm.fillDataGridRoom(ref dataGridView1, syid);
         }
     }
 }

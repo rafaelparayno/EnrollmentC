@@ -92,14 +92,20 @@
     <Compile Include="Enrollment Admin\AddUpdateDiags\addUpdateRequirements.Designer.cs">
       <DependentUpon>addUpdateRequirements.cs</DependentUpon>
     </Compile>
+    <Compile Include="Enrollment Admin\AddUpdateDiags\AddUpdateRoom.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Enrollment Admin\AddUpdateDiags\AddUpdateRoom.Designer.cs">
+      <DependentUpon>AddUpdateRoom.cs</DependentUpon>
+    </Compile>
     <Compile Include="Enrollment Admin\AddUpdateDiags\AddUpdateSubject.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Enrollment Admin\AddUpdateDiags\AddUpdateSubject.Designer.cs">
       <DependentUpon>AddUpdateSubject.cs</DependentUpon>
     </Compile>
-    <Compile Include="Enrollment Admin\AddUpdateDiags\SubjctController.cs" />
     <Compile Include="Models\GradeLevelController.cs" />
+    <Compile Include="Models\RoomController.cs" />
     <Compile Include="Models\SchoolRequirementsController.cs" />
     <Compile Include="Models\SchoolYear\SchoolYearModel.cs" />
     <Compile Include="Models\SectionController.cs" />
@@ -386,6 +392,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Enrollment Admin\AddUpdateDiags\addUpdateRequirements.resx">
       <DependentUpon>addUpdateRequirements.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Enrollment Admin\AddUpdateDiags\AddUpdateRoom.resx">
+      <DependentUpon>AddUpdateRoom.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Enrollment Admin\AddUpdateDiags\AddUpdateSubject.resx">
       <DependentUpon>AddUpdateSubject.cs</DependentUpon>

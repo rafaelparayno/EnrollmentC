@@ -218,3 +218,4 @@ C:\Users\Xorn\Desktop\C#\versionRaf\EnrollmentC\CST\bin\Debug\Renci.SshNet.xml
 C:\Users\Xorn\Desktop\C#\versionRaf\EnrollmentC\CST\obj\Debug\CST.Enrollment_Admin.AddUpdateDiags.AddUpdateGrade.resources
 C:\Users\Xorn\Desktop\C#\versionRaf\EnrollmentC\CST\obj\Debug\CST.Enrollment_Admin.AddUpdateDiags.AddUpdateSubject.resources
 C:\Users\Xorn\Desktop\C#\versionRaf\EnrollmentC\CST\obj\Debug\CST.Enrollment_Admin.AddUpdateDiags.addUpdateRequirements.resources
+C:\Users\Xorn\Desktop\C#\versionRaf\EnrollmentC\CST\obj\Debug\CST.Enrollment_Admin.AddUpdateDiags.AddUpdateRoom.resources

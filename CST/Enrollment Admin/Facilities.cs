@@ -62,7 +62,7 @@ namespace CST
         private void button4_Click_1(object sender, EventArgs e)
         {
             this.Hide();
-            Classroom fr3 = new Classroom(label3.Text, label2.Text, label4.Text);
+            Classroom fr3 = new Classroom();
             fr3.ShowDialog();
             return;
         }
