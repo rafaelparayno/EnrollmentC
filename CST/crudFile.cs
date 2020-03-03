@@ -63,22 +63,7 @@ namespace CST
             }
             cn.Close();
         }
-        public void ExecuteAudit(string audittrail)
-        {
-            try
-            {
-                cn.Open();
-                cmd = new MySqlCommand(audittrail, cn);
-                cmd.ExecuteNonQuery();
-                cn.Close();
-            }
-            catch (Exception e)
-            {
-                MessageBox.Show("" + e.Message);
-            }
-            cn.Close();
-        }
-
+     
 
         public MySqlDataReader RetrieveRecords(string sql, ref MySqlDataReader reader)
         {

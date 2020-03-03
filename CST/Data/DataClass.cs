@@ -28,5 +28,11 @@
                                             grade_level[12]};
             return secondarySchoolArgs;
         }
+
+        public static string[] getAllGrade()
+        {
+            string[] gradeAll = grade_level;
+            return gradeAll;
+        }
     }
 }

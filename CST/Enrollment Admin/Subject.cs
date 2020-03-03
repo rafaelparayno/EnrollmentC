@@ -8,51 +8,27 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Timers;
 using System.Windows.Forms;
+using CST.Models;
 using MySql.Data.MySqlClient;
+using CST.Enrollment_Admin.AddUpdateDiags;
 
 namespace CST
 {
     public partial class Subject : Form
     {
-        globalVariables gv = new globalVariables();
+
+        SubjectController SubjectController = new SubjectController();
+        YearController YearController = new YearController();
         public Subject(string a, string b, string c)
         {
             InitializeComponent();
-            this.label4.Text = a;
-            this.label3.Text = b;
-            this.label5.Text = c;
-            globalVariables.myServer = globalVariables.IPv4_Address;
-            globalVariables.myDatabase = "final_enroll";
-            globalVariables.myUsername = "cst_db";
-            globalVariables.myPassword = "Sohhrs6d2F1PBOQR";
+            timer1.Start();
+            label5.Text = YearController.getSyActivated();
         }
 
         private void Subject_Load(object sender, EventArgs e)
         {
-            label3.Hide();
-            label5.Hide();
-            label4.Hide();
-            label7.Hide();
-            globalVariables.myConnection = "SERVER =" + globalVariables.myServer + ";" + "DATABASE =" + globalVariables.myDatabase + ";" + "UID =" + globalVariables.myUsername + ";" + "PASSWORD =" + globalVariables.myPassword + ";";
-            gv.cn = new MySqlConnection(globalVariables.myConnection);
-            gv.cn.Open();
-
-            MySqlDataAdapter sqlda = new MySqlDataAdapter("SELECT * FROM `subjects` ", gv.cn);
-            DataTable dtbl = new DataTable();
-            sqlda.Fill(dtbl);
-
-            dataGridView1.DataSource = dtbl;
-            dataGridView1.DisplayedRowCount(true);
-            gv.cn.Close();
-            DateTime my = DateTimeOffset.Now.DateTime.ToLocalTime().ToUniversalTime();
-
-            DateTime mys = DateTimeOffset.Now.UtcDateTime.ToLocalTime();
-
-            Console.WriteLine(mys);
-
-            label7.Text = my.ToString("MM/dd/yyyy  hh:mm:ss tt");
-
-            timer1.Enabled = true;
+            refreshGrid();
         }
 
         private void button5_Click(object sender, EventArgs e)
@@ -85,6 +61,44 @@ namespace CST
             Facilities fr3 = new Facilities();
             fr3.ShowDialog();
             return;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            AddUpdateSubject frm = new AddUpdateSubject();
+            frm.ShowDialog();
+            refreshGrid();
+        }
+
+        private void refreshGrid()
+        {
+            SubjectController.fillDataGridSub(ref dataGridView1);
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            AddUpdateSubject frm = new AddUpdateSubject(dataGridView1.SelectedRows[0].Cells[1].Value.ToString(),
+                                                        dataGridView1.SelectedRows[0].Cells[2].Value.ToString(),
+                                                        int.Parse(dataGridView1.SelectedRows[0].Cells[0].Value.ToString()));
+            frm.ShowDialog();
+            refreshGrid();
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            
+            DialogResult form1 = MessageBox.Show("Do you really want to Remove?",
+                   "Exit", MessageBoxButtons.YesNo);
+
+
+            if (form1 == DialogResult.Yes)
+            {
+                SubjectController.removeSubjects(int.Parse(dataGridView1.SelectedRows[0].Cells[0].Value.ToString()));
+
+                MessageBox.Show("Succesfully Remove Selected Subject");
+                refreshGrid();
+            }
         }
     }
 }

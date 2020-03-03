@@ -8,51 +8,28 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Timers;
 using System.Windows.Forms;
+using CST.Models;
+using CST.Models.SchoolYear;
 using MySql.Data.MySqlClient;
 
 namespace CST
 {
     public partial class Section : Form
     {
-        globalVariables gv = new globalVariables();
-        public Section(string a, string b, string c)
+
+        SectionController sectionController = new SectionController();
+        public Section()
         {
             InitializeComponent();
-            this.label4.Text = a;
-            this.label3.Text = b;
-            this.label5.Text = c;
-            globalVariables.myServer = globalVariables.IPv4_Address;
-            globalVariables.myDatabase = "final_enroll";
-            globalVariables.myUsername = "cst_db";
-            globalVariables.myPassword = "Sohhrs6d2F1PBOQR";
+
+            timer1.Start();
+            label7.Text = SchoolYearModel.getSchoolYear();
+         
         }
 
         private void Section_Load(object sender, EventArgs e)
         {
-            label3.Hide();
-            label5.Hide();
-            label4.Hide();
-            label7.Hide();
-            globalVariables.myConnection = "SERVER =" + globalVariables.myServer + ";" + "DATABASE =" + globalVariables.myDatabase + ";" + "UID =" + globalVariables.myUsername + ";" + "PASSWORD =" + globalVariables.myPassword + ";";
-            gv.cn = new MySqlConnection(globalVariables.myConnection);
-            gv.cn.Open();
-
-            MySqlDataAdapter sqlda = new MySqlDataAdapter("SELECT * FROM `sections` ", gv.cn);
-            DataTable dtbl = new DataTable();
-            sqlda.Fill(dtbl);
-
-            dataGridView1.DataSource = dtbl;
-            dataGridView1.DisplayedRowCount(true);
-            gv.cn.Close();
-            DateTime my = DateTimeOffset.Now.DateTime.ToLocalTime().ToUniversalTime();
-
-            DateTime mys = DateTimeOffset.Now.UtcDateTime.ToLocalTime();
-
-            Console.WriteLine(mys);
-
-            label7.Text = my.ToString("MM/dd/yyyy  hh:mm:ss tt");
-
-            timer1.Enabled = true;
+            refreshGrid();
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -73,6 +50,11 @@ namespace CST
             label7.Text = my.ToString("MM/dd/yyyy  hh:mm:ss tt");
 
             timer1.Enabled = true;
+        }
+
+        private void refreshGrid()
+        {
+            sectionController.fillDataGridSect(ref dataGridView1);
         }
     }
 }

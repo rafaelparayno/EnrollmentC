@@ -53,7 +53,7 @@ namespace CST
         private void button1_Click_1(object sender, EventArgs e)
         {
             this.Hide();
-            Section fr3 = new Section(label3.Text, label2.Text, label4.Text);
+            Section fr3 = new Section();
             fr3.ShowDialog();
             return;
 
