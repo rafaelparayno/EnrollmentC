@@ -86,6 +86,12 @@
     <Compile Include="Enrollment Admin\AddUpdateDiags\AddUpdateGrade.Designer.cs">
       <DependentUpon>AddUpdateGrade.cs</DependentUpon>
     </Compile>
+    <Compile Include="Enrollment Admin\AddUpdateDiags\addUpdateRequirements.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Enrollment Admin\AddUpdateDiags\addUpdateRequirements.Designer.cs">
+      <DependentUpon>addUpdateRequirements.cs</DependentUpon>
+    </Compile>
     <Compile Include="Enrollment Admin\AddUpdateDiags\AddUpdateSubject.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -94,6 +100,7 @@
     </Compile>
     <Compile Include="Enrollment Admin\AddUpdateDiags\SubjctController.cs" />
     <Compile Include="Models\GradeLevelController.cs" />
+    <Compile Include="Models\SchoolRequirementsController.cs" />
     <Compile Include="Models\SchoolYear\SchoolYearModel.cs" />
     <Compile Include="Models\SectionController.cs" />
     <Compile Include="Models\SubjectController.cs" />
@@ -376,6 +383,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Enrollment Admin\AddUpdateDiags\AddUpdateGrade.resx">
       <DependentUpon>AddUpdateGrade.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Enrollment Admin\AddUpdateDiags\addUpdateRequirements.resx">
+      <DependentUpon>addUpdateRequirements.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Enrollment Admin\AddUpdateDiags\AddUpdateSubject.resx">
       <DependentUpon>AddUpdateSubject.cs</DependentUpon>

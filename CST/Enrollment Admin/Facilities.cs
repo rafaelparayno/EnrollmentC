@@ -44,7 +44,7 @@ namespace CST
         private void button5_Click_1(object sender, EventArgs e)
         {
             this.Hide();
-            SchoolRequirements fr3 = new SchoolRequirements(label3.Text, label2.Text, label4.Text);
+            SchoolRequirements fr3 = new SchoolRequirements();
             fr3.ShowDialog();
             return;
 

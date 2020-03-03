@@ -8,49 +8,30 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Timers;
 using System.Windows.Forms;
+using CST.Models;
 using MySql.Data.MySqlClient;
+using CST.Enrollment_Admin.AddUpdateDiags;
 
 namespace CST
 {
     public partial class SchoolRequirements : Form
     {
-        globalVariables gv = new globalVariables();
-        public SchoolRequirements(string a, string b, string c)
+
+        SchoolRequirementsController schoolRequirementsController = new SchoolRequirementsController();
+        private int schoolYrId = 0;
+        YearController yearController = new YearController();
+        public SchoolRequirements()
         {
             InitializeComponent();
-            this.label4.Text = a;
-            this.label3.Text = b;
-            this.label5.Text = c;
-            globalVariables.myServer = globalVariables.IPv4_Address;
-            globalVariables.myDatabase = "final_enroll";
-            globalVariables.myUsername = "cst_db";
-            globalVariables.myPassword = "Sohhrs6d2F1PBOQR";
+            timer1.Start();
+            cbRoom.SelectedIndex = 0;
+            
         }
 
         private void SchoolRequirements_Load(object sender, EventArgs e)
         {
-            label3.Hide();
-            label5.Hide();
-            label4.Hide();
-            label7.Hide();
-            globalVariables.myConnection = "SERVER =" + globalVariables.myServer + ";" + "DATABASE =" + globalVariables.myDatabase + ";" + "UID =" + globalVariables.myUsername + ";" + "PASSWORD =" + globalVariables.myPassword + ";";
-            gv.cn = new MySqlConnection(globalVariables.myConnection);
-            gv.cn.Open();
-
-            MySqlDataAdapter sqlda = new MySqlDataAdapter("SELECT * FROM `school_requirements` ", gv.cn);
-            DataTable dtbl = new DataTable();
-            sqlda.Fill(dtbl);
-
-            dataGridView1.DataSource = dtbl;
-            dataGridView1.DisplayedRowCount(true);
-            gv.cn.Close();
-            DateTime my = DateTimeOffset.Now.UtcDateTime.ToLocalTime();
-
-            Console.WriteLine(my);
-
-            label7.Text = my.ToString("MM/dd/yyyy  hh:mm:ss tt");
-
-            timer1.Enabled = true;
+            schoolYrId = yearController.getSchoolYearId();
+            refreshGrid();
         }
 
         private void button1_Click_1(object sender, EventArgs e)
@@ -72,6 +53,61 @@ namespace CST
             label7.Text = my.ToString("MM/dd/yyyy  hh:mm:ss tt");
 
             timer1.Enabled = true;
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            addUpdateRequirements frm = new addUpdateRequirements();
+            frm.ShowDialog();
+
+            refreshGrid();
+        }
+
+        private void refreshGrid()
+        {
+            schoolRequirementsController.fillDataGridSchoolReq(ref dataGridView1, schoolYrId);
+        }
+
+        private void button3_Click_1(object sender, EventArgs e)
+        {
+            addUpdateRequirements frm = new addUpdateRequirements(dataGridView1.SelectedRows[0].Cells[1].Value.ToString(),
+                                                                  dataGridView1.SelectedRows[0].Cells[2].Value.ToString(),
+                                                                  int.Parse(dataGridView1.SelectedRows[0].Cells[0].Value.ToString()));
+            frm.ShowDialog();
+
+            refreshGrid();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+
+            DialogResult form1 = MessageBox.Show("Do you really want to Remove?",
+                   "Exit", MessageBoxButtons.YesNo);
+
+
+            if (form1 == DialogResult.Yes)
+            {
+                schoolRequirementsController.removeSchoolReq(int.Parse(dataGridView1.SelectedRows[0].Cells[0].Value.ToString()));
+                MessageBox.Show("Succesfully Remove Requirements");
+                refreshGrid();
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if(textBox1.Text == "")
+            {
+                refreshGrid();
+            }
+            else
+            {
+                schoolRequirementsController.searchGrid(cbRoom.SelectedItem.ToString(), textBox1.Text.Trim(), ref dataGridView1, schoolYrId);
+            }
         }
     }
 }
