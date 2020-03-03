@@ -7,24 +7,25 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CST.Models;
 
 namespace CST
 {
     public partial class TeachersSpecialization : Form
     {
-        public TeachersSpecialization(string a, string b, string c)
+        SpecializationController specialization = new SpecializationController();
+        public TeachersSpecialization()
         {
             InitializeComponent();
-            label8.Text = a;
-            label6.Text = b;
-            label9.Text = c;
+            timer1.Start();
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            UpdateTeacherSpecialization fr3 = new UpdateTeacherSpecialization(label8.Text, label6.Text, label9.Text);
+            
+            UpdateTeacherSpecialization fr3 = new UpdateTeacherSpecialization();
             fr3.ShowDialog();
+            refreshGrid();
         }
 
 
@@ -44,20 +45,7 @@ namespace CST
 
         private void TeachersSpecialization_Load(object sender, EventArgs e)
         {
-            label8.Hide();
-            label6.Hide();
-            label9.Hide();
-            label7.Hide();
-            DateTime my = DateTimeOffset.Now.DateTime.ToLocalTime().ToUniversalTime();
-
-
-            DateTime mys = DateTimeOffset.Now.UtcDateTime.ToLocalTime();
-
-            Console.WriteLine(mys);
-
-            label7.Text = my.ToString("MM/dd/yyyy  hh:mm:ss tt");
-
-            timer1.Enabled = true;
+            refreshGrid();
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -67,11 +55,15 @@ namespace CST
 
             DateTime mys = DateTimeOffset.Now.UtcDateTime.ToLocalTime();
 
-            Console.WriteLine(mys);
 
             label7.Text = my.ToString("MM/dd/yyyy  hh:mm:ss tt");
 
             timer1.Enabled = true;
+        }
+
+        private void refreshGrid()
+        {
+            specialization.fillDataGridTeacher(ref dataGridView1);
         }
     }
 }

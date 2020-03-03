@@ -49,7 +49,7 @@ namespace CST
         private void button1_Click(object sender, EventArgs e)
         {
             this.Hide();
-            TeachersSpecialization fr3 = new TeachersSpecialization(label5.Text, label1.Text, label6.Text);
+            TeachersSpecialization fr3 = new TeachersSpecialization();
             fr3.ShowDialog();
         }
 
@@ -79,7 +79,6 @@ namespace CST
 
             DateTime mys = DateTimeOffset.Now.UtcDateTime.ToLocalTime();
 
-            Console.WriteLine(mys);
 
             label7.Text = my.ToString("MM/dd/yyyy  hh:mm:ss tt");
 

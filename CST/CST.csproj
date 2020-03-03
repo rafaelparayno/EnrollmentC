@@ -109,6 +109,7 @@
     <Compile Include="Models\SchoolRequirementsController.cs" />
     <Compile Include="Models\SchoolYear\SchoolYearModel.cs" />
     <Compile Include="Models\SectionController.cs" />
+    <Compile Include="Models\SpecializationController.cs" />
     <Compile Include="Models\SubjectController.cs" />
     <Compile Include="Models\UserController.cs" />
     <Compile Include="Models\UserLog\UserLog.cs" />

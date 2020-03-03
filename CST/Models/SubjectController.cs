@@ -4,12 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
 
 namespace CST.Models
 {
     class SubjectController
     {
         crudFile cs = new crudFile();
+
         public SubjectController()
         {
 
@@ -43,6 +45,24 @@ namespace CST.Models
             string sql = String.Format(@"DELETE FROM subjects WHERE subject_id = {0}", id);
 
             cs.ExecuteQuery(sql);
+        }
+
+        public string[] getAllSubjects()
+        {
+            string sql = String.Format(@"SELECT subject_name,grade_level FROM  subjects ");
+            MySqlDataReader reader = null;
+            reader = cs.RetrieveRecords(sql, ref reader);
+            string subjects = "";
+            while (reader.Read())
+            {
+                string forGrade = reader["grade_level"].ToString().Split(' ')[1];
+                subjects = subjects + " " + reader["subject_name"].ToString()+"-"+forGrade;
+
+            }
+            subjects = subjects.Trim();
+            string[] args = subjects.Split(' ');
+
+            return args;
         }
 
 
