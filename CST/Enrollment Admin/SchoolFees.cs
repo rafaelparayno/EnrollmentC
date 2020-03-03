@@ -30,7 +30,7 @@ namespace CST
         private void button4_Click(object sender, EventArgs e)
         {
             this.Hide();
-           EnrollmentAdmin  fr3 = new EnrollmentAdmin(label5.Text, label3.Text);
+           EnrollmentAdmin  fr3 = new EnrollmentAdmin();
             fr3.ShowDialog();
             return;
         }

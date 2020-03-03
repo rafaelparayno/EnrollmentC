@@ -69,7 +69,7 @@ namespace CST
 
         private void button2_Click(object sender, EventArgs e)
         {
-            EnrollmentAdmin EA = new EnrollmentAdmin(label5.Text,label8.Text);
+            EnrollmentAdmin EA = new EnrollmentAdmin();
             EA.Show();
             this.Hide();
         }

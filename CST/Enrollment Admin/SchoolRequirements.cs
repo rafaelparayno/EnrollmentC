@@ -56,7 +56,7 @@ namespace CST
         private void button1_Click_1(object sender, EventArgs e)
         {
             this.Hide();
-            Facilities fr3 = new Facilities(label4.Text, label3.Text, label5.Text);
+            Facilities fr3 = new Facilities();
             fr3.ShowDialog();
             return;
         }

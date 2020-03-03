@@ -9,6 +9,7 @@ namespace CST.Models.SchoolYear
 	class SchoolYearModel
 	{
 		private static string schoolYear;
+		private static int schoolYearId;
 
 		public SchoolYearModel(string sy)
 		{
@@ -21,10 +22,21 @@ namespace CST.Models.SchoolYear
 			return schoolYear;
 		}
 
+		public static int getSchoolYearId()
+		{
+			return schoolYearId;
+		}
+
 		public static void setSchoolYear(string sy)
 		{
 			schoolYear = sy;
 		}
+
+		public static void setSchoolYearId(int id)
+		{
+			schoolYearId = id;
+		}
+
 
 	}
 }

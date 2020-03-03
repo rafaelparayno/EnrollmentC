@@ -47,7 +47,7 @@ namespace CST
         private void button4_Click(object sender, EventArgs e)
         {
             this.Hide();
-            EnrollmentAdmin fr3 = new EnrollmentAdmin("", "");
+            EnrollmentAdmin fr3 = new EnrollmentAdmin();
             fr3.ShowDialog();
             return;
 

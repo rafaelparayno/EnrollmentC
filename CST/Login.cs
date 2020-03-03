@@ -63,6 +63,7 @@ namespace CST
 
                 label6.Text = sy;
                 label6.Visible = true;
+
             }
 
         }
@@ -121,12 +122,10 @@ namespace CST
             {
                string role = control.login(txtUsername.Text.Trim(), txtPassword.Text.Trim());
 
-                
-
-
                 if (role == "")
                 {
-                    MessageBox.Show("incorrect username or password");
+                    MessageBox.Show("incorrect username or password","Validation",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                    return;
                 }
                 else
                 {
@@ -146,7 +145,9 @@ namespace CST
 
                     else if (role == "Enrollment Admin")
                     {
-
+                        EnrollmentAdmin frm = new EnrollmentAdmin();
+                        frm.Show();
+                        this.Hide();
                     }
 
                     else if (role == "Cashier")

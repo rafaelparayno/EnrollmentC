@@ -57,7 +57,7 @@ namespace CST
 
         private void button4_Click(object sender, EventArgs e)
         {
-            Facilities F = new Facilities(label4.Text,label3.Text,label5.Text);
+            Facilities F = new Facilities();
             F.Show();
             this.Hide();
         }

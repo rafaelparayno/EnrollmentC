@@ -215,3 +215,4 @@ C:\Users\Xorn\Desktop\C#\versionRaf\EnrollmentC\CST\bin\Debug\MySql.Data.dll
 C:\Users\Xorn\Desktop\C#\versionRaf\EnrollmentC\CST\bin\Debug\MySqlBackup.dll
 C:\Users\Xorn\Desktop\C#\versionRaf\EnrollmentC\CST\bin\Debug\Google.Protobuf.xml
 C:\Users\Xorn\Desktop\C#\versionRaf\EnrollmentC\CST\bin\Debug\Renci.SshNet.xml
+C:\Users\Xorn\Desktop\C#\versionRaf\EnrollmentC\CST\obj\Debug\CST.Enrollment_Admin.AddUpdateDiags.AddUpdateGrade.resources

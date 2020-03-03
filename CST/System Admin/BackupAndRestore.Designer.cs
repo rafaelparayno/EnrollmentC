@@ -36,7 +36,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
             this.txtUT = new System.Windows.Forms.Label();
             this.txtUN = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -125,21 +124,6 @@
             this.button3.Text = "Restore Data";
             this.button3.UseVisualStyleBackColor = false;
             this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
-            // button4
-            // 
-            this.button4.BackColor = System.Drawing.Color.DarkSeaGreen;
-            this.button4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button4.Location = new System.Drawing.Point(484, 461);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(147, 35);
-            this.button4.TabIndex = 246;
-            this.button4.Text = "House Keeping";
-            this.button4.UseVisualStyleBackColor = false;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // txtUT
             // 
@@ -283,7 +267,6 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtUT);
             this.Controls.Add(this.txtUN);
-            this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.button2);
@@ -309,7 +292,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Label txtUT;
         public System.Windows.Forms.Label txtUN;
         public System.Windows.Forms.Label label2;

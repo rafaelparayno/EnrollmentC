@@ -28,6 +28,22 @@ namespace CST.Models
             return sy;
         }
 
+        public int getSchoolYearId()
+        {
+
+            string sql = @String.Format("SELECT * FROM school_year WHERE sy_status = 'activate'");
+            int id = 0;
+            MySqlDataReader reader = null;
+            cs.RetrieveRecords(sql, ref reader);
+
+            if (reader.Read())
+            {
+                id = int.Parse(reader["id"].ToString());
+            }
+            cs.CloseConnection();
+            return id;
+        }
+
 
 
         public void addNewSy(string from,string to)

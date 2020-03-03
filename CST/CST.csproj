@@ -77,8 +77,16 @@
   <ItemGroup>
     <Compile Include="crudFile.cs" />
     <Compile Include="csBackupAndRestore.cs" />
+    <Compile Include="Data\DataClass.cs" />
     <Compile Include="DbSettings\dbConfigFile.cs" />
     <Compile Include="DbSettings\dbConnection.cs" />
+    <Compile Include="Enrollment Admin\AddUpdateDiags\AddUpdateGrade.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Enrollment Admin\AddUpdateDiags\AddUpdateGrade.Designer.cs">
+      <DependentUpon>AddUpdateGrade.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\GradeLevelController.cs" />
     <Compile Include="Models\SchoolYear\SchoolYearModel.cs" />
     <Compile Include="Models\UserController.cs" />
     <Compile Include="Models\UserLog\UserLog.cs" />
@@ -356,6 +364,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Enrollment Admin\AddTuitionFee.resx">
       <DependentUpon>AddTuitionFee.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Enrollment Admin\AddUpdateDiags\AddUpdateGrade.resx">
+      <DependentUpon>AddUpdateGrade.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Generated.resx">
       <DependentUpon>Generated.cs</DependentUpon>

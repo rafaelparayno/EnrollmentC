@@ -60,17 +60,6 @@ namespace CST {
                 this.Hide();
                 
             }
-
-            
-         
-            
-
-
-
-
-
-
-
         }
 
 
@@ -104,52 +93,7 @@ namespace CST {
         private void Admin_Load(object sender, EventArgs e)
         {
             timer1.Start();
-            //globalVariables.myConnection = "SERVER =" + globalVariables.myServer + ";" + "DATABASE =" + globalVariables.myDatabase + ";" + "UID =" + globalVariables.myUsername + ";" + "PASSWORD =" + globalVariables.myPassword + ";";
-            //gv.cn = new MySqlConnection(globalVariables.myConnection);
-
-            //gv.cn.Open();
-            //MySqlCommand command;
-            //MySqlDataReader mdr;
-
-            //string selectQuery = "  select * FROM school_year where sy_status='activate'";
-
-
-            //command = new MySqlCommand(selectQuery, gv.cn);
-
-            //mdr = command.ExecuteReader();
-            //int count = 0;
-            //string SY = string.Empty;
-            //string sy_status = string.Empty;
-
-            //while (mdr.Read())
-            //{
-            //    count = count + 1;
-            //    SY = mdr["school_year"].ToString();
-            //    sy_status = mdr["sy_status"].ToString();
-
-            //}
-
-            //if (count == 1)
-            //{
-
-            //    if (sy_status == "activate")
-            //    {       //show admin windows
-
-            //        label6.Text = SY;
-
-            //    }
-            //}
-            //gv.cn.Close();
-            //DateTime my = DateTimeOffset.Now.DateTime.ToLocalTime().ToUniversalTime();
-
-
-            //DateTime mys = DateTimeOffset.Now.UtcDateTime.ToLocalTime();
-
-            //Console.WriteLine(mys);
-
-            //label7.Text = my.ToString("MM/dd/yyyy  hh:mm:ss tt");
-
-            //timer1.Enabled = true;
+           
 
         }
 

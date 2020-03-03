@@ -15,30 +15,20 @@ namespace CST
     public partial class Facilities : Form
     {
 
-        public Facilities(string a, string b, string c)
+        public Facilities()
         {
             InitializeComponent();
-            this.label3.Text = a;
-            this.label2.Text = b;
-            this.label4.Text = c;
+        
         }
 
         private void Facilities_Load(object sender, EventArgs e)
         {
-            DateTime my = DateTimeOffset.Now.DateTime.ToLocalTime().ToUniversalTime();
-
-            DateTime mys = DateTimeOffset.Now.UtcDateTime.ToLocalTime();
-
-            Console.WriteLine(mys);
-
-            label7.Text = my.ToString("MM/dd/yyyy  hh:mm:ss tt");
-
-            timer1.Enabled = true;
+            timer1.Start();
         }
 
         private void button6_Click_1(object sender, EventArgs e)
         {
-            EnrollmentAdmin EA = new EnrollmentAdmin(label3.Text,label2.Text);
+            EnrollmentAdmin EA = new EnrollmentAdmin();
             EA.Show();
             this.Hide();
         }
@@ -80,7 +70,7 @@ namespace CST
         private void button2_Click_1(object sender, EventArgs e)
         {
             this.Hide();
-            GradeLevel fr3 = new GradeLevel(label3.Text, label2.Text, label4.Text);
+            GradeLevel fr3 = new GradeLevel();
             fr3.ShowDialog();
             return;
         }

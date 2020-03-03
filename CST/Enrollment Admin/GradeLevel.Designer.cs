@@ -46,6 +46,7 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.gradelevelno = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
+            this.button5 = new System.Windows.Forms.Button();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -57,9 +58,9 @@
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button2.Location = new System.Drawing.Point(25, 328);
+            this.button2.Location = new System.Drawing.Point(16, 406);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(147, 35);
+            this.button2.Size = new System.Drawing.Size(157, 35);
             this.button2.TabIndex = 257;
             this.button2.Text = "Back";
             this.button2.UseVisualStyleBackColor = false;
@@ -69,9 +70,9 @@
             // 
             this.panel4.BackColor = System.Drawing.Color.DarkSeaGreen;
             this.panel4.Controls.Add(this.panel5);
-            this.panel4.Location = new System.Drawing.Point(0, 42);
+            this.panel4.Location = new System.Drawing.Point(0, 47);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(578, 5);
+            this.panel4.Size = new System.Drawing.Size(846, 10);
             this.panel4.TabIndex = 256;
             // 
             // panel5
@@ -88,11 +89,12 @@
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(68, 52);
+            this.label2.Location = new System.Drawing.Point(726, 13);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(120, 25);
             this.label2.TabIndex = 266;
             this.label2.Text = "User Type";
+            this.label2.Visible = false;
             // 
             // label3
             // 
@@ -100,11 +102,12 @@
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(123, 14);
+            this.label3.Location = new System.Drawing.Point(726, 13);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(118, 25);
             this.label3.TabIndex = 265;
             this.label3.Text = "Username";
+            this.label3.Visible = false;
             // 
             // label4
             // 
@@ -112,7 +115,7 @@
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.Black;
-            this.label4.Location = new System.Drawing.Point(269, 13);
+            this.label4.Location = new System.Drawing.Point(330, 19);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(43, 20);
             this.label4.TabIndex = 264;
@@ -125,12 +128,13 @@
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button3.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button3.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button3.Location = new System.Drawing.Point(25, 288);
+            this.button3.Location = new System.Drawing.Point(350, 406);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(147, 35);
+            this.button3.Size = new System.Drawing.Size(99, 35);
             this.button3.TabIndex = 263;
             this.button3.Text = "Remove";
             this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click_1);
             // 
             // button1
             // 
@@ -139,12 +143,13 @@
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button1.Location = new System.Drawing.Point(25, 247);
+            this.button1.Location = new System.Drawing.Point(216, 406);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(147, 35);
+            this.button1.Size = new System.Drawing.Size(99, 35);
             this.button1.TabIndex = 262;
             this.button1.Text = " Add";
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // cbGradeLevel
             // 
@@ -159,7 +164,7 @@
             "Pre-School",
             "Primary Education",
             "Secondary Education"});
-            this.cbGradeLevel.Location = new System.Drawing.Point(16, 118);
+            this.cbGradeLevel.Location = new System.Drawing.Point(352, 538);
             this.cbGradeLevel.Name = "cbGradeLevel";
             this.cbGradeLevel.Size = new System.Drawing.Size(157, 28);
             this.cbGradeLevel.TabIndex = 261;
@@ -171,7 +176,7 @@
             this.labelGradeLevel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelGradeLevel.ForeColor = System.Drawing.Color.Black;
             this.labelGradeLevel.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.labelGradeLevel.Location = new System.Drawing.Point(13, 161);
+            this.labelGradeLevel.Location = new System.Drawing.Point(370, 585);
             this.labelGradeLevel.Name = "labelGradeLevel";
             this.labelGradeLevel.Size = new System.Drawing.Size(121, 16);
             this.labelGradeLevel.TabIndex = 260;
@@ -184,7 +189,7 @@
             this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label23.ForeColor = System.Drawing.Color.Black;
             this.label23.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label23.Location = new System.Drawing.Point(13, 90);
+            this.label23.Location = new System.Drawing.Point(358, 519);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(133, 16);
             this.label23.TabIndex = 259;
@@ -192,11 +197,20 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AllowUserToResizeColumns = false;
+            this.dataGridView1.AllowUserToResizeRows = false;
+            this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(194, 52);
+            this.dataGridView1.Location = new System.Drawing.Point(16, 72);
+            this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(371, 308);
+            this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView1.Size = new System.Drawing.Size(676, 319);
             this.dataGridView1.TabIndex = 258;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // label1
             // 
@@ -238,7 +252,7 @@
             "Grade 8",
             "Grade 9",
             "Grade 10"});
-            this.gradelevelno.Location = new System.Drawing.Point(15, 193);
+            this.gradelevelno.Location = new System.Drawing.Point(352, 616);
             this.gradelevelno.Name = "gradelevelno";
             this.gradelevelno.Size = new System.Drawing.Size(157, 28);
             this.gradelevelno.TabIndex = 268;
@@ -247,11 +261,25 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Lucida Sans Typewriter", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(14, 351);
+            this.label7.Location = new System.Drawing.Point(112, 25);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(47, 12);
             this.label7.TabIndex = 267;
             this.label7.Text = "label7";
+            // 
+            // button5
+            // 
+            this.button5.BackColor = System.Drawing.Color.DarkSeaGreen;
+            this.button5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button5.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button5.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.button5.Location = new System.Drawing.Point(480, 408);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(212, 35);
+            this.button5.TabIndex = 271;
+            this.button5.Text = "Go to old Records";
+            this.button5.UseVisualStyleBackColor = false;
             // 
             // GradeLevel
             // 
@@ -259,7 +287,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(579, 368);
+            this.ClientSize = new System.Drawing.Size(711, 455);
+            this.Controls.Add(this.button5);
+            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.label2);
@@ -270,13 +300,13 @@
             this.Controls.Add(this.cbGradeLevel);
             this.Controls.Add(this.labelGradeLevel);
             this.Controls.Add(this.label23);
-            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.gradelevelno);
             this.Controls.Add(this.label7);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "GradeLevel";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "GradeLevel";
             this.Load += new System.EventHandler(this.GradeLevel_Load);
             this.panel4.ResumeLayout(false);
@@ -304,5 +334,6 @@
         private System.Windows.Forms.Timer timer1;
         public System.Windows.Forms.ComboBox gradelevelno;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Button button5;
     }
 }

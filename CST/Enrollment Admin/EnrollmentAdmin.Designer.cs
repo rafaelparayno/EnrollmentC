@@ -82,7 +82,7 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(425, 120);
+            this.label1.Location = new System.Drawing.Point(306, 121);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(120, 25);
             this.label1.TabIndex = 191;
@@ -231,6 +231,7 @@
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "EnrollmentAdmin";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "EnrollmentAdmin";
             this.Load += new System.EventHandler(this.EnrollmentAdmin_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
