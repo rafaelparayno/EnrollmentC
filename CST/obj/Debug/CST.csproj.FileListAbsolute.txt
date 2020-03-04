@@ -219,3 +219,4 @@ C:\Users\Xorn\Desktop\C#\versionRaf\EnrollmentC\CST\obj\Debug\CST.Enrollment_Adm
 C:\Users\Xorn\Desktop\C#\versionRaf\EnrollmentC\CST\obj\Debug\CST.Enrollment_Admin.AddUpdateDiags.AddUpdateSubject.resources
 C:\Users\Xorn\Desktop\C#\versionRaf\EnrollmentC\CST\obj\Debug\CST.Enrollment_Admin.AddUpdateDiags.addUpdateRequirements.resources
 C:\Users\Xorn\Desktop\C#\versionRaf\EnrollmentC\CST\obj\Debug\CST.Enrollment_Admin.AddUpdateDiags.AddUpdateRoom.resources
+C:\Users\Xorn\Desktop\C#\versionRaf\EnrollmentC\CST\obj\Debug\CST.Enrollment_Admin.AddUpdateDiags.AddUpdateSection.resources

@@ -38,8 +38,6 @@ namespace CST
 
             DateTime mys = DateTimeOffset.Now.UtcDateTime.ToLocalTime();
 
-            Console.WriteLine(mys);
-
             label10.Text = my.ToString("MM/dd/yyyy  hh:mm:ss tt");
 
             timer1.Enabled = true;
@@ -52,7 +50,6 @@ namespace CST
 
             DateTime mys = DateTimeOffset.Now.UtcDateTime.ToLocalTime();
 
-            Console.WriteLine(mys);
 
             label10.Text = my.ToString("MM/dd/yyyy  hh:mm:ss tt");
 

@@ -22,28 +22,28 @@ namespace CST.Enrollment_Admin.AddUpdateDiags
         public AddUpdateSubject()
         {
             InitializeComponent();
+           
             gradeAll = DataClass.getAllGrade();
+            fillCombo();
         }
 
         public AddUpdateSubject(string gradelevel,string subject_name, int id)
         {
             InitializeComponent();
+           
             gradeAll = DataClass.getAllGrade();
             isEdited = true;
-
+            fillCombo();
             textBox1.Text = subject_name;
-            cbGradeLevel.Text = gradelevel;
+            cbGradeLevel.SelectedItem = gradelevel;
             this.id = id;
         }
 
         private void AddUpdateSection_Load(object sender, EventArgs e)
         {
-            foreach(string grade in gradeAll)
-            {
-                cbGradeLevel.Items.Add(grade);
-            }
+         
 
-            cbGradeLevel.SelectedIndex = 0;
+            //cbGradeLevel.SelectedIndex = 0;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -89,6 +89,14 @@ namespace CST.Enrollment_Admin.AddUpdateDiags
 
 
             return isValid;
+        }
+
+        private void fillCombo()
+        {
+            foreach (string grade in gradeAll)
+            {
+                cbGradeLevel.Items.Add(grade);
+            }
         }
     }
 }

@@ -58,5 +58,45 @@ namespace CST.Models
 
             cs.FillDataGrid(sql,ref dg);
         }
+
+        public string[] fillDataTeacherSect(ref ComboBox cb,int syid)
+        {
+            string sql = String.Format(@"SELECT teacher_ID,CONCAT(Firstname,' ',LastName) as FullName FROM `specialization` LEFT JOIN useraccounts ON specialization.acc_id = useraccounts.acc_id WHERE specialization.SY_ID = {0}",syId);
+            MySqlDataReader reader = null;
+            cs.RetrieveRecords(sql, ref reader);
+            int totalCount = 0;
+            string idUser = "";
+
+
+            while (reader.Read())
+            {
+                totalCount++;
+
+                cb.Items.Add(reader["FullName"].ToString());
+                idUser = idUser + " " + reader["teacher_ID"].ToString();
+
+            }
+
+            idUser = idUser.Trim();
+            string[] idArgs = idUser.Split(' ');
+
+            cs.CloseConnection();
+            return idArgs;
+        }
+
+        public string findTeacherName(string fn,string ln)
+        {
+            string sql = String.Format("SELECT teacher_ID,CONCAT(Firstname,' ',LastName) as FullName FROM `specialization` LEFT JOIN useraccounts ON specialization.acc_id = useraccounts.acc_id WHERE specialization.SY_ID = {0} AND useraccounts.Firstname = '{1}' AND useraccounts.Lastname ='{2}'", syId, fn,ln);
+            MySqlDataReader reader = null;
+            cs.RetrieveRecords(sql, ref reader);
+            string nameWithId = "";
+            if (reader.Read())
+            {
+                nameWithId = reader["FullName"].ToString() + "-" + reader["teacher_ID"];
+            }
+
+            cs.CloseConnection();
+            return nameWithId;
+        }
     }
 }

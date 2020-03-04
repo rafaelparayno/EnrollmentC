@@ -98,6 +98,12 @@
     <Compile Include="Enrollment Admin\AddUpdateDiags\AddUpdateRoom.Designer.cs">
       <DependentUpon>AddUpdateRoom.cs</DependentUpon>
     </Compile>
+    <Compile Include="Enrollment Admin\AddUpdateDiags\AddUpdateSection.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Enrollment Admin\AddUpdateDiags\AddUpdateSection.Designer.cs">
+      <DependentUpon>AddUpdateSection.cs</DependentUpon>
+    </Compile>
     <Compile Include="Enrollment Admin\AddUpdateDiags\AddUpdateSubject.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -396,6 +402,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Enrollment Admin\AddUpdateDiags\AddUpdateRoom.resx">
       <DependentUpon>AddUpdateRoom.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Enrollment Admin\AddUpdateDiags\AddUpdateSection.resx">
+      <DependentUpon>AddUpdateSection.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Enrollment Admin\AddUpdateDiags\AddUpdateSubject.resx">
       <DependentUpon>AddUpdateSubject.cs</DependentUpon>

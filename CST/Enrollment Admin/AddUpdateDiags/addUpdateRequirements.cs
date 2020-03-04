@@ -20,13 +20,14 @@ namespace CST.Enrollment_Admin.AddUpdateDiags
         public addUpdateRequirements()
         {
             InitializeComponent();
+            cbType.SelectedIndex = 0;
         }
 
         public addUpdateRequirements(string typeStud, string name, int id)
         {
             InitializeComponent();
             this.id = id;
-            cbType.Text = typeStud;
+            cbType.SelectedItem = typeStud;
             textBox1.Text = name;
             isEdited = true;
         }
@@ -53,7 +54,7 @@ namespace CST.Enrollment_Admin.AddUpdateDiags
 
         private void addUpdateRequirements_Load(object sender, EventArgs e)
         {
-            cbType.SelectedIndex = 0;
+         /*   cbType.SelectedIndex = 0;*/
         }
 
         private bool checkValidation()

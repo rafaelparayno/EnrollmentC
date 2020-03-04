@@ -31,7 +31,7 @@ namespace CST
 
             DateTime mys = DateTimeOffset.Now.UtcDateTime.ToLocalTime();
 
-            Console.WriteLine(mys);
+     
 
             label7.Text = my.ToString("MM/dd/yyyy  hh:mm:ss tt");
 
@@ -54,7 +54,7 @@ namespace CST
 
             DateTime mys = DateTimeOffset.Now.UtcDateTime.ToLocalTime();
 
-            Console.WriteLine(mys);
+        
 
             label7.Text = my.ToString("MM/dd/yyyy  hh:mm:ss tt");
 
