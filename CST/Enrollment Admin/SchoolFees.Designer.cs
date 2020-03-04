@@ -284,6 +284,7 @@
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "SchoolFees";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "SchoolFees";
             this.Load += new System.EventHandler(this.SchoolFees_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

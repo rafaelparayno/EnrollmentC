@@ -7,19 +7,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CST.Models;
+using CST.Models.SchoolRequirementsMod;
 
 namespace CST
 {
     public partial class NewStudents : Form
     {
-       
-        public NewStudents(string a, string b, string c)
+        SchoolRequirementsController schoolRequirements = new SchoolRequirementsController();
+        public NewStudents()
         {
             InitializeComponent();
 
-            this.label3.Text = a;
-            this.label6.Text = c;
-            this.label49.Text = b;
         }
 
         private void checkBox5_CheckedChanged(object sender, EventArgs e)
@@ -29,7 +28,7 @@ namespace CST
 
         private void button2_Click(object sender, EventArgs e)
         {
-            Enrollment Enroll = new Enrollment(label3.Text, label49.Text, label6.Text);
+            Enrollment Enroll = new Enrollment();
             Enroll.Show();
             this.Hide();
         }
@@ -44,9 +43,30 @@ namespace CST
 
         private void button1_Click(object sender, EventArgs e)
         {
-            StudentForm SF = new StudentForm(label3.Text, label49.Text, label6.Text, label7.Text);
+            List<SchoolRequireModel> requireModels = new List<SchoolRequireModel>();
+            foreach(SchoolRequireModel requ in requireModels)
+            {
+
+            }
+
+            StudentForm SF = new StudentForm();
             SF.Show();
             this.Hide();
+        }
+
+        private void radioButton1_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cbType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            fillDataGrid(cbType.SelectedItem.ToString());
+        }
+
+        private void fillDataGrid(string stud_type)
+        {
+            schoolRequirements.fillDataGridForTypeStud(ref dataGridView1, stud_type);
         }
     }
 }

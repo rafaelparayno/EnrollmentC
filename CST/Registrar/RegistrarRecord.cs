@@ -36,9 +36,7 @@ namespace CST
 
         private void button2_Click(object sender, EventArgs e)
         {
-            RegistrarForm RF = new RegistrarForm(label5.Text,label49.Text);
-            RF.Show();
-            this.Hide();
+           
         }
 
         private void RegistrarRecord_Load(object sender, EventArgs e)
@@ -75,7 +73,7 @@ namespace CST
 
         private void button1_Click(object sender, EventArgs e)
         {
-            StudentForm SF = new StudentForm(label5.Text, label49.Text,label6.Text,label8.Text);
+            StudentForm SF = new StudentForm();
             SF.Show();
             this.Hide();
         }

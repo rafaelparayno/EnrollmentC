@@ -35,7 +35,7 @@ namespace CST
         private void btnRecord_Click(object sender, EventArgs e)
         {
             this.Hide();
-            SchoolFees fr3 = new SchoolFees(label5.Text, label1.Text, label6.Text);
+            SchoolFees fr3 = new SchoolFees();
             fr3.ShowDialog();
         }
 

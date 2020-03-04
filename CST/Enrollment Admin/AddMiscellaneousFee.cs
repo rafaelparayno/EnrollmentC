@@ -12,12 +12,10 @@ namespace CST
 {
     public partial class AddMiscellaneousFee : Form
     {
-        public AddMiscellaneousFee(string a, string b , string c)
+        public AddMiscellaneousFee()
         {
             InitializeComponent();
-            label6.Text = a;
-            label8.Text = b;
-            label9.Text = c;
+          
         }
 
         private void AddMiscellaneousFee_Load(object sender, EventArgs e)
@@ -43,7 +41,7 @@ namespace CST
         private void button2_Click(object sender, EventArgs e)
         {
             this.Hide();
-            SchoolFees fr3 = new SchoolFees(label6.Text,label8.Text,label9.Text);
+            SchoolFees fr3 = new SchoolFees();
             fr3.ShowDialog();
             return;
 

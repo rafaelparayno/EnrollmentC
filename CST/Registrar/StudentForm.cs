@@ -12,18 +12,19 @@ namespace CST
 {
     public partial class StudentForm : Form
     {
-        public StudentForm(string a, string b, string c, string d)
+        public StudentForm(/*string a, string b, string c, string d*/)
         {
             InitializeComponent();
-            this.label5.Text = a;
+            /*this.label5.Text = a;
             this.label6.Text = b;
             this.label7.Text = c;
-            this.label12.Text = d;
+            this.label12.Text = d;*/
         }
 
         private void StudentForm_Load(object sender, EventArgs e)
         {
-            label5.Hide();
+            rbNew.Checked = true;
+          /*  label5.Hide();
             label6.Hide();
             label7.Hide();
             label12.Hide();
@@ -41,12 +42,12 @@ namespace CST
             if (label12.Text == "RRecord")
             {
                 label43.Text = "Edit Student Information";
-            }
+            }*/
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            if (label12.Text == "OStudent")
+           /* if (label12.Text == "OStudent")
             {
                 OldStudents OS = new OldStudents(label5.Text,label6.Text,label7.Text);
                 OS.Show();
@@ -75,7 +76,7 @@ namespace CST
                 NewStudents NS = new NewStudents(label5.Text, label6.Text, label7.Text);
                 NS.Show();
                 this.Hide();
-            }
+            }*/
 
 
         }
@@ -97,6 +98,37 @@ namespace CST
             label44.Text = my.ToString("MM/dd/yyyy  hh:mm:ss tt");
 
             timer1.Enabled = true;
+        }
+
+        private void radioButton14_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbNew.Checked)
+            {
+                btnSearch.Visible = false;
+            }
+            else
+            {
+                btnSearch.Visible = true;
+            }
+        }
+
+        private void radioButton15_CheckedChanged(object sender, EventArgs e)
+        {
+            /*if (rbOld.Checked)
+            {
+                btnSearch.Visible = true;
+            }
+            else
+            {
+
+            }*/
+        }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            Enrollment frm = new Enrollment();
+            frm.Show();
+            this.Hide();
         }
     }
 }

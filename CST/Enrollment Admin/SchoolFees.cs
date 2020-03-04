@@ -12,12 +12,10 @@ namespace CST
 {
     public partial class SchoolFees : Form
     {
-        public SchoolFees(string a, string b, string c)
+        public SchoolFees()
         {
             InitializeComponent();
-            label5.Text = a;
-            label3.Text = b;
-            label6.Text = c;
+            
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -39,7 +37,7 @@ namespace CST
         {
 
             this.Hide();
-            AddTuitionFee fr3 = new AddTuitionFee(label5.Text,label3.Text,label6.Text);
+            AddTuitionFee fr3 = new AddTuitionFee();
             fr3.ShowDialog();
             return;
 
@@ -50,7 +48,7 @@ namespace CST
         {
 
             this.Hide();
-            AddMiscellaneousFee fr3 = new AddMiscellaneousFee(label5.Text, label3.Text, label6.Text);
+            AddMiscellaneousFee fr3 = new AddMiscellaneousFee();
             fr3.ShowDialog();
             return;
 
@@ -59,17 +57,7 @@ namespace CST
 
         private void SchoolFees_Load(object sender, EventArgs e)
         {
-            label3.Hide();
-            DateTime my = DateTimeOffset.Now.DateTime.ToLocalTime().ToUniversalTime();
-
-
-            DateTime mys = DateTimeOffset.Now.UtcDateTime.ToLocalTime();
-
-          
-
-            label4.Text = my.ToString("MM/dd/yyyy  hh:mm:ss tt");
-
-            timer1.Enabled = true;
+            timer1.Start();
         }
 
         private void timer1_Tick(object sender, EventArgs e)

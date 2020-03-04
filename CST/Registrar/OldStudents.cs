@@ -37,14 +37,14 @@ namespace CST
 
         private void button2_Click(object sender, EventArgs e)
         {
-            Enrollment Enroll = new Enrollment(label3.Text, label49.Text,label6.Text);
+            Enrollment Enroll = new Enrollment();
             Enroll.Show();
             this.Hide();
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-            StudentForm SF = new StudentForm(label3.Text, label49.Text, label6.Text, label7.Text);
+            StudentForm SF = new StudentForm();
             SF.Show();
             this.Hide();
         }

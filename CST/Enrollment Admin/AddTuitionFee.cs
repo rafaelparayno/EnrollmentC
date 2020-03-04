@@ -12,19 +12,17 @@ namespace CST
 {
     public partial class AddTuitionFee : Form
     {
-        public AddTuitionFee(string a, string b, string c)
+        public AddTuitionFee()
         {
             InitializeComponent();
-            label10.Text = a;
-            label8.Text = b;
-            label9.Text = c;
+         
         }
 
 
         private void button5_Click(object sender, EventArgs e)
         {
             this.Hide();
-            SchoolFees fr3 = new SchoolFees(label10.Text,label8.Text,label9.Text);
+            SchoolFees fr3 = new SchoolFees();
             fr3.ShowDialog();
             return;
 

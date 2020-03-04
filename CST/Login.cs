@@ -140,7 +140,9 @@ namespace CST
 
                     else if (role == "Registrar")
                     {
-
+                        RegistrarForm frm = new RegistrarForm();
+                        frm.Show();
+                        this.Hide();
                     }
 
                     else if (role == "Enrollment Admin")

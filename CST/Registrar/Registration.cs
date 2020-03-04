@@ -12,33 +12,20 @@ namespace CST
 {
     public partial class Enrollment : Form
     {
-        public Enrollment(string a,string b, string c )
+        public Enrollment( )
         {
             InitializeComponent();
-            this.label5.Text = a;
-            this.label6.Text = c;
-            this.label49.Text =  b;
+           
         }
 
         private void Enrollment_Load(object sender, EventArgs e)
         {
-            button7.Enabled = false;
-   
-            DateTime my = DateTimeOffset.Now.DateTime.ToLocalTime().ToUniversalTime();
-
-
-            DateTime mys = DateTimeOffset.Now.UtcDateTime.ToLocalTime();
-
-            label7.Text = my.ToString("MM/dd/yyyy  hh:mm:ss tt");
-
-            timer1.Enabled = true;
+           
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            RegistrarForm RF = new RegistrarForm(label5.Text,label1.Text);
-            RF.Show();
-            this.Hide();
+         
         }
 
         private void label14_Click(object sender, EventArgs e)
@@ -93,157 +80,10 @@ namespace CST
 
         private void txtLastname_TextChanged(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(txtLastname.Text))
-            {
-                errorProvider1.SetError(txtLastname, "Please insert a Lastname of Student ");
+         
 
-                button7.Enabled = false;
-
-
-
-            }
 
             
-            else
-            {// CHild personal data
-                if (string.IsNullOrWhiteSpace(txtFirstname.Text))
-                {
-                    button7.Enabled = false;
-                }
-                if (string.IsNullOrWhiteSpace(txtLastname.Text))
-                {
-                    button7.Enabled = false;
-                }
-
-                if (string.IsNullOrWhiteSpace(cbGender.Text))
-                {
-                    button7.Enabled = false;
-                }
-
-                if (string.IsNullOrWhiteSpace(dpBirthdate.Text))
-                {
-                    button7.Enabled = false;
-                }
-                if (string.IsNullOrWhiteSpace(txtReligion.Text))
-                {
-                    button7.Enabled = false;
-                }
-
-                 if (string.IsNullOrWhiteSpace(txtPOB.Text))
-                {
-                    button7.Enabled = false;
-                }
-
-                if (string.IsNullOrWhiteSpace(txtNationality.Text))
-                {
-                    button7.Enabled = false;
-                }
-
-                  if (string.IsNullOrWhiteSpace(txtAddress.Text))
-                {
-                    button7.Enabled = false;
-                }
-                if (string.IsNullOrWhiteSpace(textBox1.Text))
-                {
-                    button7.Enabled = false;
-                }
-
-                // Child Family Data (father)
-                if (string.IsNullOrWhiteSpace(txtFLast.Text))
-                {
-                    button7.Enabled = false;
-                }
-
-                if (string.IsNullOrWhiteSpace(txtFFirst.Text))
-                {
-                    button7.Enabled = false;
-                }
-                
-                if (string.IsNullOrWhiteSpace(txtFMobile.Text))
-                {
-                    button7.Enabled = false;
-                }
-
-           
-                if (string.IsNullOrWhiteSpace(txtFOccupation.Text))
-                {
-                    button7.Enabled = false;
-                   
-                }
-                if (string.IsNullOrWhiteSpace(txtFOccupation.Text))
-                {
-                    button7.Enabled = false;
-
-                }
-                if (string.IsNullOrWhiteSpace(txtFCompany.Text))
-                {
-                    button7.Enabled = false;
-
-                }
-                if (string.IsNullOrWhiteSpace(txtFCompanyMobile.Text))
-                {
-                    button7.Enabled = false;
-
-                }
-                if (string.IsNullOrWhiteSpace(txtFCompanyMobile.Text))
-                {
-                    button7.Enabled = false;
-
-                }
-
-
-                // Child Family Data (Mother)
-
-
-                if (string.IsNullOrWhiteSpace(textBox12.Text))
-                {
-                    button7.Enabled = false;
-
-                }
-                if (string.IsNullOrWhiteSpace(textBox11.Text))
-                {
-                    button7.Enabled = false;
-
-                }
-
-                if (string.IsNullOrWhiteSpace(textBox5.Text))
-                {
-                    button7.Enabled = false;
-
-                }
-                if (string.IsNullOrWhiteSpace(textBox6.Text))
-                {
-                    button7.Enabled = false;
-
-                }
-                if (string.IsNullOrWhiteSpace(textBox8.Text))
-                {
-                    button7.Enabled = false;
-
-                }
-
-                if (string.IsNullOrWhiteSpace(textBox7.Text))
-                {
-                    button7.Enabled = false;
-
-                }
-
-                if (string.IsNullOrWhiteSpace(textBox9.Text))
-                {
-                    button7.Enabled = false;
-
-                }
-
-                else
-
-                    button7.Enabled = true;
-                errorProvider1.SetError(txtLastname, null);
-
-
-                return;
-
-
-            }
         }
 
         private void txtFirstname_TextChanged(object sender, EventArgs e)
@@ -2626,15 +2466,15 @@ namespace CST
 
         private void button3_Click_1(object sender, EventArgs e)
         {
-            NewStudents NS = new NewStudents(label5.Text,label49.Text, label6.Text);
+            NewStudents NS = new NewStudents();
             NS.Show();
             this.Hide();
         }
 
         private void button2_Click_1(object sender, EventArgs e)
         {
-            RegistrarForm RF = new RegistrarForm(label5.Text,label49.Text);
-            RF.Show();
+            RegistrarForm frm = new RegistrarForm();
+            frm.Show();
             this.Hide();
         }
 
