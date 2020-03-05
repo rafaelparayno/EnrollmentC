@@ -35,7 +35,7 @@ namespace CST
         private void btnRecord_Click(object sender, EventArgs e)
         {
             this.Hide();
-            SchoolFees fr3 = new SchoolFees();
+            AddTuitionFee fr3 = new AddTuitionFee();
             fr3.ShowDialog();
         }
 

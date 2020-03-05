@@ -110,7 +110,32 @@
     <Compile Include="Enrollment Admin\AddUpdateDiags\AddUpdateSubject.Designer.cs">
       <DependentUpon>AddUpdateSubject.cs</DependentUpon>
     </Compile>
+    <Compile Include="Enrollment Admin\AddUpdateDiags\addUpdateTuition.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Enrollment Admin\AddUpdateDiags\addUpdateTuition.Designer.cs">
+      <DependentUpon>addUpdateTuition.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Enrollment Admin\AddUpdateDiags\diagMisc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Enrollment Admin\AddUpdateDiags\diagMisc.Designer.cs">
+      <DependentUpon>diagMisc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Enrollment Admin\AddUpdateDiags\dialogTuition.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Enrollment Admin\AddUpdateDiags\dialogTuition.Designer.cs">
+      <DependentUpon>dialogTuition.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Enrollment Admin\SchedulingFinal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Enrollment Admin\SchedulingFinal.Designer.cs">
+      <DependentUpon>SchedulingFinal.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\GradeLevelController.cs" />
+    <Compile Include="Models\MiscController.cs" />
     <Compile Include="Models\RoomController.cs" />
     <Compile Include="Models\SchoolRequirementsController.cs" />
     <Compile Include="Models\SchoolRequirementsMod\SchoolRequireModel.cs" />
@@ -124,6 +149,8 @@
     <Compile Include="Models\StudFamDetailsController.cs" />
     <Compile Include="Models\StudHistDetailsController.cs" />
     <Compile Include="Models\SubjectController.cs" />
+    <Compile Include="Models\TotalFeeController.cs" />
+    <Compile Include="Models\TuitionFeeController.cs" />
     <Compile Include="Models\UserController.cs" />
     <Compile Include="Models\UserLog\UserLog.cs" />
     <Compile Include="Enrollment Admin\AddMiscellaneousFee.cs">
@@ -427,6 +454,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Enrollment Admin\AddUpdateDiags\AddUpdateSubject.resx">
       <DependentUpon>AddUpdateSubject.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Enrollment Admin\AddUpdateDiags\addUpdateTuition.resx">
+      <DependentUpon>addUpdateTuition.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Enrollment Admin\AddUpdateDiags\diagMisc.resx">
+      <DependentUpon>diagMisc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Enrollment Admin\AddUpdateDiags\dialogTuition.resx">
+      <DependentUpon>dialogTuition.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Generated.resx">
       <DependentUpon>Generated.cs</DependentUpon>
