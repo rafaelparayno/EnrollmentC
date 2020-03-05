@@ -29,8 +29,11 @@ namespace  CST
 
         private void btnEnroll_Click(object sender, EventArgs e)
         {
-            Enrollment Enroll = new Enrollment();
-            Enroll.Show();
+            /*  Enrollment Enroll = new Enrollment();
+              Enroll.Show();
+              this.Hide();*/
+            NewStudents frm = new NewStudents();
+            frm.Show();
             this.Hide();
         }
 

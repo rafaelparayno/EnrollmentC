@@ -28,8 +28,8 @@ namespace CST
 
         private void button2_Click(object sender, EventArgs e)
         {
-            Enrollment Enroll = new Enrollment();
-            Enroll.Show();
+            RegistrarForm frm = new RegistrarForm();
+            frm.Show();
             this.Hide();
         }
 
@@ -43,15 +43,31 @@ namespace CST
 
         private void button1_Click(object sender, EventArgs e)
         {
-            List<SchoolRequireModel> requireModels = new List<SchoolRequireModel>();
-            foreach(SchoolRequireModel requ in requireModels)
+            int lenghtDatagrid = dataGridView1.RowCount;
+            /*     int[] arrReqIds = new int[lenghtDatagrid];*/
+            List<int> reqIds = new List<int>();
+
+            for(int i = 0; i < lenghtDatagrid; i++)
             {
+                if (dataGridView1.Rows[i].Cells[2].Value.ToString() == "True")
+                {
+                    reqIds.Add(int.Parse(dataGridView1.Rows[i].Cells[0].Value.ToString()));
+                
+                }
 
             }
+      
+            int lenghtReqArr = reqIds.Count;
+            int[] arrReqIds = new int[lenghtReqArr];
+            for(int i = 0; i < lenghtReqArr; i++)
+            {
+                arrReqIds[i] = reqIds[i];
+          
+            }
 
-            StudentForm SF = new StudentForm();
+           /* StudentForm SF = new StudentForm();
             SF.Show();
-            this.Hide();
+            this.Hide();*/
         }
 
         private void radioButton1_CheckedChanged(object sender, EventArgs e)

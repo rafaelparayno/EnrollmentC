@@ -48,8 +48,6 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.radioButton13 = new System.Windows.Forms.RadioButton();
             this.radioButton12 = new System.Windows.Forms.RadioButton();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label14 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.txtAddress = new System.Windows.Forms.TextBox();
@@ -69,8 +67,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.groupBox11 = new System.Windows.Forms.GroupBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.groupBox10 = new System.Windows.Forms.GroupBox();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
@@ -149,6 +145,8 @@
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnBack = new System.Windows.Forms.Button();
+            this.progressBar1 = new System.Windows.Forms.ProgressBar();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -156,7 +154,6 @@
             this.groupBox2.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.groupBox3.SuspendLayout();
-            this.groupBox11.SuspendLayout();
             this.groupBox10.SuspendLayout();
             this.groupBox6.SuspendLayout();
             this.tabPage3.SuspendLayout();
@@ -232,8 +229,6 @@
             this.groupBox1.Controls.Add(this.textBox24);
             this.groupBox1.Controls.Add(this.label53);
             this.groupBox1.Controls.Add(this.groupBox2);
-            this.groupBox1.Controls.Add(this.textBox1);
-            this.groupBox1.Controls.Add(this.label14);
             this.groupBox1.Controls.Add(this.label13);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.txtAddress);
@@ -344,7 +339,7 @@
             this.textBox24.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBox24.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox24.ForeColor = System.Drawing.Color.Black;
-            this.textBox24.Location = new System.Drawing.Point(799, 191);
+            this.textBox24.Location = new System.Drawing.Point(621, 187);
             this.textBox24.Name = "textBox24";
             this.textBox24.Size = new System.Drawing.Size(165, 26);
             this.textBox24.TabIndex = 160;
@@ -355,7 +350,7 @@
             this.label53.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label53.ForeColor = System.Drawing.Color.Black;
             this.label53.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label53.Location = new System.Drawing.Point(796, 166);
+            this.label53.Location = new System.Drawing.Point(618, 166);
             this.label53.Name = "label53";
             this.label53.Size = new System.Drawing.Size(119, 16);
             this.label53.TabIndex = 158;
@@ -393,28 +388,6 @@
             this.radioButton12.TabStop = true;
             this.radioButton12.Text = "Male";
             this.radioButton12.UseVisualStyleBackColor = true;
-            // 
-            // textBox1
-            // 
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.ForeColor = System.Drawing.Color.Black;
-            this.textBox1.Location = new System.Drawing.Point(468, 279);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(106, 26);
-            this.textBox1.TabIndex = 145;
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.ForeColor = System.Drawing.Color.Black;
-            this.label14.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label14.Location = new System.Drawing.Point(465, 245);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(111, 16);
-            this.label14.TabIndex = 144;
-            this.label14.Text = "Level Applying";
             // 
             // label13
             // 
@@ -512,7 +485,7 @@
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.Black;
             this.label8.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label8.Location = new System.Drawing.Point(586, 166);
+            this.label8.Location = new System.Drawing.Point(455, 245);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(100, 16);
             this.label8.TabIndex = 137;
@@ -577,9 +550,9 @@
             this.txtPOB.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtPOB.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPOB.ForeColor = System.Drawing.Color.Black;
-            this.txtPOB.Location = new System.Drawing.Point(589, 191);
+            this.txtPOB.Location = new System.Drawing.Point(458, 279);
             this.txtPOB.Name = "txtPOB";
-            this.txtPOB.Size = new System.Drawing.Size(189, 26);
+            this.txtPOB.Size = new System.Drawing.Size(328, 26);
             this.txtPOB.TabIndex = 7;
             // 
             // txtNationality
@@ -617,7 +590,6 @@
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.groupBox11);
             this.groupBox3.Controls.Add(this.groupBox10);
             this.groupBox3.Controls.Add(this.groupBox6);
             this.groupBox3.Controls.Add(this.textBox16);
@@ -669,25 +641,6 @@
             this.groupBox3.Size = new System.Drawing.Size(1003, 418);
             this.groupBox3.TabIndex = 183;
             this.groupBox3.TabStop = false;
-            // 
-            // groupBox11
-            // 
-            this.groupBox11.BackColor = System.Drawing.Color.Transparent;
-            this.groupBox11.Controls.Add(this.comboBox1);
-            this.groupBox11.Location = new System.Drawing.Point(720, 366);
-            this.groupBox11.Name = "groupBox11";
-            this.groupBox11.Size = new System.Drawing.Size(156, 46);
-            this.groupBox11.TabIndex = 198;
-            this.groupBox11.TabStop = false;
-            this.groupBox11.Text = "Number of Siblings";
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(12, 17);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 24);
-            this.comboBox1.TabIndex = 198;
             // 
             // groupBox10
             // 
@@ -1557,12 +1510,13 @@
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSave.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSave.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnSave.Location = new System.Drawing.Point(738, 533);
+            this.btnSave.Location = new System.Drawing.Point(738, 524);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(305, 35);
             this.btnSave.TabIndex = 235;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = false;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // btnBack
             // 
@@ -1579,6 +1533,20 @@
             this.btnBack.UseVisualStyleBackColor = false;
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
+            // progressBar1
+            // 
+            this.progressBar1.Location = new System.Drawing.Point(144, 524);
+            this.progressBar1.Name = "progressBar1";
+            this.progressBar1.Size = new System.Drawing.Size(588, 23);
+            this.progressBar1.TabIndex = 183;
+            this.progressBar1.Visible = false;
+            // 
+            // backgroundWorker1
+            // 
+            this.backgroundWorker1.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker1_DoWork);
+            this.backgroundWorker1.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.backgroundWorker1_ProgressChanged);
+            this.backgroundWorker1.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.backgroundWorker1_RunWorkerCompleted);
+            // 
             // StudentForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1587,6 +1555,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1069, 590);
+            this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.tabControl1);
@@ -1609,7 +1578,6 @@
             this.tabPage2.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
-            this.groupBox11.ResumeLayout(false);
             this.groupBox10.ResumeLayout(false);
             this.groupBox10.PerformLayout();
             this.groupBox6.ResumeLayout(false);
@@ -1644,8 +1612,6 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.RadioButton radioButton13;
         private System.Windows.Forms.RadioButton radioButton12;
-        public System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label4;
         public System.Windows.Forms.TextBox txtAddress;
@@ -1666,8 +1632,6 @@
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.GroupBox groupBox11;
-        private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.GroupBox groupBox10;
         private System.Windows.Forms.RadioButton radioButton2;
         private System.Windows.Forms.RadioButton radioButton1;
@@ -1750,5 +1714,7 @@
         private System.Windows.Forms.RadioButton rbNew;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnBack;
+        private System.Windows.Forms.ProgressBar progressBar1;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
     }
 }

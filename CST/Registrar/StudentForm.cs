@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Threading;
 
 namespace CST
 {
@@ -129,6 +130,39 @@ namespace CST
             Enrollment frm = new Enrollment();
             frm.Show();
             this.Hide();
+        }
+
+        private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
+        {
+            for (int i = 1; i <= 100; i++)
+            {
+                Thread.Sleep(10);
+                backgroundWorker1.WorkerReportsProgress = true;
+                backgroundWorker1.ReportProgress(i);
+            }
+        }
+
+        private void backgroundWorker1_ProgressChanged(object sender, ProgressChangedEventArgs e)
+        {
+            progressBar1.Value = e.ProgressPercentage;
+        }
+
+        private void backgroundWorker1_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            MessageBox.Show("Succesfully Added Student Details");
+            Enrollment frm = new Enrollment();
+            frm.Show();
+            this.Hide();
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            //Save!!
+            //executes query 
+
+            backgroundWorker1.RunWorkerAsync();
+            progressBar1.Show();
+            tabControl1.Enabled = false;
         }
     }
 }
