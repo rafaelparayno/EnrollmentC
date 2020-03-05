@@ -117,10 +117,12 @@
     <Compile Include="Models\SchoolYear\SchoolYearModel.cs" />
     <Compile Include="Models\SectionController.cs" />
     <Compile Include="Models\SpecializationController.cs" />
+    <Compile Include="Models\StudentRequirementController.cs" />
     <Compile Include="Models\StudentRequirements\StudentRequirements.cs" />
     <Compile Include="Models\StudentsDetailsController.cs" />
     <Compile Include="Models\Student\StudentModel.cs" />
     <Compile Include="Models\StudFamDetailsController.cs" />
+    <Compile Include="Models\StudHistDetailsController.cs" />
     <Compile Include="Models\SubjectController.cs" />
     <Compile Include="Models\UserController.cs" />
     <Compile Include="Models\UserLog\UserLog.cs" />

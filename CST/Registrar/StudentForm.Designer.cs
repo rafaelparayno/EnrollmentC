@@ -37,9 +37,6 @@
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnSearch = new System.Windows.Forms.Button();
-            this.groupBox12 = new System.Windows.Forms.GroupBox();
-            this.rbOld = new System.Windows.Forms.RadioButton();
-            this.rbNew = new System.Windows.Forms.RadioButton();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.textBox19 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -130,11 +127,11 @@
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.label21 = new System.Windows.Forms.Label();
             this.label26 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.txtPastSchool = new System.Windows.Forms.TextBox();
+            this.txtPastLevel = new System.Windows.Forms.TextBox();
             this.label23 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txtPastAdd = new System.Windows.Forms.TextBox();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnBack = new System.Windows.Forms.Button();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
@@ -143,7 +140,6 @@
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            this.groupBox12.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -218,7 +214,6 @@
             // 
             this.groupBox1.BackColor = System.Drawing.Color.White;
             this.groupBox1.Controls.Add(this.btnSearch);
-            this.groupBox1.Controls.Add(this.groupBox12);
             this.groupBox1.Controls.Add(this.dateTimePicker1);
             this.groupBox1.Controls.Add(this.textBox19);
             this.groupBox1.Controls.Add(this.label1);
@@ -256,7 +251,7 @@
             this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSearch.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSearch.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnSearch.Location = new System.Drawing.Point(655, 45);
+            this.btnSearch.Location = new System.Drawing.Point(339, 45);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(100, 26);
             this.btnSearch.TabIndex = 237;
@@ -264,42 +259,6 @@
             this.btnSearch.UseVisualStyleBackColor = false;
             this.btnSearch.Visible = false;
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
-            // 
-            // groupBox12
-            // 
-            this.groupBox12.BackColor = System.Drawing.Color.Transparent;
-            this.groupBox12.Controls.Add(this.rbOld);
-            this.groupBox12.Controls.Add(this.rbNew);
-            this.groupBox12.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.groupBox12.Location = new System.Drawing.Point(18, 17);
-            this.groupBox12.Name = "groupBox12";
-            this.groupBox12.Size = new System.Drawing.Size(273, 55);
-            this.groupBox12.TabIndex = 237;
-            this.groupBox12.TabStop = false;
-            // 
-            // rbOld
-            // 
-            this.rbOld.AutoSize = true;
-            this.rbOld.Location = new System.Drawing.Point(137, 19);
-            this.rbOld.Name = "rbOld";
-            this.rbOld.Size = new System.Drawing.Size(106, 20);
-            this.rbOld.TabIndex = 1;
-            this.rbOld.TabStop = true;
-            this.rbOld.Text = "Old Student";
-            this.rbOld.UseVisualStyleBackColor = true;
-            this.rbOld.CheckedChanged += new System.EventHandler(this.radioButton15_CheckedChanged);
-            // 
-            // rbNew
-            // 
-            this.rbNew.AutoSize = true;
-            this.rbNew.Location = new System.Drawing.Point(16, 19);
-            this.rbNew.Name = "rbNew";
-            this.rbNew.Size = new System.Drawing.Size(112, 20);
-            this.rbNew.TabIndex = 0;
-            this.rbNew.TabStop = true;
-            this.rbNew.Text = "New Student";
-            this.rbNew.UseVisualStyleBackColor = true;
-            this.rbNew.CheckedChanged += new System.EventHandler(this.radioButton14_CheckedChanged);
             // 
             // dateTimePicker1
             // 
@@ -447,7 +406,7 @@
             this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label15.ForeColor = System.Drawing.Color.Black;
             this.label15.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label15.Location = new System.Drawing.Point(336, 18);
+            this.label15.Location = new System.Drawing.Point(20, 18);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(88, 16);
             this.label15.TabIndex = 68;
@@ -471,7 +430,7 @@
             this.txtStudentID.Enabled = false;
             this.txtStudentID.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtStudentID.ForeColor = System.Drawing.Color.Black;
-            this.txtStudentID.Location = new System.Drawing.Point(339, 46);
+            this.txtStudentID.Location = new System.Drawing.Point(23, 46);
             this.txtStudentID.Name = "txtStudentID";
             this.txtStudentID.Size = new System.Drawing.Size(291, 26);
             this.txtStudentID.TabIndex = 126;
@@ -765,6 +724,7 @@
             this.textBox15.Size = new System.Drawing.Size(126, 26);
             this.textBox15.TabIndex = 183;
             this.textBox15.TextChanged += new System.EventHandler(this.textBox15_TextChanged);
+            this.textBox15.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox15_KeyPress);
             // 
             // label41
             // 
@@ -847,6 +807,7 @@
             this.textBox5.Size = new System.Drawing.Size(126, 26);
             this.textBox5.TabIndex = 166;
             this.textBox5.TextChanged += new System.EventHandler(this.textBox5_TextChanged);
+            this.textBox5.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox5_KeyPress);
             // 
             // textBox6
             // 
@@ -881,6 +842,7 @@
             this.textBox7.Size = new System.Drawing.Size(114, 26);
             this.textBox7.TabIndex = 168;
             this.textBox7.TextChanged += new System.EventHandler(this.textBox7_TextChanged);
+            this.textBox7.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox7_KeyPress);
             // 
             // label31
             // 
@@ -1010,6 +972,7 @@
             this.txtFMobile.Size = new System.Drawing.Size(126, 26);
             this.txtFMobile.TabIndex = 148;
             this.txtFMobile.TextChanged += new System.EventHandler(this.txtFMobile_TextChanged);
+            this.txtFMobile.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtFMobile_KeyPress);
             // 
             // txtFOccupation
             // 
@@ -1044,6 +1007,7 @@
             this.txtFCompanyMobile.Size = new System.Drawing.Size(114, 26);
             this.txtFCompanyMobile.TabIndex = 150;
             this.txtFCompanyMobile.TextChanged += new System.EventHandler(this.txtFCompanyMobile_TextChanged);
+            this.txtFCompanyMobile.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtFCompanyMobile_KeyPress);
             // 
             // label17
             // 
@@ -1161,7 +1125,7 @@
             this.groupBox5.Controls.Add(this.label46);
             this.groupBox5.Controls.Add(this.label47);
             this.groupBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox5.Location = new System.Drawing.Point(18, 106);
+            this.groupBox5.Location = new System.Drawing.Point(18, 149);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Size = new System.Drawing.Size(999, 73);
             this.groupBox5.TabIndex = 187;
@@ -1252,6 +1216,7 @@
             this.radioButton7.TabStop = true;
             this.radioButton7.Text = "Yes";
             this.radioButton7.UseVisualStyleBackColor = true;
+            this.radioButton7.CheckedChanged += new System.EventHandler(this.radioButton7_CheckedChanged);
             // 
             // radioButton6
             // 
@@ -1307,7 +1272,6 @@
             this.txtVaccination.Name = "txtVaccination";
             this.txtVaccination.Size = new System.Drawing.Size(271, 29);
             this.txtVaccination.TabIndex = 76;
-            this.txtVaccination.Text = "Please Specify";
             // 
             // label46
             // 
@@ -1338,11 +1302,11 @@
             this.groupBox4.Controls.Add(this.dateTimePicker2);
             this.groupBox4.Controls.Add(this.label21);
             this.groupBox4.Controls.Add(this.label26);
-            this.groupBox4.Controls.Add(this.textBox2);
-            this.groupBox4.Controls.Add(this.textBox4);
+            this.groupBox4.Controls.Add(this.txtPastSchool);
+            this.groupBox4.Controls.Add(this.txtPastLevel);
             this.groupBox4.Controls.Add(this.label23);
             this.groupBox4.Controls.Add(this.label22);
-            this.groupBox4.Controls.Add(this.textBox3);
+            this.groupBox4.Controls.Add(this.txtPastAdd);
             this.groupBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox4.Location = new System.Drawing.Point(18, 24);
             this.groupBox4.Name = "groupBox4";
@@ -1385,25 +1349,25 @@
             this.label26.TabIndex = 150;
             this.label26.Text = "Inclusive Date";
             // 
-            // textBox2
+            // txtPastSchool
             // 
-            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.ForeColor = System.Drawing.Color.Black;
-            this.textBox2.Location = new System.Drawing.Point(8, 40);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(354, 26);
-            this.textBox2.TabIndex = 145;
+            this.txtPastSchool.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtPastSchool.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPastSchool.ForeColor = System.Drawing.Color.Black;
+            this.txtPastSchool.Location = new System.Drawing.Point(8, 40);
+            this.txtPastSchool.Name = "txtPastSchool";
+            this.txtPastSchool.Size = new System.Drawing.Size(354, 26);
+            this.txtPastSchool.TabIndex = 145;
             // 
-            // textBox4
+            // txtPastLevel
             // 
-            this.textBox4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox4.ForeColor = System.Drawing.Color.Black;
-            this.textBox4.Location = new System.Drawing.Point(730, 41);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(82, 26);
-            this.textBox4.TabIndex = 149;
+            this.txtPastLevel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtPastLevel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPastLevel.ForeColor = System.Drawing.Color.Black;
+            this.txtPastLevel.Location = new System.Drawing.Point(730, 41);
+            this.txtPastLevel.Name = "txtPastLevel";
+            this.txtPastLevel.Size = new System.Drawing.Size(82, 26);
+            this.txtPastLevel.TabIndex = 149;
             // 
             // label23
             // 
@@ -1429,15 +1393,15 @@
             this.label22.TabIndex = 146;
             this.label22.Text = "Address";
             // 
-            // textBox3
+            // txtPastAdd
             // 
-            this.textBox3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.ForeColor = System.Drawing.Color.Black;
-            this.textBox3.Location = new System.Drawing.Point(370, 41);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(354, 26);
-            this.textBox3.TabIndex = 147;
+            this.txtPastAdd.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtPastAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPastAdd.ForeColor = System.Drawing.Color.Black;
+            this.txtPastAdd.Location = new System.Drawing.Point(370, 41);
+            this.txtPastAdd.Name = "txtPastAdd";
+            this.txtPastAdd.Size = new System.Drawing.Size(354, 26);
+            this.txtPastAdd.TabIndex = 147;
             // 
             // btnSave
             // 
@@ -1511,8 +1475,6 @@
             this.tabPage1.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            this.groupBox12.ResumeLayout(false);
-            this.groupBox12.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.tabPage2.ResumeLayout(false);
@@ -1636,15 +1598,12 @@
         public System.Windows.Forms.DateTimePicker dateTimePicker2;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Label label26;
-        public System.Windows.Forms.TextBox textBox2;
-        public System.Windows.Forms.TextBox textBox4;
+        public System.Windows.Forms.TextBox txtPastSchool;
+        public System.Windows.Forms.TextBox txtPastLevel;
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.Label label22;
-        public System.Windows.Forms.TextBox textBox3;
+        public System.Windows.Forms.TextBox txtPastAdd;
         private System.Windows.Forms.Button btnSearch;
-        private System.Windows.Forms.GroupBox groupBox12;
-        private System.Windows.Forms.RadioButton rbOld;
-        private System.Windows.Forms.RadioButton rbNew;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnBack;
         private System.Windows.Forms.ProgressBar progressBar1;

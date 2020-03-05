@@ -20,7 +20,7 @@ namespace CST.Models
 
         public void addStudDetails(string []arrDetails)
         {
-            string sql = String.Format(@"INSERT INTO student_detail(`sno`,`firstname`,`lastname`,`middlename`,`gender`,`age`,`birthdate`,`pob`,`contact_no`,`nationality`,`religion`,`address`,`sy_id`) VALUES ('{0}','{1}','{2}','{3}','{4}',{5},'{6}','{7}','{8}','{9}','{10}','{11}',{12})",
+            string sql = String.Format(@"INSERT INTO student_detail(`sno`,`firstname`,`lastname`,`middlename`,`gender`,`age`,`birthdate`,`pob`,`contact_no`,`nationality`,`religion`,`address`,`isEnrolled`,`sy_id`) VALUES ('{0}','{1}','{2}','{3}','{4}',{5},'{6}','{7}','{8}','{9}','{10}','{11}','not yet',{12})",
                                         arrDetails[0], arrDetails[1], arrDetails[2], arrDetails[3], arrDetails[4], arrDetails[5], arrDetails[6], arrDetails[7], arrDetails[8],
                                         arrDetails[9], arrDetails[10], arrDetails[11], syid);
       

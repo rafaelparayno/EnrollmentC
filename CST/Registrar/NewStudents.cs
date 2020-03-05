@@ -63,6 +63,7 @@ namespace CST
           
             }
             StudentModel.setReq_ids(arrReqIds);
+            StudentModel.setTypeOfStudents(cbType.SelectedItem.ToString());
             StudentForm SF = new StudentForm();
             SF.Show();
             this.Hide();

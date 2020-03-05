@@ -151,7 +151,7 @@ namespace CST.Models.Student
         //requirements
         private static int[] pass_req_ids;
         private static string type_of_student;
-        private static string student_id;
+       
 
 
 
@@ -165,6 +165,16 @@ namespace CST.Models.Student
         public static void setTypeOfStudents(string typeStud)
         {
             type_of_student = typeStud;
+        }
+
+        public static int[] getReq_ids()
+        {
+            return pass_req_ids;
+        }
+
+        public static string getTypeStud()
+        {
+            return type_of_student;
         }
 
 
@@ -249,7 +259,7 @@ namespace CST.Models.Student
         public static void setMother_name(string name)
         {
             mother_name = name;
-        }
+        } 
 
         public static void setMother_no(string name)
         {

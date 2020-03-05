@@ -18,10 +18,13 @@ namespace CST
         YearController yearcontroller = new YearController();
         StudentsDetailsController StudentsDetailsController = new StudentsDetailsController();
         StudFamDetailsController studFam = new StudFamDetailsController();
+        StudHistDetailsController studHis = new StudHistDetailsController();
+        StudentRequirementController studReq = new StudentRequirementController();
         string[] studentDetails = new string[12];
         string[] famDetails = new string[17];
         int currentTab = 0;
         string currentSy = "";
+        string isVacinated = "";
         public StudentForm()
         {
             InitializeComponent();
@@ -30,10 +33,25 @@ namespace CST
 
         private void StudentForm_Load(object sender, EventArgs e)
         {
-            rbNew.Checked = true;
+           
+            if (StudentModel.getTypeStud() == "New Student" || StudentModel.getTypeStud() == "Transferee Student")
+            {
+                btnSearch.Visible = false;
+                txtStudentID.Text = generateSNO();
+                txtStudentID.Enabled = false;
+                StudentModel.setSno(generateSNO());
+            }
+            else
+            {
+                txtStudentID.Text = "";
+                txtStudentID.Enabled = true;
+                btnSearch.Visible = true;
+            }
+
             radioButton1.Checked = true;
             radioButton12.Checked = true;
             radioButton3.Checked = true;
+            radioButton7.Checked = true;
             dateTimePicker1.MaxDate = DateTime.Now;
             StudentModel.setBd(dateTimePicker1.Value.ToString().Split()[0]);
 
@@ -67,7 +85,7 @@ namespace CST
 
         private void radioButton14_CheckedChanged(object sender, EventArgs e)
         {
-            if (rbNew.Checked)
+         /*   if (rbNew.Checked)
             {
                 btnSearch.Visible = false;
                 txtStudentID.Text = generateSNO();
@@ -80,7 +98,7 @@ namespace CST
                 txtStudentID.Text = "";
                 txtStudentID.Enabled = true;
                 btnSearch.Visible = true;
-            }
+            }*/
         }
 
         private void radioButton15_CheckedChanged(object sender, EventArgs e)
@@ -129,13 +147,35 @@ namespace CST
         {
             //Save!!
             //executes query 
-            //getAllDetails();
-            getAllFamDetails();
-            studFam.addFamDetails(StudentModel.getSno(), famDetails);
-            /*StudentsDetailsController.addStudDetails(studentDetails);
-            backgroundWorker1.RunWorkerAsync();
-            progressBar1.Show();
-            tabControl1.Enabled = false;*/
+            bool isvalid = true;
+            isvalid = validationTab3() && isvalid;
+            isvalid = validationTab1() && isvalid;
+            isvalid = validationTab2() && isvalid;
+            if (isvalid)
+            {
+                getAllDetails();
+
+                StudentsDetailsController.addStudDetails(studentDetails);
+                getAllFamDetails();
+                studFam.addFamDetails(StudentModel.getSno(), famDetails);
+                studHis.addHisDetails(StudentModel.getSno(), txtPastSchool.Text.Trim(), txtPastAdd.Text.Trim(), txtPastLevel.Text.Trim(),
+                                    dateTimePicker2.Value.ToShortDateString(), isVacinated, txtVaccination.Text.Trim());
+                int[] reqIds = StudentModel.getReq_ids();
+
+                for(int i = 0; i < reqIds.Length; i++)
+                {
+                    studReq.addStudentReq(StudentModel.getSno(), StudentModel.getTypeStud(), reqIds[i]);
+                }
+
+                backgroundWorker1.RunWorkerAsync();
+                progressBar1.Show();
+                tabControl1.Enabled = false;
+            }
+            else
+            {
+                MessageBox.Show("Please Complete Information for the Personal Details", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+           
 
 
         }
@@ -148,7 +188,7 @@ namespace CST
             famDetails[3] = StudentModel.getFather_comp();
             famDetails[4] = StudentModel.getFather_Ctel();
             famDetails[5] = StudentModel.getFather_CAdd();
-/*
+
             famDetails[6] = StudentModel.getMother_name();
             famDetails[7] = StudentModel.getMother_no();
             famDetails[8] = StudentModel.getMother_occu();
@@ -160,7 +200,7 @@ namespace CST
             famDetails[13] = StudentModel.getGuardian_add();
             famDetails[14] = StudentModel.getGuardian_rel();
             famDetails[15] = StudentModel.getGuardian_no();
-            famDetails[17] = StudentModel.getParent_status();*/
+            famDetails[16] = StudentModel.getParent_status();
 
         }
 
@@ -170,6 +210,27 @@ namespace CST
          
             
         }
+
+        private bool validationTab2()
+        {
+            bool isValid = true;
+
+            isValid = !(txtFLast.Text == "") && isValid;
+
+            isValid = !(txtFMobile.Text == "") && isValid;
+
+            isValid = !(textBox12.Text == "") && isValid;
+
+            isValid = !(textBox5.Text == "") && isValid;
+
+            isValid = !(txtFOccupation.Text == "") && isValid;
+
+            isValid = !(textBox6.Text == "") && isValid;
+
+            return isValid;
+        }
+
+
 
         private bool validationTab1()
         {
@@ -200,6 +261,21 @@ namespace CST
 
         
             return isValid;
+        }
+
+        private bool validationTab3()
+        {
+            bool isValid = true;
+
+            isValid = !(txtPastSchool.Text.Trim() == "") && isValid;
+
+            isValid = !(txtPastAdd.Text.Trim() == "") && isValid;
+
+            isValid = !(txtPastLevel.Text.Trim() == "") && isValid;
+
+
+            return isValid;
+
         }
 
         private string generateSNO()
@@ -339,22 +415,55 @@ namespace CST
 
         private void tabControl1_Selecting(object sender, TabControlCancelEventArgs e)
         {
-           /* if (currentTab == 0)
+        
+            if (currentTab == 0)
             {
 
-
+              
                 int changedPage = tabControl1.SelectedIndex;
                 bool isValidToNextPage = validationTab1();
                 if (isValidToNextPage)
                 {
+                    
+                    currentTab = changedPage;
                     tabControl1.SelectedIndex = changedPage;
+            
                 }
                 else
                 {
                     e.Cancel = true;
                     MessageBox.Show("Please Complete Information for the Personal Details", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-            }*/
+            }else if(currentTab == 1)
+            {
+            
+                int changedPage = tabControl1.SelectedIndex;
+           
+                bool isValidToNextPage = validationTab2();
+                if (isValidToNextPage)
+                {
+               
+                    currentTab = changedPage;
+                    tabControl1.SelectedIndex = changedPage;
+              
+                }
+                else
+                {
+                    e.Cancel = true;
+                    MessageBox.Show("Please Complete Information for the Personal Details", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else if(currentTab == 2)
+            {
+            
+               
+                int changedPage = tabControl1.SelectedIndex;
+
+                currentTab = changedPage;
+                tabControl1.SelectedIndex = changedPage;
+             
+
+            }
 
         }
 
@@ -473,6 +582,63 @@ namespace CST
             else
             {
                 StudentModel.setParent_status("separated");
+            }
+        }
+
+        private void txtFMobile_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            string validKeys = "0123456789";
+            if (validKeys.IndexOf(e.KeyChar) < 0 && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtFCompanyMobile_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            string validKeys = "0123456789";
+            if (validKeys.IndexOf(e.KeyChar) < 0 && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void textBox5_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            string validKeys = "0123456789";
+            if (validKeys.IndexOf(e.KeyChar) < 0 && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void textBox7_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            string validKeys = "0123456789";
+            if (validKeys.IndexOf(e.KeyChar) < 0 && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void textBox15_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            string validKeys = "0123456789";
+            if (validKeys.IndexOf(e.KeyChar) < 0 && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void radioButton7_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radioButton7.Checked)
+            {
+                isVacinated = "Yes";
+            }
+            else
+            {
+                isVacinated = "No";
             }
         }
     }
