@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using CST.Models;
 using CST.Models.SchoolRequirementsMod;
+using CST.Models.Student;
 
 namespace CST
 {
@@ -34,17 +35,14 @@ namespace CST
         }
 
             private void NewStudents_Load(object sender, EventArgs e)
-        {
-           label3.Hide();
-           label6.Hide(); 
-           label49.Hide();
-            label7.Hide();
-        }
+            {
+            cbType.SelectedIndex = 0;
+            }
 
         private void button1_Click(object sender, EventArgs e)
         {
             int lenghtDatagrid = dataGridView1.RowCount;
-            /*     int[] arrReqIds = new int[lenghtDatagrid];*/
+          
             List<int> reqIds = new List<int>();
 
             for(int i = 0; i < lenghtDatagrid; i++)
@@ -64,10 +62,10 @@ namespace CST
                 arrReqIds[i] = reqIds[i];
           
             }
-
-           /* StudentForm SF = new StudentForm();
+            StudentModel.setReq_ids(arrReqIds);
+            StudentForm SF = new StudentForm();
             SF.Show();
-            this.Hide();*/
+            this.Hide();
         }
 
         private void radioButton1_CheckedChanged(object sender, EventArgs e)
