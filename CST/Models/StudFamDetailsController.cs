@@ -25,5 +25,12 @@ namespace CST.Models
             cs.ExecuteQuery(sql);
 
         }
+
+        public void filldataGridFam(ref DataGridView dg)
+        {
+            string sql = String.Format(@"SELECT `sno`, `father_name`, `father_no`, `father_occu`, `father_comp_name`, `father_Ctel_no`, `father_office_address`, `mother_name`, `mother_no`, `mother_occu`, `mother_comp_name`, `mother_Ctel_no`, `mother_office_add`, `guardian_name`, `guardian_add`, `guardian_relation`, `guardian_no`, `parent_status` FROM `student_family_details` WHERE sno in (SELECT sno FROM student_detail WHERE isEnrolled ='enrolled' )");
+
+            cs.FillDataGrid(sql,ref dg);
+        }
     }
 }

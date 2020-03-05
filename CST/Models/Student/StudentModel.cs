@@ -390,7 +390,40 @@ namespace CST.Models.Student
             return guardian_no;
         }
 
+        public static void clearAll()
+        {
+            sno = "";
+            fn = "";
+            ln = "";
+            mn = "";
+            gender = "";
+            age = 0;
+            birthdate = "";
+            pob = "";
+            cn = "";
+            religion = "";
+            nationality = "";
+            addressGlob = "";
+            father_name = "";
+            father_no = "";
+            father_occu = "";
+            father_comp_name = "";
+            father_Ctel_no = "";
+            father_office_address = "";
 
+            mother_name = "";
+            mother_no = "";
+            mother_occu = "";
+            mother_comp_name = "";
+            mother_Ctel_no= "";
+            mother_office_address = "";
+
+            guardian_name = "";
+            guardian_add = "";
+            guardian_rel = "";
+            guardian_no = "";
+            parent_status = "";
+    }
 
     }
 }

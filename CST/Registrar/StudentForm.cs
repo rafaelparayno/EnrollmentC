@@ -170,6 +170,7 @@ namespace CST
                 backgroundWorker1.RunWorkerAsync();
                 progressBar1.Show();
                 tabControl1.Enabled = false;
+                StudentModel.clearAll();
             }
             else
             {

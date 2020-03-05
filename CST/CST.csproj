@@ -225,6 +225,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Registrar\editStudentForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Registrar\editStudentForm.Designer.cs">
+      <DependentUpon>editStudentForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="System Admin\addUserAccounts.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -421,6 +427,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="IPConfigFormcs.resx">
       <DependentUpon>IPConfigFormcs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Registrar\editStudentForm.resx">
+      <DependentUpon>editStudentForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="System Admin\addUserAccounts.resx">
       <DependentUpon>addUserAccounts.cs</DependentUpon>

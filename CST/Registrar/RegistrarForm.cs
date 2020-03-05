@@ -61,7 +61,9 @@ namespace  CST
 
         private void button2_Click(object sender, EventArgs e)
         {
-          
+            RegistrarRecord frm = new RegistrarRecord();
+            frm.Show();
+            this.Hide();
         }
 
         private void timer1_Tick(object sender, EventArgs e)

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace CST.Models
 {
@@ -21,6 +22,14 @@ namespace CST.Models
 
             cs.ExecuteQuery(sql);
 
+        }
+
+
+        public void fillDataHist(ref DataGridView dg)
+        {
+            string sql = String.Format(@"SELECT `stud_his_id`, `sno`, `nameschool`, `past_school_add`, `past_level`, `year_attended`, `isCompletedVacine`, `vacination_details` FROM `stud_history_details` WHERE sno in(SELECT sno FROM student_detail where isEnrolled = 'enrolled')");
+
+            cs.FillDataGrid(sql, ref dg);
         }
 
 
