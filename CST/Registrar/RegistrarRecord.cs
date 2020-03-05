@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using CST.Registrar;
 using CST.Models;
+using CST.Models.Student;
 
 namespace CST
 {
@@ -83,12 +84,34 @@ namespace CST
                                                           );
                 //string fn,string ln,string mn,string gen,int age,string bd,string pob, string cn,string nat,string rel,string add,string sno
                 frm.ShowDialog();
-
+                StudHistDetailsController.fillDataHist(ref dataGridView1);
             }
             else if(clickedBut == "Family")
             {
-                MessageBox.Show("family");
-            }else if( clickedBut == "History")
+                StudentModel.setSno(dataGridView1.SelectedRows[0].Cells[0].Value.ToString());
+                StudentModel.setFather_name(dataGridView1.SelectedRows[0].Cells[1].Value.ToString());
+                StudentModel.setFather_no(dataGridView1.SelectedRows[0].Cells[2].Value.ToString());
+                StudentModel.setFather_occu(dataGridView1.SelectedRows[0].Cells[3].Value.ToString());
+                StudentModel.setFather_compname(dataGridView1.SelectedRows[0].Cells[4].Value.ToString());
+                StudentModel.setFather_Ctelno(dataGridView1.SelectedRows[0].Cells[5].Value.ToString());
+                StudentModel.setFather_officeAdd(dataGridView1.SelectedRows[0].Cells[6].Value.ToString());
+                StudentModel.setMother_name(dataGridView1.SelectedRows[0].Cells[7].Value.ToString());
+                StudentModel.setMother_no(dataGridView1.SelectedRows[0].Cells[8].Value.ToString());
+                StudentModel.setMother_occu(dataGridView1.SelectedRows[0].Cells[9].Value.ToString());
+                StudentModel.setMother_compname(dataGridView1.SelectedRows[0].Cells[10].Value.ToString());
+                StudentModel.setMother_Ctelno(dataGridView1.SelectedRows[0].Cells[11].Value.ToString());
+                StudentModel.setMother_officeAdd(dataGridView1.SelectedRows[0].Cells[12].Value.ToString());
+                StudentModel.setGuardian_name(dataGridView1.SelectedRows[0].Cells[13].Value.ToString());
+                StudentModel.setGuardian_add(dataGridView1.SelectedRows[0].Cells[14].Value.ToString());
+                StudentModel.setGuardian_rel(dataGridView1.SelectedRows[0].Cells[15].Value.ToString());
+                StudentModel.setGuardian_no(dataGridView1.SelectedRows[0].Cells[16].Value.ToString());
+                StudentModel.setParent_status(dataGridView1.SelectedRows[0].Cells[17].Value.ToString());
+                editStudFam frm = new editStudFam();
+                frm.ShowDialog();
+                studFamDetailsController.filldataGridFam(ref dataGridView1);
+
+            }
+            else if( clickedBut == "History")
             {
                 MessageBox.Show("history");
             }

@@ -287,3 +287,4 @@ D:\Desktop\C#proj\office\CST\obj\Debug\CST.csproj.CopyComplete
 D:\Desktop\C#proj\office\CST\obj\Debug\CST.exe
 D:\Desktop\C#proj\office\CST\obj\Debug\CST.pdb
 C:\Users\Xorn\Desktop\C#\versionRaf\EnrollmentC\CST\obj\Debug\CST.Registrar.editStudentForm.resources
+C:\Users\Xorn\Desktop\C#\versionRaf\EnrollmentC\CST\obj\Debug\CST.Registrar.editStudFam.resources

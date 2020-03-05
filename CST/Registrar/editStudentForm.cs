@@ -84,5 +84,10 @@ namespace CST.Registrar
 
             return isValid;
         }
+
+        private void pbClose_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+        }
     }
 }
