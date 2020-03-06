@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using CST.Models;
 using CST.Models.SchoolYear;
 using MySql.Data.MySqlClient;
+using CST.Enrollment_Admin;
 
 namespace CST
 {
@@ -41,9 +42,12 @@ namespace CST
 
         private void button2_Click(object sender, EventArgs e)
         {
+            SchedulingFinal frm = new SchedulingFinal();
+            frm.Show();
             this.Hide();
+            /*this.Hide;();
             Scheduling fr3 = new Scheduling(label5.Text, label1.Text, label6.Text);
-            fr3.ShowDialog();
+            fr3.ShowDialog();*/
         }
 
         private void button1_Click(object sender, EventArgs e)
