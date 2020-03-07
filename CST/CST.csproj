@@ -140,6 +140,24 @@
     <Compile Include="Enrollment Admin\DialogsSched\AssignGrade.Designer.cs">
       <DependentUpon>AssignGrade.cs</DependentUpon>
     </Compile>
+    <Compile Include="Enrollment Admin\DialogsSched\AssignSection.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Enrollment Admin\DialogsSched\AssignSection.Designer.cs">
+      <DependentUpon>AssignSection.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Enrollment Admin\DialogsSched\AssignSubjects.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Enrollment Admin\DialogsSched\AssignSubjects.Designer.cs">
+      <DependentUpon>AssignSubjects.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Enrollment Admin\DialogsSched\AssignTeacher.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Enrollment Admin\DialogsSched\AssignTeacher.Designer.cs">
+      <DependentUpon>AssignTeacher.cs</DependentUpon>
+    </Compile>
     <Compile Include="Enrollment Admin\PanelSched\PanelScheduling.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -495,6 +513,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Enrollment Admin\DialogsSched\AssignGrade.resx">
       <DependentUpon>AssignGrade.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Enrollment Admin\DialogsSched\AssignSection.resx">
+      <DependentUpon>AssignSection.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Enrollment Admin\DialogsSched\AssignSubjects.resx">
+      <DependentUpon>AssignSubjects.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Enrollment Admin\DialogsSched\AssignTeacher.resx">
+      <DependentUpon>AssignTeacher.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Enrollment Admin\PanelSched\PanelScheduling.resx">
       <DependentUpon>PanelScheduling.cs</DependentUpon>

@@ -59,10 +59,28 @@ namespace CST.Models
                 subjects = subjects + " " + reader["subject_name"].ToString()+"-"+forGrade;
 
             }
+
+
             subjects = subjects.Trim();
             string[] args = subjects.Split(' ');
-
+            cs.CloseConnection();
             return args;
+        }
+
+        public void getSubjectAssignForGrade(string grade,ref ComboBox cb)
+        {
+            string sql = String.Format(@"SELECT subject_name FROM  subjects  WHERE grade_level= '{0}'",grade);
+            MySqlDataReader reader = null;
+            reader = cs.RetrieveRecords(sql, ref reader);
+            while (reader.Read())
+            {
+                cb.Items.Add(reader["subject_name"].ToString());
+
+            }
+
+            cs.CloseConnection();
+
+        
         }
 
 

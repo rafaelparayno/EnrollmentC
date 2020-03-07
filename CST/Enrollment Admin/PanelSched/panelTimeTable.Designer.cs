@@ -156,8 +156,8 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Button button2;
         public System.Windows.Forms.Button button1;
         private System.Windows.Forms.PictureBox pbClose;
+        public System.Windows.Forms.Button button2;
     }
 }

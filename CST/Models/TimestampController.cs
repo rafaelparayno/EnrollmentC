@@ -37,11 +37,11 @@ namespace CST.Models
             cs.FillDataGrid(sql, ref dg);
         }
 
-       /* private bool checking(string end, string start)
+        public bool checking(string end, string start)
         {
-
+            //for rangess
             bool conflict = false;
-            string sql = String.Format(@"SELECT * FROM `timestamp` WHERE `start_time` < '{0}' AND `end_time` > '{1}'", end, start, yearController.getSchoolYearId());
+            string sql = String.Format(@"SELECT * FROM `timestamp` WHERE `start_time` < '{0}' AND `end_time` > '{1}'", end, start);
 
             MySqlDataReader reader = null;
             reader = cs.RetrieveRecords(sql, ref reader);
@@ -53,7 +53,24 @@ namespace CST.Models
             cs.CloseConnection();
 
             return conflict;
-        }*/
+        }
+
+        public bool checking2(string end, string start, string end2, string start2)
+        {
+            //for exact
+            bool conflict = false;
+            string sql = String.Format(@"SELECT * FROM `timestamp` WHERE '{0}' < '{1}' AND '{2}' > '{3}'", start, end2, end, start2);
+
+            MySqlDataReader reader = null;
+            reader = cs.RetrieveRecords(sql, ref reader);
+            if (reader.HasRows)
+            {
+                conflict = true;
+            }
+
+            cs.CloseConnection();
+            return conflict;
+        }
 
     }
 }

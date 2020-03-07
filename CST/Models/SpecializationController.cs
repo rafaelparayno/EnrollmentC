@@ -84,6 +84,11 @@ namespace CST.Models
             return idArgs;
         }
 
+      /*  public string findTeacherWithAvailSub()
+        {
+
+        }*/
+
         public string findTeacherName(string fn,string ln)
         {
             string sql = String.Format("SELECT teacher_ID,CONCAT(Firstname,' ',LastName) as FullName FROM `specialization` LEFT JOIN useraccounts ON specialization.acc_id = useraccounts.acc_id WHERE specialization.SY_ID = {0} AND useraccounts.Firstname = '{1}' AND useraccounts.Lastname ='{2}'", syId, fn,ln);

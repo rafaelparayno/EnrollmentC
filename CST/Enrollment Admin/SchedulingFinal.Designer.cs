@@ -48,7 +48,7 @@
             this.panel1.Controls.Add(this.button6);
             this.panel1.Location = new System.Drawing.Point(12, 60);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(189, 332);
+            this.panel1.Size = new System.Drawing.Size(106, 332);
             this.panel1.TabIndex = 0;
             // 
             // button8
@@ -61,7 +61,7 @@
             this.button8.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.button8.Location = new System.Drawing.Point(0, 267);
             this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(187, 63);
+            this.button8.Size = new System.Drawing.Size(104, 63);
             this.button8.TabIndex = 308;
             this.button8.Text = "Back";
             this.button8.UseVisualStyleBackColor = false;
@@ -77,10 +77,11 @@
             this.button5.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.button5.Location = new System.Drawing.Point(0, 126);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(187, 63);
+            this.button5.Size = new System.Drawing.Size(104, 63);
             this.button5.TabIndex = 307;
             this.button5.Text = "Save";
             this.button5.UseVisualStyleBackColor = false;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // button1
             // 
@@ -92,7 +93,7 @@
             this.button1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.button1.Location = new System.Drawing.Point(0, 63);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(187, 63);
+            this.button1.Size = new System.Drawing.Size(104, 63);
             this.button1.TabIndex = 303;
             this.button1.Text = "Arrange Schedule";
             this.button1.UseVisualStyleBackColor = false;
@@ -108,7 +109,7 @@
             this.button6.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.button6.Location = new System.Drawing.Point(0, 0);
             this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(187, 63);
+            this.button6.Size = new System.Drawing.Size(104, 63);
             this.button6.TabIndex = 302;
             this.button6.Text = "Add TimeStamp";
             this.button6.UseVisualStyleBackColor = false;
@@ -128,9 +129,9 @@
             // 
             // panel3
             // 
-            this.panel3.Location = new System.Drawing.Point(206, 61);
+            this.panel3.Location = new System.Drawing.Point(124, 61);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(795, 641);
+            this.panel3.Size = new System.Drawing.Size(877, 641);
             this.panel3.TabIndex = 2;
             // 
             // SchedulingFinal

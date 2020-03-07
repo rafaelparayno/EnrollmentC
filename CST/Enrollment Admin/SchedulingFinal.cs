@@ -54,5 +54,13 @@ namespace CST.Enrollment_Admin
             p.FormBorderStyle = FormBorderStyle.None;
             panel3.Controls.Add(p);
         }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            bool isconflict = DateTime.Parse("10:00 AM") < DateTime.Parse("11:00") && DateTime.Parse("10:00 AM") < DateTime.Parse("10:20");
+            //   isConflict = tsGrid < e[i] && s[i] < teGrid && isConflict;
+
+            MessageBox.Show(isconflict.ToString());
+        }
     }
 }

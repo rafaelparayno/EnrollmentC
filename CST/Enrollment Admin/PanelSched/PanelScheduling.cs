@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CST.Models;
 using CST.Enrollment_Admin.DialogsSched;
 
 namespace CST.Enrollment_Admin.PanelSched
@@ -14,7 +15,16 @@ namespace CST.Enrollment_Admin.PanelSched
     public partial class PanelScheduling : Form
     {
         public string gradelevel = "";
+    
+
         public string timestamp = "";
+        SectionController sectionController = new SectionController();
+
+        List<DateTime> timestampStart = new List<DateTime>();
+        List<DateTime> timestampEnd = new List<DateTime>();
+        List<string> subjects = new List<string>();
+        List<string> timeStampId = new List<string>();
+        int sect_id = 0;
         public PanelScheduling()
         {
             InitializeComponent();
@@ -41,8 +51,7 @@ namespace CST.Enrollment_Admin.PanelSched
         private void button1_Click(object sender, EventArgs e)
         {
             AssignGrade frm = new AssignGrade();
-            // frm.gradelevel = gradelevel;
-
+      
             frm.ShowDialog();
             gradelevel = frm.gradelevell;
             label1.Text = "Grade Level : " + gradelevel;
@@ -51,17 +60,123 @@ namespace CST.Enrollment_Admin.PanelSched
 
         private void button2_Click(object sender, EventArgs e)
         {
-            panelTimeTable p = new panelTimeTable();
+            bool isClose = false;
+            panelTimeTable p = new panelTimeTable(timestampEnd, timestampStart, timeStampId);
+            p.button2.Visible = false;
             p.button1.Visible = true;
             p.ShowDialog();
-            timestamp = p.timeStamps;
-         
-         ListViewItem lv = new ListViewItem();
-         lv.Text = timestamp;
+            isClose = p.IsClose;
 
-         //   PanelScheduling p = new PanelScheduling();
-         //p.listView1.Items.Add(lv);
-         listView1.Items.Add(lv);
+            if (!isClose)
+            {
+                timestampStart.Add(DateTime.Parse(p.timeStart));
+                timestampEnd.Add(DateTime.Parse(p.timeEnd));
+                timeStampId.Add(p.ts_id);
+                arrangeTimestamp();
+                listView1.Items.Clear();
+
+
+                refreshList();
+
+
+
+            }
+            //  isConflict = tsGrid < e[i] && s[i] < teGrid && isConflict;
+            /*     bool isCon = DateTime.Parse("10:20:00") < DateTime.Parse("11:00 AM") && DateTime.Parse("10:00 AM") < DateTime.Parse("10:20 AM");
+                 MessageBox.Show(isCon + "");*/
+        }
+
+        private void arrangeTimestamp()
+        {
+
+            timestampStart = timestampStart.OrderBy(x => x.TimeOfDay).ToList();
+            timestampEnd = timestampEnd.OrderBy(x => x.TimeOfDay).ToList();
+
+
+        }
+
+
+        private void refreshList()
+        {
+            for (int i = 0; i < timestampEnd.Count; i++)
+            {
+                ListViewItem lv = new ListViewItem();
+              
+                TimeSpan duration = DateTime.Parse(timestampEnd[i].ToShortTimeString()).Subtract(DateTime.Parse(timestampStart[i].ToShortTimeString()));
+                lv.Text = timestampStart[i].ToShortTimeString();
+                lv.SubItems.Add(timestampEnd[i].ToShortTimeString());
+                lv.SubItems.Add(duration.ToString());
+                lv.SubItems.Add("");
+                lv.SubItems.Add("");
+
+
+                listView1.Items.Add(lv);
+
+            }
+        }
+
+     
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            AssignSection frm = new AssignSection();
+            frm.ShowDialog();
+
+          
+            if(frm.grade != "")
+            {
+                gradelevel = sectionController.getGradeLevelinSections(int.Parse(frm.grade));
+                sect_id = int.Parse(frm.grade);
+            }
+           
+            label1.Text = "Grade Level : " + gradelevel;
+            label2.Text = "Section : " + frm.sectionName;
+            listView1.Items.Clear();
+            timestampStart.Clear();
+            timestampEnd.Clear();
+            timeStampId.Clear();
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            if(timestampStart.Count()> 0 && label1.Text != "")
+            {
+                AssignSubjects frm = new AssignSubjects(gradelevel);
+                frm.ShowDialog();
+                //  subjects.Add(frm.subjectsSelected);
+                if (listView1.SelectedItems.Count > 0)
+                {
+                    listView1.SelectedItems[0].SubItems[3].Text = frm.subjectsSelected;
+
+                }
+                else
+                {
+                    MessageBox.Show("Please Select In the List");
+                }
+             
+            }
+        }
+
+        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+
+         
+            if (listView1.SelectedItems.Count > 0)
+            {
+                AssignTeacher frm = new AssignTeacher(gradelevel, listView1.SelectedItems[0].SubItems[3].Text);
+                frm.ShowDialog();
+                //   listView1.SelectedItems[0].SubItems[3].Text = frm.subjectsSelected;
+
+            }
+            else
+            {
+                MessageBox.Show("Please Select In the List");
+            }
         }
     }
 }

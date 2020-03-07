@@ -42,10 +42,6 @@
             this.cbGradeLevel.FormattingEnabled = true;
             this.cbGradeLevel.IntegralHeight = false;
             this.cbGradeLevel.ItemHeight = 20;
-            this.cbGradeLevel.Items.AddRange(new object[] {
-            "Pre-School",
-            "Primary Education",
-            "Secondary Education"});
             this.cbGradeLevel.Location = new System.Drawing.Point(12, 52);
             this.cbGradeLevel.Name = "cbGradeLevel";
             this.cbGradeLevel.Size = new System.Drawing.Size(303, 28);

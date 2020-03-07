@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
 
 namespace CST.Models
 {
@@ -42,6 +43,24 @@ namespace CST.Models
             cs.FillDataGrid(sql, ref dg);
         } 
 
+        public string[] fillComboSect(ref ComboBox cb)
+        {
+            MySqlDataReader reader = null;
+            string sect_id = "";
+            string sql = String.Format("SELECT sect_id,section_name FROM sections WHERE SY_ID = {0}", yearID);
+            cs.RetrieveRecords(sql, ref reader);
+
+            while (reader.Read())
+            {
+                cb.Items.Add(reader["section_name"].ToString());
+                sect_id = sect_id + " " + reader["sect_id"].ToString();
+          
+            }
+            sect_id = sect_id.Trim();
+            string[] arr = sect_id.Split(' ');
+            return arr;
+        }
+
         public void removeSection(int sect_id,int sy_id)
         {
             string sql = String.Format(@"DELETE FROM sections WHERE sect_id = {0} AND SY_ID = {1}", sect_id, sy_id);
@@ -49,6 +68,36 @@ namespace CST.Models
             cs.ExecuteQuery(sql);
         }
 
+
+        public string getSectionName(int sect_id)
+        {
+            string name = "";
+
+            MySqlDataReader reader = null;
+            string sql = String.Format(@"SELECT section_name FROM sections WHERE sect_id = {0}", sect_id);
+            cs.RetrieveRecords(sql, ref reader);
+            if (reader.Read())
+            {
+                name = reader["section_name"].ToString();
+            }
+            cs.CloseConnection();
+            return name;
+        }
+
+        public string getGradeLevelinSections(int sect_id)
+        {
+            string grade_level = "";
+
+            MySqlDataReader reader = null;
+            string sql = String.Format(@"SELECT grade_level FROM sections WHERE sect_id = {0}", sect_id);
+            cs.RetrieveRecords(sql, ref reader);
+            if (reader.Read())
+            {
+                grade_level = reader["grade_level"].ToString();
+            }
+            cs.CloseConnection();
+            return grade_level;
+        }
 
     }
 }

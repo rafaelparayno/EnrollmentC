@@ -18,11 +18,39 @@ namespace CST.Enrollment_Admin.PanelSched
         YearController yearController = new YearController();
         TimestampController timestampController = new TimestampController();
         // List<string> datestamp = new List<string>();
+        List<DateTime> s = new List<DateTime>();
+        List<DateTime> e = new List<DateTime>();
+       
+  /*      bool isConflict = false;*/
         public string timeStamps = "";
+        public string timeStart = "";
+        public string timeEnd = "";
+        public string ts_id = "";
+        List<string> ts_id2 = new List<string>();
+        bool isConflict = false;
+        bool isConflict2 = false;
+
+        public bool IsClose = false;
     
         public panelTimeTable()
         {
             InitializeComponent();
+        }
+
+        public panelTimeTable(List<DateTime> timeEnds, List<DateTime> timeStarts,List<string> ids2)
+        {
+            InitializeComponent();
+            s = timeStarts;           
+            e = timeEnds;
+            ts_id2 = ids2;
+
+            // startEndss =
+            
+            if (e.Count > 0)
+            {
+                isConflict = true;
+            }
+           
         }
 
         private void button6_Click(object sender, EventArgs e)
@@ -46,30 +74,48 @@ namespace CST.Enrollment_Admin.PanelSched
         {
             addToTheList();
             this.Hide();
-        /*    ListViewItem lv = new ListViewItem();
-            lv.Text = timeStamp;
-            PanelScheduling p = new PanelScheduling();
-            p.listView1.Items.Add(lv);*/
-            /*  PanelScheduling p = new PanelScheduling(timeStamp);*/
-            /*ts.addTime()*/
         }
 
         private void addToTheList()
         {
-            timeStamps = dataGridView1.SelectedRows[0].Cells[1].Value.ToString() + " " + dataGridView1.SelectedRows[0].Cells[2].Value.ToString();
-            /*ListViewItem lv = new ListViewItem();
-            lv.Text = timeStamp;
-            lv.SubItems.Add(timeStamp);
-            lv.SubItems.Add(timeStamp);
-            lv.SubItems.Add(timeStamp);
-            PanelScheduling p = new PanelScheduling();
-            p.listView1.Items.Add(lv);*/
+            DateTime tsGrid = DateTime.Parse(dataGridView1.SelectedRows[0].Cells[1].Value.ToString());
+            DateTime teGrid = DateTime.Parse(dataGridView1.SelectedRows[0].Cells[2].Value.ToString());
+
+
+
+
+            for (int i = 0; i < s.Count; i++)
+            {
+
+            
+                isConflict = tsGrid < e[i] && s[i] < teGrid && isConflict;
+
+            }
+
+            for (int i = 0; i < ts_id2.Count; i++)
+            {
+                if(int.Parse(ts_id2[i]) == int.Parse(dataGridView1.SelectedRows[0].Cells[0].Value.ToString()))
+                {
+                    isConflict2 = true;
+                    break;
+                }
+            }
+            IsClose = isConflict || isConflict2;
+        
+            if (isConflict)
+            {
+                MessageBox.Show("Added Time is conflict with the list");
+            }
+            timeStart = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
+            timeEnd = dataGridView1.SelectedRows[0].Cells[2].Value.ToString();
+            ts_id = dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
 
 
         }
 
         private void pbClose_Click(object sender, EventArgs e)
         {
+            IsClose = true;
             this.Hide();
         }
     }
