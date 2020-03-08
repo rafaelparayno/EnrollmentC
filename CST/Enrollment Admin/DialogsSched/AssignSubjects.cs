@@ -14,12 +14,22 @@ namespace CST.Enrollment_Admin.DialogsSched
     public partial class AssignSubjects : Form
     {
         SubjectController subjectController = new SubjectController();
+        string[] subIds = { };
+        string[] subidInList;
+        bool isAlreadyInTheList = false;
+        bool isNullSubid = false;
         public string subjectsSelected = "";
-        public AssignSubjects(string gradelevel)
+        public string selectedSubId = "";
+        public AssignSubjects(string gradelevel,string[] subidss)
         {
             InitializeComponent();
+    
+            subIds = subjectController.getSubjectAssignForGrade(gradelevel,ref cbSubjects);
 
-            subjectController.getSubjectAssignForGrade(gradelevel,ref cbSubjects);
+            subidInList = subidss;
+            isNullSubid = true;
+         
+        
         }
 
         private void AssignSubjects_Load(object sender, EventArgs e)
@@ -29,8 +39,58 @@ namespace CST.Enrollment_Admin.DialogsSched
 
         private void button1_Click(object sender, EventArgs e)
         {
-            subjectsSelected = cbSubjects.Text;
-            this.Hide();
+            if (isNullSubid)
+            {
+                for (int i = 0; i < subidInList.Length; i++)
+                {
+                  
+                    if (subidInList[i] != null)
+                    {
+
+                        int subid = int.Parse(subidInList[i]);
+                        isFound(subid);
+
+                        //       isAlreadyInTheList = subjectController.isFound(subid);
+                        if (isAlreadyInTheList)
+                        {
+                            break;
+                        }
+                    }
+                   
+                }
+                
+            }
+
+            if (!isAlreadyInTheList)
+            {
+                subjectsSelected = cbSubjects.Text;
+                this.Hide();
+            }
+            else
+            {
+                MessageBox.Show("The Subject is already in the List");
+            }
+
+        }
+
+        private void cbSubjects_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            selectedSubId = subIds[cbSubjects.SelectedIndex];
+        }
+
+        private void isFound(int idInTheList)
+        {
+            int selectedID = int.Parse(selectedSubId);
+         
+            if(selectedID == idInTheList)
+            {
+                isAlreadyInTheList = true;
+            }
+            else
+            {
+                isAlreadyInTheList = false;
+            }
+        
         }
     }
 }

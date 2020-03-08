@@ -22,7 +22,7 @@ namespace CST.Enrollment_Admin.PanelSched
 
         List<DateTime> timestampStart = new List<DateTime>();
         List<DateTime> timestampEnd = new List<DateTime>();
-        List<string> subjects = new List<string>();
+        string[] subjid;
         List<string> timeStampId = new List<string>();
         int sect_id = 0;
         public PanelScheduling()
@@ -72,6 +72,7 @@ namespace CST.Enrollment_Admin.PanelSched
                 timestampStart.Add(DateTime.Parse(p.timeStart));
                 timestampEnd.Add(DateTime.Parse(p.timeEnd));
                 timeStampId.Add(p.ts_id);
+                subjid = new string[timestampStart.Count];
                 arrangeTimestamp();
                 listView1.Items.Clear();
 
@@ -81,9 +82,7 @@ namespace CST.Enrollment_Admin.PanelSched
 
 
             }
-            //  isConflict = tsGrid < e[i] && s[i] < teGrid && isConflict;
-            /*     bool isCon = DateTime.Parse("10:20:00") < DateTime.Parse("11:00 AM") && DateTime.Parse("10:00 AM") < DateTime.Parse("10:20 AM");
-                 MessageBox.Show(isCon + "");*/
+        
         }
 
         private void arrangeTimestamp()
@@ -141,13 +140,16 @@ namespace CST.Enrollment_Admin.PanelSched
         {
             if(timestampStart.Count()> 0 && label1.Text != "")
             {
-                AssignSubjects frm = new AssignSubjects(gradelevel);
-                frm.ShowDialog();
+            
                 //  subjects.Add(frm.subjectsSelected);
                 if (listView1.SelectedItems.Count > 0)
                 {
+                    AssignSubjects frm = new AssignSubjects(gradelevel, subjid);
+                    frm.ShowDialog();
                     listView1.SelectedItems[0].SubItems[3].Text = frm.subjectsSelected;
-
+                    //     MessageBox.Show(listView1.SelectedIndices[0].ToString());
+                    subjid[listView1.SelectedIndices[0]] = frm.selectedSubId;
+                
                 }
                 else
                 {
@@ -170,7 +172,7 @@ namespace CST.Enrollment_Admin.PanelSched
             {
                 AssignTeacher frm = new AssignTeacher(gradelevel, listView1.SelectedItems[0].SubItems[3].Text);
                 frm.ShowDialog();
-                //   listView1.SelectedItems[0].SubItems[3].Text = frm.subjectsSelected;
+                listView1.SelectedItems[0].SubItems[4].Text = frm.TeacherName;
 
             }
             else

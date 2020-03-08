@@ -88,7 +88,11 @@ namespace CST.Enrollment_Admin.PanelSched
             {
 
             
-                isConflict = tsGrid < e[i] && s[i] < teGrid && isConflict;
+                isConflict = tsGrid < e[i] && s[i] < teGrid;
+                if (isConflict)
+                {
+                    break;
+                }
 
             }
 

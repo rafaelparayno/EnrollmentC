@@ -67,20 +67,40 @@ namespace CST.Models
             return args;
         }
 
-        public void getSubjectAssignForGrade(string grade,ref ComboBox cb)
+        public string[] getSubjectAssignForGrade(string grade,ref ComboBox cb)
         {
-            string sql = String.Format(@"SELECT subject_name FROM  subjects  WHERE grade_level= '{0}'",grade);
+            string sql = String.Format(@"SELECT subject_name,subject_id FROM  subjects  WHERE grade_level= '{0}'",grade);
             MySqlDataReader reader = null;
             reader = cs.RetrieveRecords(sql, ref reader);
+            string subId = "";
             while (reader.Read())
             {
+                subId = subId + " " + reader["subject_id"].ToString();
                 cb.Items.Add(reader["subject_name"].ToString());
 
             }
 
             cs.CloseConnection();
-
+            subId = subId.Trim();
+            string[] arrs = subId.Split(' ');
+            return arrs;
         
+        }
+
+        public bool isFound(int subid)
+        {
+            bool found = false;
+            string sql = String.Format(@"SELECT * FROM subjects WHERE subject_id = {0}", subid);
+            MySqlDataReader reader = null;
+            cs.RetrieveRecords(sql, ref reader);
+
+            if (reader.HasRows)
+            {
+                found = true;
+            }
+
+            cs.CloseConnection();
+            return found;
         }
 
 

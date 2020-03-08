@@ -14,10 +14,18 @@ namespace CST.Enrollment_Admin.DialogsSched
     public partial class AssignTeacher : Form
     {
         SpecializationController specializationController = new SpecializationController();
+        YearController yrcontroller = new YearController();
         public string TeacherName = "";
+        int gradeNo = 0;
+        string[] idsTeacher = { };
         public AssignTeacher(string grade_level,string subject)
         {
             InitializeComponent();
+            gradeNo = int.Parse(grade_level.Split(' ')[1]);
+            if(gradeNo < 7)
+            {
+                idsTeacher = specializationController.fillDataTeacherSect(ref cbTeacher, yrcontroller.getSchoolYearId());
+            }
 
         }
 
@@ -28,7 +36,8 @@ namespace CST.Enrollment_Admin.DialogsSched
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            TeacherName = cbTeacher.Text;
+            this.Hide();
         }
     }
 }
