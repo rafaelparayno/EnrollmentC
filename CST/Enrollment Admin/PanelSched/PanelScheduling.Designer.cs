@@ -46,13 +46,17 @@
             // 
             // listView1
             // 
+            this.listView1.BackColor = System.Drawing.Color.White;
             this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader1,
             this.columnHeader2,
             this.columnHeader3,
             this.columnHeader4,
             this.columnHeader5});
+            this.listView1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listView1.ForeColor = System.Drawing.Color.Black;
             this.listView1.FullRowSelect = true;
+            this.listView1.GridLines = true;
             this.listView1.HideSelection = false;
             this.listView1.Location = new System.Drawing.Point(15, 119);
             this.listView1.MultiSelect = false;
@@ -124,12 +128,13 @@
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(683, 567);
+            this.button5.Location = new System.Drawing.Point(681, 567);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(140, 48);
             this.button5.TabIndex = 5;
             this.button5.Text = "Assign Room";
             this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // label1
             // 

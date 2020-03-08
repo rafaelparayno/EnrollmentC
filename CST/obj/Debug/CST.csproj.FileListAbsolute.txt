@@ -299,3 +299,4 @@ C:\Users\Xorn\Desktop\C#\versionRaf\EnrollmentC\CST\obj\Debug\CST.Enrollment_Adm
 C:\Users\Xorn\Desktop\C#\versionRaf\EnrollmentC\CST\obj\Debug\CST.Enrollment_Admin.DialogsSched.AssignSection.resources
 C:\Users\Xorn\Desktop\C#\versionRaf\EnrollmentC\CST\obj\Debug\CST.Enrollment_Admin.DialogsSched.AssignSubjects.resources
 C:\Users\Xorn\Desktop\C#\versionRaf\EnrollmentC\CST\obj\Debug\CST.Enrollment_Admin.DialogsSched.AssignTeacher.resources
+C:\Users\Xorn\Desktop\C#\versionRaf\EnrollmentC\CST\obj\Debug\CST.Enrollment_Admin.DialogsSched.AssignRoom.resources

@@ -68,5 +68,25 @@ namespace CST.Models
 
             return noSameRoom;
         }
+
+        public string [] fillClassRoomAvail(ref ComboBox cb,string te,string ts)
+        {
+
+            string sql = String.Format(@"SELECT CONCAT(classroom_type,' ',classroom_no) As RoomName,classroom_id FROM classroom WHERE classroom_id not in(SELECT classroom_id FROM sched_section WHERE timestamp_id in(SELECT timestamp_id FROM timestamp WHERE start_time <= '{0}' AND end_time > '{1}'))",
+                                    te, ts);
+            MySqlDataReader reader = null;
+            cs.RetrieveRecords(sql, ref reader);
+            string ids = "";
+            while (reader.Read())
+            {
+                ids = ids + " " + reader["classroom_id"].ToString();
+                cb.Items.Add(reader["RoomName"].ToString());
+            }
+
+
+            string[] arr = ids.Split(' ');
+            cs.CloseConnection();
+            return arr;
+        }
     }
 }

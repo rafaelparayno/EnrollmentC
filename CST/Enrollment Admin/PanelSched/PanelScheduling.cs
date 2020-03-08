@@ -23,6 +23,8 @@ namespace CST.Enrollment_Admin.PanelSched
         List<DateTime> timestampStart = new List<DateTime>();
         List<DateTime> timestampEnd = new List<DateTime>();
         string[] subjid;
+        int[] teacherIds;
+        int roomId;
         List<string> timeStampId = new List<string>();
         int sect_id = 0;
         public PanelScheduling()
@@ -72,6 +74,7 @@ namespace CST.Enrollment_Admin.PanelSched
                 timestampStart.Add(DateTime.Parse(p.timeStart));
                 timestampEnd.Add(DateTime.Parse(p.timeEnd));
                 timeStampId.Add(p.ts_id);
+                teacherIds = new int[timestampStart.Count];
                 subjid = new string[timestampStart.Count];
                 arrangeTimestamp();
                 listView1.Items.Clear();
@@ -97,6 +100,8 @@ namespace CST.Enrollment_Admin.PanelSched
 
         private void refreshList()
         {
+            label3.Text = "Room : ";
+            roomId = 0;
             for (int i = 0; i < timestampEnd.Count; i++)
             {
                 ListViewItem lv = new ListViewItem();
@@ -130,6 +135,8 @@ namespace CST.Enrollment_Admin.PanelSched
            
             label1.Text = "Grade Level : " + gradelevel;
             label2.Text = "Section : " + frm.sectionName;
+            label3.Text = "Room : ";
+            roomId = 0;
             listView1.Items.Clear();
             timestampStart.Clear();
             timestampEnd.Clear();
@@ -170,14 +177,28 @@ namespace CST.Enrollment_Admin.PanelSched
          
             if (listView1.SelectedItems.Count > 0)
             {
-                AssignTeacher frm = new AssignTeacher(gradelevel, listView1.SelectedItems[0].SubItems[3].Text);
-                frm.ShowDialog();
+                AssignTeacher frm = new AssignTeacher(gradelevel, listView1.SelectedItems[0].SubItems[3].Text,
+                                                       listView1.SelectedItems[0].SubItems[0].Text,
+                                                             listView1.SelectedItems[0].SubItems[1].Text);
+                frm.ShowDialog();   
                 listView1.SelectedItems[0].SubItems[4].Text = frm.TeacherName;
-
+                teacherIds[listView1.SelectedIndices[0]] = frm.selectedIdTeacher;
             }
             else
             {
                 MessageBox.Show("Please Select In the List");
+            }
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            if (listView1.Items.Count > 0)
+            {
+                int lastIndex = listView1.Items.Count;
+                AssignRoom frm = new AssignRoom(listView1.Items[lastIndex-1].SubItems[0].Text,listView1.Items[0].SubItems[0].Text);
+                frm.ShowDialog();
+                label3.Text = "Room : " + frm.roomName;
+                roomId = int.Parse(frm.selectedRoomid);
             }
         }
     }

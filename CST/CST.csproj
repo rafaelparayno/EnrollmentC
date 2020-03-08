@@ -140,6 +140,12 @@
     <Compile Include="Enrollment Admin\DialogsSched\AssignGrade.Designer.cs">
       <DependentUpon>AssignGrade.cs</DependentUpon>
     </Compile>
+    <Compile Include="Enrollment Admin\DialogsSched\AssignRoom.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Enrollment Admin\DialogsSched\AssignRoom.Designer.cs">
+      <DependentUpon>AssignRoom.cs</DependentUpon>
+    </Compile>
     <Compile Include="Enrollment Admin\DialogsSched\AssignSection.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -191,6 +197,7 @@
     <Compile Include="Models\StudFamDetailsController.cs" />
     <Compile Include="Models\StudHistDetailsController.cs" />
     <Compile Include="Models\SubjectController.cs" />
+    <Compile Include="Models\TeacherSchedController.cs" />
     <Compile Include="Models\TimestampController.cs" />
     <Compile Include="Models\Timetable\TimeTableModel.cs" />
     <Compile Include="Models\TotalFeeController.cs" />
@@ -513,6 +520,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Enrollment Admin\DialogsSched\AssignGrade.resx">
       <DependentUpon>AssignGrade.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Enrollment Admin\DialogsSched\AssignRoom.resx">
+      <DependentUpon>AssignRoom.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Enrollment Admin\DialogsSched\AssignSection.resx">
       <DependentUpon>AssignSection.cs</DependentUpon>
