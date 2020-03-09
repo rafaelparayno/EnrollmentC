@@ -43,17 +43,24 @@ namespace CST.Enrollment_Admin.DialogsSched
 
         private void button1_Click(object sender, EventArgs e)
         {
-          
-            if (!teacherSchedController.isConflictWithTheTime(timeEnd,timestart, int.Parse(idsTeacher[cbTeacher.SelectedIndex])))
+            if(cbTeacher.SelectedIndex > -1)
             {
-                TeacherName = cbTeacher.Text;
-                selectedIdTeacher = int.Parse(idsTeacher[cbTeacher.SelectedIndex]);
-                this.Hide();
+                if (!teacherSchedController.isConflictWithTheTime(timeEnd, timestart, int.Parse(idsTeacher[cbTeacher.SelectedIndex])))
+                {
+                    TeacherName = cbTeacher.Text;
+                    selectedIdTeacher = int.Parse(idsTeacher[cbTeacher.SelectedIndex]);
+                    this.Hide();
+                }
+                else
+                {
+                    MessageBox.Show("Teacher Has Conflict with that time", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
             else
             {
-                MessageBox.Show("Teacher Has Conflict with that time", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Please Pick a Teacher!", "valid", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+         
            
      
         }
@@ -61,6 +68,11 @@ namespace CST.Enrollment_Admin.DialogsSched
         private void cbTeacher_SelectedIndexChanged(object sender, EventArgs e)
         {
            
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Hide();
         }
     }
 }

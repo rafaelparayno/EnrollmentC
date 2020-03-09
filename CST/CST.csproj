@@ -185,6 +185,7 @@
     <Compile Include="Models\GradeLevelController.cs" />
     <Compile Include="Models\MiscController.cs" />
     <Compile Include="Models\RoomController.cs" />
+    <Compile Include="Models\SchedSectionController.cs" />
     <Compile Include="Models\SchoolRequirementsController.cs" />
     <Compile Include="Models\SchoolRequirementsMod\SchoolRequireModel.cs" />
     <Compile Include="Models\SchoolYear\SchoolYearModel.cs" />

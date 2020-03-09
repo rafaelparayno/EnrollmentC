@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using CST.Models;
 using CST.Enrollment_Admin.DialogsSched;
+using System.Threading;
 
 namespace CST.Enrollment_Admin.PanelSched
 {
@@ -24,9 +25,11 @@ namespace CST.Enrollment_Admin.PanelSched
         List<DateTime> timestampEnd = new List<DateTime>();
         string[] subjid;
         int[] teacherIds;
-        int roomId;
+        int roomId = 0;
         List<string> timeStampId = new List<string>();
         int sect_id = 0;
+        SchedSectionController schedSectionController = new SchedSectionController();
+
         public PanelScheduling()
         {
             InitializeComponent();
@@ -156,7 +159,7 @@ namespace CST.Enrollment_Admin.PanelSched
                     listView1.SelectedItems[0].SubItems[3].Text = frm.subjectsSelected;
                     //     MessageBox.Show(listView1.SelectedIndices[0].ToString());
                     subjid[listView1.SelectedIndices[0]] = frm.selectedSubId;
-                
+                    button1.Enabled = true;
                 }
                 else
                 {
@@ -183,6 +186,7 @@ namespace CST.Enrollment_Admin.PanelSched
                 frm.ShowDialog();   
                 listView1.SelectedItems[0].SubItems[4].Text = frm.TeacherName;
                 teacherIds[listView1.SelectedIndices[0]] = frm.selectedIdTeacher;
+                button1.Enabled = true;
             }
             else
             {
@@ -200,6 +204,90 @@ namespace CST.Enrollment_Admin.PanelSched
                 label3.Text = "Room : " + frm.roomName;
                 roomId = int.Parse(frm.selectedRoomid);
             }
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            if (isValid())
+            {
+                backgroundWorker1.RunWorkerAsync();
+                progressBar1.Show();
+                for (int i = 0; i < listView1.Items.Count; i++)
+                {
+                    int ts_id = int.Parse(timeStampId[i]);
+                    int subss_id = int.Parse(subjid[i]);
+                    int teach_id = teacherIds[i];
+                    int c_id = roomId;
+                    int sect = sect_id;
+                    schedSectionController.saveSchedSection(ts_id, subss_id, teach_id, c_id, sect);
+                }
+
+            }
+            else
+            {
+                MessageBox.Show("Please Fill the Requirements", "validation", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+        }
+
+
+        private bool isValid()
+        {
+            bool isValid = true;
+            bool notFound = true;
+            bool notFound2 = true;
+            isValid = !(roomId == 0) && isValid;
+            isValid = !(sect_id == 0) && isValid;
+            isValid = timeStampId.Count > 0 && isValid;
+            foreach (int ids in teacherIds)
+            {
+                if (ids == 0)
+                {
+                    notFound = false;
+                    break;
+                }
+            }
+
+            foreach (string id in subjid)
+            {
+                if (id == null)
+                {
+                    notFound2 = false;
+                    break;
+                }
+            }
+
+            isValid = notFound && isValid;
+
+            isValid = notFound2 && isValid;
+
+
+            return isValid;
+        }
+
+        private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
+        {
+            for (int i = 1; i <= 100; i++)
+            {
+                Thread.Sleep(10);
+                backgroundWorker1.WorkerReportsProgress = true;
+                backgroundWorker1.ReportProgress(i);
+            }
+        }
+
+        private void backgroundWorker1_ProgressChanged(object sender, ProgressChangedEventArgs e)
+        {
+            progressBar1.Value = e.ProgressPercentage;
+        }
+
+        private void backgroundWorker1_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+
+
+            MessageBox.Show("Succesfully Save a Schedule");
+
+
+            this.Hide();
         }
     }
 }
