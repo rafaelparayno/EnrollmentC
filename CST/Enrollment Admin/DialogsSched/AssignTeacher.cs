@@ -22,17 +22,31 @@ namespace CST.Enrollment_Admin.DialogsSched
         public int selectedIdTeacher = 0;
         int gradeNo = 0;
         string[] idsTeacher = { };
-        public AssignTeacher(string grade_level,string subject,string timeS,string timeE)
+        public AssignTeacher(string grade_level,string subject,string timeS,string timeE,int subjid)
         {
             InitializeComponent();
-            gradeNo = int.Parse(grade_level.Split(' ')[1]);
-            if(gradeNo < 7)
+            if (grade_level.Contains("Grade"))
+            {
+                gradeNo = int.Parse(grade_level.Split(' ')[1]);
+                if (gradeNo < 7)
+                {
+                    idsTeacher = specializationController.fillDataTeacherSect(ref cbTeacher, yrcontroller.getSchoolYearId());
+                }
+                else
+                {
+                    idsTeacher = specializationController.findTeacherWithAvailSub(ref cbTeacher, subjid);
+                }
+
+                timestart = timeS;
+                timeEnd = timeE;
+            }
+            else
             {
                 idsTeacher = specializationController.fillDataTeacherSect(ref cbTeacher, yrcontroller.getSchoolYearId());
+                timestart = timeS;
+                timeEnd = timeE;
             }
-
-            timestart = timeS;
-            timeEnd = timeE;
+           
 
         }
 

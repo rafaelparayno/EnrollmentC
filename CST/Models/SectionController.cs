@@ -61,6 +61,24 @@ namespace CST.Models
             return arr;
         }
 
+        public string [] fillComboSect2(ref ComboBox cb)
+        {
+            MySqlDataReader reader = null;
+            string sect_id = "";
+            string sql = String.Format("SELECT sect_id,section_name FROM `sections` WHERE sect_id not in (SELECT sect_id From sched_section) AND SY_ID  = {0}", yearID);
+            cs.RetrieveRecords(sql, ref reader);
+
+            while (reader.Read())
+            {
+                cb.Items.Add(reader["section_name"].ToString());
+                sect_id = sect_id + " " + reader["sect_id"].ToString();
+
+            }
+            sect_id = sect_id.Trim();
+            string[] arr = sect_id.Split(' ');
+            return arr;
+        }
+
         public void removeSection(int sect_id,int sy_id)
         {
             string sql = String.Format(@"DELETE FROM sections WHERE sect_id = {0} AND SY_ID = {1}", sect_id, sy_id);

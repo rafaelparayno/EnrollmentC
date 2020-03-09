@@ -182,7 +182,8 @@ namespace CST.Enrollment_Admin.PanelSched
             {
                 AssignTeacher frm = new AssignTeacher(gradelevel, listView1.SelectedItems[0].SubItems[3].Text,
                                                        listView1.SelectedItems[0].SubItems[0].Text,
-                                                             listView1.SelectedItems[0].SubItems[1].Text);
+                                                             listView1.SelectedItems[0].SubItems[1].Text,
+                                                             int.Parse(subjid[listView1.SelectedIndices[0]]));
                 frm.ShowDialog();   
                 listView1.SelectedItems[0].SubItems[4].Text = frm.TeacherName;
                 teacherIds[listView1.SelectedIndices[0]] = frm.selectedIdTeacher;

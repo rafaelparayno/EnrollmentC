@@ -26,7 +26,7 @@ namespace CST.Enrollment_Admin.DialogsSched
 
         private void AssignSection_Load(object sender, EventArgs e)
         {
-            grades = sectionController.fillComboSect(ref cbGradeLevel);
+            grades = sectionController.fillComboSect2(ref cbGradeLevel);
           
         }
 

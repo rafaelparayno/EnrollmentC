@@ -36,7 +36,7 @@ namespace CST.Enrollment_Admin.DialogsSched
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if(comboBox1.SelectedIndex > 0)
+            if(comboBox1.SelectedIndex > -1)
             {
                 roomName = comboBox1.Text;
                 selectedRoomid = r_ids[comboBox1.SelectedIndex];
@@ -47,6 +47,12 @@ namespace CST.Enrollment_Admin.DialogsSched
                 MessageBox.Show("Please Pick a Room");
             }
           
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            selectedRoomid = 0 + "";
+            this.Hide();
         }
     }
 }

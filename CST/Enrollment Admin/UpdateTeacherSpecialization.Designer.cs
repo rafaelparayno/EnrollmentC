@@ -68,8 +68,6 @@
             this.cbSubjects.FormattingEnabled = true;
             this.cbSubjects.IntegralHeight = false;
             this.cbSubjects.ItemHeight = 20;
-            this.cbSubjects.Items.AddRange(new object[] {
-            "All"});
             this.cbSubjects.Location = new System.Drawing.Point(30, 247);
             this.cbSubjects.Name = "cbSubjects";
             this.cbSubjects.Size = new System.Drawing.Size(344, 28);

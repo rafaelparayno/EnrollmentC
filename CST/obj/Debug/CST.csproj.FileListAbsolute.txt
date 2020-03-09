@@ -300,3 +300,17 @@ C:\Users\Xorn\Desktop\C#\versionRaf\EnrollmentC\CST\obj\Debug\CST.Enrollment_Adm
 C:\Users\Xorn\Desktop\C#\versionRaf\EnrollmentC\CST\obj\Debug\CST.Enrollment_Admin.DialogsSched.AssignSubjects.resources
 C:\Users\Xorn\Desktop\C#\versionRaf\EnrollmentC\CST\obj\Debug\CST.Enrollment_Admin.DialogsSched.AssignTeacher.resources
 C:\Users\Xorn\Desktop\C#\versionRaf\EnrollmentC\CST\obj\Debug\CST.Enrollment_Admin.DialogsSched.AssignRoom.resources
+D:\Desktop\C#proj\office\CST\obj\Debug\CST.Enrollment_Admin.AddUpdateDiags.addTimeStamp.resources
+D:\Desktop\C#proj\office\CST\obj\Debug\CST.Enrollment_Admin.AddUpdateDiags.addUpdateTuition.resources
+D:\Desktop\C#proj\office\CST\obj\Debug\CST.Enrollment_Admin.AddUpdateDiags.diagMisc.resources
+D:\Desktop\C#proj\office\CST\obj\Debug\CST.Enrollment_Admin.AddUpdateDiags.dialogTuition.resources
+D:\Desktop\C#proj\office\CST\obj\Debug\CST.Enrollment_Admin.DialogsSched.AssignGrade.resources
+D:\Desktop\C#proj\office\CST\obj\Debug\CST.Enrollment_Admin.DialogsSched.AssignRoom.resources
+D:\Desktop\C#proj\office\CST\obj\Debug\CST.Enrollment_Admin.DialogsSched.AssignSection.resources
+D:\Desktop\C#proj\office\CST\obj\Debug\CST.Enrollment_Admin.DialogsSched.AssignSubjects.resources
+D:\Desktop\C#proj\office\CST\obj\Debug\CST.Enrollment_Admin.DialogsSched.AssignTeacher.resources
+D:\Desktop\C#proj\office\CST\obj\Debug\CST.Enrollment_Admin.PanelSched.PanelScheduling.resources
+D:\Desktop\C#proj\office\CST\obj\Debug\CST.Enrollment_Admin.PanelSched.panelTimeTable.resources
+D:\Desktop\C#proj\office\CST\obj\Debug\CST.Enrollment_Admin.SchedulingFinal.resources
+D:\Desktop\C#proj\office\CST\obj\Debug\CST.Registrar.editStudentForm.resources
+D:\Desktop\C#proj\office\CST\obj\Debug\CST.Registrar.editStudFam.resources

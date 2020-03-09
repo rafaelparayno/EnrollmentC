@@ -47,22 +47,29 @@ namespace CST.Models
             cs.ExecuteQuery(sql);
         }
 
-        public string[] getAllSubjects()
+        public string[] getAllSubjectsForSecondary(ref ComboBox cb)
         {
-            string sql = String.Format(@"SELECT subject_name,grade_level FROM  subjects ");
+            string sql = String.Format(@"SELECT subject_id,subject_name,grade_level FROM  subjects ");
             MySqlDataReader reader = null;
             reader = cs.RetrieveRecords(sql, ref reader);
-            string subjects = "";
+            string subject_id = "";
             while (reader.Read())
             {
-                string forGrade = reader["grade_level"].ToString().Split(' ')[1];
-                subjects = subjects + " " + reader["subject_name"].ToString()+"-"+forGrade;
-
+                if(reader["grade_level"].ToString().Contains("Grade"))
+                {
+                    string forGrade = reader["grade_level"].ToString().Split(' ')[1];
+                    if (int.Parse(forGrade) > 6)
+                    {
+                        cb.Items.Add(reader["subject_name"].ToString());
+                        subject_id = subject_id + " " + reader["subject_id"].ToString();
+                    }
+                   
+                }
             }
 
 
-            subjects = subjects.Trim();
-            string[] args = subjects.Split(' ');
+            subject_id = subject_id.Trim();
+            string[] args = subject_id.Split(' ');
             cs.CloseConnection();
             return args;
         }

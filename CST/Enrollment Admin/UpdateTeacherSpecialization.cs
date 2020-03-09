@@ -18,7 +18,9 @@ namespace CST
         SubjectController subj = new SubjectController();
         private string[] user_ids = { };
         private string selectedId = "";
-        private string[] subjects = { };
+        private string[] subjectsids = { };
+        private int selectedSubIds = 0;
+     //   private int[] subids = { };
         private string sub = "";
 
         public UpdateTeacherSpecialization()
@@ -44,7 +46,8 @@ namespace CST
         {
             timer1.Start();
             user_ids = specializationController.fillDataTeacher(ref cbTeacher);
-            subjects = subj.getAllSubjects();
+            subjectsids = subj.getAllSubjectsForSecondary(ref cbSubjects);
+
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -76,7 +79,7 @@ namespace CST
 
             if (isValid)
             {
-                specializationController.addSpecialization(selectedId, sub,cbType.SelectedItem.ToString());
+                specializationController.addSpecialization(selectedId, sub,cbType.SelectedItem.ToString(),selectedSubIds);
                 MessageBox.Show("Succesfully Assign a teacher");
                 this.Hide();
             }
@@ -84,7 +87,7 @@ namespace CST
 
         private void cbType_SelectedIndexChanged(object sender, EventArgs e)
         {
-            cbSubjects.Items.Clear();
+           
             if(cbType.SelectedIndex == 0)
             {
 
@@ -92,28 +95,21 @@ namespace CST
                 label5.Visible = false;
                 cbSubjects.Visible = false;
                 sub = "none";
+                selectedSubIds = 0;
             }
             else
             {
                 cbSubjects.Enabled = true;
                 label5.Visible = true;
                 cbSubjects.Visible = true;
-                for (int i = 0; i < subjects.Length; i++)
-                {
-                    string[] arr = subjects[i].Split('-');
-                    int grade = int.Parse(arr[1]);
-
-                    if (grade >= 7)
-                    {
-                        cbSubjects.Items.Add(arr[0]);
-                    }
-                }
+           
             }
         }
 
         private void cbSubjects_SelectedIndexChanged(object sender, EventArgs e)
         {
             sub = cbSubjects.SelectedItem.ToString();
+            selectedSubIds = int.Parse(subjectsids[cbSubjects.SelectedIndex]);
         }
 
         private bool checkValidation()
