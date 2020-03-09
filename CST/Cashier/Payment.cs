@@ -12,12 +12,10 @@ namespace CST
 {
     public partial class Payment : Form
     {
-        public Payment(string a, string b, string c)
+        public Payment()
         {
             InitializeComponent();
-            label5.Text = a;
-            label2.Text = b;
-            label6.Text = c;
+       
         }
 
         private void Payment_Load(object sender, EventArgs e)
@@ -52,7 +50,7 @@ namespace CST
         private void button2_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Cashier fr3 = new Cashier(label5.Text,label2.Text);
+            Cashier fr3 = new Cashier();
             fr3.ShowDialog();
             
            

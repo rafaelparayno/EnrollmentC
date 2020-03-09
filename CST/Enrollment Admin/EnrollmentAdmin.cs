@@ -91,5 +91,12 @@ namespace CST
             timer1.Enabled = true;
 
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            EnrollmentSchedule frm = new EnrollmentSchedule();
+            frm.Show();
+            this.Hide();
+        }
     }
 }

@@ -28,7 +28,7 @@ namespace CST
 
         private void button2_Click(object sender, EventArgs e)
         {
-            Cashier C = new Cashier(label5.Text,label3.Text);
+            Cashier C = new Cashier();
             C.Show();
             this.Hide();
         }

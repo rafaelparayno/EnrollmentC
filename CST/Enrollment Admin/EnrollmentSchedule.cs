@@ -12,38 +12,21 @@ namespace CST
 {
     public partial class EnrollmentSchedule : Form
     {
-        public EnrollmentSchedule(string a,string b, string c)
+        public EnrollmentSchedule()
         {
             InitializeComponent();
-            label6.Text = c;
-            label9.Text = b;
-            label8.Text = a;
+         
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            Scheduling fr3 = new Scheduling(label8.Text, label9.Text, label6.Text);
-            fr3.ShowDialog();
-            return;
+          
         }
 
         private void EnrollmentSchedule_Load(object sender, EventArgs e)
         {
-            label6.Hide();
-            label7.Hide();
-            label8.Hide();
-            label9.Hide();
-            DateTime my = DateTimeOffset.Now.DateTime.ToLocalTime().ToUniversalTime();
-
-
-            DateTime mys = DateTimeOffset.Now.UtcDateTime.ToLocalTime();
-
-            Console.WriteLine(mys);
-
-            label7.Text = my.ToString("MM/dd/yyyy  hh:mm:ss tt");
-
-            timer1.Enabled = true;
+           
+           
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -77,6 +60,11 @@ namespace CST
         }
 
         private void label7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
         {
 
         }

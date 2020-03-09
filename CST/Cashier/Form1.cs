@@ -44,7 +44,7 @@ namespace CST
             else
             {
                 this.Hide();
-                Payment fr6 = new Payment(label5.Text, label4.Text, label7.Text);
+                Payment fr6 = new Payment();
                 fr6.ShowDialog();
             }
         }

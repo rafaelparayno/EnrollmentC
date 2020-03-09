@@ -198,6 +198,7 @@
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Cashier";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cashier";
             this.Load += new System.EventHandler(this.Cashier_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

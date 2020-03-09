@@ -24,7 +24,7 @@ namespace CST
 
         private void button2_Click(object sender, EventArgs e)
         {
-            Payment P = new Payment(label8.Text,label7.Text,label9.Text);
+            Payment P = new Payment();
             P.Show();
             this.Hide();
         }

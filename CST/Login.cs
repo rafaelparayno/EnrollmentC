@@ -154,7 +154,9 @@ namespace CST
 
                     else if (role == "Cashier")
                     {
-
+                        Cashier frm = new Cashier();
+                        frm.Show();
+                        this.Hide();
                     }
 
                     else if (role == "Teacher")

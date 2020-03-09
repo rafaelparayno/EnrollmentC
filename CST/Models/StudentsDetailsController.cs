@@ -54,5 +54,12 @@ namespace CST.Models
 
             cs.FillDataGrid(sql, ref dg);
         }
+
+        public void fillDataGridDetailsNotEnrolled(ref DataGridView dg)
+        {
+            string sql = String.Format(@"SELECT  `sno`, `firstname`, `lastname`, `middlename`, `gender`, `age`, `birthdate`, `pob`, `contact_no`, `nationality`, `religion`, `address`, `grade_level` FROM student_detail WHERE isEnrolled = 'not yet'");
+
+            cs.FillDataGrid(sql, ref dg);
+        }
     }
 }

@@ -43,6 +43,7 @@
             this.label9 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.label7 = new System.Windows.Forms.Label();
+            this.button3 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -53,7 +54,7 @@
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button1.Location = new System.Drawing.Point(357, 220);
+            this.button1.Location = new System.Drawing.Point(20, 220);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(187, 35);
             this.button1.TabIndex = 193;
@@ -68,9 +69,9 @@
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button2.Location = new System.Drawing.Point(357, 179);
+            this.button2.Location = new System.Drawing.Point(404, 179);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(187, 35);
+            this.button2.Size = new System.Drawing.Size(144, 35);
             this.button2.TabIndex = 192;
             this.button2.Text = "Scheduling";
             this.button2.UseVisualStyleBackColor = false;
@@ -95,9 +96,9 @@
             this.btnLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLogout.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLogout.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnLogout.Location = new System.Drawing.Point(393, 272);
+            this.btnLogout.Location = new System.Drawing.Point(404, 272);
             this.btnLogout.Name = "btnLogout";
-            this.btnLogout.Size = new System.Drawing.Size(152, 35);
+            this.btnLogout.Size = new System.Drawing.Size(141, 35);
             this.btnLogout.TabIndex = 190;
             this.btnLogout.Text = "Logout";
             this.btnLogout.UseVisualStyleBackColor = false;
@@ -110,7 +111,7 @@
             this.btnRecord.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRecord.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRecord.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnRecord.Location = new System.Drawing.Point(164, 220);
+            this.btnRecord.Location = new System.Drawing.Point(213, 179);
             this.btnRecord.Name = "btnRecord";
             this.btnRecord.Size = new System.Drawing.Size(187, 35);
             this.btnRecord.TabIndex = 189;
@@ -149,7 +150,7 @@
             this.btnEnroll.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEnroll.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEnroll.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnEnroll.Location = new System.Drawing.Point(164, 179);
+            this.btnEnroll.Location = new System.Drawing.Point(20, 179);
             this.btnEnroll.Name = "btnEnroll";
             this.btnEnroll.Size = new System.Drawing.Size(187, 35);
             this.btnEnroll.TabIndex = 186;
@@ -209,6 +210,21 @@
             this.label7.TabIndex = 194;
             this.label7.Text = "Date & Time";
             // 
+            // button3
+            // 
+            this.button3.BackColor = System.Drawing.Color.DarkSeaGreen;
+            this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button3.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.button3.Location = new System.Drawing.Point(213, 220);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(187, 35);
+            this.button3.TabIndex = 195;
+            this.button3.Text = "Enrollment Schedule";
+            this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
             // EnrollmentAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -216,6 +232,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(560, 316);
+            this.Controls.Add(this.button3);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.button2);
@@ -255,5 +272,6 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Button button3;
     }
 }

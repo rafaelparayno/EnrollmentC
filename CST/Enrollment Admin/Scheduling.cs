@@ -23,10 +23,7 @@ namespace CST
 
         private void button3_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            EnrollmentSchedule fr3 = new EnrollmentSchedule(label5.Text,label8.Text,label6.Text);
-            fr3.ShowDialog();
-            return;
+        
         }
 
         private void button1_Click(object sender, EventArgs e)

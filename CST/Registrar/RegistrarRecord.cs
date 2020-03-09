@@ -133,5 +133,10 @@ namespace CST
             StudHistDetailsController.fillDataHist(ref dataGridView1);
             clickedBut = "History";
         }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            studentsDetailsController.fillDataGridDetailsNotEnrolled(ref dataGridView1);
+        }
     }
 }
