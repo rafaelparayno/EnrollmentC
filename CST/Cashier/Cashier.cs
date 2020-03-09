@@ -36,7 +36,9 @@ namespace CST
 
             if (form1 == DialogResult.Yes)
             {
-
+                this.Hide();
+                Login frm = new Login();
+                frm.Show();
             }
 
         }

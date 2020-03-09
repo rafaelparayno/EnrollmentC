@@ -36,14 +36,14 @@ namespace CST
         private void button8_Click(object sender, EventArgs e)
         {
             this.Hide();
-            RemainingBalance fr7 = new RemainingBalance(label5.Text, label3.Text, label6.Text,label9.Text);
-            fr7.ShowDialog();
+           // RemainingBalance fr7 = new RemainingBalance(label5.Text, label3.Text, label6.Text,label9.Text);
+         //   fr7.ShowDialog();
         }
 
         private void Records_Load(object sender, EventArgs e)
         {
             label3.Hide();
-            label9.Hide();
+            //label9.Hide();
             DateTime my = DateTimeOffset.Now.DateTime.ToLocalTime().ToUniversalTime();
 
 

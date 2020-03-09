@@ -36,14 +36,14 @@ namespace CST
         private void button1_Click(object sender, EventArgs e)
         {
             this.Hide();
-            ModeOfPaymentDiscount fr1 = new ModeOfPaymentDiscount(label5.Text,label2.Text,label6.Text,label9.Text);
+            ModeOfPaymentDiscount fr1 = new ModeOfPaymentDiscount();
             fr1.ShowDialog();
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
             this.Hide();
-            RemainingBalance fr6 = new RemainingBalance(label5.Text, label2.Text, label6.Text, "RBalance");
+            RemainingBalance fr6 = new RemainingBalance();
             fr6.ShowDialog();
         }
 

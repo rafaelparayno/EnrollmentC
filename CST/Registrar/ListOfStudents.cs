@@ -41,24 +41,7 @@ namespace CST
 
         private void button2_Click(object sender, EventArgs e)
         {
-            if (label7.Text == "RStudent")
-            {
-                ReturneeStudents RS = new ReturneeStudents(label4.Text, label49.Text, label6.Text);
-                RS.Show();
-                this.Hide();
-            }
-            else if (label7.Text == "OStudent")
-            {
-                OldStudents OS = new OldStudents(label4.Text, label49.Text, label6.Text);
-                OS.Show();
-                this.Hide();
-            }
-            else
-            {
-                RemainingBalance RB = new RemainingBalance(label4.Text, label49.Text, label6.Text,label7.Text);
-                RB.Show();
-                this.Hide();
-            }
+           
         }
     }
 }

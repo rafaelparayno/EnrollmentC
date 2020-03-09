@@ -61,5 +61,22 @@ namespace CST.Models
 
             cs.FillDataGrid(sql, ref dg);
         }
+
+        public string searchName(string sno)
+        {
+            string name = "";
+            string sql = String.Format(@"SELECT Concat(firstname, ' ', lastname ) as Fullname FROM student_detail WHERE sno = '{0}'", sno);
+            MySqlDataReader reader = null;
+            cs.RetrieveRecords(sql, ref reader);
+
+            if (reader.Read())
+            {
+                name = reader["Fullname"].ToString();
+            }
+
+            cs.CloseConnection();
+
+            return name;
+        }
     }
 }

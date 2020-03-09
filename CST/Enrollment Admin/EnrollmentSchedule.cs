@@ -7,11 +7,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CST.Models;
+using CST.Enrollment_Admin.AddUpdateDiags;
 
 namespace CST
 {
     public partial class EnrollmentSchedule : Form
     {
+
+        EnrollScheduleController en = new EnrollScheduleController();
         public EnrollmentSchedule()
         {
             InitializeComponent();
@@ -25,7 +29,7 @@ namespace CST
 
         private void EnrollmentSchedule_Load(object sender, EventArgs e)
         {
-           
+            refreshGrid();
            
         }
 
@@ -66,7 +70,20 @@ namespace CST
 
         private void button1_Click(object sender, EventArgs e)
         {
+            addEnrollmentSched frm = new addEnrollmentSched();
+            frm.ShowDialog();
+        }
 
+        private void button3_Click(object sender, EventArgs e)
+        {
+            addEnrollmentSched frm = new addEnrollmentSched(dataGridView1.SelectedRows[0].Cells[1].Value.ToString(),
+                                                            dataGridView1.SelectedRows[0].Cells[2].Value.ToString());
+            frm.ShowDialog();
+        }
+
+        private void refreshGrid()
+        {
+            en.fillDataEnrolSched(ref dataGridView1);
         }
     }
 }

@@ -7,41 +7,77 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using CST.Models;
 
 namespace CST
 {
     public partial class Payment_Form : Form
     {
-        public Payment_Form(string a,string b,string c, string d)
+        string sno = "";
+        string fullname = "";
+        string mod = "";
+        string grade = "";
+        double disc = 0;
+        double totalDisc = 0;
+        double total = 0;
+        TotalFeeController TotalFeeController = new TotalFeeController();
+        public Payment_Form(string snoo,string fn,string md,string gr, double ds)
         {
             InitializeComponent();
-            label6.Text = d;
-            label5.Text = a;
-            label4.Text = b;
-            label7.Text = c;
+            sno = snoo;
+            fullname = fn;
+            mod = md;
+            grade = gr;
+            disc = ds;
+
+            
+
+            textBox1.Text = sno;
+            textBox2.Text = fullname;
+            textBox3.Text = grade;
+
+            total = TotalFeeController.getTotal(mod, grade);
+        
+            if (mod == "Fullpayment")
+            {
+                label8.Text = "Fee";
+                disc /= 100;
+                totalDisc = total * disc;
+
+                total = total - totalDisc;
+              
+            }
+            else if (mod == "Semi-Annual")
+            {
+                label8.Text = "Downpayment";
+                total /= 2;
+                label10.Visible = false;
+                textBox10.Visible = false;
+
+            }
+            else if (mod == "Quarterly")
+            {
+                label8.Text = "Downpayment";
+                total /=  4;
+                label10.Visible = false;
+                textBox10.Visible = false;
+            }
+            else
+            {
+                label8.Text = "Downpayment";
+                total = 5500;
+                label10.Visible = false;
+                textBox10.Visible = false;
+            }
+            textBox8.Text = String.Format("PHP " + "{0:0.00}", total);
+
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            if (label6.Text == "VSummary")
-            {
-                RemainingBalance RB = new RemainingBalance(label5.Text, label4.Text, label7.Text, label6.Text);
-                RB.Show();
-                this.Hide();
-            }
-            else if(label6.Text == "RBalance")
-            {
-                RemainingBalance RB = new RemainingBalance(label5.Text, label4.Text, label7.Text, label6.Text);
-                RB.Show();
-                this.Hide();
-            }
-            else
-            {
-                ModeOfPaymentDiscount MP = new ModeOfPaymentDiscount(label5.Text, label4.Text, label7.Text, label6.Text);
-                MP.Show();
-                this.Hide();
-            }
+            ModeOfPaymentDiscount frm = new ModeOfPaymentDiscount();
+            frm.Show();
+            this.Hide();
             
         }
 
@@ -55,10 +91,7 @@ namespace CST
         {
 
           
-            label4.Hide();
-            label5.Hide();
-            label6.Hide();
-            label7.Hide();
+           
             DateTime my = DateTimeOffset.Now.DateTime.ToLocalTime().ToUniversalTime();
 
 

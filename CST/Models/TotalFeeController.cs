@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 
 namespace CST.Models
@@ -10,10 +11,11 @@ namespace CST.Models
     class TotalFeeController
     {
         crudFile cs = new crudFile();
-
+        YearController yearController = new YearController();
+        int syid = 0;
         public TotalFeeController()
         {
-
+            syid = yearController.getSchoolYearId();
         }
 
         public void addTotalFee(double total,int tf_id)
@@ -48,6 +50,24 @@ namespace CST.Models
             cs.CloseConnection();
 
             return tfFind;
+        }
+
+        public double getTotal(string mod,string grade)
+        {
+          
+            string sql = String.Format(@"SELECT * from total_fee WHERE tf_id in(SELECT tf_id FROM tuition_fee WHERE mode_of_payment = '{0}' AND grade_level = '{1}' AND SY_ID = {2})",
+                                        mod, grade, syid);
+            MySqlDataReader reader = null;
+            cs.RetrieveRecords(sql, ref reader);
+            double total = 0;
+          
+            if (reader.Read())
+            {
+                total = double.Parse(reader["total"].ToString());
+            }
+
+            cs.CloseConnection();
+            return total;
         }
 
     }
