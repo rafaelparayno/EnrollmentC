@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.Threading;
 using CST.Models;
 using CST.Models.Student;
+using CST.Registrar;
 
 namespace CST
 {
@@ -138,7 +139,8 @@ namespace CST
         private void backgroundWorker1_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
             MessageBox.Show("Succesfully Added Student Details");
-            RegistrarForm frm = new RegistrarForm();
+           
+            selectingGradeSectionSched frm = new selectingGradeSectionSched(txtStudentID.Text.Trim(),txtFirstname.Text.Trim() + " " + txtLastname.Text.Trim());
             frm.Show();
             this.Hide();
         }

@@ -114,7 +114,7 @@ namespace CST
                 }
 
                 studentBalance.addBalance(sno, balance, mod, neededToPay);
-                studentsDetailsController.updateEnrolled(grade, sno);
+                studentsDetailsController.updateEnrolled( sno);
                 textBox10.Text = String.Format("PHP " + "{0:0.00}", change);
                 MessageBox.Show("The student is Succesfully Enrolled");
                 ModeOfPaymentDiscount frm = new ModeOfPaymentDiscount();

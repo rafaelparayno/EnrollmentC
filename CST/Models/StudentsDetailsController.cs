@@ -108,9 +108,16 @@ namespace CST.Models
             return details;
         }
 
-        public void updateEnrolled(string grade_level,string sno)
+        public void updateEnrolled(string sno)
         {
-            string sql = String.Format(@"UPDATE student_detail SET grade_level = '{0}', isEnrolled ='enrolled' WHERE sno = '{1}'", grade_level, sno);
+            string sql = String.Format(@"UPDATE student_detail SET isEnrolled ='enrolled' WHERE sno = '{0}'", sno);
+
+            cs.ExecuteQuery(sql);
+        }
+
+        public void updateSectAndGrade(int sect_id,string grade,string sno)
+        {
+            string sql = String.Format(@"UPDATE student_detail SET sect_id = {0},grade_level = '{1}' WHERE sno = '{2}'",sect_id,grade, sno);
 
             cs.ExecuteQuery(sql);
         }

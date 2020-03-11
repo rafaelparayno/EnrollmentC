@@ -336,6 +336,12 @@
     <Compile Include="Registrar\ListRequirements.Designer.cs">
       <DependentUpon>ListRequirements.cs</DependentUpon>
     </Compile>
+    <Compile Include="Registrar\selectingGradeSectionSched.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Registrar\selectingGradeSectionSched.Designer.cs">
+      <DependentUpon>selectingGradeSectionSched.cs</DependentUpon>
+    </Compile>
     <Compile Include="System Admin\addUserAccounts.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -583,6 +589,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Registrar\ListRequirements.resx">
       <DependentUpon>ListRequirements.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Registrar\selectingGradeSectionSched.resx">
+      <DependentUpon>selectingGradeSectionSched.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="System Admin\addUserAccounts.resx">
       <DependentUpon>addUserAccounts.cs</DependentUpon>

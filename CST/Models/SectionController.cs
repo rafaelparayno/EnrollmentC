@@ -79,6 +79,40 @@ namespace CST.Models
             return arr;
         }
 
+        public int[] fillComboSect3(ref ComboBox cb, string grade)
+        {
+            int[] sectionIds = { };
+
+            string sql = String.Format("SELECT sect_id,section_name FROM sections WHERE grade_level = '{0}'",
+                grade);
+
+            MySqlDataReader reader = null;
+            cs.RetrieveRecords(sql, ref reader);
+
+            int total = 0;
+            while (reader.Read())
+            {
+                cb.Items.Add(reader["section_name"].ToString());
+                total++;
+            }
+
+            cs.CloseConnection();
+
+            sectionIds = new int[total];
+
+            reader = null;
+
+            cs.RetrieveRecords(sql, ref reader);
+            int i = 0;
+            while (reader.Read())
+            {
+                sectionIds[i] = int.Parse(reader["sect_id"].ToString());
+                i++;
+            }
+            cs.CloseConnection();
+            return sectionIds;
+        }
+
         public void removeSection(int sect_id,int sy_id)
         {
             string sql = String.Format(@"DELETE FROM sections WHERE sect_id = {0} AND SY_ID = {1}", sect_id, sy_id);
