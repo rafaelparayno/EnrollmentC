@@ -315,3 +315,4 @@ D:\Desktop\C#proj\office\CST\obj\Debug\CST.Enrollment_Admin.SchedulingFinal.reso
 D:\Desktop\C#proj\office\CST\obj\Debug\CST.Registrar.editStudentForm.resources
 D:\Desktop\C#proj\office\CST\obj\Debug\CST.Registrar.editStudFam.resources
 C:\Users\Xorn\Desktop\C#\versionRaf\EnrollmentC\CST\obj\Debug\CST.Enrollment_Admin.AddUpdateDiags.addEnrollmentSched.resources
+D:\Desktop\C#proj\office\CST\obj\Debug\CST.Enrollment_Admin.AddUpdateDiags.addEnrollmentSched.resources

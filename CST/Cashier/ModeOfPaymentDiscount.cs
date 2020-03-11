@@ -67,7 +67,7 @@ namespace CST
 
             if(name == "")
             {
-                MessageBox.Show("No SNO exists");
+                MessageBox.Show("No SNO exists or Student is already enrolled");
             }
             else
             {

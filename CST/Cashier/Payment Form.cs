@@ -20,8 +20,10 @@ namespace CST
         double disc = 0;
         double totalDisc = 0;
         double total = 0;
+        double downPay = 0;
         TotalFeeController TotalFeeController = new TotalFeeController();
         StudentBalance studentBalance = new StudentBalance();
+        StudentsDetailsController studentsDetailsController = new StudentsDetailsController();
         public Payment_Form(string snoo,string fn,string md,string gr, double ds)
         {
             InitializeComponent();
@@ -30,8 +32,6 @@ namespace CST
             mod = md;
             grade = gr;
             disc = ds;
-
-            
 
             textBox1.Text = sno;
             textBox2.Text = fullname;
@@ -42,16 +42,16 @@ namespace CST
             if (mod == "Fullpayment")
             {
                 label8.Text = "Fee";
-                disc /= 100;
+                disc = disc / 100;
                 totalDisc = total * disc;
 
-                total = total - totalDisc;
+                downPay = total - totalDisc;
               
             }
             else if (mod == "Semi-Annual")
             {
                 label8.Text = "Downpayment";
-                total /= 2;
+                downPay = total /  2;
                 label10.Visible = false;
                 textBox10.Visible = false;
 
@@ -59,18 +59,18 @@ namespace CST
             else if (mod == "Quarterly")
             {
                 label8.Text = "Downpayment";
-                total /=  4;
+                downPay  = total / 4;
                 label10.Visible = false;
                 textBox10.Visible = false;
             }
             else
             {
                 label8.Text = "Downpayment";
-                total = 5500;
+                downPay = 5500;
                 label10.Visible = false;
                 textBox10.Visible = false;
             }
-            textBox8.Text = String.Format("PHP " + "{0:0.00}", total);
+            textBox8.Text = String.Format("PHP " + "{0:0.00}", downPay);
 
         }
 
@@ -84,10 +84,42 @@ namespace CST
 
         private void button3_Click(object sender, EventArgs e)
         {
-            if(double.Parse(numericUpDown1.Value.ToString()) >= total)
+            if(double.Parse(numericUpDown1.Value.ToString()) >= downPay)
             {
-           //     studentBalance.addBalance(sno,)
+                double balance = 0;
+                double neededToPay = 0;
+                double change = 0;
+                //     studentBalance.addBalance(sno,)
+                if (mod == "Fullpayment")
+                {
+
+                change = double.Parse(numericUpDown1.Value.ToString()) -downPay; 
+
+                }
+                else if (mod == "Semi-Annual")
+                {
+
+                     balance = total - double.Parse(numericUpDown1.Value.ToString());
+                     neededToPay = balance;
+                }
+                else if (mod == "Quarterly")
+                {
+                     balance = total - double.Parse(numericUpDown1.Value.ToString());
+                    neededToPay = balance / 3; 
+                }
+                else
+                {
+                     balance = total - double.Parse(numericUpDown1.Value.ToString());
+                    neededToPay = balance / 10;
+                }
+
+                studentBalance.addBalance(sno, balance, mod, neededToPay);
+                studentsDetailsController.updateEnrolled(grade, sno);
+                textBox10.Text = String.Format("PHP " + "{0:0.00}", change);
                 MessageBox.Show("The student is Succesfully Enrolled");
+                ModeOfPaymentDiscount frm = new ModeOfPaymentDiscount();
+                this.Hide();
+                frm.Show();
             }
             else
             {
@@ -100,17 +132,7 @@ namespace CST
         {
 
           
-           
-            DateTime my = DateTimeOffset.Now.DateTime.ToLocalTime().ToUniversalTime();
-
-
-            DateTime mys = DateTimeOffset.Now.UtcDateTime.ToLocalTime();
-
         
-
-            label11.Text = my.ToString("MM/dd/yyyy  hh:mm:ss tt");
-
-            timer1.Enabled = true;
 
         }
 

@@ -65,7 +65,7 @@ namespace CST.Models
         public string searchName(string sno)
         {
             string name = "";
-            string sql = String.Format(@"SELECT Concat(firstname, ' ', lastname ) as Fullname FROM student_detail WHERE sno = '{0}'", sno);
+            string sql = String.Format(@"SELECT Concat(firstname, ' ', lastname ) as Fullname FROM student_detail WHERE sno = '{0}' AND isEnrolled = 'not yet'", sno);
             MySqlDataReader reader = null;
             cs.RetrieveRecords(sql, ref reader);
 
@@ -77,6 +77,35 @@ namespace CST.Models
             cs.CloseConnection();
 
             return name;
+        }
+
+        public string[] searchAllDetails(string sno)
+        {
+            string[] details = new string[13];
+            string sql = String.Format(@"SELECT * FROM student_detail WHERE sno = '{0}' ", sno);
+            MySqlDataReader reader = null;
+            cs.RetrieveRecords(sql, ref reader);
+            if (reader.Read())
+            {
+                details[0] = reader["firstname"].ToString();
+                details[1] = reader["lastname"].ToString();
+                details[2] = reader["middlename"].ToString();
+                details[3] = reader["gender"].ToString();
+                details[4] = reader["age"].ToString();
+                details[5] = reader["birthdate"].ToString();
+                details[6] = reader["pob"].ToString();
+                details[7] = reader["contact_no"].ToString();
+                details[8] = reader["nationality"].ToString();
+                details[9] = reader["lastname"].ToString();
+                details[10] = reader["religion"].ToString();
+                details[11] = reader["address"].ToString();
+                details[12] = reader["grade_level"].ToString();
+           
+
+            }
+
+            cs.CloseConnection();
+            return details;
         }
 
         public void updateEnrolled(string grade_level,string sno)

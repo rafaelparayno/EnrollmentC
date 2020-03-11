@@ -625,7 +625,7 @@
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.BindingSource schemaColumnBindingSource;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
+
         private System.Windows.Forms.BindingSource mySqlConnectionBindingSource;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button btnRemove;
