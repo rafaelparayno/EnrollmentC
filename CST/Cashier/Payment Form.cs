@@ -101,16 +101,19 @@ namespace CST
 
                      balance = total - double.Parse(numericUpDown1.Value.ToString());
                      neededToPay = balance;
+                    neededToPay = Math.Round((Double)neededToPay, 2);
                 }
                 else if (mod == "Quarterly")
                 {
                      balance = total - double.Parse(numericUpDown1.Value.ToString());
-                    neededToPay = balance / 3; 
+                    neededToPay = balance / 3;
+                    neededToPay = Math.Round((Double)neededToPay, 2);
                 }
                 else
                 {
                      balance = total - double.Parse(numericUpDown1.Value.ToString());
                     neededToPay = balance / 10;
+                    neededToPay = Math.Round((Double)neededToPay, 2);
                 }
 
                 studentBalance.addBalance(sno, balance, mod, neededToPay);

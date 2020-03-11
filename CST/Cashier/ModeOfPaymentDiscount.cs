@@ -15,17 +15,12 @@ namespace CST
     public partial class ModeOfPaymentDiscount : Form
     {
         StudentsDetailsController studentsDetailsController = new StudentsDetailsController();
-        string[] grades;
+      
         private double disc = 0;
         public ModeOfPaymentDiscount()
         {
             InitializeComponent();
-            grades = DataClass.getAllGrade();
-
-            foreach(string grade in grades)
-            {
-                comboBox2.Items.Add(grade);
-            }
+          
 
         }
 
@@ -43,7 +38,7 @@ namespace CST
             if (isValid())
             {
                 this.Hide();
-                Payment_Form fr1 = new Payment_Form(textBox1.Text.Trim(),textBox2.Text.Trim(),comboBox1.Text,comboBox2.Text,disc);
+                Payment_Form fr1 = new Payment_Form(textBox1.Text.Trim(),textBox2.Text.Trim(),comboBox1.Text,textBox3.Text,disc);
                 fr1.ShowDialog();
             }
             else
@@ -63,15 +58,16 @@ namespace CST
 
         private void button3_Click(object sender, EventArgs e)
         {
-            string name = studentsDetailsController.searchName(textBox1.Text.Trim());
+            string[] details = studentsDetailsController.searchAllDetails(textBox1.Text.Trim());
 
-            if(name == "")
+            if(details[0] == "")
             {
                 MessageBox.Show("No SNO exists or Student is already enrolled");
             }
             else
             {
-                textBox2.Text = name;
+                textBox2.Text = details[0] + " " + details[2] + " " + details[1];
+                textBox3.Text = details[12];
             }
         }
 
@@ -115,7 +111,7 @@ namespace CST
 
             isValid = comboBox1.SelectedIndex > -1 && isValid;
 
-            isValid = comboBox2.SelectedIndex > -1 && isValid;
+       
 
 
             return isValid;
@@ -142,6 +138,11 @@ namespace CST
                 numericUpDown1.Visible = false;
                 radioButton3.Checked = true;
             }
+        }
+
+        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
