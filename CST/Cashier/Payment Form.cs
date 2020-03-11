@@ -21,6 +21,7 @@ namespace CST
         double totalDisc = 0;
         double total = 0;
         TotalFeeController TotalFeeController = new TotalFeeController();
+        StudentBalance studentBalance = new StudentBalance();
         public Payment_Form(string snoo,string fn,string md,string gr, double ds)
         {
             InitializeComponent();
@@ -83,9 +84,17 @@ namespace CST
 
         private void button3_Click(object sender, EventArgs e)
         {
-            
+            if(double.Parse(numericUpDown1.Value.ToString()) >= total)
+            {
+           //     studentBalance.addBalance(sno,)
+                MessageBox.Show("The student is Succesfully Enrolled");
+            }
+            else
+            {
+                MessageBox.Show("The Payment should higher or equal than the downpayment");
+            }
                
-}
+        }
 
         private void Payment_Form_Load(object sender, EventArgs e)
         {

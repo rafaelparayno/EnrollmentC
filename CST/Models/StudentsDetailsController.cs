@@ -78,5 +78,12 @@ namespace CST.Models
 
             return name;
         }
+
+        public void updateEnrolled(string grade_level,string sno)
+        {
+            string sql = String.Format(@"UPDATE student_detail SET grade_level = '{0}', isEnrolled ='enrolled' WHERE sno = '{1}'", grade_level, sno);
+
+            cs.ExecuteQuery(sql);
+        }
     }
 }
