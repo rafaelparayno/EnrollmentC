@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using CST.Models;
 using CST.Models.SchoolRequirementsMod;
 using CST.Models.Student;
+using CST.Registrar;
 
 namespace CST
 {
@@ -77,11 +78,29 @@ namespace CST
         private void cbType_SelectedIndexChanged(object sender, EventArgs e)
         {
             fillDataGrid(cbType.SelectedItem.ToString());
+            if(cbType.SelectedIndex == 0 || cbType.SelectedIndex == 3)
+            {
+                button3.Visible = true;
+            }
+            else
+            {
+                button3.Visible = false;
+            }
         }
 
         private void fillDataGrid(string stud_type)
         {
             schoolRequirements.fillDataGridForTypeStud(ref dataGridView1, stud_type);
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            ListRequirements frm = new ListRequirements();
+            frm.button2.Visible = false;
+            frm.button3.Visible = false;
+            frm.button5.Visible = false;
+            frm.pbClose.Visible = true;
+            frm.ShowDialog();
         }
     }
 }

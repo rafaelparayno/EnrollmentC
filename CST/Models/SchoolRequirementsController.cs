@@ -58,6 +58,40 @@ namespace CST.Models
            
         }
 
+        public int[] fillComboReq(string type,ref ComboBox cb)
+        {
+            int[] req_ids = { };
+
+            string sql = String.Format("SELECT req_id,requirement_name FROM school_requirements WHERE type_of_student = '{0}'",
+                type);
+
+            MySqlDataReader reader = null;
+            cs.RetrieveRecords(sql, ref reader);
+
+            int total = 0;
+            while (reader.Read())
+            {
+                cb.Items.Add(reader["requirement_name"].ToString());
+                total++;
+            }
+
+            cs.CloseConnection();
+
+            req_ids = new int[total];
+
+            reader = null;
+
+            cs.RetrieveRecords(sql, ref reader);
+            int i = 0;
+            while (reader.Read())
+            {  
+             req_ids[i] = int.Parse(reader["req_id"].ToString());
+                  i++;
+            }
+            cs.CloseConnection();
+            return req_ids;
+        }
+
         public void updateSchoolRequirements(string typeStud,string name , int idReq)
         {
             string sql = String.Format(@"UPDATE school_requirements SET type_of_student = '{0}', requirement_name ='{1}' WHERE req_id = {2}",

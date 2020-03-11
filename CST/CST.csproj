@@ -312,6 +312,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Registrar\addRequirements.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Registrar\addRequirements.Designer.cs">
+      <DependentUpon>addRequirements.cs</DependentUpon>
+    </Compile>
     <Compile Include="Registrar\editStudentForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -323,6 +329,12 @@
     </Compile>
     <Compile Include="Registrar\editStudFam.Designer.cs">
       <DependentUpon>editStudFam.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Registrar\ListRequirements.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Registrar\ListRequirements.Designer.cs">
+      <DependentUpon>ListRequirements.cs</DependentUpon>
     </Compile>
     <Compile Include="System Admin\addUserAccounts.cs">
       <SubType>Form</SubType>
@@ -560,11 +572,17 @@
     <EmbeddedResource Include="IPConfigFormcs.resx">
       <DependentUpon>IPConfigFormcs.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Registrar\addRequirements.resx">
+      <DependentUpon>addRequirements.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Registrar\editStudentForm.resx">
       <DependentUpon>editStudentForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Registrar\editStudFam.resx">
       <DependentUpon>editStudFam.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Registrar\ListRequirements.resx">
+      <DependentUpon>ListRequirements.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="System Admin\addUserAccounts.resx">
       <DependentUpon>addUserAccounts.cs</DependentUpon>

@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
+using CST.Registrar;
 
 namespace  CST 
 {
@@ -78,6 +79,13 @@ namespace  CST
             label7.Text = my.ToString("MM/dd/yyyy  hh:mm:ss tt");
 
             timer1.Enabled = true;
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            ListRequirements frm = new ListRequirements();
+            frm.Show();
+            this.Hide();
         }
     }
 }
