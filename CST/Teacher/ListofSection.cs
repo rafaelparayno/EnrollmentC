@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using CST.Models;
+using CST.Teacher;
 
 
 namespace CST
@@ -38,7 +39,7 @@ namespace CST
         private void button2_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Teacher fr1 = new Teacher ();
+            TeacherFrm fr1 = new TeacherFrm();
             fr1.ShowDialog();
         }
 

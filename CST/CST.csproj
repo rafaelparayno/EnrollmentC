@@ -378,6 +378,12 @@
     <Compile Include="Enrollment Admin\Facilities.Designer.cs">
       <DependentUpon>Facilities.cs</DependentUpon>
     </Compile>
+    <Compile Include="Teacher\addGradeStudent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Teacher\addGradeStudent.Designer.cs">
+      <DependentUpon>addGradeStudent.cs</DependentUpon>
+    </Compile>
     <Compile Include="Teacher\ListofSection.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -476,6 +482,12 @@
     <Compile Include="Registrar\StudentForm.Designer.cs">
       <DependentUpon>StudentForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Teacher\TeacherFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Teacher\TeacherFrm.Designer.cs">
+      <DependentUpon>TeacherFrm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Teacher\TeacherSchedule.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -487,12 +499,6 @@
     </Compile>
     <Compile Include="Enrollment Admin\TeachersSpecialization.Designer.cs">
       <DependentUpon>TeachersSpecialization.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Teacher\Teacher.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Teacher\Teacher.Designer.cs">
-      <DependentUpon>Teacher.cs</DependentUpon>
     </Compile>
     <Compile Include="Registrar\TransfereeStudents.cs">
       <SubType>Form</SubType>
@@ -614,6 +620,9 @@
     <EmbeddedResource Include="Cashier\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Teacher\addGradeStudent.resx">
+      <DependentUpon>addGradeStudent.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Teacher\ListofSection.resx">
       <DependentUpon>ListofSection.cs</DependentUpon>
     </EmbeddedResource>
@@ -703,14 +712,14 @@
     <EmbeddedResource Include="System Admin\UserAccount.resx">
       <DependentUpon>UserAccount.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Teacher\TeacherFrm.resx">
+      <DependentUpon>TeacherFrm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Teacher\TeacherSchedule.resx">
       <DependentUpon>TeacherSchedule.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Enrollment Admin\TeachersSpecialization.resx">
       <DependentUpon>TeachersSpecialization.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Teacher\Teacher.resx">
-      <DependentUpon>Teacher.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Enrollment Admin\UpdateTeacherSpecialization.resx">
       <DependentUpon>UpdateTeacherSpecialization.cs</DependentUpon>

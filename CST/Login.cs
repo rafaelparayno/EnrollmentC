@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using CST.Models.SchoolYear;
 using CST.Models;
+using CST.Teacher;
 
 
 namespace CST
@@ -161,7 +162,7 @@ namespace CST
 
                     else if (role == "Teacher")
                     {
-                        Teacher frm = new Teacher();
+                        TeacherFrm frm = new TeacherFrm();
                         frm.Show();
                         this.Hide();
                     }

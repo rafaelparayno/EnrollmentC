@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using CST.Models;
+using CST.Teacher;
 
 namespace CST
 {
@@ -16,6 +17,7 @@ namespace CST
         StudentsDetailsController studentsDetailsController = new StudentsDetailsController();
         string sno = "";
         string StudName = "";
+        ListViewItem lvs = new ListViewItem();
         public StudentGrades()
         {
             InitializeComponent();
@@ -25,7 +27,7 @@ namespace CST
         private void button2_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Teacher fr1 = new Teacher();
+            TeacherFrm fr1 = new TeacherFrm();
             fr1.ShowDialog();
         }
 
@@ -49,7 +51,7 @@ namespace CST
 
         private void button4_Click(object sender, EventArgs e)
         {
-            StudName = studentsDetailsController.searchName(textBox7.Text.Trim());
+            /*StudName = studentsDetailsController.searchName(textBox7.Text.Trim());
             textBox2.Text = StudName;
 
             if (StudName == "")
@@ -59,23 +61,12 @@ namespace CST
             else
             {
                 sno = textBox7.Text.Trim();
-            }
+            }*/
 
             
         }
 
-        private void ComputeAverage()
-        {
-            double avg = 0;
-            double g1 = double.Parse( numericUpDown1.Value.ToString());
-            double g2 = double.Parse(numericUpDown2.Value.ToString());
-            double g3 = double.Parse(numericUpDown3.Value.ToString());
-            double g4 = double.Parse(numericUpDown4.Value.ToString());
-
-            avg = (g1 + g2 + g3 + g4) / 4;
-            avg = Math.Round((Double)avg, 2);
-            textBox6.Text = avg + "";
-        }
+     
 
         private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -115,22 +106,29 @@ namespace CST
 
         private void numericUpDown1_ValueChanged(object sender, EventArgs e)
         {
-            ComputeAverage();
+           // ComputeAverage();
         }
 
         private void numericUpDown2_ValueChanged(object sender, EventArgs e)
         {
-            ComputeAverage();
+           // ComputeAverage();
         }
 
         private void numericUpDown3_ValueChanged(object sender, EventArgs e)
         {
-            ComputeAverage();
+          //  ComputeAverage();
         }
 
         private void numericUpDown4_ValueChanged(object sender, EventArgs e)
         {
-            ComputeAverage();
+           // ComputeAverage();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            addGradeStudent frm = new addGradeStudent();
+
+            frm.ShowDialog();
         }
     }
 }

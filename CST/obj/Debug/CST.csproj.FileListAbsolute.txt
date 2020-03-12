@@ -280,7 +280,6 @@ D:\Desktop\C#proj\office\CST\obj\Debug\CST.TransfereeStudents.resources
 D:\Desktop\C#proj\office\CST\obj\Debug\CST.UserAccount.resources
 D:\Desktop\C#proj\office\CST\obj\Debug\CST.TeacherSchedule.resources
 D:\Desktop\C#proj\office\CST\obj\Debug\CST.TeachersSpecialization.resources
-D:\Desktop\C#proj\office\CST\obj\Debug\CST.Teacher.resources
 D:\Desktop\C#proj\office\CST\obj\Debug\CST.UpdateTeacherSpecialization.resources
 D:\Desktop\C#proj\office\CST\obj\Debug\CST.csproj.GenerateResource.cache
 D:\Desktop\C#proj\office\CST\obj\Debug\CST.csproj.CopyComplete
@@ -322,3 +321,5 @@ C:\Users\Xorn\Desktop\C#\versionRaf\EnrollmentC\CST\obj\Debug\CST.Registrar.sele
 D:\Desktop\C#proj\office\CST\obj\Debug\CST.Registrar.addRequirements.resources
 D:\Desktop\C#proj\office\CST\obj\Debug\CST.Registrar.ListRequirements.resources
 D:\Desktop\C#proj\office\CST\obj\Debug\CST.Registrar.selectingGradeSectionSched.resources
+D:\Desktop\C#proj\office\CST\obj\Debug\CST.Teacher.addGradeStudent.resources
+D:\Desktop\C#proj\office\CST\obj\Debug\CST.Teacher.TeacherFrm.resources
