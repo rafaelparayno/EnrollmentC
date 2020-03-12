@@ -83,8 +83,78 @@ namespace CST.Models
         {
             int[] sectionIds = { };
 
-            string sql = String.Format("SELECT sect_id,section_name FROM sections WHERE grade_level = '{0}'",
-                grade);
+            string sql = String.Format("SELECT sect_id,section_name FROM sections WHERE grade_level = '{0}' AND SY_ID ={1}",
+                grade,yearID);
+
+            MySqlDataReader reader = null;
+            cs.RetrieveRecords(sql, ref reader);
+
+            int total = 0;
+            while (reader.Read())
+            {
+                cb.Items.Add(reader["section_name"].ToString());
+                total++;
+            }
+
+            cs.CloseConnection();
+
+            sectionIds = new int[total];
+
+            reader = null;
+
+            cs.RetrieveRecords(sql, ref reader);
+            int i = 0;
+            while (reader.Read())
+            {
+                sectionIds[i] = int.Parse(reader["sect_id"].ToString());
+                i++;
+            }
+            cs.CloseConnection();
+            return sectionIds;
+        }
+
+
+        public int[] fillComboSect4(ref ComboBox cb, int teacher_id)
+        {
+            int[] sectionIds = { };
+
+            string sql = String.Format("SELECT sect_id,section_name FROM sections WHERE sect_id in (SELECT sect_id FROM sched_section WHERE sched_section.teacher_ID = {0}) AND SY_ID ={1}",
+                teacher_id, yearID);
+
+            MySqlDataReader reader = null;
+            cs.RetrieveRecords(sql, ref reader);
+
+            int total = 0;
+            while (reader.Read())
+            {
+                cb.Items.Add(reader["section_name"].ToString());
+                total++;
+            }
+
+            cs.CloseConnection();
+
+            sectionIds = new int[total];
+
+            reader = null;
+
+            cs.RetrieveRecords(sql, ref reader);
+            int i = 0;
+            while (reader.Read())
+            {
+                sectionIds[i] = int.Parse(reader["sect_id"].ToString());
+                i++;
+            }
+            cs.CloseConnection();
+            return sectionIds;
+        }
+
+
+        public int[] fillComboSect5(ref ComboBox cb, int teacher_id)
+        {
+            int[] sectionIds = { };
+
+            string sql = String.Format("SELECT sect_id,section_name FROM sections WHERE teacher_ID ={0} AND SY_ID ={1}",
+                teacher_id, yearID);
 
             MySqlDataReader reader = null;
             cs.RetrieveRecords(sql, ref reader);

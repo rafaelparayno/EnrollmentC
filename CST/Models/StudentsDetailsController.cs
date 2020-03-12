@@ -62,6 +62,14 @@ namespace CST.Models
             cs.FillDataGrid(sql, ref dg);
         }
 
+        public void fillDataGridDetailsInSection(ref DataGridView dg,int section_id)
+        {
+            string sql = String.Format(@"SELECT Concat(firstname,' ',middlename,' ',lastname) AS 'Student Name' FROM student_detail WHERE sect_id = {0}",
+                                section_id);
+
+            cs.FillDataGrid(sql, ref dg);
+        }
+
         public string searchName(string sno)
         {
             string name = "";

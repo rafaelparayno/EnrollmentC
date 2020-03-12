@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CST.Data;
 using CST.Models;
 
 namespace CST
@@ -16,13 +17,17 @@ namespace CST
 
         SpecializationController specializationController = new SpecializationController();
         SchedSectionController schedSectionController = new SchedSectionController();
+        
         int teacher_id = 0;
         public TeacherSchedule()
         {
             InitializeComponent();
             teacher_id = specializationController.findTeacherId(UserLog.getUserId());
             schedSectionController.fillListTeachSched(ref listView1, teacher_id);
-   
+            foreach(string grade in DataClass.getAllGrade())
+            {
+                comboBox1.Items.Add(grade);
+            }
         }
 
         private void TeacherSchedule_Load(object sender, EventArgs e)
@@ -51,6 +56,19 @@ namespace CST
             label7.Text = my.ToString("MM/dd/yyyy  hh:mm:ss tt");
 
             timer1.Enabled = true;
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            /* comboBox1.SelectedIndex = ;*/
+            listView1.Items.Clear();
+            schedSectionController.fillListTeachSched(ref listView1, teacher_id);
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            listView1.Items.Clear();
+            schedSectionController.fillListTeachSched2(ref listView1, teacher_id, comboBox1.SelectedItem.ToString());
         }
     }
     }

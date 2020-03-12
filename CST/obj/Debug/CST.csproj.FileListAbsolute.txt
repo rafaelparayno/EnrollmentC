@@ -319,3 +319,6 @@ D:\Desktop\C#proj\office\CST\obj\Debug\CST.Enrollment_Admin.AddUpdateDiags.addEn
 C:\Users\Xorn\Desktop\C#\versionRaf\EnrollmentC\CST\obj\Debug\CST.Registrar.ListRequirements.resources
 C:\Users\Xorn\Desktop\C#\versionRaf\EnrollmentC\CST\obj\Debug\CST.Registrar.addRequirements.resources
 C:\Users\Xorn\Desktop\C#\versionRaf\EnrollmentC\CST\obj\Debug\CST.Registrar.selectingGradeSectionSched.resources
+D:\Desktop\C#proj\office\CST\obj\Debug\CST.Registrar.addRequirements.resources
+D:\Desktop\C#proj\office\CST\obj\Debug\CST.Registrar.ListRequirements.resources
+D:\Desktop\C#proj\office\CST\obj\Debug\CST.Registrar.selectingGradeSectionSched.resources
