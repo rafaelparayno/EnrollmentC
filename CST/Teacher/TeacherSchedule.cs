@@ -7,42 +7,34 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CST.Models;
 
 namespace CST
 {
     public partial class TeacherSchedule : Form
     {
-        public TeacherSchedule(string a, string b, string c)
+
+        SpecializationController specializationController = new SpecializationController();
+        SchedSectionController schedSectionController = new SchedSectionController();
+        int teacher_id = 0;
+        public TeacherSchedule()
         {
             InitializeComponent();
-            label5.Text = a;
-            label3.Text = b;
-            label6.Text = c; 
+            teacher_id = specializationController.findTeacherId(UserLog.getUserId());
+            schedSectionController.fillListTeachSched(ref listView1, teacher_id);
+   
         }
 
         private void TeacherSchedule_Load(object sender, EventArgs e)
         {
-            label3.Hide();
-            label5.Hide();
-            label6.Hide();
-            label7.Hide();
-            DateTime my = DateTimeOffset.Now.DateTime.ToLocalTime().ToUniversalTime();
-
-
-            DateTime mys = DateTimeOffset.Now.UtcDateTime.ToLocalTime();
-
-     
-
-            label7.Text = my.ToString("MM/dd/yyyy  hh:mm:ss tt");
-
-            timer1.Enabled = true;
+           
         }
 
 
         private void button2_Click_1(object sender, EventArgs e)
         {
             this.Hide();
-            Teacher fr3 = new Teacher(label5.Text, label3.Text);
+            Teacher fr3 = new Teacher();
             fr3.ShowDialog();
 
         }

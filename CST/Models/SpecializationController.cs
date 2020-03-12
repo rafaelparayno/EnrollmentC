@@ -124,5 +124,23 @@ namespace CST.Models
             cs.CloseConnection();
             return nameWithId;
         }
+
+        public int findTeacherId(string accid)
+        {
+            int teacher_id = 0;
+            string sql = String.Format(@"SELECT teacher_id FROM specialization WHERE acc_id = '{0}'", accid);
+            MySqlDataReader reader = null;
+
+            cs.RetrieveRecords(sql, ref reader);
+
+            if (reader.Read())
+            {
+                teacher_id = int.Parse(reader["teacher_id"].ToString());
+            }
+
+            cs.CloseConnection();
+
+            return teacher_id;
+        }
     }
 }

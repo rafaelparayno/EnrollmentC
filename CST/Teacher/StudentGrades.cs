@@ -12,35 +12,22 @@ namespace CST
 {
     public partial class StudentGrades : Form
     {
-        public StudentGrades(string a, string b, string c)
+        public StudentGrades()
         {
             InitializeComponent();
-            label12.Text = a;
-            label11.Text = b;
-            label13.Text = c;
+          
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Teacher fr1 = new Teacher(label12.Text, label11.Text);
+            Teacher fr1 = new Teacher();
             fr1.ShowDialog();
         }
 
         private void StudentGrades_Load(object sender, EventArgs e)
         {
-            label11.Hide();
-            label12.Hide();
-            label13.Hide();
-            label10.Hide();
-            DateTime my = DateTimeOffset.Now.DateTime.ToLocalTime().ToUniversalTime();
-
-
-            DateTime mys = DateTimeOffset.Now.UtcDateTime.ToLocalTime();
-
-            label10.Text = my.ToString("MM/dd/yyyy  hh:mm:ss tt");
-
-            timer1.Enabled = true;
+            
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -51,7 +38,7 @@ namespace CST
             DateTime mys = DateTimeOffset.Now.UtcDateTime.ToLocalTime();
 
 
-            label10.Text = my.ToString("MM/dd/yyyy  hh:mm:ss tt");
+            /*label10.Text = my.ToString("MM/dd/yyyy  hh:mm:ss tt");*/
 
             timer1.Enabled = true;
         }

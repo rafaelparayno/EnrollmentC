@@ -44,7 +44,8 @@ namespace CST.Models
 											reader["Lastname"].ToString(), 
 											reader["MiddleName"].ToString(), 
 											role,
-											username);
+											username,
+											reader["acc_id"].ToString());
 			}
 
 			

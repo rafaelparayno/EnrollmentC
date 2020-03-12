@@ -38,8 +38,6 @@
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.cbGender = new System.Windows.Forms.ComboBox();
-            this.labelGradeLevel = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
@@ -65,10 +63,6 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.panel4.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -84,11 +78,11 @@
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button2.Location = new System.Drawing.Point(705, 449);
+            this.button2.Location = new System.Drawing.Point(25, 449);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(147, 35);
             this.button2.TabIndex = 253;
-            this.button2.Text = "HOME";
+            this.button2.Text = "BACK";
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
@@ -116,8 +110,6 @@
             this.groupBox1.Controls.Add(this.comboBox1);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.comboBox2);
-            this.groupBox1.Controls.Add(this.cbGender);
-            this.groupBox1.Controls.Add(this.labelGradeLevel);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(12, 51);
             this.groupBox1.Name = "groupBox1";
@@ -164,7 +156,7 @@
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Black;
             this.label2.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label2.Location = new System.Drawing.Point(167, 28);
+            this.label2.Location = new System.Drawing.Point(10, 28);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(60, 16);
             this.label2.TabIndex = 230;
@@ -183,41 +175,10 @@
             this.comboBox2.Items.AddRange(new object[] {
             "Student ID",
             "Student Name"});
-            this.comboBox2.Location = new System.Drawing.Point(170, 51);
+            this.comboBox2.Location = new System.Drawing.Point(13, 51);
             this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(138, 28);
+            this.comboBox2.Size = new System.Drawing.Size(241, 28);
             this.comboBox2.TabIndex = 231;
-            // 
-            // cbGender
-            // 
-            this.cbGender.DropDownHeight = 150;
-            this.cbGender.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbGender.Enabled = false;
-            this.cbGender.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.cbGender.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.cbGender.FormattingEnabled = true;
-            this.cbGender.IntegralHeight = false;
-            this.cbGender.ItemHeight = 20;
-            this.cbGender.Items.AddRange(new object[] {
-            "Student ID",
-            "Student Name"});
-            this.cbGender.Location = new System.Drawing.Point(22, 51);
-            this.cbGender.Name = "cbGender";
-            this.cbGender.Size = new System.Drawing.Size(138, 28);
-            this.cbGender.TabIndex = 227;
-            // 
-            // labelGradeLevel
-            // 
-            this.labelGradeLevel.AutoSize = true;
-            this.labelGradeLevel.BackColor = System.Drawing.Color.Transparent;
-            this.labelGradeLevel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelGradeLevel.ForeColor = System.Drawing.Color.Black;
-            this.labelGradeLevel.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.labelGradeLevel.Location = new System.Drawing.Point(19, 28);
-            this.labelGradeLevel.Name = "labelGradeLevel";
-            this.labelGradeLevel.Size = new System.Drawing.Size(93, 16);
-            this.labelGradeLevel.TabIndex = 226;
-            this.labelGradeLevel.Text = "Grade Level";
             // 
             // label1
             // 
@@ -239,7 +200,7 @@
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button1.Location = new System.Drawing.Point(552, 449);
+            this.button1.Location = new System.Drawing.Point(737, 449);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(147, 35);
             this.button1.TabIndex = 256;
@@ -473,54 +434,6 @@
             this.textBox2.Size = new System.Drawing.Size(157, 28);
             this.textBox2.TabIndex = 234;
             // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.BackColor = System.Drawing.Color.Transparent;
-            this.label10.Font = new System.Drawing.Font("Lucida Sans Typewriter", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.ForeColor = System.Drawing.Color.Black;
-            this.label10.Location = new System.Drawing.Point(230, 345);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(87, 15);
-            this.label10.TabIndex = 262;
-            this.label10.Text = "Date & Time";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.BackColor = System.Drawing.Color.Transparent;
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.ForeColor = System.Drawing.Color.Black;
-            this.label11.Location = new System.Drawing.Point(547, 128);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(120, 25);
-            this.label11.TabIndex = 261;
-            this.label11.Text = "User Type";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.BackColor = System.Drawing.Color.Transparent;
-            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.ForeColor = System.Drawing.Color.Black;
-            this.label12.Location = new System.Drawing.Point(304, 129);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(118, 25);
-            this.label12.TabIndex = 260;
-            this.label12.Text = "Username";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.BackColor = System.Drawing.Color.Transparent;
-            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.ForeColor = System.Drawing.Color.Black;
-            this.label13.Location = new System.Drawing.Point(457, 95);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(43, 20);
-            this.label13.TabIndex = 259;
-            this.label13.Text = "S.Y.";
-            // 
             // timer1
             // 
             this.timer1.Interval = 1;
@@ -533,10 +446,6 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(896, 487);
-            this.Controls.Add(this.label10);
-            this.Controls.Add(this.label11);
-            this.Controls.Add(this.label12);
-            this.Controls.Add(this.label13);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.button2);
@@ -547,6 +456,7 @@
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "StudentGrades";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "StudentGrades";
             this.Load += new System.EventHandler(this.StudentGrades_Load);
             this.panel4.ResumeLayout(false);
@@ -571,8 +481,6 @@
         public System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label2;
         public System.Windows.Forms.ComboBox comboBox2;
-        public System.Windows.Forms.ComboBox cbGender;
-        private System.Windows.Forms.Label labelGradeLevel;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.DataGridView dataGridView1;
@@ -598,10 +506,6 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Timer timer1;
     }
 }

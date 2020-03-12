@@ -161,7 +161,9 @@ namespace CST
 
                     else if (role == "Teacher")
                     {
-
+                        Teacher frm = new Teacher();
+                        frm.Show();
+                        this.Hide();
                     }
                 }
                 

@@ -214,6 +214,7 @@
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Teacher";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Teacher";
             this.Load += new System.EventHandler(this.Teacher_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

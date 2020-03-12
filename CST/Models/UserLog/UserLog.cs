@@ -14,14 +14,16 @@ namespace CST.Models
 		private static string MiddleName;
 		private static string UserName;
 		private static string Role;
+		private static string userid;
 
-		public UserLog(string firstName,string lastname, string middlename, string role,string username)
+		public UserLog(string firstName,string lastname, string middlename, string role,string username,string userids)
 		{
 			FirstName = firstName;
 			LastName = lastname;
 			MiddleName = middlename;
 			Role = role;
 			UserName = username;
+			userid = userids;
 		}
 
 		public static string getFirstName()
@@ -49,6 +51,11 @@ namespace CST.Models
 		public static string getFullName()
 		{
 			return FirstName + " " + MiddleName + " " + LastName; 
+		}
+
+		public static string getUserId()
+		{
+			return userid;
 		}
 
 

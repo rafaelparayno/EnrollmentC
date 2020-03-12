@@ -12,12 +12,10 @@ namespace CST
 {
     public partial class ListofSection : Form
     {
-        public ListofSection(string a, string b, string c)
+        public ListofSection()
         {
             InitializeComponent();
-            label5.Text = a;
-            label3.Text = b;
-            label6.Text = c;
+          
         }
 
         private void groupBox1_Enter(object sender, EventArgs e)
@@ -28,7 +26,7 @@ namespace CST
         private void button2_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Teacher fr1 = new Teacher (label5.Text, label3.Text);
+            Teacher fr1 = new Teacher ();
             fr1.ShowDialog();
         }
 
@@ -68,18 +66,7 @@ namespace CST
 
         private void ListofSection_Load(object sender, EventArgs e)
         {
-            label3.Hide();
-            label5.Hide();
-            label6.Hide();
-            label7.Hide();
-            DateTime my = DateTimeOffset.Now.DateTime.ToLocalTime().ToUniversalTime();
-
-
-            DateTime mys = DateTimeOffset.Now.UtcDateTime.ToLocalTime();
-
-            label7.Text = my.ToString("MM/dd/yyyy  hh:mm:ss tt");
-
-            timer1.Enabled = true;
+            
         }
     }
 }
