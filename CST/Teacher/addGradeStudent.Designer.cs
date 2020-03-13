@@ -82,6 +82,7 @@
             // 
             // numericUpDown4
             // 
+            this.numericUpDown4.DecimalPlaces = 2;
             this.numericUpDown4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.numericUpDown4.Location = new System.Drawing.Point(154, 278);
             this.numericUpDown4.Minimum = new decimal(new int[] {
@@ -102,6 +103,7 @@
             // 
             // numericUpDown3
             // 
+            this.numericUpDown3.DecimalPlaces = 2;
             this.numericUpDown3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.numericUpDown3.Location = new System.Drawing.Point(154, 243);
             this.numericUpDown3.Minimum = new decimal(new int[] {
@@ -122,6 +124,7 @@
             // 
             // numericUpDown2
             // 
+            this.numericUpDown2.DecimalPlaces = 2;
             this.numericUpDown2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.numericUpDown2.Location = new System.Drawing.Point(154, 208);
             this.numericUpDown2.Minimum = new decimal(new int[] {
@@ -142,6 +145,7 @@
             // 
             // numericUpDown1
             // 
+            this.numericUpDown1.DecimalPlaces = 2;
             this.numericUpDown1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.numericUpDown1.Location = new System.Drawing.Point(154, 168);
             this.numericUpDown1.Minimum = new decimal(new int[] {
@@ -207,7 +211,7 @@
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(276, 35);
             this.button3.TabIndex = 259;
-            this.button3.Text = "Add";
+            this.button3.Text = "Save";
             this.button3.UseVisualStyleBackColor = false;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 

@@ -11,10 +11,11 @@ namespace CST.Models
     class SubjectController
     {
         crudFile cs = new crudFile();
-
+        YearController yearController = new YearController();
+        int syid = 0;
         public SubjectController()
         {
-
+            syid = yearController.getSchoolYearId();
         }
 
         public void addSubject(string grade_level,string subject_name)
@@ -92,6 +93,40 @@ namespace CST.Models
             string[] arrs = subId.Split(' ');
             return arrs;
         
+        }
+
+        public int[] fillComboSubjectsAssignTeacher(ref ComboBox cb, int teacher_id,int sect_id)
+        {
+            int[] subject_ids = { };
+
+            string sql = String.Format("SELECT * FROM `subjects` WHERE subject_id in(SELECT subject_id FROM sched_section WHERE teacher_Id = {0} AND sect_id = {1} AND Sy_id = {2})",
+                teacher_id, sect_id,syid);
+
+            MySqlDataReader reader = null;
+            cs.RetrieveRecords(sql, ref reader);
+
+            int total = 0;
+            while (reader.Read())
+            {
+                cb.Items.Add(reader["subject_name"].ToString());
+                total++;
+            }
+
+            cs.CloseConnection();
+
+            subject_ids = new int[total];
+
+            reader = null;
+
+            cs.RetrieveRecords(sql, ref reader);
+            int i = 0;
+            while (reader.Read())
+            {
+                subject_ids[i] = int.Parse(reader["subject_id"].ToString());
+                i++;
+            }
+            cs.CloseConnection();
+            return subject_ids;
         }
 
         public bool isFound(int subid)

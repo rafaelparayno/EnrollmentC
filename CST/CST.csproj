@@ -199,6 +199,7 @@
     <Compile Include="Models\SectionController.cs" />
     <Compile Include="Models\SpecializationController.cs" />
     <Compile Include="Models\StudentBalance.cs" />
+    <Compile Include="Models\StudentGradesController.cs" />
     <Compile Include="Models\StudentRequirementController.cs" />
     <Compile Include="Models\StudentRequirements\StudentRequirements.cs" />
     <Compile Include="Models\StudentsDetailsController.cs" />

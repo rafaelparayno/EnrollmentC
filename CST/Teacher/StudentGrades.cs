@@ -15,13 +15,23 @@ namespace CST
     public partial class StudentGrades : Form
     {
         StudentsDetailsController studentsDetailsController = new StudentsDetailsController();
+        SpecializationController specializationController = new SpecializationController();
+        SubjectController subjectController = new SubjectController();
+        StudentGradesController gradesController = new StudentGradesController();
         string sno = "";
         string StudName = "";
-        ListViewItem lvs = new ListViewItem();
+        int [] subjectids = { };
+        int[] sectids = { };
+        int teacherId = 0;
+        int selectedSectionId = 0;
+        int selectedSubId = 0;
+      
+        SectionController sectionController = new SectionController();
         public StudentGrades()
         {
             InitializeComponent();
-          
+            teacherId = specializationController.findTeacherId(UserLog.getUserId());
+            sectids = sectionController.fillComboSect4(ref comboBox2, teacherId);
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -44,24 +54,13 @@ namespace CST
             DateTime mys = DateTimeOffset.Now.UtcDateTime.ToLocalTime();
 
 
-            /*label10.Text = my.ToString("MM/dd/yyyy  hh:mm:ss tt");*/
 
             timer1.Enabled = true;
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-            /*StudName = studentsDetailsController.searchName(textBox7.Text.Trim());
-            textBox2.Text = StudName;
-
-            if (StudName == "")
-            {
-                MessageBox.Show("Not Student Id Found");
-            }
-            else
-            {
-                sno = textBox7.Text.Trim();
-            }*/
+           
 
             
         }
@@ -116,19 +115,69 @@ namespace CST
 
         private void numericUpDown3_ValueChanged(object sender, EventArgs e)
         {
-          //  ComputeAverage();
+       
         }
 
         private void numericUpDown4_ValueChanged(object sender, EventArgs e)
         {
-           // ComputeAverage();
+      
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            addGradeStudent frm = new addGradeStudent();
+         
+            if(selectedSubId>0 && selectedSectionId > 0)
+            {
+                addGradeStudent frm = new addGradeStudent(selectedSectionId, selectedSubId, teacherId);
+                frm.ShowDialog();
+                refreshGrid();
+            }
 
-            frm.ShowDialog();
+        }
+
+        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            comboBox1.Items.Clear();
+            comboBox1.Enabled = true;
+            
+            selectedSectionId = sectids[comboBox2.SelectedIndex];
+            subjectids = subjectController.fillComboSubjectsAssignTeacher(ref comboBox1, teacherId, selectedSectionId); 
+
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            selectedSubId = subjectids[comboBox1.SelectedIndex];
+            button3.Enabled = true;
+            button7.Enabled = true; 
+            refreshGrid();
+
+        }
+
+        private void refreshGrid()
+        {
+            gradesController.fillDataGridGrades(ref dataGridView1, selectedSectionId, selectedSubId, teacherId);
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            if(dataGridView1.Rows.Count > 0)
+            {
+                addGradeStudent frm = new addGradeStudent(selectedSectionId, selectedSubId, teacherId,
+                                                    dataGridView1.SelectedRows[0].Cells[0].Value.ToString(),
+                                                    dataGridView1.SelectedRows[0].Cells[1].Value.ToString(),
+                                                     double.Parse(dataGridView1.SelectedRows[0].Cells[2].Value.ToString()),
+                                                      double.Parse(dataGridView1.SelectedRows[0].Cells[3].Value.ToString()),
+                                                       double.Parse(dataGridView1.SelectedRows[0].Cells[4].Value.ToString()),
+                                                        double.Parse(dataGridView1.SelectedRows[0].Cells[5].Value.ToString()),
+                                                         double.Parse(dataGridView1.SelectedRows[0].Cells[6].Value.ToString()));
+                frm.ShowDialog();
+                refreshGrid();
+            }
+            else
+            {
+                MessageBox.Show("Please Click the row you wanted to edit");
+            }
         }
     }
 }
