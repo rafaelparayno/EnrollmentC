@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CST.Data;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,15 +8,24 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CST.Models;
 
 namespace CST
 {
     public partial class Payment : Form
     {
+
+
+        TuitionFeeController tuitionFeeController = new TuitionFeeController();
+        MiscController miscController = new MiscController();
+
         public Payment()
         {
             InitializeComponent();
-       
+            foreach(string grade in DataClass.getAllGrade())
+            {
+                comboBox2.Items.Add(grade);
+            }
         }
 
         private void Payment_Load(object sender, EventArgs e)
@@ -69,6 +79,46 @@ namespace CST
             label4.Text = my.ToString("MM/dd/yyyy  hh:mm:ss tt");
 
             timer1.Enabled = true;
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            if(comboBox1.SelectedIndex > -1 && comboBox2.SelectedIndex > -1)
+            {
+                if(comboBox1.SelectedIndex == 0)
+                {
+                    tuitionFeeController.fillDataTuion2(ref dataGridView1, comboBox2.SelectedItem.ToString());
+
+                }
+                else
+                {
+                    miscController.fillDataGridMisc(ref dataGridView1, comboBox2.SelectedItem.ToString());
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please Select a Grade and Type of fees");
+            }
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            if(comboBox1.SelectedIndex > -1)
+            {
+                if (comboBox1.SelectedIndex == 0)
+                {
+
+                    tuitionFeeController.fillAllTuition(ref dataGridView1);
+                }
+                else
+                {
+                    miscController.fillDataGridAllMisc(ref dataGridView1);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please Select Type of fees");
+            }
         }
     }
 }

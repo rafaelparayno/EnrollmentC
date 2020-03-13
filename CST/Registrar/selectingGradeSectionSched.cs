@@ -64,6 +64,7 @@ namespace CST.Registrar
                 this.Hide();
                 RegistrarForm frm = new RegistrarForm();
                 frm.Show();
+                MessageBox.Show("Succesfully Added Student section and grade");
             }
             else
             {

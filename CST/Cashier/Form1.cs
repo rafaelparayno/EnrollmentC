@@ -47,6 +47,7 @@ namespace CST
                     clearData();
                     double change = double.Parse(numericUpDown1.Value.ToString()) - neededTopay;
                     textBox4.Text = String.Format("PHP " + "{0:0.00}", change);
+                    MessageBox.Show("Succesfully Pay the balance");
                 }
                 else
                 {

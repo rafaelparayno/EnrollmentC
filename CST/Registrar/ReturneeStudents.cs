@@ -30,9 +30,7 @@ namespace CST
 
         private void button1_Click(object sender, EventArgs e)
         {
-            ListOfStudents LOS = new ListOfStudents(label2.Text,label49.Text,label6.Text,label7.Text);
-            LOS.Show();
-            this.Hide();
+           
         }
 
         

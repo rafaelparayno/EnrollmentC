@@ -46,7 +46,7 @@ namespace CST
         private void button2_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Records fr1 = new Records(label5.Text, label1.Text,label6.Text);
+            Records fr1 = new Records();
             fr1.ShowDialog();
         }
 

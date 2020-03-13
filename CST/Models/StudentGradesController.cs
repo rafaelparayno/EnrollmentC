@@ -53,6 +53,14 @@ namespace CST.Models
         
         }
 
+        public void deleteGrade(string sno,int subj,int section,int teacher_id)
+        {
+            string sql = String.Format(@"DELETE FROM `student_grades` WHERE sno = '{0}' AND subject_id = {1} AND sect_id = {2} AND teacher_ID = {3} AND SY_ID = {4}"
+                                        , sno, subj, section, teacher_id,syid);
+         
+            cs.ExecuteQuery(sql);
+        }
+
         public void updateStudentGrade(string sno, double g1, double g2,
                                     double g3, double g4, double avg,
                                     int subj, int section, int teacher_id)

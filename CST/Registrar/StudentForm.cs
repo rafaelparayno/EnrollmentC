@@ -60,7 +60,7 @@ namespace CST
 
         private void button3_Click(object sender, EventArgs e)
         {
-         
+          
 
 
         }
@@ -311,7 +311,51 @@ namespace CST
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
+            studentDetails = StudentsDetailsController.searchAllDetails2(txtStudentID.Text.Trim());
+            famDetails = studFam.getAllFamDetails(txtStudentID.Text.Trim());
+            if (studentDetails[0] == null)
+            {
+                MessageBox.Show("No Student Found");
+                txtFirstname.Text = "";
+                txtLastname.Text = "";
+                txtMiddlename.Text = "";
+                textBox19.Text = "";
 
+
+                textBox24.Text = "";
+                txtPOB.Text = "";
+                txtReligion.Text = "";
+                txtNationality.Text = "";
+                txtAddress.Text = "";
+            }
+            else
+            {
+                txtFirstname.Text = studentDetails[1];
+                txtLastname.Text = studentDetails[2];
+                txtMiddlename.Text = studentDetails[3];
+                if (studentDetails[4] == "Male")
+                {
+                    radioButton12.Checked = true;
+                }
+                else
+                {
+                    radioButton13.Checked = true;
+                }
+                textBox19.Text = studentDetails[5];
+           
+                string bday = studentDetails[6].Split('/')[1] + "/" + studentDetails[6].Split('/')[0] + "/" + studentDetails[6].Split('/')[2];
+                DateTime bdate = DateTime.Parse(bday);
+
+                dateTimePicker1.Value = bdate;
+                textBox24.Text = studentDetails[8];
+                txtPOB.Text = studentDetails[7];
+                txtReligion.Text = studentDetails[10];
+                txtNationality.Text = studentDetails[9];
+
+                txtAddress.Text = studentDetails[11];
+                
+
+            }
         }
 
         private void txtLastname_TextChanged(object sender, EventArgs e)

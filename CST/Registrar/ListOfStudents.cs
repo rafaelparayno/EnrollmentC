@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CST.Data;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,18 +8,23 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CST.Models;
 
 namespace CST
 {
     public partial class ListOfStudents : Form
     {
-        public ListOfStudents(string a,string b, string c, string d)
+        int[] sectIds = { };
+        int selectedSectionId = 0;
+        SectionController sectionController = new SectionController();
+        StudentsDetailsController StudentsDetailsController = new StudentsDetailsController();
+        public ListOfStudents()
         {
             InitializeComponent();
-            this.label4.Text = a;
-            this.label6.Text = c;
-            this.label49.Text = b;
-            this.label7.Text = d;
+            foreach(string grade in DataClass.getAllGrade())
+            {
+                cbLevel.Items.Add(grade);
+            }
         }
 
         private void groupBox1_Enter(object sender, EventArgs e)
@@ -33,15 +39,28 @@ namespace CST
 
        private void ListOfStudents_Load(object sender, EventArgs e)
         {
-            label4.Hide();
-            label49.Hide();
-            label6.Hide();
-            label7.Hide();
+            
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-           
+            RegistrarForm frm = new RegistrarForm();
+            frm.Show();
+            this.Hide();
+        }
+
+        private void cbLevel_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            comboBox1.Enabled = true;
+            comboBox1.Items.Clear();
+            sectIds = sectionController.fillComboSect3(ref comboBox1, cbLevel.SelectedItem.ToString());
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            selectedSectionId = sectIds[comboBox1.SelectedIndex];
+            StudentsDetailsController.fillDataGridDetailsInSection(ref dataGridView1, selectedSectionId);
+
         }
     }
 }

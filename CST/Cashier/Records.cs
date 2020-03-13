@@ -7,17 +7,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CST.Models;
 
 namespace CST
 {
     public partial class Records : Form
     {
-        public Records(string a, string b, string c)
+        StudentBalance studentBalance = new StudentBalance();
+        public Records()
         {
             InitializeComponent();
-            label5.Text = a;
-            label3.Text = b;
-            label6.Text = c;
+            studentBalance.fillDataGridTotal(ref dataGridView1);
 
         }
 

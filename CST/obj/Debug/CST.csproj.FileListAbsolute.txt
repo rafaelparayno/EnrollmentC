@@ -324,3 +324,4 @@ D:\Desktop\C#proj\office\CST\obj\Debug\CST.Teacher.addGradeStudent.resources
 D:\Desktop\C#proj\office\CST\obj\Debug\CST.Teacher.TeacherFrm.resources
 C:\Users\Xorn\Desktop\C#\versionRaf\EnrollmentC\CST\obj\Debug\CST.Teacher.addGradeStudent.resources
 C:\Users\Xorn\Desktop\C#\versionRaf\EnrollmentC\CST\obj\Debug\CST.Teacher.TeacherFrm.resources
+D:\Desktop\C#proj\office\CST\obj\Debug\CST.csproj.ResolveComReference.cache

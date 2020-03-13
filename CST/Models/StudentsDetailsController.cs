@@ -64,7 +64,7 @@ namespace CST.Models
 
         public void fillDataGridDetailsInSection(ref DataGridView dg,int section_id)
         {
-            string sql = String.Format(@"SELECT Concat(firstname,' ',middlename,' ',lastname) AS 'Student Name' FROM student_detail WHERE sect_id = {0}",
+            string sql = String.Format(@"SELECT sno,Concat(firstname,' ',middlename,' ',lastname) AS 'Student Name',grade_level FROM student_detail WHERE sect_id = {0}",
                                 section_id);
 
             cs.FillDataGrid(sql, ref dg);
@@ -109,6 +109,35 @@ namespace CST.Models
                 details[11] = reader["address"].ToString();
                 details[12] = reader["grade_level"].ToString();
            
+
+            }
+
+            cs.CloseConnection();
+            return details;
+        }
+
+
+        public string[] searchAllDetails2(string sno)
+        {
+            string[] details = new string[13];
+            string sql = String.Format(@"SELECT * FROM student_detail WHERE sno = '{0}' ", sno);
+            MySqlDataReader reader = null;
+            cs.RetrieveRecords(sql, ref reader);
+            if (reader.Read())
+            {
+           
+                details[0] = reader["sno"].ToString();
+                details[1] = reader["firstname"].ToString();
+                details[2] = reader["lastname"].ToString();
+                details[3] = reader["middlename"].ToString();
+                details[4] = reader["gender"].ToString();
+                details[5] = reader["age"].ToString();
+                details[6] = reader["birthdate"].ToString();
+                details[7] = reader["pob"].ToString();
+                details[8] = reader["contact_no"].ToString();
+                details[9] = reader["nationality"].ToString();
+                details[10] = reader["religion"].ToString();
+                details[11] = reader["address"].ToString();           
 
             }
 

@@ -31,5 +31,12 @@ namespace CST.Models
 
             cs.FillDataGrid(sql, ref dg);
         }
+
+        public void fillDataGridAllMisc(ref DataGridView dg)
+        {
+            string sql = String.Format(@"SELECT details,price,grade_level FROM misc_fee WHERE SY_ID = {0} ", syid);
+
+            cs.FillDataGrid(sql, ref dg);
+        }
     }
 }
