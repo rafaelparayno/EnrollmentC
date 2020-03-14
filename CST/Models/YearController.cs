@@ -74,5 +74,38 @@ namespace CST.Models
             cs.FillDataGrid(sql, ref dg);
         }
 
+        public int[] fillComboSy(ref ComboBox cb)
+        {
+            int[] year_id = { };
+
+            string sql = String.Format("SELECT school_year,id FROM `school_year` ");
+
+            MySqlDataReader reader = null;
+            cs.RetrieveRecords(sql, ref reader);
+
+            int total = 0;
+            while (reader.Read())
+            {
+                cb.Items.Add(reader["school_year"].ToString());
+                total++;
+            }
+
+            cs.CloseConnection();
+
+            year_id = new int[total];
+
+            reader = null;
+
+            cs.RetrieveRecords(sql, ref reader);
+            int i = 0;
+            while (reader.Read())
+            {
+                year_id[i] = int.Parse(reader["id"].ToString());
+                i++;
+            }
+            cs.CloseConnection();
+            return year_id;
+        }
+
     }
 }

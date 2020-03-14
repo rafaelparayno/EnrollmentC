@@ -33,37 +33,39 @@ namespace CST.Models
 
             string[] famDetails = new string[17];
 
-            string sql = String.Format(@"SELECT * FROM student_family_details WHERE sno ='{0}'", sno);
+            string sql = String.Format(@"SELECT * FROM `student_family_details` WHERE sno = '{0}'", sno);
 
             MySqlDataReader reader = null;
+
+            cs.RetrieveRecords(sql, ref reader);
 
             if (reader.Read())
             {
                 famDetails[0] = reader["father_name"].ToString();
                 famDetails[1] = reader["father_no"].ToString();
                 famDetails[2] = reader["father_occu"].ToString();
-                famDetails[3] = reader["father_comp_name"].ToString();
-                famDetails[4] = reader["father_Ctel_no"].ToString();
-                famDetails[5] = reader["father_office_address"].ToString();
+                famDetails[3] = reader["father_comp_name"].ToString()==null? "" : reader["father_comp_name"].ToString();
+                famDetails[4] = reader["father_Ctel_no"].ToString() == null ? "" : reader["father_Ctel_no"].ToString(); ;
+                famDetails[5] = reader["father_office_address"].ToString() == null ? "" : reader["father_office_address"].ToString(); ;
 
                 famDetails[6] = reader["mother_name"].ToString(); 
                 famDetails[7] = reader["mother_no"].ToString();
                 famDetails[8] = reader["mother_occu"].ToString();
-                famDetails[9] = reader["mother_comp_name"].ToString();
-                famDetails[10] = reader["mother_Ctel_no"].ToString();
-                famDetails[11] = reader["mother_office_add"].ToString();
+                famDetails[9] = reader["mother_comp_name"].ToString() == null ? "" : reader["mother_comp_name"].ToString(); ;
+                famDetails[10] = reader["mother_Ctel_no"].ToString() == null ? "" : reader["mother_Ctel_no"].ToString(); ;
+                famDetails[11] = reader["mother_office_add"].ToString() == null ? "" : reader["mother_office_add"].ToString(); ;
 
-                famDetails[12] = reader["guardian_name"].ToString();
-                famDetails[13] = reader["guardian_add"].ToString();
-                famDetails[14] = reader["guardian_relation"].ToString();
-                famDetails[15] = reader["guardian_no"].ToString();
-                famDetails[16] = reader["parent_status"].ToString();
+                famDetails[12] = reader["guardian_name"].ToString() == null ? "" : reader["guardian_name"].ToString(); ;
+                famDetails[13] = reader["guardian_add"].ToString() == null ? "" : reader["guardian_add"].ToString(); ;
+                famDetails[14] = reader["guardian_relation"].ToString() == null ? "" : reader["guardian_relation"].ToString(); ;
+                famDetails[15] = reader["guardian_no"].ToString() == null ? "" : reader["guardian_no"].ToString(); ;
+                famDetails[16] = reader["parent_status"].ToString() == null ? "" : reader["parent_status"].ToString(); 
 
            
 
             }
 
-
+            cs.CloseConnection();
             return famDetails;
         }
 

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
 
 namespace CST.Models
 {
@@ -24,6 +25,15 @@ namespace CST.Models
 
         }
 
+        public void updateHisDetails(string sno, string pastNameSchool, string pastAddSchool, string past_level, string year_attended, string isComplete, string vacine_details)
+        {
+            string sql = String.Format(@"UPDATE `stud_history_details` SET `nameschool`='{0}' , `past_school_add`='{1}' , 
+                                        `past_level`='{2}', `year_attended`='{3}',`isCompletedVacine`='{4}', 
+                                         `vacination_details`='{5}' WHERE `sno`='{6}'",pastNameSchool,pastAddSchool,past_level,year_attended,
+                                         isComplete,vacine_details,sno);
+
+            cs.ExecuteQuery(sql);
+        }
 
         public void fillDataHist(ref DataGridView dg)
         {
@@ -32,6 +42,32 @@ namespace CST.Models
             cs.FillDataGrid(sql, ref dg);
         }
 
+
+        public string[] getHistStudent(string sno)
+        {
+            string[] studHist = new string[6];
+
+            string sql = String.Format(@"SELECT * FROM `stud_history_details` WHERE sno = '{0}'", sno);
+
+            MySqlDataReader reader = null;
+
+            cs.RetrieveRecords(sql, ref reader);
+
+            if (reader.Read())
+            {
+                studHist[0] = reader["nameschool"].ToString();
+                studHist[1] = reader["past_school_add"].ToString();
+                studHist[2] = reader["past_level"].ToString();
+                studHist[3] = reader["year_attended"].ToString();
+                studHist[4] = reader["isCompletedVacine"].ToString();
+                studHist[5] = reader["vacination_details"].ToString();
+              
+
+            }
+
+            cs.CloseConnection();
+            return studHist;
+        }
 
     }
 }

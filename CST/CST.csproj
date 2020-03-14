@@ -331,6 +331,12 @@
     <Compile Include="Registrar\editStudFam.Designer.cs">
       <DependentUpon>editStudFam.cs</DependentUpon>
     </Compile>
+    <Compile Include="Registrar\editStudHist.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Registrar\editStudHist.Designer.cs">
+      <DependentUpon>editStudHist.cs</DependentUpon>
+    </Compile>
     <Compile Include="Registrar\ListRequirements.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -593,6 +599,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Registrar\editStudFam.resx">
       <DependentUpon>editStudFam.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Registrar\editStudHist.resx">
+      <DependentUpon>editStudHist.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Registrar\ListRequirements.resx">
       <DependentUpon>ListRequirements.cs</DependentUpon>

@@ -21,6 +21,8 @@ namespace CST
         StudFamDetailsController studFam = new StudFamDetailsController();
         StudHistDetailsController studHis = new StudHistDetailsController();
         StudentRequirementController studReq = new StudentRequirementController();
+        bool isUpdate = false;
+        string sno = "";
         string[] studentDetails = new string[12];
         string[] famDetails = new string[17];
         int currentTab = 0;
@@ -41,19 +43,22 @@ namespace CST
                 txtStudentID.Text = generateSNO();
                 txtStudentID.Enabled = false;
                 StudentModel.setSno(generateSNO());
+                dateTimePicker1.MaxDate = DateTime.Now;
             }
             else
             {
+                isUpdate = true;
                 txtStudentID.Text = "";
                 txtStudentID.Enabled = true;
                 btnSearch.Visible = true;
+         
             }
 
             radioButton1.Checked = true;
             radioButton12.Checked = true;
             radioButton3.Checked = true;
             radioButton7.Checked = true;
-            dateTimePicker1.MaxDate = DateTime.Now;
+         
             StudentModel.setBd(dateTimePicker1.Value.ToString().Split()[0]);
 
         }
@@ -86,32 +91,12 @@ namespace CST
 
         private void radioButton14_CheckedChanged(object sender, EventArgs e)
         {
-         /*   if (rbNew.Checked)
-            {
-                btnSearch.Visible = false;
-                txtStudentID.Text = generateSNO();
-                txtStudentID.Enabled = false;
-                StudentModel.setSno(generateSNO());
-
-            }
-            else
-            {
-                txtStudentID.Text = "";
-                txtStudentID.Enabled = true;
-                btnSearch.Visible = true;
-            }*/
+      
         }
 
         private void radioButton15_CheckedChanged(object sender, EventArgs e)
         {
-            /*if (rbOld.Checked)
-            {
-                btnSearch.Visible = true;
-            }
-            else
-            {
-
-            }*/
+          
         }
 
         private void btnBack_Click(object sender, EventArgs e)
@@ -156,15 +141,31 @@ namespace CST
             if (isvalid)
             {
                 getAllDetails();
-
-                StudentsDetailsController.addStudDetails(studentDetails);
                 getAllFamDetails();
-                studFam.addFamDetails(StudentModel.getSno(), famDetails);
-                studHis.addHisDetails(StudentModel.getSno(), txtPastSchool.Text.Trim(), txtPastAdd.Text.Trim(), txtPastLevel.Text.Trim(),
-                                    dateTimePicker2.Value.ToShortDateString(), isVacinated, txtVaccination.Text.Trim());
+                if (!isUpdate)
+                {
+          
+                    StudentsDetailsController.addStudDetails(studentDetails);
+                 
+                    studFam.addFamDetails(StudentModel.getSno(), famDetails);
+                    studHis.addHisDetails(StudentModel.getSno(), txtPastSchool.Text.Trim(), txtPastAdd.Text.Trim(), txtPastLevel.Text.Trim(),
+                                        dateTimePicker2.Value.ToShortDateString(), isVacinated, txtVaccination.Text.Trim());
+
+                }
+                else
+                {
+                    StudentsDetailsController.updateStudDetails2(studentDetails[1], studentDetails[2], studentDetails[3],
+                                                                 studentDetails[4], int.Parse(studentDetails[5]), studentDetails[6],
+                                                                 studentDetails[7], studentDetails[8], studentDetails[9],
+                                                                 studentDetails[10], studentDetails[11], sno);
+                    studFam.updateFamDetails(famDetails, sno);
+                    studHis.updateHisDetails(sno, txtPastSchool.Text.Trim(), txtPastAdd.Text.Trim(), txtPastLevel.Text.Trim(), 
+                                            dateTimePicker2.Value.ToShortDateString(), isVacinated, txtVaccination.Text.Trim());
+                }
+
                 int[] reqIds = StudentModel.getReq_ids();
 
-                for(int i = 0; i < reqIds.Length; i++)
+                for (int i = 0; i < reqIds.Length; i++)
                 {
                     studReq.addStudentReq(StudentModel.getSno(), StudentModel.getTypeStud(), reqIds[i]);
                 }
@@ -315,6 +316,7 @@ namespace CST
             famDetails = studFam.getAllFamDetails(txtStudentID.Text.Trim());
             if (studentDetails[0] == null)
             {
+
                 MessageBox.Show("No Student Found");
                 txtFirstname.Text = "";
                 txtLastname.Text = "";
@@ -330,6 +332,8 @@ namespace CST
             }
             else
             {
+                //student_details
+                sno = studentDetails[0];
                 txtFirstname.Text = studentDetails[1];
                 txtLastname.Text = studentDetails[2];
                 txtMiddlename.Text = studentDetails[3];
@@ -342,8 +346,9 @@ namespace CST
                     radioButton13.Checked = true;
                 }
                 textBox19.Text = studentDetails[5];
-           
-                string bday = studentDetails[6].Split('/')[1] + "/" + studentDetails[6].Split('/')[0] + "/" + studentDetails[6].Split('/')[2];
+            
+                string bday = studentDetails[6].Split('/')[0] + "/" + studentDetails[6].Split('/')[1] + "/" + studentDetails[6].Split('/')[2];
+             //   MessageBox.Show(bday);
                 DateTime bdate = DateTime.Parse(bday);
 
                 dateTimePicker1.Value = bdate;
@@ -353,8 +358,56 @@ namespace CST
                 txtNationality.Text = studentDetails[9];
 
                 txtAddress.Text = studentDetails[11];
-                
+                //student Details
 
+                //Family Details
+
+                txtFLast.Text = famDetails[0];
+                txtFMobile.Text = famDetails[1];
+                txtFOccupation.Text = famDetails[2];
+                txtFCompany.Text = famDetails[3];
+                txtFCompanyMobile.Text = famDetails[4];
+                txtFCompanyAddress.Text = famDetails[5];
+
+                textBox12.Text = famDetails[6];
+                textBox5.Text = famDetails[7];
+                textBox6.Text = famDetails[8];
+                textBox8.Text = famDetails[9];
+                textBox7.Text = famDetails[10];
+                textBox9.Text = famDetails[11];
+
+                textBox13.Text = famDetails[12];
+                textBox14.Text = famDetails[13];
+                textBox16.Text = famDetails[14];
+                textBox15.Text = famDetails[15];
+
+                if(famDetails[16] == "Living Together")
+                {
+                    radioButton1.Checked = true;
+                }
+                else
+                {
+                    radioButton2.Checked = true;
+                }
+                //famDetails
+
+                //stud hist
+
+                txtPastSchool.Text = studHis.getHistStudent(txtStudentID.Text.Trim())[0];
+                txtPastAdd.Text = studHis.getHistStudent(txtStudentID.Text.Trim())[1];
+                txtPastLevel.Text = studHis.getHistStudent(txtStudentID.Text.Trim())[2];
+                dateTimePicker2.Value = DateTime.Parse(studHis.getHistStudent(txtStudentID.Text.Trim())[3]);
+                if (studHis.getHistStudent(txtStudentID.Text.Trim())[4] == "Yes")
+                {
+                    radioButton7.Checked = true;
+                }
+                else
+                {
+                    radioButton6.Checked = true;
+                }
+                txtVaccination.Text = studHis.getHistStudent(txtStudentID.Text.Trim())[5];
+                /*   studHis.addHisDetails(StudentModel.getSno(), txtPastSchool.Text.Trim(), txtPastAdd.Text.Trim(), txtPastLevel.Text.Trim(),
+                                          dateTimePicker2.Value.ToShortDateString(), isVacinated, txtVaccination.Text.Trim());*/
             }
         }
 

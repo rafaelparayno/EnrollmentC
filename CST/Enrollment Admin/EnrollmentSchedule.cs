@@ -24,7 +24,9 @@ namespace CST
 
         private void button2_Click(object sender, EventArgs e)
         {
-          
+            EnrollmentAdmin frm = new EnrollmentAdmin();
+            frm.Show();
+            this.Hide();
         }
 
         private void EnrollmentSchedule_Load(object sender, EventArgs e)

@@ -1239,7 +1239,6 @@
             this.textBox18.Name = "textBox18";
             this.textBox18.Size = new System.Drawing.Size(285, 29);
             this.textBox18.TabIndex = 197;
-            this.textBox18.Text = "Please Specify";
             // 
             // textBox17
             // 
@@ -1250,7 +1249,6 @@
             this.textBox17.Name = "textBox17";
             this.textBox17.Size = new System.Drawing.Size(295, 29);
             this.textBox17.TabIndex = 196;
-            this.textBox17.Text = "Please Specify";
             // 
             // label48
             // 
