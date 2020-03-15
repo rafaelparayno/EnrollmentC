@@ -98,5 +98,12 @@ namespace CST
             frm.Show();
             this.Hide();
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            Bookeeping frm = new Bookeeping();
+            frm.Show();
+            this.Hide();
+        }
     }
 }

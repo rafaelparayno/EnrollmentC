@@ -41,7 +41,14 @@ namespace CST.Models
             string sql = String.Format("SELECT sect_id,sections.section_name, CONCAT(Firstname,' ',LastName) AS Adviser_Name,grade_level FROM `specialization` LEFT JOIN `useraccounts` ON specialization.acc_id = useraccounts.acc_id INNER JOIN `sections` ON sections.teacher_ID = specialization.teacher_ID WHERE sections.SY_ID = {0}", yearID);
 
             cs.FillDataGrid(sql, ref dg);
-        } 
+        }
+
+        public void fillDataGridSect(ref DataGridView dg,int syid)
+        {
+            string sql = String.Format("SELECT sect_id,sections.section_name, CONCAT(Firstname,' ',LastName) AS Adviser_Name,grade_level FROM `specialization` LEFT JOIN `useraccounts` ON specialization.acc_id = useraccounts.acc_id INNER JOIN `sections` ON sections.teacher_ID = specialization.teacher_ID WHERE sections.SY_ID = {0}", syid);
+
+            cs.FillDataGrid(sql, ref dg);
+        }
 
         public string[] fillComboSect(ref ComboBox cb)
         {

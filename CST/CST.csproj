@@ -140,6 +140,12 @@
     <Compile Include="Enrollment Admin\AddUpdateDiags\dialogTuition.Designer.cs">
       <DependentUpon>dialogTuition.cs</DependentUpon>
     </Compile>
+    <Compile Include="Enrollment Admin\Bookeeping.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Enrollment Admin\Bookeeping.Designer.cs">
+      <DependentUpon>Bookeeping.cs</DependentUpon>
+    </Compile>
     <Compile Include="Enrollment Admin\DialogsSched\AssignGrade.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -560,6 +566,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Enrollment Admin\AddUpdateDiags\dialogTuition.resx">
       <DependentUpon>dialogTuition.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Enrollment Admin\Bookeeping.resx">
+      <DependentUpon>Bookeeping.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Enrollment Admin\DialogsSched\AssignGrade.resx">
       <DependentUpon>AssignGrade.cs</DependentUpon>
