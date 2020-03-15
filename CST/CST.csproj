@@ -188,6 +188,18 @@
     <Compile Include="Enrollment Admin\PanelSched\panelTimeTable.Designer.cs">
       <DependentUpon>panelTimeTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Enrollment Admin\PanelSched\PanelViewSchedules.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Enrollment Admin\PanelSched\PanelViewSchedules.Designer.cs">
+      <DependentUpon>PanelViewSchedules.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Enrollment Admin\PanelSched\PanelViewTeacherSched.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Enrollment Admin\PanelSched\PanelViewTeacherSched.Designer.cs">
+      <DependentUpon>PanelViewTeacherSched.cs</DependentUpon>
+    </Compile>
     <Compile Include="Enrollment Admin\SchedulingFinal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -590,6 +602,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Enrollment Admin\PanelSched\panelTimeTable.resx">
       <DependentUpon>panelTimeTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Enrollment Admin\PanelSched\PanelViewSchedules.resx">
+      <DependentUpon>PanelViewSchedules.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Enrollment Admin\PanelSched\PanelViewTeacherSched.resx">
+      <DependentUpon>PanelViewTeacherSched.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Enrollment Admin\SchedulingFinal.resx">
       <DependentUpon>SchedulingFinal.cs</DependentUpon>

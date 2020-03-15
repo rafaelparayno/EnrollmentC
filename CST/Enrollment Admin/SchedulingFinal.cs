@@ -59,5 +59,27 @@ namespace CST.Enrollment_Admin
         {
             
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            panel3.Controls.Clear();
+            PanelViewSchedules p = new PanelViewSchedules();
+            p.TopLevel = false;
+            p.Visible = true;
+            p.Dock = DockStyle.Fill;
+            p.FormBorderStyle = FormBorderStyle.None;
+            panel3.Controls.Add(p);
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            panel3.Controls.Clear();
+            PanelViewTeacherSched p = new PanelViewTeacherSched();
+            p.TopLevel = false;
+            p.Visible = true;
+            p.Dock = DockStyle.Fill;
+            p.FormBorderStyle = FormBorderStyle.None;
+            panel3.Controls.Add(p);
+        }
     }
 }

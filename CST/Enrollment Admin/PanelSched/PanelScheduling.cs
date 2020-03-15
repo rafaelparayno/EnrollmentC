@@ -203,7 +203,7 @@ namespace CST.Enrollment_Admin.PanelSched
                 AssignRoom frm = new AssignRoom(listView1.Items[lastIndex-1].SubItems[0].Text,listView1.Items[0].SubItems[0].Text);
                 frm.ShowDialog();
                 label3.Text = "Room : " + frm.roomName;
-                roomId = int.Parse(frm.selectedRoomid);
+                roomId = frm.selectedRoomId2;
             }
         }
 

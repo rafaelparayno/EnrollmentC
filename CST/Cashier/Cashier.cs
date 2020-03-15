@@ -9,16 +9,21 @@ using System.Threading.Tasks;
 using System.Timers;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
+using CST.Models;
 
 namespace CST
 {
     public partial class Cashier : Form
     {
         globalVariables gv = new globalVariables();
+        YearController yearController = new YearController();
         public Cashier()
         {
             InitializeComponent();
-          
+            label1.Text = UserLog.getRole();
+            label5.Text = UserLog.getUserName();
+            timer1.Start();
+            label6.Text = yearController.getSyActivated();
         }
 
         private void btnEnroll_Click(object sender, EventArgs e)

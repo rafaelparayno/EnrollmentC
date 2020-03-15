@@ -9,17 +9,21 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using CST.Registrar;
+using CST.Models;
 
 namespace  CST 
 {
     public partial class RegistrarForm : Form
     {
-        globalVariables gv = new globalVariables();
+        YearController yearController = new YearController();
         public RegistrarForm()
         {
             InitializeComponent();
-         
+            label5.Text = UserLog.getUserName();
+            label1.Text = UserLog.getRole();
+            timer1.Start();
 
+            label6.Text = yearController.getSyActivated();
         }
 
         private void RegistrarForm_Load(object sender, EventArgs e)

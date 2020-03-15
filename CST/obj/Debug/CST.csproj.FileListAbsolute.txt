@@ -328,3 +328,5 @@ D:\Desktop\C#proj\office\CST\obj\Debug\CST.csproj.ResolveComReference.cache
 C:\Users\Xorn\Desktop\C#\versionRaf\EnrollmentC\CST\obj\Debug\CST.csproj.ResolveComReference.cache
 C:\Users\Xorn\Desktop\C#\versionRaf\EnrollmentC\CST\obj\Debug\CST.Registrar.editStudHist.resources
 C:\Users\Xorn\Desktop\C#\versionRaf\EnrollmentC\CST\obj\Debug\CST.Enrollment_Admin.Bookeeping.resources
+C:\Users\Xorn\Desktop\C#\versionRaf\EnrollmentC\CST\obj\Debug\CST.Enrollment_Admin.PanelSched.PanelViewSchedules.resources
+C:\Users\Xorn\Desktop\C#\versionRaf\EnrollmentC\CST\obj\Debug\CST.Enrollment_Admin.PanelSched.PanelViewTeacherSched.resources
