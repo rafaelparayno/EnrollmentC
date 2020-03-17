@@ -9,16 +9,20 @@ using System.Threading.Tasks;
 using System.Timers;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
+using CST.Models;
 
 namespace CST
 {
     public partial class Facilities : Form
     {
 
+        YearController yrController = new YearController();
         public Facilities()
         {
-            InitializeComponent();
-        
+           InitializeComponent();
+            label2.Text = UserLog.getRole();
+            label3.Text = UserLog.getUserName();
+            label4.Text = yrController.getSyActivated();    
         }
 
         private void Facilities_Load(object sender, EventArgs e)

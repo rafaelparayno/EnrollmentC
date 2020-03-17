@@ -213,6 +213,37 @@ namespace CST.Models
             return name;
         }
 
+        public string getSectionGrade(int sect_id)
+        {
+            string name = "";
+
+            MySqlDataReader reader = null;
+            string sql = String.Format(@"SELECT grade_level FROM sections WHERE sect_id = {0}", sect_id);
+            cs.RetrieveRecords(sql, ref reader);
+            if (reader.Read())
+            {
+                name = reader["grade_level"].ToString();
+            }
+            cs.CloseConnection();
+            return name;
+        }
+
+
+        public int getTeacherId(int sect_id)
+        {
+            int id = 0;
+
+            MySqlDataReader reader = null;
+            string sql = String.Format(@"SELECT teacher_ID FROM sections WHERE sect_id = {0}", sect_id);
+            cs.RetrieveRecords(sql, ref reader);
+            if (reader.Read())
+            {
+                id = int.Parse(reader["teacher_ID"].ToString());
+            }
+            cs.CloseConnection();
+            return id;
+        }
+
         public string getGradeLevelinSections(int sect_id)
         {
             string grade_level = "";

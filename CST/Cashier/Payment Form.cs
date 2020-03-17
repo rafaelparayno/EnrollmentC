@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using CST.Models;
+using CST.Reports;
 
 namespace CST
 {
@@ -120,6 +121,12 @@ namespace CST
                 studentsDetailsController.updateEnrolled( sno);
                 textBox10.Text = String.Format("PHP " + "{0:0.00}", change);
                 MessageBox.Show("The student is Succesfully Enrolled");
+
+
+                OrReport frm2 = new OrReport(total);
+
+                frm2.ShowDialog();
+
                 ModeOfPaymentDiscount frm = new ModeOfPaymentDiscount();
                 this.Hide();
                 frm.Show();

@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 using CST.Models;
+using CST.Reports;
 
 namespace CST
 {
@@ -156,6 +157,30 @@ namespace CST
             {
                 GC.Collect();
             }
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+          
+            if(dataGridView1.Rows.Count > 0)
+            {
+                DataSet ds = new DataSet();
+
+                DataTable dt = new DataTable();
+                dt.Columns.Add("StudentNumber", typeof(string));
+                dt.Columns.Add("StudentName", typeof(string));
+                dt.Columns.Add("GradeLevel", typeof(string));
+
+                foreach (DataGridViewRow dgv in dataGridView1.Rows)
+                {
+                    dt.Rows.Add(dgv.Cells[0].Value, dgv.Cells[1].Value, dgv.Cells[2]);
+                }
+
+                ds.Tables.Add(dt);
+                ClassListReport frm = new ClassListReport(ds,selectedSectionId);
+                frm.ShowDialog();
+            }
+          
         }
     }
 }

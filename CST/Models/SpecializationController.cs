@@ -118,6 +118,20 @@ namespace CST.Models
             return idArgs;
         }
 
+        public string AdviserName(int teacher_id)
+        {
+            string name = "";
+
+            MySqlDataReader reader = null;
+            string sql = String.Format(@"SELECT Concat(Firstname,' ',Lastname) As 'FullName' FROM useraccounts WHERE acc_id = (SELECT acc_id FROM specialization WHERE teacher_ID = {0} )", teacher_id);
+            cs.RetrieveRecords(sql, ref reader);
+            if (reader.Read())
+            {
+                name = reader["FullName"].ToString();
+            }
+            cs.CloseConnection();
+            return name;
+        }
         public string[] findTeacherWithAvailSub(ref ComboBox cb,int subjectid)
         {
             string sql = String.Format(@"SELECT teacher_ID,CONCAT(Firstname,' ',LastName) as FullName FROM `specialization` LEFT JOIN useraccounts ON specialization.acc_id = useraccounts.acc_id WHERE specialization.SY_ID = {0} AND specialization.subject_id = {1}",
