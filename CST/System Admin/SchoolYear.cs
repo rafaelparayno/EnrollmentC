@@ -129,9 +129,24 @@ namespace CST
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-            yearC.addNewSy(textBox2.Text.Trim(), textBox1.Text.Trim());
+            int yearSelect = int.Parse(dateTimePicker1.Value.ToString("yyyy"));
+
+            if (yearC.addNewSy(yearSelect.ToString(), textBox1.Text.Trim()))
+            {
+                MessageBox.Show("Succesfully Added A new School Year");
+            }
+            
             yearC.fillDataGridSY(ref dgSY);
-            MessageBox.Show("Succesfully Added A new School Year");
+          
+        }
+
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
+            int yearSelect = int.Parse(dateTimePicker1.Value.ToString("yyyy"));
+            int toyear = yearSelect+ 1;
+
+            textBox1.Text = toyear + "";
+            
         }
     }
 }

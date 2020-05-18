@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using CST.Models;
 using CST.Teacher;
+using CST.Reports;
 
 namespace CST
 {
@@ -297,6 +298,35 @@ namespace CST
                 }
             
               
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.Rows.Count > 0)
+            {
+                DataSet ds = new DataSet();
+
+                DataTable dt = new DataTable();
+                dt.Columns.Add("Student Number", typeof(string));
+                dt.Columns.Add("Student Name", typeof(string));
+                dt.Columns.Add("1st Grading", typeof(string));
+                dt.Columns.Add("2nd Grading", typeof(string));
+                dt.Columns.Add("3rd Grading", typeof(string));
+                dt.Columns.Add("4th Grading", typeof(string));
+                dt.Columns.Add("Average", typeof(string));
+
+                foreach (DataGridViewRow dgv in dataGridView1.Rows)
+                {
+                    dt.Rows.Add(dgv.Cells[0].Value, dgv.Cells[1].Value, dgv.Cells[2].Value, dgv.Cells[3].Value, dgv.Cells[4].Value, dgv.Cells[5].Value, dgv.Cells[6].Value);
+                   
+                }
+
+
+                ds.Tables.Add(dt);
+                // ds.WriteXmlSchema("studGrades.xml");
+                gradeReport frm = new gradeReport(ds, selectedSectionId, comboBox1.SelectedItem.ToString());
+                frm.ShowDialog();
             }
         }
     }

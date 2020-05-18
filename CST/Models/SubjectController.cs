@@ -34,6 +34,91 @@ namespace CST.Models
             cs.FillDataGrid(sql,ref dg);
         }
 
+        public void fillDataGridSubForGrade(ref ListBox lb,string grade,int[] subjIds)
+        {
+
+            if (subjIds == null)
+            {
+                string sql = String.Format(@"SELECT * FROM subjects WHERE grade_level = '{0}'", grade);
+                // string[] subName = { };
+                MySqlDataReader reader = null;
+                reader = cs.RetrieveRecords(sql, ref reader);
+                while (reader.Read())
+                {
+
+                    lb.Items.Add(reader["subject_name"].ToString());
+                }
+                cs.CloseConnection();
+            }
+            else
+            {
+                // string subjectsname = "";
+                string[] subargs = { };
+                int[] subids = { };
+                //string s
+                int count = 0;
+                int count2 = 0;
+                int[] subidsInList = { };
+                string sql = String.Format(@"SELECT * FROM subjects WHERE grade_level = '{0}'", grade);
+                MySqlDataReader reader = null;
+                reader = cs.RetrieveRecords(sql, ref reader);
+                while (reader.Read())
+                {
+                    //   subjectsname = reader["subject_name"].ToString() + "*" + subjectsname;
+                    count++;
+                }
+                cs.CloseConnection();
+
+                subargs = new string[count];
+                subids = new int[count];
+                reader = null;
+
+                cs.RetrieveRecords(sql, ref reader);
+                int i = 0;
+                while (reader.Read())
+                {
+                    subargs[i] = reader["subject_name"].ToString();
+                    subids[i] = int.Parse(reader["subject_id"].ToString());
+                    i++;
+                }
+                cs.CloseConnection();
+
+
+                for (int z = 0; z < subjIds.Length; z++)
+                {
+                    if (subjIds[z] != 0)
+                    {
+                        count2++;
+                    }
+
+                }
+                subidsInList = new int[count2];
+                int t = 0;
+                for (int z = 0; z < subjIds.Length; z++)
+                {
+                    if (subjIds[z] != 0)
+                    {
+                        subidsInList[t] = subjIds[z];
+                        t++;
+                    
+                    }
+
+                }
+                for (int j = 0; j < subids.Length; j++)
+                {
+                    if (!subidsInList.Contains(subids[j]))
+                    {
+                        lb.Items.Add(subargs[j]);
+                    }
+
+
+                }
+            }
+           
+
+            //  cs.FillDataGrid(sql, ref dg);
+        }
+
         public void updateSubjects(string grade_level,string subject_name,int id)
         {
             string sql = String.Format(@"UPDATE subjects SET grade_level = '{0}', subject_name = '{1}' WHERE subject_id = {2}", grade_level, subject_name, id);

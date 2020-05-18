@@ -161,5 +161,20 @@ namespace CST.System_Admin
         {
 
         }
+
+        private void txtLastname_TextChanged(object sender, EventArgs e)
+        {
+            txtUsername.Text = txtLastname.Text + "." + txtFirstname.Text;
+        }
+
+        private void gbUserForm_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtFirstname_TextChanged(object sender, EventArgs e)
+        {
+            txtUsername.Text = txtLastname.Text + "." + txtFirstname.Text;
+        }
     }
 }

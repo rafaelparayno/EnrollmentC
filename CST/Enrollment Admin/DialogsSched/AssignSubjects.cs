@@ -15,11 +15,13 @@ namespace CST.Enrollment_Admin.DialogsSched
     {
         SubjectController subjectController = new SubjectController();
         string[] subIds = { };
+        
         string[] subidInList;
         bool isAlreadyInTheList = false;
         bool isNullSubid = false;
         public string subjectsSelected = "";
         public string selectedSubId = "";
+        public int selectedSubidss = 0;
         public AssignSubjects(string gradelevel,string[] subidss)
         {
             InitializeComponent();
@@ -68,14 +70,18 @@ namespace CST.Enrollment_Admin.DialogsSched
             }
             else
             {
+                selectedSubidss = 0;
+                selectedSubId = "";
                 MessageBox.Show("The Subject is already in the List");
             }
 
         }
 
+
         private void cbSubjects_SelectedIndexChanged(object sender, EventArgs e)
         {
             selectedSubId = subIds[cbSubjects.SelectedIndex];
+            selectedSubidss = int.Parse(subIds[cbSubjects.SelectedIndex]);
         }
 
         private void isFound(int idInTheList)

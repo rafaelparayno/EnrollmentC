@@ -20,10 +20,12 @@ namespace CST.Enrollment_Admin.PanelSched
 
         public string timestamp = "";
         SectionController sectionController = new SectionController();
+        SubjectController subjectController = new SubjectController();
 
         List<DateTime> timestampStart = new List<DateTime>();
         List<DateTime> timestampEnd = new List<DateTime>();
         string[] subjid;
+        int[] subids;
         int[] teacherIds;
         int roomId = 0;
         List<string> timeStampId = new List<string>();
@@ -79,6 +81,7 @@ namespace CST.Enrollment_Admin.PanelSched
                 timeStampId.Add(p.ts_id);
                 teacherIds = new int[timestampStart.Count];
                 subjid = new string[timestampStart.Count];
+                subids = new int[timestampStart.Count];
                 arrangeTimestamp();
                 listView1.Items.Clear();
 
@@ -140,10 +143,16 @@ namespace CST.Enrollment_Admin.PanelSched
             label2.Text = "Section : " + frm.sectionName;
             label3.Text = "Room : ";
             roomId = 0;
+            subjid = null;
+            subids = null;
+            teacherIds = null;
+            button6.Enabled = true;
             listView1.Items.Clear();
             timestampStart.Clear();
             timestampEnd.Clear();
             timeStampId.Clear();
+            listBox1.Items.Clear();
+            fillListBox();
         }
 
         private void button6_Click(object sender, EventArgs e)
@@ -159,7 +168,14 @@ namespace CST.Enrollment_Admin.PanelSched
                     listView1.SelectedItems[0].SubItems[3].Text = frm.subjectsSelected;
                     //     MessageBox.Show(listView1.SelectedIndices[0].ToString());
                     subjid[listView1.SelectedIndices[0]] = frm.selectedSubId;
+                    subids[listView1.SelectedIndices[0]] = frm.selectedSubidss;
                     button1.Enabled = true;
+                    listBox1.Items.Clear();
+                    fillListBox();
+                    if (listBox1.Items.Count == 0)
+                    {
+                        button6.Enabled = false;
+                    }
                 }
                 else
                 {
@@ -180,14 +196,22 @@ namespace CST.Enrollment_Admin.PanelSched
          
             if (listView1.SelectedItems.Count > 0)
             {
-                AssignTeacher frm = new AssignTeacher(gradelevel, listView1.SelectedItems[0].SubItems[3].Text,
-                                                       listView1.SelectedItems[0].SubItems[0].Text,
-                                                             listView1.SelectedItems[0].SubItems[1].Text,
-                                                             int.Parse(subjid[listView1.SelectedIndices[0]]));
-                frm.ShowDialog();   
-                listView1.SelectedItems[0].SubItems[4].Text = frm.TeacherName;
-                teacherIds[listView1.SelectedIndices[0]] = frm.selectedIdTeacher;
-                button1.Enabled = true;
+                if(subjid[listView1.SelectedIndices[0]] != null)
+                {
+                    AssignTeacher frm = new AssignTeacher(gradelevel, listView1.SelectedItems[0].SubItems[3].Text,
+                                                      listView1.SelectedItems[0].SubItems[0].Text,
+                                                            listView1.SelectedItems[0].SubItems[1].Text,
+                                                            int.Parse(subjid[listView1.SelectedIndices[0]]));
+                    frm.ShowDialog();
+                    listView1.SelectedItems[0].SubItems[4].Text = frm.TeacherName;
+                    teacherIds[listView1.SelectedIndices[0]] = frm.selectedIdTeacher;
+                    button1.Enabled = true;
+                }
+                else
+                {
+                    MessageBox.Show("Please assign a subject in the list");
+                }
+               
             }
             else
             {
@@ -240,6 +264,7 @@ namespace CST.Enrollment_Admin.PanelSched
             isValid = !(roomId == 0) && isValid;
             isValid = !(sect_id == 0) && isValid;
             isValid = timeStampId.Count > 0 && isValid;
+            isValid = listBox1.Items.Count == 0 && isValid;
             foreach (int ids in teacherIds)
             {
                 if (ids == 0)
@@ -289,6 +314,12 @@ namespace CST.Enrollment_Admin.PanelSched
 
 
             this.Hide();
+        }
+
+        private void fillListBox()
+        {
+        
+            subjectController.fillDataGridSubForGrade(ref listBox1, gradelevel, subids);
         }
     }
 }

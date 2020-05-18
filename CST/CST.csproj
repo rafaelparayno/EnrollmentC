@@ -386,6 +386,18 @@
     <Compile Include="Reports\ClassListReport.Designer.cs">
       <DependentUpon>ClassListReport.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reports\GradeCsReport.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GradeCsReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\gradeReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\gradeReport.Designer.cs">
+      <DependentUpon>gradeReport.cs</DependentUpon>
+    </Compile>
     <Compile Include="Reports\or.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -673,6 +685,13 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\ClassListReport.resx">
       <DependentUpon>ClassListReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\GradeCsReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>GradeCsReport.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\gradeReport.resx">
+      <DependentUpon>gradeReport.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\or.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>

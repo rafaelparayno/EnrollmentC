@@ -46,11 +46,21 @@ namespace CST.Models
 
 
 
-        public void addNewSy(string from,string to)
+        public bool addNewSy(string from,string to)
         {
-            string sql = String.Format(@"INSERT INTO school_year(school_year,sy_status) VALUES('{0}','{1}')", from + "-" + to, "deactivate");
+            if (isValid(from + "-" + to))
+            {
+                string sql = String.Format(@"INSERT INTO school_year(school_year,sy_status) VALUES('{0}','{1}')", from + "-" + to, "deactivate");
 
-            cs.ExecuteQuery(sql);
+                cs.ExecuteQuery(sql);
+                return true;
+            }
+            else
+            {
+                MessageBox.Show("Duplicate School Year");
+                return false;
+            }
+           
         }
 
         public void updateSY(int id)
@@ -105,6 +115,21 @@ namespace CST.Models
             }
             cs.CloseConnection();
             return year_id;
+        }
+
+        public bool isValid(string year)
+        {
+            bool notFound = true;
+            string sql = String.Format(@"SELECT * FROM `school_year` WHERE school_year = '{0}'", year);
+            MySqlDataReader reader = null;
+            cs.RetrieveRecords(sql, ref reader);
+
+            if (reader.HasRows)
+            {
+                notFound = false;
+            }
+            cs.CloseConnection();
+            return notFound;
         }
 
     }

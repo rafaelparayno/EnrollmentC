@@ -237,7 +237,7 @@
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(144, 35);
             this.button4.TabIndex = 196;
-            this.button4.Text = "Book Keeping";
+            this.button4.Text = "House Keeping";
             this.button4.UseVisualStyleBackColor = false;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 

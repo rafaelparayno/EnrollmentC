@@ -330,11 +330,6 @@ C:\Users\Xorn\Desktop\C#\versionRaf\EnrollmentC\CST\obj\Debug\CST.Registrar.edit
 C:\Users\Xorn\Desktop\C#\versionRaf\EnrollmentC\CST\obj\Debug\CST.Enrollment_Admin.Bookeeping.resources
 C:\Users\Xorn\Desktop\C#\versionRaf\EnrollmentC\CST\obj\Debug\CST.Enrollment_Admin.PanelSched.PanelViewSchedules.resources
 C:\Users\Xorn\Desktop\C#\versionRaf\EnrollmentC\CST\obj\Debug\CST.Enrollment_Admin.PanelSched.PanelViewTeacherSched.resources
-C:\Users\Xorn\Desktop\C#\versionRaf\EnrollmentC\CST\bin\Debug\CrystalDecisions.CrystalReports.Engine.dll
-C:\Users\Xorn\Desktop\C#\versionRaf\EnrollmentC\CST\bin\Debug\CrystalDecisions.ReportSource.dll
-C:\Users\Xorn\Desktop\C#\versionRaf\EnrollmentC\CST\bin\Debug\CrystalDecisions.Shared.dll
-C:\Users\Xorn\Desktop\C#\versionRaf\EnrollmentC\CST\bin\Debug\CrystalDecisions.Windows.Forms.dll
-C:\Users\Xorn\Desktop\C#\versionRaf\EnrollmentC\CST\bin\Debug\FlashControlV71.dll
 C:\Users\Xorn\Desktop\C#\versionRaf\EnrollmentC\CST\bin\Debug\CrystalDecisions.ReportAppServer.DataDefModel.dll
 C:\Users\Xorn\Desktop\C#\versionRaf\EnrollmentC\CST\bin\Debug\CrystalDecisions.ReportAppServer.ClientDoc.dll
 C:\Users\Xorn\Desktop\C#\versionRaf\EnrollmentC\CST\bin\Debug\CrystalDecisions.ReportAppServer.ReportDefModel.dll
@@ -351,3 +346,5 @@ C:\Users\Xorn\Desktop\C#\versionRaf\EnrollmentC\CST\bin\Debug\CrystalDecisions.R
 C:\Users\Xorn\Desktop\C#\versionRaf\EnrollmentC\CST\bin\Debug\stdole.dll
 C:\Users\Xorn\Desktop\C#\versionRaf\EnrollmentC\CST\obj\Debug\CST.Reports.ClassListReport.resources
 C:\Users\Xorn\Desktop\C#\versionRaf\EnrollmentC\CST\obj\Debug\CST.Reports.OrReport.resources
+C:\Users\Xorn\Desktop\C#\versionRaf\EnrollmentC\CST\obj\Debug\CST.Reports.gradeReport.resources
+C:\Users\Xorn\Desktop\C#\versionRaf\EnrollmentC\CST\obj\Debug\CST.csproj.CoreCompileInputs.cache
