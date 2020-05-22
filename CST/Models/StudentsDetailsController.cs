@@ -159,8 +159,8 @@ namespace CST.Models
                 details[8] = reader["contact_no"].ToString();
                 details[9] = reader["nationality"].ToString();
                 details[10] = reader["religion"].ToString();
-                details[11] = reader["address"].ToString();           
-
+                details[11] = reader["address"].ToString();
+                details[12] = reader["grade_level"].ToString();
             }
 
             cs.CloseConnection();

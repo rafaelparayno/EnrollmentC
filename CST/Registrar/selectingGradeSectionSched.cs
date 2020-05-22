@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using CST.Data;
 using CST.Models;
+using CST.Reports;
 
 namespace CST.Registrar
 {
@@ -81,6 +82,40 @@ namespace CST.Registrar
             isvalid = comboBox2.SelectedIndex > -1 && isvalid;
 
             return isvalid;
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if(comboBox1.SelectedIndex> -1)
+            {
+
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            DataSet ds = new DataSet();
+
+            DataTable dt = new DataTable();
+            dt.Columns.Add("Time Start", typeof(string));
+            dt.Columns.Add("Time End", typeof(string));
+            dt.Columns.Add("Subjects", typeof(string));
+            dt.Columns.Add("Teacher", typeof(string));
+
+            for (int i = 0; i < listView1.Items.Count; i++)
+            {
+                dt.Rows.Add(listView1.Items[i].SubItems[0].Text,
+                    listView1.Items[i].SubItems[1].Text, 
+                    listView1.Items[i].SubItems[2].Text, 
+                    listView1.Items[i].SubItems[3].Text);
+            }
+
+            ds.Tables.Add(dt);
+            //  ds.WriteXmlSchema("StudSched.xml");
+
+            StudentSchedRep form = new StudentSchedRep(ds, comboBox2.SelectedItem.ToString(), comboBox1.SelectedItem.ToString());
+            form.ShowDialog();
 
         }
     }

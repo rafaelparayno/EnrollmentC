@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using CST.Registrar;
 using CST.Models;
 using CST.Models.Student;
+using CST.Reports;
 
 namespace CST
 {
@@ -39,6 +40,8 @@ namespace CST
         {
             studentsDetailsController.fillDataGridDetails(ref dataGridView1);
             clickedBut = "Personal";
+            button6.Enabled = true;
+
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -142,18 +145,21 @@ namespace CST
         {
             studFamDetailsController.filldataGridFam(ref dataGridView1);
             clickedBut = "Family";
+            button6.Enabled = false;
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
             StudHistDetailsController.fillDataHist(ref dataGridView1);
             clickedBut = "History";
+            button6.Enabled = false;
         }
 
         private void button7_Click(object sender, EventArgs e)
         {
             studentsDetailsController.fillDataGridDetailsNotEnrolled(ref dataGridView1);
             clickedBut = "Personal";
+            button6.Enabled = true;
         }
 
         private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
@@ -204,6 +210,17 @@ namespace CST
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             selectedYrid = yrids[comboBox1.SelectedIndex];
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.Rows.Count > 0)
+            {
+                string sno = dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
+                RegFormRep frm = new RegFormRep(sno);
+                frm.ShowDialog();
+
+            }
         }
     }
 }

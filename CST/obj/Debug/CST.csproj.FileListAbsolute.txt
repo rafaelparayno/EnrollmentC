@@ -348,3 +348,10 @@ C:\Users\Xorn\Desktop\C#\versionRaf\EnrollmentC\CST\obj\Debug\CST.Reports.ClassL
 C:\Users\Xorn\Desktop\C#\versionRaf\EnrollmentC\CST\obj\Debug\CST.Reports.OrReport.resources
 C:\Users\Xorn\Desktop\C#\versionRaf\EnrollmentC\CST\obj\Debug\CST.Reports.gradeReport.resources
 C:\Users\Xorn\Desktop\C#\versionRaf\EnrollmentC\CST\obj\Debug\CST.csproj.CoreCompileInputs.cache
+C:\Users\Xorn\Desktop\C#\versionRaf\EnrollmentC\CST\bin\Debug\CrystalDecisions.CrystalReports.Engine.dll
+C:\Users\Xorn\Desktop\C#\versionRaf\EnrollmentC\CST\bin\Debug\CrystalDecisions.ReportSource.dll
+C:\Users\Xorn\Desktop\C#\versionRaf\EnrollmentC\CST\bin\Debug\CrystalDecisions.Shared.dll
+C:\Users\Xorn\Desktop\C#\versionRaf\EnrollmentC\CST\bin\Debug\CrystalDecisions.Windows.Forms.dll
+C:\Users\Xorn\Desktop\C#\versionRaf\EnrollmentC\CST\bin\Debug\FlashControlV71.dll
+C:\Users\Xorn\Desktop\C#\versionRaf\EnrollmentC\CST\obj\Debug\CST.Reports.RegFormRep.resources
+C:\Users\Xorn\Desktop\C#\versionRaf\EnrollmentC\CST\obj\Debug\CST.Reports.StudentSchedRep.resources

@@ -386,6 +386,12 @@
     <Compile Include="Reports\ClassListReport.Designer.cs">
       <DependentUpon>ClassListReport.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reports\CrystalReport1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrystalReport1.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Reports\GradeCsReport.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -409,6 +415,24 @@
     </Compile>
     <Compile Include="Reports\OrReport.Designer.cs">
       <DependentUpon>OrReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\RegFormRep.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\RegFormRep.Designer.cs">
+      <DependentUpon>RegFormRep.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\reportSched.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>reportSched.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\StudentSchedRep.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\StudentSchedRep.Designer.cs">
+      <DependentUpon>StudentSchedRep.cs</DependentUpon>
     </Compile>
     <Compile Include="System Admin\addUserAccounts.cs">
       <SubType>Form</SubType>
@@ -686,6 +710,10 @@
     <EmbeddedResource Include="Reports\ClassListReport.resx">
       <DependentUpon>ClassListReport.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reports\CrystalReport1.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrystalReport1.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reports\GradeCsReport.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>GradeCsReport.cs</LastGenOutput>
@@ -699,6 +727,16 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\OrReport.resx">
       <DependentUpon>OrReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\RegFormRep.resx">
+      <DependentUpon>RegFormRep.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\reportSched.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>reportSched.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\StudentSchedRep.resx">
+      <DependentUpon>StudentSchedRep.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="System Admin\addUserAccounts.resx">
       <DependentUpon>addUserAccounts.cs</DependentUpon>
