@@ -54,5 +54,17 @@ namespace CST.Models
 			return role;
 		}
 
+		public void setOnline(string acc_id)
+		{
+			string sql = String.Format(@"UPDATE useraccounts SET Status = 'Online' WHERE acc_id = '{0}'",acc_id);
+			crud.ExecuteQuery(sql);
+		}
+
+		public void setOffline(string acc_id)
+		{
+			string sql = String.Format(@"UPDATE useraccounts SET Status = 'Offline' WHERE acc_id = '{0}'", acc_id);
+			crud.ExecuteQuery(sql);
+		}
+
 	}
 }

@@ -56,7 +56,7 @@ namespace CST.Models
         public void fillDataGridUser(ref DataGridView dg)
         {
 
-            string sql = "SELECT * FROM useraccounts";
+            string sql = "SELECT * FROM useraccounts WHERE Status = 'Offline'";
 
             cs.FillDataGrid(sql, ref dg);
         }
@@ -65,7 +65,7 @@ namespace CST.Models
         {
 
 
-            string sql = String.Format(@"SELECT * FROM useraccounts WHERE {0} LIKE '%{1}%'", condition, searchKeys);
+            string sql = String.Format(@"SELECT * FROM useraccounts WHERE {0} LIKE '%{1}%' AND Status = 'Offline'", condition, searchKeys);
 
             cs.FillDataGrid(sql, ref dg);
         }

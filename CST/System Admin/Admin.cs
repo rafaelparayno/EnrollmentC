@@ -17,6 +17,7 @@ namespace CST {
     {
 
         AuditTrailControl auditTrailControl = new AuditTrailControl();
+        loginController control = new loginController();
         public Admin()
 
         {
@@ -54,7 +55,7 @@ namespace CST {
             {
 
                 auditTrailControl.addAudit(label7.Text, UserLog.getUserName() + "Has Logged-out");
-
+                control.setOffline(UserLog.getUserId());
                 Login f = new Login();
                 f.Show();
                 this.Hide();

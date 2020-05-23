@@ -17,6 +17,8 @@ namespace CST
     {
         globalVariables gv = new globalVariables();
         YearController yearController = new YearController();
+        AuditTrailControl auditTrailControl = new AuditTrailControl();
+        loginController controller = new loginController();
         public Cashier()
         {
             InitializeComponent();
@@ -41,6 +43,8 @@ namespace CST
 
             if (form1 == DialogResult.Yes)
             {
+                auditTrailControl.addAudit(label7.Text, UserLog.getUserName() + "Has Logged-out");
+                controller.setOffline(UserLog.getUserId());
                 this.Hide();
                 Login frm = new Login();
                 frm.Show();

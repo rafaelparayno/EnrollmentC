@@ -16,6 +16,8 @@ namespace  CST
     public partial class RegistrarForm : Form
     {
         YearController yearController = new YearController();
+        AuditTrailControl auditTrailControl = new AuditTrailControl();
+        loginController controller = new loginController();
         public RegistrarForm()
         {
             InitializeComponent();
@@ -55,6 +57,8 @@ namespace  CST
 
             if (form1 == DialogResult.Yes)
             {
+                auditTrailControl.addAudit(label7.Text, UserLog.getUserName() + "Has Logged-out");
+                controller.setOffline(UserLog.getUserId());
                 Login frm = new Login();
                 this.Hide();
                 frm.Show();

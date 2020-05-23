@@ -14,7 +14,8 @@ namespace CST.Teacher
     public partial class TeacherFrm : Form
     {
         YearController yearController = new YearController();
-
+        AuditTrailControl auditTrailControl = new AuditTrailControl();
+        loginController controller = new loginController();
         public TeacherFrm()
         {
             InitializeComponent();
@@ -60,8 +61,9 @@ namespace CST.Teacher
             if (form1 == DialogResult.Yes)
             {
 
-              /*  auditTrailControl.addAudit(label7.Text, UserLog.getUserName() + "Has Logged-out");*/
-
+                /*  auditTrailControl.addAudit(label7.Text, UserLog.getUserName() + "Has Logged-out");*/
+                auditTrailControl.addAudit(label7.Text, UserLog.getUserName() + "Has Logged-out");
+                controller.setOffline(UserLog.getUserId());
                 Login f = new Login();
                 f.Show();
                 this.Hide();

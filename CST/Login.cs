@@ -131,7 +131,8 @@ namespace CST
                 else
                 {
                     audittrail.addAudit(label7.Text.Trim(), "User has been Login");
-
+                    control.setOnline(UserLog.getUserId());
+                //    LoginPreferences.CreateLoginPrefFile();
                     if (role == "System Admin")
                     {
                         Admin frm = new Admin();

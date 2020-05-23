@@ -213,6 +213,7 @@
     <Compile Include="Enrollment Admin\SchedulingFinal.Designer.cs">
       <DependentUpon>SchedulingFinal.cs</DependentUpon>
     </Compile>
+    <Compile Include="LoginPreferences.cs" />
     <Compile Include="Models\EnrollScheduleController.cs" />
     <Compile Include="Models\GradeLevelController.cs" />
     <Compile Include="Models\MiscController.cs" />

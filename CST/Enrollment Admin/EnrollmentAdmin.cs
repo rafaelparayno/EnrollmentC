@@ -17,6 +17,8 @@ namespace CST
     public partial class EnrollmentAdmin : Form
     {
         globalVariables gv = new globalVariables();
+        AuditTrailControl auditTrailControl = new AuditTrailControl();
+        loginController controller = new loginController();
         public EnrollmentAdmin()
         {
             InitializeComponent();
@@ -65,6 +67,8 @@ namespace CST
 
             if (form1 == DialogResult.Yes)
             {
+                auditTrailControl.addAudit(label7.Text, UserLog.getUserName() + "Has Logged-out");
+                controller.setOffline(UserLog.getUserId());
                 this.Hide();
                 Login log = new Login();
                 log.Show();
