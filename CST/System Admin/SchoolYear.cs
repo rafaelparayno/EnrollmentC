@@ -50,6 +50,8 @@ namespace CST
             yearC.updateSY(int.Parse(dgSY.SelectedRows[0].Cells[0].Value.ToString()));
             yearC.fillDataGridSY(ref dgSY);
             SchoolYearModel.setSchoolYear(dgSY.SelectedRows[0].Cells[1].Value.ToString());
+             string sy = yearC.getSyActivated();
+            SchoolYearModel sc = new SchoolYearModel(sy);
             MessageBox.Show("Succesfully Updated School Year");
         }
 

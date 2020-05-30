@@ -164,7 +164,15 @@ namespace CST.System_Admin
 
         private void txtLastname_TextChanged(object sender, EventArgs e)
         {
-            txtUsername.Text = txtLastname.Text + "." + txtFirstname.Text;
+            if (txtLastname.Text.Length > 0)
+            {
+                txtUsername.Text = txtLastname.Text[0] + "." + txtFirstname.Text;
+            }
+            else
+            {
+                txtUsername.Text = "";
+            }
+          
         }
 
         private void gbUserForm_Enter(object sender, EventArgs e)
@@ -174,7 +182,14 @@ namespace CST.System_Admin
 
         private void txtFirstname_TextChanged(object sender, EventArgs e)
         {
-            txtUsername.Text = txtLastname.Text + "." + txtFirstname.Text;
+            if (txtLastname.Text.Length > 0)
+            {
+                txtUsername.Text = txtLastname.Text[0] + "." + txtFirstname.Text;
+            }
+            else
+            {
+                txtUsername.Text = "";
+            }
         }
     }
 }
