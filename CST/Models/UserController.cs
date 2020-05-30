@@ -27,7 +27,7 @@ namespace CST.Models
             string password = "";
             password = GeneratePassword(8);
 
-            string sql = String.Format(@"Insert into useraccounts(acc_id,Username,Firstname,Middlename,Lastname,role,Password,create_at,status) VALUES('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','Offline')",
+            string sql = String.Format(@"Insert into useraccounts(acc_id,Username,Firstname,Middlename,Lastname,role,Password,create_at,status,isPaswordChanged) VALUES('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','Offline',0)",
                         accid, username, firstname, middleName, lastname, role, password, dateCreated);
 
             cs.ExecuteQuery(sql);
@@ -56,7 +56,7 @@ namespace CST.Models
         public void fillDataGridUser(ref DataGridView dg)
         {
 
-            string sql = "SELECT * FROM useraccounts WHERE Status = 'Offline'";
+            string sql = "SELECT acc_id,Firstname,Middlename,Lastname,Username,Password, Role,Status,create_at,isPaswordChanged  FROM useraccounts useraccounts WHERE Status = 'Offline'";
 
             cs.FillDataGrid(sql, ref dg);
         }
@@ -65,7 +65,7 @@ namespace CST.Models
         {
 
 
-            string sql = String.Format(@"SELECT * FROM useraccounts WHERE {0} LIKE '%{1}%' AND Status = 'Offline'", condition, searchKeys);
+            string sql = String.Format(@"SELECT acc_id,Firstname,Middlename,Lastname,Username,Password, Role,Status,create_at,isPaswordChanged FROM useraccounts WHERE {0} LIKE '%{1}%' AND Status = 'Offline'", condition, searchKeys);
 
             cs.FillDataGrid(sql, ref dg);
         }
@@ -73,12 +73,21 @@ namespace CST.Models
         public void ResetPassword(string accid)
         {
             string newPass = GeneratePassword(8);
-            string sql = String.Format(@"UPDATE useraccounts SET Password = '{0}' WHERE acc_id = '{1}'", newPass, accid);
+            string sql = String.Format(@"UPDATE useraccounts SET Password = '{0}',isPaswordChanged = 0 WHERE acc_id = '{1}'", newPass, accid);
 
             cs.ExecuteQuery(sql);
 
             MessageBox.Show("New Password \n" + newPass);
 
+        }
+
+        public void ChangedPass(string accid,string password)
+        {
+      
+            string sql = String.Format(@"UPDATE useraccounts SET Password = '{0}',isPaswordChanged = 1 WHERE acc_id = '{1}'", password, accid);
+
+            cs.ExecuteQuery(sql);
+   
         }
 
         private string GeneratePassword(int length)

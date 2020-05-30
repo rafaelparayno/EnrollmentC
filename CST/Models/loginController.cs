@@ -45,7 +45,8 @@ namespace CST.Models
 											reader["MiddleName"].ToString(), 
 											role,
 											username,
-											reader["acc_id"].ToString());
+											reader["acc_id"].ToString(),
+											int.Parse(reader["isPaswordChanged"].ToString()));
 			}
 
 			

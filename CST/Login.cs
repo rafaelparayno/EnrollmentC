@@ -132,40 +132,93 @@ namespace CST
                 {
                     audittrail.addAudit(label7.Text.Trim(), "User has been Login");
                     control.setOnline(UserLog.getUserId());
+                    int isPaswwordChanged = UserLog.getIsPasswordChanged();
                 //    LoginPreferences.CreateLoginPrefFile();
                     if (role == "System Admin")
                     {
-                        Admin frm = new Admin();
-                        frm.Show();
-                        this.Hide();
+                        if (isPaswwordChanged == 0)
+                        {
+                            Generated frmGen = new Generated(role);
+                            frmGen.Show();
+                            this.Hide();
+                        }
+                        else
+                        {
+                            Admin frm = new Admin();
+                            frm.Show();
+                            this.Hide();
+
+                        }
+                      
+
                     }
 
                     else if (role == "Registrar")
                     {
-                        RegistrarForm frm = new RegistrarForm();
-                        frm.Show();
-                        this.Hide();
+                        if (isPaswwordChanged == 0)
+                        {
+                            Generated frmGen = new Generated(role);
+                            frmGen.Show();
+                            this.Hide();
+                        }
+                        else
+                        {
+                            RegistrarForm frm = new RegistrarForm();
+                            frm.Show();
+                            this.Hide();
+                        }
+                    
                     }
 
                     else if (role == "Enrollment Admin")
                     {
-                        EnrollmentAdmin frm = new EnrollmentAdmin();
-                        frm.Show();
-                        this.Hide();
+                        if (isPaswwordChanged == 0)
+                        {
+                            Generated frmGen = new Generated(role);
+                            frmGen.Show();
+                            this.Hide();
+                        }
+                        else
+                        {
+                            EnrollmentAdmin frm = new EnrollmentAdmin();
+                            frm.Show();
+                            this.Hide();
+                        }
+                
                     }
 
                     else if (role == "Cashier")
                     {
-                        Cashier frm = new Cashier();
-                        frm.Show();
-                        this.Hide();
+                        if (isPaswwordChanged == 0)
+                        {
+                            Generated frmGen = new Generated(role);
+                            frmGen.Show();
+                            this.Hide();
+                        }
+                        else
+                        {
+                            Cashier frm = new Cashier();
+                            frm.Show();
+                            this.Hide();
+                        }
+                      
                     }
 
                     else if (role == "Teacher")
                     {
-                        TeacherFrm frm = new TeacherFrm();
-                        frm.Show();
-                        this.Hide();
+                        if (isPaswwordChanged == 0)
+                        {
+                            Generated frmGen = new Generated(role);
+                            frmGen.Show();
+                            this.Hide();
+                        }
+                        else
+                        {
+                            TeacherFrm frm = new TeacherFrm();
+                            frm.Show();
+                            this.Hide();
+                        }
+                  
                     }
                 }
                 

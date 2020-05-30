@@ -15,8 +15,9 @@ namespace CST.Models
 		private static string UserName;
 		private static string Role;
 		private static string userid;
+		private static int isPasswordChanged;
 
-		public UserLog(string firstName,string lastname, string middlename, string role,string username,string userids)
+		public UserLog(string firstName,string lastname, string middlename, string role,string username,string userids,int isPasword)
 		{
 			FirstName = firstName;
 			LastName = lastname;
@@ -24,6 +25,7 @@ namespace CST.Models
 			Role = role;
 			UserName = username;
 			userid = userids;
+			isPasswordChanged = isPasword;
 		}
 
 		public static string getFirstName()
@@ -56,6 +58,11 @@ namespace CST.Models
 		public static string getUserId()
 		{
 			return userid;
+		}
+
+		public static int getIsPasswordChanged()
+		{
+			return isPasswordChanged;
 		}
 
 

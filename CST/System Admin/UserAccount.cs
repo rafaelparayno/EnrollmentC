@@ -45,7 +45,9 @@ namespace CST
 
 
             userController.fillDataGridUser(ref dgUserAccounts);
-           
+            encryptPasswordGrid();
+
+
         }
         
         private void btnResetPass_Click(object sender, EventArgs e)
@@ -61,6 +63,7 @@ namespace CST
                userController.ResetPassword(userId);
                 auditTrail.addAudit(label7.Text, "Reset Password of " + userName);
                userController.fillDataGridUser(ref dgUserAccounts);
+                encryptPasswordGrid();
             }
         }
 
@@ -220,6 +223,7 @@ namespace CST
                 userController.deleteUser(userId);
                 auditTrail.addAudit(label7.Text, "Delete a User Account ");
                 userController.fillDataGridUser(ref dgUserAccounts);
+                encryptPasswordGrid();
                 MessageBox.Show("Succesfully Remove Data");
 
             }
@@ -547,7 +551,7 @@ namespace CST
             addUserAccounts ad = new addUserAccounts();
             ad.ShowDialog();
             userController.fillDataGridUser(ref dgUserAccounts);
-
+            encryptPasswordGrid();
         }
 
         private void timer2_Tick(object sender, EventArgs e)
@@ -579,8 +583,8 @@ namespace CST
                                                        dgUserAccounts.SelectedRows[0].Cells[0].Value.ToString());
             ad.ShowDialog();
             userController.fillDataGridUser(ref dgUserAccounts);
-          
-
+            encryptPasswordGrid();
+                
         }
 
         private void button4_Click_1(object sender, EventArgs e)
@@ -588,6 +592,7 @@ namespace CST
             if(textBox1.Text.Trim() == "")
             {
                 userController.fillDataGridUser(ref dgUserAccounts);
+                encryptPasswordGrid();
             }
             else
             {
@@ -601,12 +606,24 @@ namespace CST
                     condition = comboBox1.SelectedItem.ToString();
                 }
                 userController.searchGrid(condition, textBox1.Text.Trim(),ref dgUserAccounts);
+                encryptPasswordGrid();
             }
         }
 
         private void textBox1_TextChanged_1(object sender, EventArgs e)
         {
 
+        }
+
+        private void encryptPasswordGrid()
+        {
+            foreach (DataGridViewRow dr in dgUserAccounts.Rows)
+            {               
+                if(int.Parse(dr.Cells["isPaswordChanged"].Value.ToString()) == 1)
+                {
+                    dr.Cells["Password"].Value = "*********";
+                }        
+            }
         }
     }
 }
