@@ -26,7 +26,7 @@ namespace CST.Models
 
             if (!check)
             {
-                string sql = String.Format(@"INSERT INTO classroom (classroom_type,classroom_no,SY_ID) VALUES ('{0}','{1}',{2})", type, roomno, sy);
+                string sql = String.Format(@"INSERT INTO classroom (classroom_type,classroom_no) VALUES ('{0}','{1}')", type, roomno);
 
                 cs.ExecuteQuery(sql);
                 MessageBox.Show("Succesfully Added a New Room");
@@ -46,7 +46,7 @@ namespace CST.Models
 
         public void fillDataGridRoom(ref DataGridView dg, int syid)
         {
-            string sql = String.Format(@"SELECT classroom_id,classroom_type,classroom_no FROM classroom WHERE SY_ID = {0}", syid);
+            string sql = String.Format(@"SELECT classroom_id,classroom_type,classroom_no FROM classroom ");
 
             cs.FillDataGrid(sql, ref dg);
         }
@@ -55,7 +55,7 @@ namespace CST.Models
         {
          
             bool noSameRoom = false;
-            string sql = String.Format(@"SELECT * FROM `classroom` WHERE classroom_type = '{0}' AND classroom_no = {1} AND SY_ID = {2}", type, roomno, yr.getSchoolYearId());
+            string sql = String.Format(@"SELECT * FROM `classroom` WHERE classroom_type = '{0}' AND classroom_no = {1}", type, roomno);
           
             MySqlDataReader reader = null;
             reader = cs.RetrieveRecords(sql, ref reader);
@@ -72,8 +72,8 @@ namespace CST.Models
         public string [] fillClassRoomAvail(ref ComboBox cb,string te,string ts)
         {
 
-            string sql = String.Format(@"SELECT CONCAT(classroom_type,' ',classroom_no) As RoomName,classroom_id FROM classroom WHERE classroom_id not in(SELECT classroom_id FROM sched_section WHERE timestamp_id in(SELECT timestamp_id FROM timestamp WHERE start_time <= '{0}' AND end_time > '{1}')) AND SY_ID ={2}",
-                                    te, ts, sy);
+            string sql = String.Format(@"SELECT CONCAT(classroom_type,' ',classroom_no) As RoomName,classroom_id FROM classroom WHERE classroom_id not in(SELECT classroom_id FROM sched_section WHERE timestamp_id in(SELECT timestamp_id FROM timestamp WHERE start_time <= '{0}' AND end_time > '{1}'))",
+                                    te, ts);
             MySqlDataReader reader = null;
             cs.RetrieveRecords(sql, ref reader);
             string ids = "";
@@ -94,8 +94,8 @@ namespace CST.Models
 
             int[] room_ids = { };
 
-            string sql = String.Format(@"SELECT CONCAT(classroom_type,' ',classroom_no) As RoomName,classroom_id FROM classroom WHERE classroom_id not in(SELECT classroom_id FROM sched_section WHERE timestamp_id in(SELECT timestamp_id FROM timestamp WHERE start_time <= '{0}' AND end_time > '{1}')) AND SY_ID ={2}",
-                te,ts,sy);
+            string sql = String.Format(@"SELECT CONCAT(classroom_type,' ',classroom_no) As RoomName,classroom_id FROM classroom WHERE classroom_id not in(SELECT classroom_id FROM sched_section WHERE timestamp_id in(SELECT timestamp_id FROM timestamp WHERE start_time <= '{0}' AND end_time > '{1}'))",
+                te,ts);
 
             MySqlDataReader reader = null;
             cs.RetrieveRecords(sql, ref reader);
