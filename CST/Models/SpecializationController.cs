@@ -85,6 +85,40 @@ namespace CST.Models
             return teacher_ids;
         }
 
+        public string [] fillComboSecondaryTeacher(ref ComboBox cb)
+        {
+            string[] teacher_ids = { };
+            string sql = String.Format(@"SELECT teacher_ID,CONCAT(Firstname,' ',LastName) as FullName FROM `specialization` LEFT JOIN useraccounts ON specialization.acc_id = useraccounts.acc_id WHERE specialization.subject_id != 0 ");
+
+
+            MySqlDataReader reader = null;
+            cs.RetrieveRecords(sql, ref reader);
+
+            int total = 0;
+            while (reader.Read())
+            {
+                cb.Items.Add(reader["FullName"].ToString());
+                total++;
+            }
+
+            cs.CloseConnection();
+
+            teacher_ids = new string[total];
+
+            reader = null;
+
+            cs.RetrieveRecords(sql, ref reader);
+            int i = 0;
+            while (reader.Read())
+            {
+                teacher_ids[i] = reader["teacher_ID"].ToString();
+                i++;
+            }
+            cs.CloseConnection();
+
+            return teacher_ids;
+        }
+
         public void fillDataGridTeacher(ref DataGridView dg)
         {
             string sql = String.Format(@"SELECT teacher_ID,subject,CONCAT(Firstname,' ',LastName) as FullName,teaching_type FROM `specialization` LEFT JOIN useraccounts ON specialization.acc_id = useraccounts.acc_id ");
@@ -189,5 +223,7 @@ namespace CST.Models
 
             return teacher_id;
         }
+
+       
     }
 }

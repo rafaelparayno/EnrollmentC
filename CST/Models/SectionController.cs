@@ -22,18 +22,37 @@ namespace CST.Models
         public void addSection(string grade_level,int teacher_id,string section_name)
         {
             int yearId = yearController.getSchoolYearId();
-            string sql = String.Format("INSERT INTO sections (grade_level,teacher_ID,section_name,SY_ID) VALUES ('{0}',{1},'{2}',{3})", grade_level,
+
+            if (!isChecked(grade_level,section_name)){
+                string sql = String.Format("INSERT INTO sections (grade_level,teacher_ID,section_name,SY_ID) VALUES ('{0}',{1},'{2}',{3})", grade_level,
                                         teacher_id, section_name, yearID);
 
-            cs.ExecuteQuery(sql);
+                cs.ExecuteQuery(sql);
+                MessageBox.Show("Succesfully Added new Section");
+            }
+            else
+            {
+                MessageBox.Show("No same name with that grade level", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            
         }
 
         public void updateSection(int sect_id,string grade_level, int teacher_id, string section_name,int yearId)
         {
-            string sql = String.Format(@"UPDATE sections SET grade_level = '{0}',teacher_ID = {1},section_name = '{2}' WHERE SY_ID = {3} AND sect_id = {4}",
-                                        grade_level, teacher_id, section_name, yearId, sect_id);
 
-            cs.ExecuteQuery(sql);
+            if (!isChecked(grade_level, section_name))
+            {
+                string sql = String.Format(@"UPDATE sections SET grade_level = '{0}',teacher_ID = {1},section_name = '{2}' WHERE SY_ID = {3} AND sect_id = {4}",
+                                        grade_level, teacher_id, section_name, yearId, sect_id);
+                MessageBox.Show("Succesfully Update Section");
+
+                cs.ExecuteQuery(sql);
+            }
+            else
+            {
+                MessageBox.Show("No same name with that grade level", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
         }
 
         public void fillDataGridSect(ref DataGridView dg)
@@ -257,6 +276,24 @@ namespace CST.Models
             }
             cs.CloseConnection();
             return grade_level;
+        }
+
+
+        private bool isChecked(string grade, string sectname)
+        {
+            bool noSameNameInGrade = false;
+            string sql = String.Format(@"SELECT * FROM `sections` WHERE grade_level = '{0}' AND section_name = '{1}' AND SY_ID = {2}", grade, sectname, yearID);
+
+            MySqlDataReader reader = null;
+            reader = cs.RetrieveRecords(sql, ref reader);
+            if (reader.HasRows)
+            {
+                noSameNameInGrade = true;
+            }
+
+            cs.CloseConnection();
+
+            return noSameNameInGrade;
         }
 
     }

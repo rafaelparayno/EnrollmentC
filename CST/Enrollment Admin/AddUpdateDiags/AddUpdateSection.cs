@@ -57,13 +57,13 @@ namespace CST.Enrollment_Admin.AddUpdateDiags
                 if (!isEdited)
                 {
                     sect.addSection(comboBox1.SelectedItem.ToString(), teacherId, textBox1.Text.Trim());
-                    MessageBox.Show("Succesfully Added New Section");
+                
                     this.Hide();
                 }
                 else
                 {
                     sect.updateSection(sect_id, comboBox1.SelectedItem.ToString(), teacherId, textBox1.Text.Trim(), yr.getSchoolYearId());
-                    MessageBox.Show("Succesfully Updated Section");
+                  
                     this.Hide();
                 }
                
@@ -110,7 +110,16 @@ namespace CST.Enrollment_Admin.AddUpdateDiags
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            if (comboBox1.SelectedIndex >= 10)
+            {
+                comboBox2.Items.Clear();
+                user_ids = sp.fillComboSecondaryTeacher(ref comboBox2);
+            }
+            else
+            {
+                comboBox2.Items.Clear();
+                user_ids = sp.fillDataTeacherSect(ref comboBox2);
+            }
         }
     }
 }
