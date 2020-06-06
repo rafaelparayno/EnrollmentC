@@ -13,10 +13,10 @@ namespace CST.Models
     {
         crudFile cs = new crudFile();
         YearController yearController = new YearController();
-        private int schoolYearId = 0;
+      
         public SchoolRequirementsController()
         {
-            schoolYearId = yearController.getSchoolYearId();
+           
         }
 
 

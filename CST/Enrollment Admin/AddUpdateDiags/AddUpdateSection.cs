@@ -104,7 +104,7 @@ namespace CST.Enrollment_Admin.AddUpdateDiags
                 comboBox1.Items.Add(grade[i]);
             }
 
-            user_ids = sp.fillDataTeacherSect(ref comboBox2, yr.getSchoolYearId());
+            user_ids = sp.fillDataTeacherSect(ref comboBox2);
 
         }
     }

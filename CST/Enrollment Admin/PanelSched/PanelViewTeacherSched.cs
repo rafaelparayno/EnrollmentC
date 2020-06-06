@@ -23,7 +23,7 @@ namespace CST.Enrollment_Admin.PanelSched
         {
             InitializeComponent();
             syid = yrController.getSchoolYearId();
-            teachersIds = specializationController.fillDataTeacherCombo(ref comboBox1, syid);
+            teachersIds = specializationController.fillDataTeacherCombo(ref comboBox1);
             
         }
 

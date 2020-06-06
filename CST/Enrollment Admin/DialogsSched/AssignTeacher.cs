@@ -30,7 +30,7 @@ namespace CST.Enrollment_Admin.DialogsSched
                 gradeNo = int.Parse(grade_level.Split(' ')[1]);
                 if (gradeNo < 7)
                 {
-                    idsTeacher = specializationController.fillDataTeacherSect(ref cbTeacher, yrcontroller.getSchoolYearId());
+                    idsTeacher = specializationController.fillDataTeacherSect(ref cbTeacher);
                 }
                 else
                 {
@@ -42,7 +42,7 @@ namespace CST.Enrollment_Admin.DialogsSched
             }
             else
             {
-                idsTeacher = specializationController.fillDataTeacherSect(ref cbTeacher, yrcontroller.getSchoolYearId());
+                idsTeacher = specializationController.fillDataTeacherSect(ref cbTeacher);
                 timestart = timeS;
                 timeEnd = timeE;
             }
