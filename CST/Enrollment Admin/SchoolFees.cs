@@ -1,5 +1,6 @@
 ﻿using CST.Data;
 using CST.Enrollment_Admin;
+using CST.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,6 +15,9 @@ namespace CST
 {
     public partial class SchoolFees : Form
     {
+
+        MiscController miscController = new MiscController();
+        TuitionFeeController tfController = new TuitionFeeController();
         public SchoolFees()
         {
             InitializeComponent();
@@ -29,7 +33,9 @@ namespace CST
 
         private void button4_Click(object sender, EventArgs e)
         {
-            
+            EnrollmentAdmin frm = new EnrollmentAdmin();
+            this.Hide();
+            frm.Show();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -94,13 +100,55 @@ namespace CST
             if (IsSearchable())
             {
                 
+                if(comboBox1.SelectedItem.ToString() == "All")
+                {
+                    LoadGridMisc(comboBox2.SelectedItem.ToString());
+                    LoadGridTuition(comboBox2.SelectedItem.ToString());
+                    label3.Visible = false;
+                }
+                else
+                {
+                    LoadGridMisc(comboBox2.SelectedItem.ToString());
+                    LoadGridTutioWithMode();
+                    label3.Visible = true;
 
+                    float tf = tfController.getTfPriceGrade(comboBox2.SelectedItem.ToString(), comboBox1.SelectedItem.ToString());
+                    float totalAMount = TotalMisc() + tf;
+
+                    label3.Text = "TOTAL:  PHP " + totalAMount;
+                }
               
             }
             else
             {
                 MessageBox.Show("Please Pick Mode of payment and grade level");
             }
+        }
+
+        private void LoadGridMisc(string grade)
+        {
+            miscController.fillDataGridMisc(ref dataGridView1, grade);
+        }
+
+        private void LoadGridTuition(string grade)
+        {
+            tfController.fillDataTuion2(ref dataGridView2, grade);
+        }
+
+        private void LoadGridTutioWithMode()
+        {
+            tfController.fillDataTuition(ref dataGridView2,comboBox1.SelectedItem.ToString(),comboBox2.SelectedItem.ToString());
+        }
+
+        private float TotalMisc()
+        {
+            float totalMisc = 0;
+            foreach (DataGridViewRow dr in dataGridView1.Rows)
+            {
+                totalMisc += float.Parse(dr.Cells["price"].Value.ToString());
+            }
+
+            return totalMisc;
         }
     }
 }

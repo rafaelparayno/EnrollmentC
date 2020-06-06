@@ -260,7 +260,7 @@
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.Black;
             this.label9.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label9.Location = new System.Drawing.Point(254, 300);
+            this.label9.Location = new System.Drawing.Point(254, 303);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(99, 16);
             this.label9.TabIndex = 306;
