@@ -225,6 +225,12 @@
     <Compile Include="Enrollment Admin\SchedulingFinal.Designer.cs">
       <DependentUpon>SchedulingFinal.cs</DependentUpon>
     </Compile>
+    <Compile Include="Enrollment Admin\Tfees.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Enrollment Admin\Tfees.Designer.cs">
+      <DependentUpon>Tfees.cs</DependentUpon>
+    </Compile>
     <Compile Include="LoginPreferences.cs" />
     <Compile Include="Models\EnrollScheduleController.cs" />
     <Compile Include="Models\GradeLevelController.cs" />
@@ -698,6 +704,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Enrollment Admin\SchedulingFinal.resx">
       <DependentUpon>SchedulingFinal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Enrollment Admin\Tfees.resx">
+      <DependentUpon>Tfees.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Generated.resx">
       <DependentUpon>Generated.cs</DependentUpon>

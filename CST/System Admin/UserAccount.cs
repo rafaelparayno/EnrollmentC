@@ -108,8 +108,6 @@ namespace CST
 
 
             if (form1 == DialogResult.Yes)
-
-
             {
                 string userId = dgUserAccounts.SelectedRows[0].Cells[0].Value.ToString();
                 userController.deleteUser(userId);

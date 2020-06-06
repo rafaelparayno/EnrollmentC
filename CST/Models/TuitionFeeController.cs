@@ -20,9 +20,9 @@ namespace CST.Models
 
         public void addTuition(string grade_level,double fee,string mod)
         {
-            bool isCheck = checking(grade_level, mod);
+         
 
-            if (!isCheck)
+            if (!checking(grade_level, mod))
             {
                 string sql = String.Format(@"INSERT INTO `tuition_fee`(`grade_level`, `tuition_fee`, `mode_of_payment`, `SY_ID`) VALUES ('{0}',{1},'{2}',{3})",
                                        grade_level, fee, mod, yid);
@@ -36,6 +36,22 @@ namespace CST.Models
             }
 
            
+        }
+
+        public void updateTuition(string grade_level, double fee, string mod,int id)
+        {
+            string sql = String.Format(@"UPDATE tuition_fee SET grade_level = '{0}',tuition_fee = {1}, mode_of_payment = '{2}' WHERE tf_id = {3}", grade_level,
+                                       fee, mod, id);
+
+            cs.ExecuteQuery(sql);
+
+        }
+
+        public void removeTuition(int id)
+        {
+            string sql = String.Format(@"DELETE FROM tuition_fee WHERE tf_id = {0}", id);
+
+            cs.ExecuteQuery(sql);
         }
 
         private bool checking(string grade_level, string mod)
@@ -58,7 +74,7 @@ namespace CST.Models
 
         public void fillDataTuion2(ref DataGridView dg,string grade)
         {
-            string sql = String.Format(@"SELECT grade_level,tuition_fee,mode_of_payment FROM `tuition_fee` WHERE grade_level = '{0}' AND SY_ID = {1}",
+            string sql = String.Format(@"SELECT tf_id,grade_level,tuition_fee,mode_of_payment FROM `tuition_fee` WHERE grade_level = '{0}' AND SY_ID = {1}",
                                         grade, yid);
 
             cs.FillDataGrid(sql,ref dg);
@@ -66,7 +82,7 @@ namespace CST.Models
 
         public void fillAllTuition(ref DataGridView dg)
         {
-            string sql = String.Format(@"SELECT grade_level,tuition_fee,mode_of_payment FROM `tuition_fee` WHERE  SY_ID = {0}",
+            string sql = String.Format(@"SELECT tf_id,grade_level,tuition_fee,mode_of_payment FROM `tuition_fee` WHERE  SY_ID = {0}",
                                          yid);
 
             cs.FillDataGrid(sql, ref dg);

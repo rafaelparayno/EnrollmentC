@@ -1,4 +1,6 @@
-﻿using System;
+﻿using CST.Data;
+using CST.Enrollment_Admin;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -27,30 +29,21 @@ namespace CST
 
         private void button4_Click(object sender, EventArgs e)
         {
-            this.Hide();
-           EnrollmentAdmin  fr3 = new EnrollmentAdmin();
-            fr3.ShowDialog();
-            return;
+            
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            Tfees frm = new Tfees();
+            frm.Show();
             this.Hide();
-            AddTuitionFee fr3 = new AddTuitionFee();
-            fr3.ShowDialog();
-            return;
-
+           
 
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
 
-            this.Hide();
-            AddMiscellaneousFee fr3 = new AddMiscellaneousFee();
-            fr3.ShowDialog();
-            return;
 
 
         }
@@ -58,6 +51,10 @@ namespace CST
         private void SchoolFees_Load(object sender, EventArgs e)
         {
             timer1.Start();
+            foreach (string item in DataClass.getAllGrade())
+            {
+                comboBox2.Items.Add(item);
+            }
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -77,6 +74,31 @@ namespace CST
         private void label4_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private bool IsSearchable()
+        {
+            bool isValid = true;
+
+            isValid = comboBox1.SelectedIndex > -1 && isValid;
+
+            isValid = comboBox2.SelectedIndex > -1 && isValid;
+
+            return isValid;
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (IsSearchable())
+            {
+                
+
+              
+            }
+            else
+            {
+                MessageBox.Show("Please Pick Mode of payment and grade level");
+            }
         }
     }
 }
