@@ -12,17 +12,42 @@ namespace CST.Models
     {
         crudFile cs = new crudFile();
         YearController yearController = new YearController();
-        int syid = 0;
+     
         public SubjectController()
         {
-            syid = yearController.getSchoolYearId();
+       
         }
 
         public void addSubject(string grade_level,string subject_name)
         {
-            string sql = String.Format(@"INSERT INTO subjects(grade_level,subject_name) VALUES ('{0}','{1}')", grade_level, subject_name);
+            if (!findSameName(subject_name, grade_level))
+            {
+                string sql = String.Format(@"INSERT INTO subjects(grade_level,subject_name) VALUES ('{0}','{1}')", grade_level, subject_name);
 
-            cs.ExecuteQuery(sql);
+                cs.ExecuteQuery(sql);
+                MessageBox.Show("Succesfully Added new Subject");
+            }
+            else
+            {
+                MessageBox.Show("Cannot Add With Same Name Subject With that Grade level");
+            }
+          
+        }
+
+        private bool findSameName(string name,string gradelevel)
+        {
+            bool found = false;
+            string sql = String.Format(@"SELECT * FROM subjects WHERE subject_name = '{0}' AND grade_level = '{1}'", name,gradelevel);
+            MySqlDataReader reader = null;
+            cs.RetrieveRecords(sql, ref reader);
+
+            if (reader.HasRows)
+            {
+                found = true;
+            }
+
+            cs.CloseConnection();
+            return found;
         }
 
 
@@ -184,8 +209,8 @@ namespace CST.Models
         {
             int[] subject_ids = { };
 
-            string sql = String.Format("SELECT * FROM `subjects` WHERE subject_id in(SELECT subject_id FROM sched_section WHERE teacher_Id = {0} AND sect_id = {1} AND Sy_id = {2})",
-                teacher_id, sect_id,syid);
+            string sql = String.Format("SELECT * FROM `subjects` WHERE subject_id in(SELECT subject_id FROM sched_section WHERE teacher_Id = {0} AND sect_id = {1})",
+                teacher_id, sect_id);
 
             MySqlDataReader reader = null;
             cs.RetrieveRecords(sql, ref reader);

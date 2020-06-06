@@ -55,7 +55,7 @@ namespace CST.Enrollment_Admin.AddUpdateDiags
                 if (!isEdited)
                 {
                     subjectController.addSubject(cbGradeLevel.SelectedItem.ToString(), textBox1.Text.Trim());
-                    MessageBox.Show("Succesfully Added New Subject");
+                 
                    
                 }
                 else
