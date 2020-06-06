@@ -103,7 +103,7 @@ namespace CST.System_Admin
 
 
                 DialogResult form2 = MessageBox.Show("Do you really want to Save ?",
-                      "Exit", MessageBoxButtons.YesNo);
+                      "Add", MessageBoxButtons.YesNo);
 
                 if (form2 == DialogResult.Yes)
                 {

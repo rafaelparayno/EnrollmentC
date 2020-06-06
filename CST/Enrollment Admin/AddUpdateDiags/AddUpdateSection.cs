@@ -107,5 +107,10 @@ namespace CST.Enrollment_Admin.AddUpdateDiags
             user_ids = sp.fillDataTeacherSect(ref comboBox2);
 
         }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

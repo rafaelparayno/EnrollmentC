@@ -120,6 +120,10 @@ namespace CST
 
             isValid = cbType.SelectedIndex > -1 && isValid;
 
+            if (cbType.SelectedIndex > 0)
+            {
+                isValid = cbSubjects.SelectedIndex > -1 && isValid;
+            }
 
             if (!isValid)
             {
