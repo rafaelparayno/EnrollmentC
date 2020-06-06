@@ -14,6 +14,9 @@ namespace CST.Enrollment_Admin.AddUpdateDiags
     public partial class AddUpdateRoom : Form
     {
         RoomController room = new RoomController();
+        RoomTypeController typeController = new RoomTypeController();
+        string[] roomtypeids;
+        int selecteRoomTypeIds = 0;
         public AddUpdateRoom()
         {
             InitializeComponent();
@@ -21,13 +24,24 @@ namespace CST.Enrollment_Admin.AddUpdateDiags
 
         private void button1_Click(object sender, EventArgs e)
         {
-            room.addRoom(cbRoom.SelectedItem.ToString(), int.Parse(txtRoomNo.Value.ToString()));
+            room.addRoom(selecteRoomTypeIds, int.Parse(txtRoomNo.Value.ToString()));
             this.Hide();
         }
 
         private void AddUpdateRoom_Load(object sender, EventArgs e)
         {
+            roomtypeids = typeController.fillCombo(ref cbRoom);
             cbRoom.SelectedIndex = 0;
+        }
+
+        private void txtRoomNo_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cbRoom_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            selecteRoomTypeIds = int.Parse(roomtypeids[cbRoom.SelectedIndex]);
         }
     }
 }

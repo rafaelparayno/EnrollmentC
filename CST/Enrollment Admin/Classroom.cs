@@ -134,7 +134,7 @@ namespace CST
 
         private void refreshGrid()
         {
-            rm.fillDataGridRoom(ref dataGridView1, syid);
+            rm.fillDataGridRoom(ref dataGridView1);
         }
     }
 }

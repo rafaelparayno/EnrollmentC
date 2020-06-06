@@ -355,3 +355,5 @@ C:\Users\Xorn\Desktop\C#\versionRaf\EnrollmentC\CST\bin\Debug\CrystalDecisions.W
 C:\Users\Xorn\Desktop\C#\versionRaf\EnrollmentC\CST\bin\Debug\FlashControlV71.dll
 C:\Users\Xorn\Desktop\C#\versionRaf\EnrollmentC\CST\obj\Debug\CST.Reports.RegFormRep.resources
 C:\Users\Xorn\Desktop\C#\versionRaf\EnrollmentC\CST\obj\Debug\CST.Reports.StudentSchedRep.resources
+C:\Users\Xorn\Desktop\C#\versionRaf\EnrollmentC\CST\obj\Debug\CST.Enrollment_Admin.AddUpdateDiags.AddUpdaateRoomType.resources
+C:\Users\Xorn\Desktop\C#\versionRaf\EnrollmentC\CST\obj\Debug\CST.Enrollment_Admin.RoomType.resources

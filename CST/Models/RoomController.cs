@@ -18,7 +18,7 @@ namespace CST.Models
             sy = yr.getSchoolYearId();
         }
 
-        public void addRoom(string type, int roomno) 
+        public void addRoom(int type, int roomno) 
         {
 
             bool check = checking(roomno,type);
@@ -26,7 +26,7 @@ namespace CST.Models
 
             if (!check)
             {
-                string sql = String.Format(@"INSERT INTO classroom (classroom_type,classroom_no) VALUES ('{0}','{1}')", type, roomno);
+                string sql = String.Format(@"INSERT INTO classroom (classroom_type,classroom_no) VALUES ({0},{1})", type, roomno);
 
                 cs.ExecuteQuery(sql);
                 MessageBox.Show("Succesfully Added a New Room");
@@ -44,18 +44,19 @@ namespace CST.Models
             cs.ExecuteQuery(sql);
         }
 
-        public void fillDataGridRoom(ref DataGridView dg, int syid)
+        public void fillDataGridRoom(ref DataGridView dg)
         {
-            string sql = String.Format(@"SELECT classroom_id,classroom_type,classroom_no FROM classroom ");
+            string sql = String.Format(@"SELECT classroom_id,classroom_type.name,classroom_no FROM classroom 
+                                        LEFT JOIN classroom_type ON classroom.classroom_type = classroom_type.classroom_type_id");
 
             cs.FillDataGrid(sql, ref dg);
         }
 
-        private bool checking(int roomno,string type)
+        private bool checking(int roomno,int type)
         {
          
             bool noSameRoom = false;
-            string sql = String.Format(@"SELECT * FROM `classroom` WHERE classroom_type = '{0}' AND classroom_no = {1}", type, roomno);
+            string sql = String.Format(@"SELECT * FROM `classroom` WHERE classroom_type = {0} AND classroom_no = {1}", type, roomno);
           
             MySqlDataReader reader = null;
             reader = cs.RetrieveRecords(sql, ref reader);
@@ -92,9 +93,10 @@ namespace CST.Models
         public int[] fillRoomAvail(ref ComboBox cb, string te,string ts)
         {
 
+            //Version2 Update...
             int[] room_ids = { };
 
-            string sql = String.Format(@"SELECT CONCAT(classroom_type,' ',classroom_no) As RoomName,classroom_id FROM classroom WHERE classroom_id not in(SELECT classroom_id FROM sched_section WHERE timestamp_id in(SELECT timestamp_id FROM timestamp WHERE start_time <= '{0}' AND end_time > '{1}'))",
+            string sql = String.Format(@"SELECT CONCAT(classroom_type.name,' ',classroom_no) As RoomName,classroom_id FROM classroom LEFT JOIN classroom_type ON classroom.classroom_type = classroom_type.classroom_type_id WHERE classroom_id not in(SELECT classroom_id FROM sched_section WHERE timestamp_id in(SELECT timestamp_id FROM timestamp WHERE start_time <= '{0}' AND end_time > '{1}'))",
                 te,ts);
 
             MySqlDataReader reader = null;

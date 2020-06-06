@@ -58,6 +58,7 @@
             0,
             0,
             0});
+            this.txtRoomNo.ValueChanged += new System.EventHandler(this.txtRoomNo_ValueChanged);
             // 
             // cbRoom
             // 
@@ -68,14 +69,11 @@
             this.cbRoom.FormattingEnabled = true;
             this.cbRoom.IntegralHeight = false;
             this.cbRoom.ItemHeight = 20;
-            this.cbRoom.Items.AddRange(new object[] {
-            "Room",
-            "Computer Laboratory",
-            "Science Laboratory"});
             this.cbRoom.Location = new System.Drawing.Point(27, 34);
             this.cbRoom.Name = "cbRoom";
             this.cbRoom.Size = new System.Drawing.Size(224, 28);
             this.cbRoom.TabIndex = 278;
+            this.cbRoom.SelectedIndexChanged += new System.EventHandler(this.cbRoom_SelectedIndexChanged);
             // 
             // label22
             // 

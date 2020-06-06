@@ -10,6 +10,7 @@ using System.Timers;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using CST.Models;
+using CST.Enrollment_Admin;
 
 namespace CST
 {
@@ -115,7 +116,9 @@ namespace CST
 
         private void button7_Click(object sender, EventArgs e)
         {
-
+            RoomType frm = new RoomType();
+            this.Hide();
+            frm.Show();
         }
     }
 }

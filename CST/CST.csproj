@@ -99,6 +99,12 @@
     <Compile Include="Enrollment Admin\AddUpdateDiags\addTimeStamp.Designer.cs">
       <DependentUpon>addTimeStamp.cs</DependentUpon>
     </Compile>
+    <Compile Include="Enrollment Admin\AddUpdateDiags\AddUpdaateRoomType.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Enrollment Admin\AddUpdateDiags\AddUpdaateRoomType.Designer.cs">
+      <DependentUpon>AddUpdaateRoomType.cs</DependentUpon>
+    </Compile>
     <Compile Include="Enrollment Admin\AddUpdateDiags\AddUpdateGrade.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -207,6 +213,12 @@
     <Compile Include="Enrollment Admin\PanelSched\PanelViewTeacherSched.Designer.cs">
       <DependentUpon>PanelViewTeacherSched.cs</DependentUpon>
     </Compile>
+    <Compile Include="Enrollment Admin\RoomType.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Enrollment Admin\RoomType.Designer.cs">
+      <DependentUpon>RoomType.cs</DependentUpon>
+    </Compile>
     <Compile Include="Enrollment Admin\SchedulingFinal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -218,6 +230,7 @@
     <Compile Include="Models\GradeLevelController.cs" />
     <Compile Include="Models\MiscController.cs" />
     <Compile Include="Models\RoomController.cs" />
+    <Compile Include="Models\RoomTypeController.cs" />
     <Compile Include="Models\SchedSectionController.cs" />
     <Compile Include="Models\SchoolRequirementsController.cs" />
     <Compile Include="Models\SchoolRequirementsMod\SchoolRequireModel.cs" />
@@ -623,6 +636,9 @@
     <EmbeddedResource Include="Enrollment Admin\AddUpdateDiags\addTimeStamp.resx">
       <DependentUpon>addTimeStamp.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Enrollment Admin\AddUpdateDiags\AddUpdaateRoomType.resx">
+      <DependentUpon>AddUpdaateRoomType.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Enrollment Admin\AddUpdateDiags\AddUpdateGrade.resx">
       <DependentUpon>AddUpdateGrade.cs</DependentUpon>
     </EmbeddedResource>
@@ -676,6 +692,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Enrollment Admin\PanelSched\PanelViewTeacherSched.resx">
       <DependentUpon>PanelViewTeacherSched.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Enrollment Admin\RoomType.resx">
+      <DependentUpon>RoomType.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Enrollment Admin\SchedulingFinal.resx">
       <DependentUpon>SchedulingFinal.cs</DependentUpon>

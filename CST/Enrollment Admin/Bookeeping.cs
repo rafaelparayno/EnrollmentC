@@ -57,7 +57,7 @@ namespace CST.Enrollment_Admin
             if (comboBox1.SelectedIndex == 0)
             {
                 //rooms
-                roomController.fillDataGridRoom(ref dataGridView1, selectedSyid);
+                roomController.fillDataGridRoom(ref dataGridView1);
 
             }
             else if (comboBox1.SelectedIndex == 1)

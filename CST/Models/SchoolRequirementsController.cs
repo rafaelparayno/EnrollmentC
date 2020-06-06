@@ -22,15 +22,15 @@ namespace CST.Models
 
         public void addSchoolRequirements(string typeStud,string name)
         {
-            string sql = String.Format(@"INSERT INTO school_requirements (type_of_student,requirement_name,SY_ID) VALUES ('{0}','{1}',{2})",
-                                       typeStud, name, schoolYearId);
+            string sql = String.Format(@"INSERT INTO school_requirements (type_of_student,requirement_name) VALUES ('{0}','{1}')",
+                                       typeStud, name);
 
             cs.ExecuteQuery(sql);
         }
 
         public void fillDataGridSchoolReq(ref DataGridView dg,int schoolId)
         {
-            string sql = String.Format(@"SELECT req_id,type_of_student,requirement_name FROM school_requirements WHERE SY_ID = {0}", schoolId);
+            string sql = String.Format(@"SELECT req_id,type_of_student,requirement_name FROM school_requirements");
 
             cs.FillDataGrid(sql,ref dg);
         }
