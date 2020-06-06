@@ -57,9 +57,9 @@ namespace CST.Enrollment_Admin.AddUpdateDiags
 
         private void button6_Click(object sender, EventArgs e)
         {
-            bool isValid = validation();
+           
 
-            if (isValid)
+            if (validation())
             {
                 if (!double.TryParse(textBox1.Text, out _))
                 {
@@ -81,7 +81,11 @@ namespace CST.Enrollment_Admin.AddUpdateDiags
                     this.Hide();
                 }
 
-             
+
+            }
+            else
+            {
+                MessageBox.Show("Please Fill The Data", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

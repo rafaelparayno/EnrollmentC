@@ -43,7 +43,9 @@ namespace CST
 
         private void button3_Click(object sender, EventArgs e)
         {
-
+            MiscFee frm = new MiscFee();
+            frm.Show();
+            this.Hide();
 
 
         }

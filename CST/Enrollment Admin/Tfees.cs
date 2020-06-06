@@ -28,6 +28,8 @@ namespace CST.Enrollment_Admin
                 comboBox2.Items.Add(item);
             }
             refreshGrid();
+
+            comboBox2.SelectedIndex = 0;
         }
 
         private void button5_Click(object sender, EventArgs e)
