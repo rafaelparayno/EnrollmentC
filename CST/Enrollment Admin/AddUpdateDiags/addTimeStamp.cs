@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using CST.Models;
+using Org.BouncyCastle.Asn1.Cms;
 
 namespace CST.Enrollment_Admin.AddUpdateDiags
 {
@@ -46,9 +47,11 @@ namespace CST.Enrollment_Admin.AddUpdateDiags
 
         private void button6_Click(object sender, EventArgs e)
         {
-            timestampController.addTime(time_end.Value.ToShortTimeString(), time_start.Value.ToShortTimeString());
-            this.Hide();
-          
+          //  timestampController.addTime(time_end.Value.ToShortTimeString(), time_start.Value.ToShortTimeString());
+            // this.Hide();
+            MessageBox.Show(time_start.Value.ToShortTimeString());
+
+            //TODO fix this...
         }
     }
 }
