@@ -71,5 +71,10 @@ namespace CST.Enrollment_Admin.PanelSched
                 }
             }
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            
+        }
     }
 }
