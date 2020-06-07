@@ -120,7 +120,7 @@
             0});
             this.numericUpDown1.Location = new System.Drawing.Point(39, 125);
             this.numericUpDown1.Maximum = new decimal(new int[] {
-            90,
+            600,
             0,
             0,
             0});
@@ -138,6 +138,7 @@
             0,
             0});
             this.numericUpDown1.ValueChanged += new System.EventHandler(this.numericUpDown1_ValueChanged);
+            this.numericUpDown1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.numericUpDown1_KeyPress);
             // 
             // addTimeStamp
             // 

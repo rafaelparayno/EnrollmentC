@@ -29,7 +29,12 @@ namespace CST.Models
 
         public void fillListSched(ref ListView lv,int sect_id)
         {
-            string sql = String.Format(@"SELECT timestamp.start_time,timestamp.end_time,subjects.subject_name,CONCAT(useraccounts.Firstname,' ',useraccounts.Lastname) AS 'Teachers Name' FROM `sched_section` LEFT JOIN timestamp ON sched_section.timestamp_id = timestamp.timestamp_id LEFT JOIN subjects ON sched_section.subject_id = subjects.subject_id LEFT JOIN specialization ON sched_section.teacher_ID = specialization.teacher_ID LEFT JOIN useraccounts ON specialization.acc_id = useraccounts.acc_id WHERE sched_section.sect_id = {0} AND sched_section.SY_id = {1}",
+            string sql = String.Format(@"SELECT timestamp.start_time,timestamp.end_time,subjects.subject_name,CONCAT(useraccounts.Firstname,' ',useraccounts.Lastname) AS 'Teachers Name' 
+                                        FROM `sched_section` LEFT JOIN timestamp ON sched_section.timestamp_id = timestamp.timestamp_id 
+                                        LEFT JOIN subjects ON sched_section.subject_id = subjects.subject_id 
+                                        LEFT JOIN specialization ON sched_section.teacher_ID = specialization.teacher_ID 
+                                        LEFT JOIN useraccounts ON specialization.acc_id = useraccounts.acc_id 
+                                        WHERE sched_section.sect_id = {0} AND sched_section.SY_id = {1}",
                                         sect_id,syid);
 
             MySqlDataReader reader = null;
@@ -52,7 +57,14 @@ namespace CST.Models
 
         public void fillListSched2(ref ListView lv, int sect_id)
         {
-            string sql = String.Format(@"SELECT timestamp.start_time,timestamp.end_time,subjects.subject_name,CONCAT(useraccounts.Firstname,' ',useraccounts.Lastname) AS 'Teachers Name',Concat(classroom.classroom_type,' ',classroom.classroom_no) AS 'Class Room' FROM `sched_section` LEFT JOIN timestamp ON sched_section.timestamp_id = timestamp.timestamp_id LEFT JOIN subjects ON sched_section.subject_id = subjects.subject_id LEFT JOIN specialization ON sched_section.teacher_ID = specialization.teacher_ID LEFT JOIN useraccounts ON specialization.acc_id = useraccounts.acc_id LEFT JOIN classroom ON sched_section.classroom_id = classroom.classroom_id WHERE sched_section.sect_id = {0} AND sched_section.SY_id = {1}",
+            string sql = String.Format(@"SELECT timestamp.start_time,timestamp.end_time,subjects.subject_name,CONCAT(useraccounts.Firstname,' ',useraccounts.Lastname) AS 'Teachers Name',
+                                        Concat(classroom.classroom_type,' ',classroom.classroom_no) AS 'Class Room' FROM `sched_section` 
+                                        LEFT JOIN timestamp ON sched_section.timestamp_id = timestamp.timestamp_id 
+                                        LEFT JOIN subjects ON sched_section.subject_id = subjects.subject_id 
+                                        LEFT JOIN specialization ON sched_section.teacher_ID = specialization.teacher_ID 
+                                        LEFT JOIN useraccounts ON specialization.acc_id = useraccounts.acc_id 
+                                        LEFT JOIN classroom ON sched_section.classroom_id = classroom.classroom_id 
+                                        WHERE sched_section.sect_id = {0} AND sched_section.SY_id = {1}",
                                         sect_id, syid);
 
             MySqlDataReader reader = null;
@@ -75,7 +87,13 @@ namespace CST.Models
 
         public void fillListTeachSched(ref ListView lv, int teacher_id)
         {
-            string sql = String.Format(@"SELECT timestamp.start_time,timestamp.end_time,subjects.subject_name,Concat(classroom.classroom_type,' ',classroom.classroom_no) AS 'Class Room',sections.section_name,sections.grade_level FROM `sched_section` LEFT JOIN timestamp ON sched_section.timestamp_id = timestamp.timestamp_id LEFT JOIN subjects ON sched_section.subject_id = subjects.subject_id LEFT JOIN classroom ON sched_section.classroom_id = classroom.classroom_id LEFT JOIN sections ON sched_section.sect_id = sections.sect_id WHERE sched_section.teacher_ID = {0} AND sched_section.SY_id = {1} ORDER BY timestamp.start_time",
+            string sql = String.Format(@"SELECT timestamp.start_time,timestamp.end_time,subjects.subject_name,Concat(classroom.classroom_type,' ',classroom.classroom_no) AS 'Class Room',
+                                        sections.section_name,sections.grade_level FROM `sched_section` 
+                                        LEFT JOIN timestamp ON sched_section.timestamp_id = timestamp.timestamp_id 
+                                        LEFT JOIN subjects ON sched_section.subject_id = subjects.subject_id 
+                                        LEFT JOIN classroom ON sched_section.classroom_id = classroom.classroom_id 
+                                        LEFT JOIN sections ON sched_section.sect_id = sections.sect_id 
+                                        WHERE sched_section.teacher_ID = {0} AND sched_section.SY_id = {1} ORDER BY timestamp.start_time",
                                         teacher_id,syid);
 
             MySqlDataReader reader = null;
@@ -99,7 +117,13 @@ namespace CST.Models
 
         public void fillListTeachSched2(ref ListView lv, int teacher_id,string grade_level)
         {
-            string sql = String.Format(@"SELECT timestamp.start_time,timestamp.end_time,subjects.subject_name,Concat(classroom.classroom_type,' ',classroom.classroom_no) AS 'Class Room',sections.section_name,sections.grade_level FROM `sched_section` LEFT JOIN timestamp ON sched_section.timestamp_id = timestamp.timestamp_id LEFT JOIN subjects ON sched_section.subject_id = subjects.subject_id LEFT JOIN classroom ON sched_section.classroom_id = classroom.classroom_id LEFT JOIN sections ON sched_section.sect_id = sections.sect_id WHERE sched_section.teacher_ID = {0} AND sched_section.SY_id = {1} AND sections.grade_level = '{2}'",
+            string sql = String.Format(@"SELECT timestamp.start_time,timestamp.end_time,subjects.subject_name,Concat(classroom.classroom_type,' ',classroom.classroom_no) AS 'Class Room',
+                                        sections.section_name,sections.grade_level FROM `sched_section` 
+                                        LEFT JOIN timestamp ON sched_section.timestamp_id = timestamp.timestamp_id 
+                                        LEFT JOIN subjects ON sched_section.subject_id = subjects.subject_id 
+                                        LEFT JOIN classroom ON sched_section.classroom_id = classroom.classroom_id 
+                                        LEFT JOIN sections ON sched_section.sect_id = sections.sect_id 
+                                        WHERE sched_section.teacher_ID = {0} AND sched_section.SY_id = {1} AND sections.grade_level = '{2}'",
                                         teacher_id, syid,grade_level);
 
             MySqlDataReader reader = null;

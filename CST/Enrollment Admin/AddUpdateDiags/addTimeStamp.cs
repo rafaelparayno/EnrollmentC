@@ -18,6 +18,7 @@ namespace CST.Enrollment_Admin.AddUpdateDiags
         public addTimeStamp()
         {
             InitializeComponent();
+            time_start.ShowUpDown = true;
         }
 
         private void addTimeStamp_Load(object sender, EventArgs e)
@@ -47,11 +48,19 @@ namespace CST.Enrollment_Admin.AddUpdateDiags
 
         private void button6_Click(object sender, EventArgs e)
         {
-          //  timestampController.addTime(time_end.Value.ToShortTimeString(), time_start.Value.ToShortTimeString());
-            // this.Hide();
-            MessageBox.Show(time_start.Value.ToShortTimeString());
+            timestampController.addTime(time_end.Value.ToString("HH:mm"), time_start.Value.ToShortTimeString());
+            this.Hide();
+          
+        }
 
-            //TODO fix this...
+        private void numericUpDown1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            string validKeys = "";
+            if (validKeys.IndexOf(e.KeyChar) < 0 )
+            {
+                e.Handled = true;
+            }
+
         }
     }
 }

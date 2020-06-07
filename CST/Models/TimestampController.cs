@@ -23,7 +23,7 @@ namespace CST.Models
         {
 
         
-            string sql = String.Format(@"INSERT timestamp (start_time,end_time,Sy_id) VALUES ('{0}','{1}',{2})", start, end, yearController.getSchoolYearId());
+            string sql = String.Format(@"INSERT timestamp (start_time,end_time) VALUES ('{0}','{1}')", start, end);
 
             cs.ExecuteQuery(sql);
         
@@ -32,7 +32,7 @@ namespace CST.Models
 
         public void fillDataTime(ref DataGridView dg, int yid)
         {
-            string sql = String.Format(@"SELECT timestamp_id,start_time,end_time FROM timestamp WHERE Sy_id = {0} ORDER BY start_time ASC", yid);
+            string sql = String.Format(@"SELECT timestamp_id,start_time,end_time FROM timestamp ORDER BY start_time ASC");
 
             cs.FillDataGrid(sql, ref dg);
         }
