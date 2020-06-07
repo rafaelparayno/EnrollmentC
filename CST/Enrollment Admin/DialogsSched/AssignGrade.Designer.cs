@@ -46,6 +46,7 @@
             this.cbGradeLevel.Name = "cbGradeLevel";
             this.cbGradeLevel.Size = new System.Drawing.Size(303, 28);
             this.cbGradeLevel.TabIndex = 273;
+            this.cbGradeLevel.SelectedIndexChanged += new System.EventHandler(this.cbGradeLevel_SelectedIndexChanged);
             // 
             // label23
             // 
@@ -80,7 +81,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::CST.Properties.Resources.b;
-            this.ClientSize = new System.Drawing.Size(327, 179);
+            this.ClientSize = new System.Drawing.Size(327, 166);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.cbGradeLevel);
             this.Controls.Add(this.label23);

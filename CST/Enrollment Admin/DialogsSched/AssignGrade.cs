@@ -36,5 +36,10 @@ namespace CST.Enrollment_Admin.DialogsSched
             
             
         }
+
+        private void cbGradeLevel_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            gradelevell = cbGradeLevel.SelectedItem.ToString();
+        }
     }
 }

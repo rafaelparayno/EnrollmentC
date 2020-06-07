@@ -57,11 +57,11 @@ namespace CST.Enrollment_Admin.PanelSched
 
         private void button1_Click(object sender, EventArgs e)
         {
-            AssignGrade frm = new AssignGrade();
+            //AssignGrade frm = new AssignGrade();
       
-            frm.ShowDialog();
-            gradelevel = frm.gradelevell;
-            label1.Text = "Grade Level : " + gradelevel;
+            //frm.ShowDialog();
+            //gradelevel = frm.gradelevell;
+            //label1.Text = "Grade Level : " + gradelevel;
       
         }
 
@@ -129,30 +129,28 @@ namespace CST.Enrollment_Admin.PanelSched
 
         private void button3_Click(object sender, EventArgs e)
         {
-            AssignSection frm = new AssignSection();
-            frm.ShowDialog();
-
-          
-            if(frm.grade != "")
+            if(gradelevel != "")
             {
-                gradelevel = sectionController.getGradeLevelinSections(int.Parse(frm.grade));
-                sect_id = int.Parse(frm.grade);
+                AssignSection frm = new AssignSection(gradelevel);
+                frm.ShowDialog();
+
+
+                if (frm.selectedId != "")
+                {
+
+                    sect_id = int.Parse(frm.selectedId);
+                }
+
+
+                label2.Text = "Section : " + frm.sectionName;
+                resetSched();
+            }
+            else
+            {
+                MessageBox.Show("Error Please Select A Grade first", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
            
-            label1.Text = "Grade Level : " + gradelevel;
-            label2.Text = "Section : " + frm.sectionName;
-            label3.Text = "Room : ";
-            roomId = 0;
-            subjid = null;
-            subids = null;
-            teacherIds = null;
-            button6.Enabled = true;
-            listView1.Items.Clear();
-            timestampStart.Clear();
-            timestampEnd.Clear();
-            timeStampId.Clear();
-            listBox1.Items.Clear();
-            fillListBox();
+        
         }
 
         private void button6_Click(object sender, EventArgs e)
@@ -165,17 +163,21 @@ namespace CST.Enrollment_Admin.PanelSched
                 {
                     AssignSubjects frm = new AssignSubjects(gradelevel, subjid);
                     frm.ShowDialog();
-                    listView1.SelectedItems[0].SubItems[3].Text = frm.subjectsSelected;
-                    //     MessageBox.Show(listView1.SelectedIndices[0].ToString());
-                    subjid[listView1.SelectedIndices[0]] = frm.selectedSubId;
-                    subids[listView1.SelectedIndices[0]] = frm.selectedSubidss;
-                    button1.Enabled = true;
-                    listBox1.Items.Clear();
-                    fillListBox();
-                    if (listBox1.Items.Count == 0)
+                    if(frm.subjectsSelected != "")
                     {
-                        button6.Enabled = false;
+                        listView1.SelectedItems[0].SubItems[3].Text = frm.subjectsSelected;
+                        //     MessageBox.Show(listView1.SelectedIndices[0].ToString());
+                        subjid[listView1.SelectedIndices[0]] = frm.selectedSubId;
+                        subids[listView1.SelectedIndices[0]] = frm.selectedSubidss;
+                        button1.Enabled = true;
+                        listBox1.Items.Clear();
+                        fillListBox();
+                        if (listBox1.Items.Count == 0)
+                        {
+                            button6.Enabled = false;
+                        }
                     }
+                   
                 }
                 else
                 {
@@ -320,6 +322,39 @@ namespace CST.Enrollment_Admin.PanelSched
         {
         
             subjectController.fillDataGridSubForGrade(ref listBox1, gradelevel, subids);
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            AssignGrade frm = new AssignGrade();
+            frm.ShowDialog();
+
+            if (frm.gradelevell != "")
+            {
+             
+                gradelevel = frm.gradelevell;
+                label1.Text = "Grade Level : " + gradelevel;
+                resetSched();
+            }
+
+
+
+        }
+
+        private void resetSched()
+        {
+            label3.Text = "Room : ";
+            roomId = 0;
+            subjid = null;
+            subids = null;
+            teacherIds = null;
+            button6.Enabled = true;
+            listView1.Items.Clear();
+            timestampStart.Clear();
+            timestampEnd.Clear();
+            timeStampId.Clear();
+            listBox1.Items.Clear();
+            fillListBox();
         }
     }
 }

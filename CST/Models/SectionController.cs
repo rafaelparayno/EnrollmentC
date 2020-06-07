@@ -87,11 +87,13 @@ namespace CST.Models
             return arr;
         }
 
-        public string [] fillComboSect2(ref ComboBox cb)
+        public string [] fillComboSect2(ref ComboBox cb,string grade)
         {
             MySqlDataReader reader = null;
             string sect_id = "";
-            string sql = String.Format("SELECT sect_id,section_name FROM `sections` WHERE sect_id not in (SELECT sect_id From sched_section) AND SY_ID  = {0}", yearID);
+            string sql = String.Format(@"SELECT sect_id,section_name FROM `sections`
+                                        WHERE sect_id not in (SELECT sect_id From sched_section ) 
+                                        AND SY_ID  = {0} AND grade_level = '{1}'" ,yearID,grade);
             cs.RetrieveRecords(sql, ref reader);
 
             while (reader.Read())

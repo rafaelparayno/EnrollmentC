@@ -47,6 +47,7 @@
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.label4 = new System.Windows.Forms.Label();
             this.listBox1 = new System.Windows.Forms.ListBox();
+            this.button7 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // listView1
@@ -107,7 +108,7 @@
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Font = new System.Drawing.Font("Times New Roman", 12F);
             this.button2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button2.Location = new System.Drawing.Point(173, 567);
+            this.button2.Location = new System.Drawing.Point(252, 551);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(140, 48);
             this.button2.TabIndex = 2;
@@ -121,7 +122,7 @@
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button3.Font = new System.Drawing.Font("Times New Roman", 12F);
             this.button3.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button3.Location = new System.Drawing.Point(3, 567);
+            this.button3.Location = new System.Drawing.Point(41, 618);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(140, 48);
             this.button3.TabIndex = 3;
@@ -135,7 +136,7 @@
             this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button4.Font = new System.Drawing.Font("Times New Roman", 12F);
             this.button4.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button4.Location = new System.Drawing.Point(513, 567);
+            this.button4.Location = new System.Drawing.Point(463, 618);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(140, 48);
             this.button4.TabIndex = 4;
@@ -149,7 +150,7 @@
             this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button5.Font = new System.Drawing.Font("Times New Roman", 12F);
             this.button5.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button5.Location = new System.Drawing.Point(681, 567);
+            this.button5.Location = new System.Drawing.Point(252, 618);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(140, 48);
             this.button5.TabIndex = 5;
@@ -174,7 +175,7 @@
             this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button6.Font = new System.Drawing.Font("Times New Roman", 12F);
             this.button6.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button6.Location = new System.Drawing.Point(343, 567);
+            this.button6.Location = new System.Drawing.Point(463, 551);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(140, 48);
             this.button6.TabIndex = 7;
@@ -198,7 +199,7 @@
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(357, 26);
+            this.label3.Location = new System.Drawing.Point(502, 26);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(61, 20);
             this.label3.TabIndex = 9;
@@ -211,7 +212,7 @@
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Times New Roman", 12F);
             this.button1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button1.Location = new System.Drawing.Point(343, 632);
+            this.button1.Location = new System.Drawing.Point(674, 551);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(140, 48);
             this.button1.TabIndex = 10;
@@ -256,13 +257,28 @@
             this.listBox1.Size = new System.Drawing.Size(799, 76);
             this.listBox1.TabIndex = 297;
             // 
+            // button7
+            // 
+            this.button7.BackColor = System.Drawing.Color.DarkSeaGreen;
+            this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button7.Font = new System.Drawing.Font("Times New Roman", 12F);
+            this.button7.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.button7.Location = new System.Drawing.Point(41, 551);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(140, 48);
+            this.button7.TabIndex = 298;
+            this.button7.Text = "Assign Grade";
+            this.button7.UseVisualStyleBackColor = false;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
+            // 
             // PanelScheduling
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::CST.Properties.Resources.b;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(833, 692);
+            this.ClientSize = new System.Drawing.Size(833, 678);
+            this.Controls.Add(this.button7);
             this.Controls.Add(this.listBox1);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.progressBar1);
@@ -306,5 +322,6 @@
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         public System.Windows.Forms.Label label4;
         private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.Button button7;
     }
 }
