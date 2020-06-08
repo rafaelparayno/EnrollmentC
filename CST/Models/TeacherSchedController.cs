@@ -21,7 +21,9 @@ namespace CST.Models
         public bool isConflictWithTheTime(string te,string ts, int teacher_id)
         {
             bool isConflict = false;
-            string sql = String.Format(@"SELECT * FROM `sched_section` WHERE teacher_ID = {0} AND SY_id = {1} AND timestamp_id in (SELECT timestamp_id  FROM timestamp WHERE start_time < '{2}' AND end_time > '{3}')"
+            string sql = String.Format(@"SELECT * FROM `sched_section` WHERE teacher_ID = {0} AND SY_id = {1} 
+                                        AND timestamp_id in 
+                                        (SELECT timestamp_id  FROM timestamp WHERE start_time < '{2}' AND end_time > '{3}')"
                                         , teacher_id,yearSyid, te,ts);
             MySqlDataReader reader = null;
             cs.RetrieveRecords(sql, ref reader);

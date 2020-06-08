@@ -255,6 +255,24 @@ namespace CST.Models
             return found;
         }
 
+        public int getIdBySubnameAndGrade(string name,string grade)
+        {
+            int id = 0;
+
+            string sql = String.Format(@"SELECT * FROM subjects WHERE subject_name = '{0}' AND grade_level = '{1}'",
+                                        name, grade);
+            MySqlDataReader reader = null;
+
+            cs.RetrieveRecords(sql, ref reader);
+
+            if (reader.Read())
+            {
+                id = int.Parse(reader["subject_id"].ToString());
+            }
+
+            return id;
+        }
+
 
     }
 }
