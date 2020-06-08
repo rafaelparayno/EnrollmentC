@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using CST.Data;
@@ -22,6 +23,7 @@ namespace CST.Enrollment_Admin.PanelSched
         SchedSectionController schedSectionController = new SchedSectionController();
         IDictionary<int, int> subjectdata = new Dictionary<int, int>();
         IDictionary<int, int> teacherData = new Dictionary<int, int>();
+        Loading load = new Loading();
         public PanelViewSchedules()
         {
             InitializeComponent();
@@ -47,13 +49,18 @@ namespace CST.Enrollment_Admin.PanelSched
         }
 
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
-        { 
+        {
+
+            getSchedSections();
+           
+        }
+
+        private void getSchedSections()
+        {
             selectedSectIds = sectionIds[comboBox2.SelectedIndex];
             listView1.Items.Clear();
             ssids = schedSectionController.fillListSched2(ref listView1, selectedSectIds);
             label3.Text = "Room :" + schedSectionController.roomname(selectedSectIds);
-
-           
         }
 
         private void button5_Click(object sender, EventArgs e)
@@ -83,7 +90,31 @@ namespace CST.Enrollment_Admin.PanelSched
 
         private void button1_Click(object sender, EventArgs e)
         {
-            
+            if (CheckingSubjects())
+            {
+                backgroundWorker1.RunWorkerAsync();
+                load.Show();
+                if (subjectdata != null)
+                {
+                    foreach(KeyValuePair<int,int> entry in subjectdata)
+                    {
+                        schedSectionController.updateSchedBySubjects(entry.Key, entry.Value);
+                    }
+                }
+                if(teacherData != null)
+                {
+                    foreach(KeyValuePair<int,int> entry in teacherData)
+                    {
+                        schedSectionController.updateSchedByTeachers(entry.Key, entry.Value);
+                    
+                    }
+                }
+                
+            }
+            else
+            {
+                MessageBox.Show("Cannot have the same subject", "error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void listView1_DoubleClick(object sender, EventArgs e)
@@ -105,6 +136,7 @@ namespace CST.Enrollment_Admin.PanelSched
                             subjectdata[ssids[listView1.SelectedIndices[0]]] = frm.selectedId;
                             styledUpdateCells(2);
                             listView1.SelectedItems[0].SubItems[2].Text = frm.sub;
+                            button1.Enabled = true;
                         }
                    
                         break;
@@ -119,6 +151,7 @@ namespace CST.Enrollment_Admin.PanelSched
                             listView1.SelectedItems[0].SubItems[3].Text = frm2.TeacherName;
                             teacherData[ssids[listView1.SelectedIndices[0]]] = frm2.selectedId;
                             styledUpdateCells(3);
+                            button1.Enabled = true;
                         }
                         break;
                     default:
@@ -143,11 +176,52 @@ namespace CST.Enrollment_Admin.PanelSched
             if(ssids != null)
                 Array.Clear(ssids, 0, ssids.Length);
             subjectdata.Clear();
+            teacherData.Clear();
+            button1.Enabled = false;
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private bool CheckingSubjects()
+        {
+            bool isValid = true;
+            string[] subjectsname = new string[listView1.Items.Count]; 
+           for(int i= 0;i < listView1.Items.Count; i++)
+            {
+                subjectsname[i] = listView1.Items[i].SubItems[2].Text;
+            }
+            if (subjectsname.Distinct().Count() != subjectsname.Count())
+            {
+                isValid = false;
+               
+            }
+
+            return isValid;
+        }
+
+        private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
+        {
+            for (int i = 1; i <= 100; i++)
+            {
+                Thread.Sleep(10);
+                backgroundWorker1.WorkerReportsProgress = true;
+                backgroundWorker1.ReportProgress(i);
+            }
+        
+        }
+
+        private void backgroundWorker1_ProgressChanged(object sender, ProgressChangedEventArgs e)
+        {
+
+        }
+
+        private void backgroundWorker1_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            load.Hide();
+            getSchedSections();
         }
     }
 }

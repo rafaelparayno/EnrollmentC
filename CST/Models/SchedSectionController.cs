@@ -197,5 +197,18 @@ namespace CST.Models
             cs.ExecuteQuery(sql);
 
         }
+
+        public void updateSchedBySubjects(int id,int subjid)
+        {
+            string sql = String.Format(@"UPDATE sched_section SET subject_id = {0} WHERE ss_id = {1}", subjid, id);
+
+            cs.ExecuteQuery(sql);
+        }
+
+        public void updateSchedByTeachers(int id,int teacherid)
+        {
+            string sql = String.Format(@"UPDATE sched_section SET teacher_ID = {0} WHERE ss_id = {1}", teacherid, id);
+            cs.ExecuteQuery(sql);
+        }
     }
 }

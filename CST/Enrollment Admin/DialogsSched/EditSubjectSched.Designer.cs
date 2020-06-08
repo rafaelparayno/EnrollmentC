@@ -87,7 +87,7 @@
             this.Controls.Add(this.cbSubjects);
             this.Controls.Add(this.label5);
             this.DoubleBuffered = true;
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "EditSubjectSched";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "EditSubjectSched";

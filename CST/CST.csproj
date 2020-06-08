@@ -201,6 +201,12 @@
     <Compile Include="Enrollment Admin\DialogsSched\EditTeacherSched.Designer.cs">
       <DependentUpon>EditTeacherSched.cs</DependentUpon>
     </Compile>
+    <Compile Include="Enrollment Admin\DialogsSched\Loading.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Enrollment Admin\DialogsSched\Loading.Designer.cs">
+      <DependentUpon>Loading.cs</DependentUpon>
+    </Compile>
     <Compile Include="Enrollment Admin\MiscFee.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -710,6 +716,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Enrollment Admin\DialogsSched\EditTeacherSched.resx">
       <DependentUpon>EditTeacherSched.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Enrollment Admin\DialogsSched\Loading.resx">
+      <DependentUpon>Loading.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Enrollment Admin\MiscFee.resx">
       <DependentUpon>MiscFee.cs</DependentUpon>
