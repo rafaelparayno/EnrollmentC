@@ -15,12 +15,13 @@ namespace CST
     public partial class ModeOfPaymentDiscount : Form
     {
         StudentsDetailsController studentsDetailsController = new StudentsDetailsController();
-      
+        YearController YearController = new YearController();
+        int syid = 0;
         private double disc = 0;
         public ModeOfPaymentDiscount()
         {
             InitializeComponent();
-          
+            syid = YearController.getSchoolYearId();
 
         }
 
@@ -58,9 +59,9 @@ namespace CST
 
         private void button3_Click(object sender, EventArgs e)
         {
-            string[] details = studentsDetailsController.searchAllDetails(textBox1.Text.Trim());
+            string[] details = studentsDetailsController.searchEnrollment(textBox1.Text.Trim(), syid);
 
-            if(details[0] == "")
+            if(details[0] == "" || details[0] == null)
             {
                 MessageBox.Show("No SNO exists or Student is already enrolled");
             }

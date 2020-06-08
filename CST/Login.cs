@@ -12,7 +12,7 @@ using MySql.Data.MySqlClient;
 using CST.Models.SchoolYear;
 using CST.Models;
 using CST.Teacher;
-
+using CST.Cashier;
 
 namespace CST
 {
@@ -197,7 +197,7 @@ namespace CST
                         }
                         else
                         {
-                            Cashier frm = new Cashier();
+                            CashierDashboard frm = new CashierDashboard();
                             frm.Show();
                             this.Hide();
                         }

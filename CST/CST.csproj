@@ -82,6 +82,18 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Cashier\CashierDashboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Cashier\CashierDashboard.Designer.cs">
+      <DependentUpon>CashierDashboard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Cashier\loadingCashier.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Cashier\loadingCashier.Designer.cs">
+      <DependentUpon>loadingCashier.cs</DependentUpon>
+    </Compile>
     <Compile Include="crudFile.cs" />
     <Compile Include="csBackupAndRestore.cs" />
     <Compile Include="Data\DataClass.cs" />
@@ -268,6 +280,7 @@
     <Compile Include="Models\SectionController.cs" />
     <Compile Include="Models\SpecializationController.cs" />
     <Compile Include="Models\StudentBalance.cs" />
+    <Compile Include="Models\StudentEnrolledController.cs" />
     <Compile Include="Models\StudentGradesController.cs" />
     <Compile Include="Models\StudentRequirementController.cs" />
     <Compile Include="Models\StudentRequirements\StudentRequirements.cs" />
@@ -496,12 +509,6 @@
     <Compile Include="System Admin\BackupAndRestore.Designer.cs">
       <DependentUpon>BackupAndRestore.cs</DependentUpon>
     </Compile>
-    <Compile Include="Cashier\Cashier.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Cashier\Cashier.Designer.cs">
-      <DependentUpon>Cashier.cs</DependentUpon>
-    </Compile>
     <Compile Include="Enrollment Admin\EnrollmentAdmin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -654,6 +661,12 @@
     <Compile Include="Enrollment Admin\UpdateTeacherSpecialization.Designer.cs">
       <DependentUpon>UpdateTeacherSpecialization.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Cashier\CashierDashboard.resx">
+      <DependentUpon>CashierDashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Cashier\loadingCashier.resx">
+      <DependentUpon>loadingCashier.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Enrollment Admin\AddMiscellaneousFee.resx">
       <DependentUpon>AddMiscellaneousFee.cs</DependentUpon>
     </EmbeddedResource>
@@ -865,9 +878,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="System Admin\AuditTrail.resx">
       <DependentUpon>AuditTrail.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Cashier\Cashier.resx">
-      <DependentUpon>Cashier.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Enrollment Admin\EnrollmentAdmin.resx">
       <DependentUpon>EnrollmentAdmin.cs</DependentUpon>

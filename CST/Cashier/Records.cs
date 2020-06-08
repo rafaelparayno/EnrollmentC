@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CST.Cashier;
 using CST.Models;
 
 namespace CST
@@ -28,8 +29,9 @@ namespace CST
 
         private void button2_Click(object sender, EventArgs e)
         {
-            Cashier C = new Cashier();
-            C.Show();
+            CashierDashboard c = new CashierDashboard();
+      //      Cashier C = new Cashier();
+            c.Show();
             this.Hide();
         }
 
@@ -71,6 +73,11 @@ namespace CST
         }
 
         private void label7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
         {
 
         }

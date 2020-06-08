@@ -21,6 +21,7 @@ namespace CST
         StudFamDetailsController studFam = new StudFamDetailsController();
         StudHistDetailsController studHis = new StudHistDetailsController();
         StudentRequirementController studReq = new StudentRequirementController();
+       // StudentEnrolledController studentEnrolledController = new StudentEnrolledController();
         bool isUpdate = false;
         string sno = "";
         string[] studentDetails = new string[12];
@@ -142,6 +143,10 @@ namespace CST
             {
                 getAllDetails();
                 getAllFamDetails();
+
+                backgroundWorker1.RunWorkerAsync();
+                progressBar1.Show();
+                tabControl1.Enabled = false;
                 if (!isUpdate)
                 {
           
@@ -170,9 +175,7 @@ namespace CST
                     studReq.addStudentReq(StudentModel.getSno(), StudentModel.getTypeStud(), reqIds[i]);
                 }
 
-                backgroundWorker1.RunWorkerAsync();
-                progressBar1.Show();
-                tabControl1.Enabled = false;
+             //   studentEnrolledController.addEnrolledStudents(StudentModel.getSno(),)
                 StudentModel.clearAll();
             }
             else

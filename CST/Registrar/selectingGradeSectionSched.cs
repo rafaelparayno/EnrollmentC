@@ -24,6 +24,7 @@ namespace CST.Registrar
         SectionController sectionController = new SectionController();
         SchedSectionController schedSectionController = new SchedSectionController();
         StudentsDetailsController studentsDetailsController = new StudentsDetailsController();
+        StudentEnrolledController studentEnrolledController = new StudentEnrolledController();
         public selectingGradeSectionSched(string studno,string name)
         {
             InitializeComponent();
@@ -61,7 +62,8 @@ namespace CST.Registrar
         {
             if (isValid())
             {
-                studentsDetailsController.updateSectAndGrade(selectedSectIds, comboBox1.Text, sno);
+                //studentsDetailsController.updateSectAndGrade(selectedSectIds, comboBox1.Text, sno);
+                studentEnrolledController.addEnrolledStudents(sno, comboBox1.Text, selectedSectIds);
                 this.Hide();
                 RegistrarForm frm = new RegistrarForm();
                 frm.Show();

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -45,6 +46,43 @@ namespace CST.Models
                                            WHERE miscfee_id = {3}", details, price, grade, id);
 
             cs.ExecuteQuery(sql);
+        }
+
+
+        public float getMiscFeeForGrade(string grade)
+        {
+            float fee = 0;
+
+            string sql = String.Format(@"SELECT * FROM misc_fee WHERE grade_level = '{0}' AND SY_ID = {1}",
+                                        grade, syid);
+
+            MySqlDataReader reader = null;
+            cs.RetrieveRecords(sql, ref reader);
+
+            while (reader.Read())
+            {
+                fee = fee + float.Parse(reader["price"].ToString());
+            }
+            cs.CloseConnection();
+
+            return fee;
+        }
+
+        public string getInfoMiscForGrade(string grade)
+        {
+            string infos = "";
+            string sql = String.Format(@"SELECT * FROM misc_fee WHERE grade_level = '{0}' AND SY_ID = {1}",
+                                        grade, syid);
+
+            MySqlDataReader reader = null;
+            cs.RetrieveRecords(sql, ref reader);
+
+            while (reader.Read())
+            {
+                infos = infos + "Detail : " + reader["details"].ToString() + " - PHP " + reader["price"].ToString() + "\n";
+            }
+            cs.CloseConnection();
+            return infos;
         }
 
         public void RemoveMisc(int id)

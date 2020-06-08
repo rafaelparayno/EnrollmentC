@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CST.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -14,22 +15,39 @@ namespace CST.Reports
     {
         double tot = 0;
         string numWord = "";
-        public OrReport(double total)
+        string name = "";
+        string tuition = "";
+        string misc = "";
+
+        StudentsDetailsController studentsDetails = new StudentsDetailsController();
+
+        public OrReport(double total,string sno,string tui,string misc)
         {
             InitializeComponent();
             tot = total;
+            tuition = tui;
+            this.misc = misc;
+            name = studentsDetails.searchAllDetails(sno)[0] + " " + studentsDetails.searchAllDetails(sno)[1];
+
         }
 
         private void OrReport_Load(object sender, EventArgs e)
         {
+            DateTime aDate = DateTime.Now;
             numWord = NumberToWords(int.Parse(tot + ""));
             or rep =  new or();
 
             rep.SetParameterValue("orNoParam", "22721");
             rep.SetParameterValue("wordNumberparam", numWord);
             rep.SetParameterValue("totalParam", tot);
-
-            crystalReportViewer1.ReportSource = rep;
+            rep.SetParameterValue("studentName", name);
+            rep.SetParameterValue("DateNow", aDate.ToString("MM/dd/yyyy"));
+            rep.SetParameterValue("cashierName", UserLog.getFullName());
+            rep.SetParameterValue("part1", "Tuition");
+            rep.SetParameterValue("part2", "Misc");
+            rep.SetParameterValue("partvalue1", tuition);
+            rep.SetParameterValue("partvalue2", misc);
+            crystalReportViewer1.ReportSource = rep;                    
         }
 
         public  string NumberToWords(int number)

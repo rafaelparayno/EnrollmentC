@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using CST.Models;
+using CST.Cashier;
 
 namespace CST
 {
@@ -60,7 +61,8 @@ namespace CST
         private void button2_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Cashier fr3 = new Cashier();
+            CashierDashboard fr3 = new CashierDashboard();
+        //    cashi fr3 = new Cashier();
             fr3.ShowDialog();
             
            

@@ -20,9 +20,9 @@ namespace CST.Models
 
         public void addStudDetails(string []arrDetails)
         {
-            string sql = String.Format(@"INSERT INTO student_detail(`sno`,`firstname`,`lastname`,`middlename`,`gender`,`age`,`birthdate`,`pob`,`contact_no`,`nationality`,`religion`,`address`,`isEnrolled`,`sy_id`) VALUES ('{0}','{1}','{2}','{3}','{4}',{5},'{6}','{7}','{8}','{9}','{10}','{11}','not yet',{12})",
+            string sql = String.Format(@"INSERT INTO student_detail(`sno`,`firstname`,`lastname`,`middlename`,`gender`,`age`,`birthdate`,`pob`,`contact_no`,`nationality`,`religion`,`address`) VALUES ('{0}','{1}','{2}','{3}','{4}',{5},'{6}','{7}','{8}','{9}','{10}','{11}')",
                                         arrDetails[0], arrDetails[1], arrDetails[2], arrDetails[3], arrDetails[4], arrDetails[5], arrDetails[6], arrDetails[7], arrDetails[8],
-                                        arrDetails[9], arrDetails[10], arrDetails[11], syid);
+                                        arrDetails[9], arrDetails[10], arrDetails[11]);
       
             cs.ExecuteQuery(sql);
         }
@@ -50,8 +50,8 @@ namespace CST.Models
 
         public void updateStudDetails2(string fn, string ln, string mn, string gen, int age, string bd, string pob, string cn, string nat, string rel, string add, string sno)
         {
-            string sql = String.Format(@"UPDATE `student_detail` SET `firstname`='{0}',`lastname`='{1}',`middlename`='{2}',`gender`='{3}',`age`={4},`birthdate`='{5}',`pob`='{6}',`contact_no`='{7}',`nationality`='{8}',`religion`='{9}',`address`='{10}',isEnrolled='not yet',sy_id = {11} WHERE sno = '{12}'",
-                                        fn, ln, mn, gen, age, bd, pob, cn, nat, rel, add, syid, sno);
+            string sql = String.Format(@"UPDATE `student_detail` SET `firstname`='{0}',`lastname`='{1}',`middlename`='{2}',`gender`='{3}',`age`={4},`birthdate`='{5}',`pob`='{6}',`contact_no`='{7}',`nationality`='{8}',`religion`='{9}',`address`='{10}' WHERE sno = '{11}'",
+                                        fn, ln, mn, gen, age, bd, pob, cn, nat, rel, add, sno);
          
             cs.ExecuteQuery(sql);
         }
@@ -135,6 +135,40 @@ namespace CST.Models
             }
 
             cs.CloseConnection();
+            return details;
+        }
+
+        public string [] searchEnrollment(string sno,int syid)
+        {
+            string[] details = new string[13];
+            string sql = String.Format(@"SELECT student_detail.sno, `firstname`, `lastname`, `middlename`, `gender`, `age`, `birthdate`, `pob`, `contact_no`, 
+                                        `nationality`, `religion`, `address`, studentenrolledinfo.`grade_level`, studentenrolledinfo.sect_id FROM `student_detail` 
+                                        LEFT JOIN studentenrolledinfo ON student_detail.sno = studentenrolledinfo.sno
+                                        WHERE studentenrolledinfo.sy_id = {0} AND studentenrolledinfo.sno = '{1}' AND studentenrolledinfo.is_Enrolled = 0",
+                                        syid, sno);
+            MySqlDataReader reader = null;
+            cs.RetrieveRecords(sql, ref reader);
+            if (reader.Read())
+            {
+                details[0] = reader["firstname"].ToString();
+                details[1] = reader["lastname"].ToString();
+                details[2] = reader["middlename"].ToString();
+                details[3] = reader["gender"].ToString();
+                details[4] = reader["age"].ToString();
+                details[5] = reader["birthdate"].ToString();
+                details[6] = reader["pob"].ToString();
+                details[7] = reader["contact_no"].ToString();
+                details[8] = reader["nationality"].ToString();
+                details[9] = reader["lastname"].ToString();
+                details[10] = reader["religion"].ToString();
+                details[11] = reader["address"].ToString();
+                details[12] = reader["grade_level"].ToString();
+
+
+            }
+
+            cs.CloseConnection();
+
             return details;
         }
 

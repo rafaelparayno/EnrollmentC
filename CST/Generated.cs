@@ -1,4 +1,5 @@
-﻿using CST.Models;
+﻿using CST.Cashier;
+using CST.Models;
 using CST.Teacher;
 using System;
 using System.Collections.Generic;
@@ -52,7 +53,7 @@ namespace CST
 
                 }else if(role == "Cashier")
                 {
-                    Cashier cash = new Cashier();
+                    CashierDashboard cash = new CashierDashboard();
                     this.Hide();
                     cash.Show();
 

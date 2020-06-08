@@ -39,7 +39,6 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.button8 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.label4 = new System.Windows.Forms.Label();
@@ -167,20 +166,6 @@
             this.label3.Size = new System.Drawing.Size(95, 16);
             this.label3.TabIndex = 261;
             this.label3.Text = "School Fees";
-            // 
-            // button8
-            // 
-            this.button8.BackColor = System.Drawing.Color.DarkSeaGreen;
-            this.button8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button8.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button8.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button8.Location = new System.Drawing.Point(683, 509);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(152, 35);
-            this.button8.TabIndex = 269;
-            this.button8.Text = "Print Summary";
-            this.button8.UseVisualStyleBackColor = false;
             // 
             // label2
             // 
@@ -334,7 +319,6 @@
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.button8);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.label1);
@@ -368,7 +352,6 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button button8;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Label label4;

@@ -5,8 +5,10 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CST.Cashier;
 using CST.Models;
 using CST.Reports;
 
@@ -22,9 +24,14 @@ namespace CST
         double totalDisc = 0;
         double total = 0;
         double downPay = 0;
-        TotalFeeController TotalFeeController = new TotalFeeController();
+        loadingCashier loadingCashier = new loadingCashier();
+        //   TotalFeeController TotalFeeController = new TotalFeeController();
+        TuitionFeeController TuitionFeeController = new TuitionFeeController();
+
+        MiscController miscController = new MiscController();
         StudentBalance studentBalance = new StudentBalance();
-        StudentsDetailsController studentsDetailsController = new StudentsDetailsController();
+   //     StudentsDetailsController studentsDetailsController = new StudentsDetailsController();
+        StudentEnrolledController StudentEnrolledController = new StudentEnrolledController();
         public Payment_Form(string snoo,string fn,string md,string gr, double ds)
         {
             InitializeComponent();
@@ -33,20 +40,32 @@ namespace CST
             mod = md;
             grade = gr;
             disc = ds;
-
+            timer1.Start();
             textBox1.Text = sno;
             textBox2.Text = fullname;
             textBox3.Text = grade;
 
-            total = TotalFeeController.getTotal(mod, grade);
+
+            textBox7.Text = mod;
+            textBox5.Text = String.Format("PHP " + "{0:0.00}",
+                                         TuitionFeeController.getTfPriceGrade(grade,mod));
+            textBox6.Text = String.Format("PHP " + "{0:0.00}",
+                                         miscController.getMiscFeeForGrade(grade));
+
+            total = getTotalFee();
+           
+            label7.Text = miscController.getInfoMiscForGrade(grade);
         
             if (mod == "Fullpayment")
             {
                 label8.Text = "Fee";
                 disc = disc / 100;
-                totalDisc = total * disc;
+                totalDisc = TuitionFeeController.getTfPriceGrade(grade,mod) * disc;
 
                 downPay = total - totalDisc;
+                label7.Text = label7.Text + "\n" + "Discount : " + String.Format("PHP " + "{0:0.00}",
+                                        totalDisc) + " - " + disc +"%";
+             
               
             }
             else if (mod == "Semi-Annual")
@@ -85,57 +104,68 @@ namespace CST
 
         private void button3_Click(object sender, EventArgs e)
         {
-            if(double.Parse(numericUpDown1.Value.ToString()) >= downPay)
+
+            bool isValidNumber = double.TryParse(textBox4.Text.Trim(),out _);
+
+            if (isValidNumber)
             {
-                double balance = 0;
-                double neededToPay = 0;
-                double change = 0;
-                //     studentBalance.addBalance(sno,)
-                if (mod == "Fullpayment")
+                if(double.Parse(textBox4.Text.ToString())>= downPay)
                 {
+                    backgroundWorker1.RunWorkerAsync();
+                    loadingCashier.Show();
+                    double balance = 0;
+                    double neededToPay = 0;
+                    double change = 0;
+                    double receivePayment = 0;
+                    switch (mod)
+                    {
+                        case "Fullpayment":
+                            change = double.Parse(textBox4.Text.ToString()) - downPay;
+                            receivePayment = downPay;
+                            break;
+                        case "Semi-Annual":
+                            balance = total - double.Parse(textBox4.Text.ToString());
+                            receivePayment = double.Parse(textBox4.Text.ToString());
+                            neededToPay = balance;
+                            neededToPay = Math.Round((Double)neededToPay, 2);
+                            break;
+                        case "Quarterly":
+                            balance = total - double.Parse(textBox4.Text.ToString());
+                            receivePayment = double.Parse(textBox4.Text.ToString());
+                            neededToPay = balance / 3;
+                            neededToPay = Math.Round((Double)neededToPay, 2);
+                            break;
+                        case "Monthly":
+                             balance = total - double.Parse(textBox4.Text.ToString());
+                            receivePayment = double.Parse(textBox4.Text.ToString());
+                            neededToPay = balance / 10;
+                             neededToPay = Math.Round((Double)neededToPay, 2);
+                            break;
 
-                change = double.Parse(numericUpDown1.Value.ToString()) -downPay; 
+                    }
+                    studentBalance.addBalance(sno, balance, mod, neededToPay);
+                    StudentEnrolledController.updateEnrolled(sno);
+                    textBox10.Text = String.Format("PHP " + "{0:0.00}", change);
+                  
 
-                }
-                else if (mod == "Semi-Annual")
-                {
+                    OrReport frm2 = new OrReport(receivePayment, sno,textBox5.Text,textBox6.Text);
+                    frm2.ShowDialog();
+                    ModeOfPaymentDiscount frm = new ModeOfPaymentDiscount();
+                    frm.Show();
+                    MessageBox.Show("The student is Succesfully Enrolled");
+                    this.Hide();
 
-                     balance = total - double.Parse(numericUpDown1.Value.ToString());
-                     neededToPay = balance;
-                    neededToPay = Math.Round((Double)neededToPay, 2);
-                }
-                else if (mod == "Quarterly")
-                {
-                     balance = total - double.Parse(numericUpDown1.Value.ToString());
-                    neededToPay = balance / 3;
-                    neededToPay = Math.Round((Double)neededToPay, 2);
+                  
                 }
                 else
                 {
-                     balance = total - double.Parse(numericUpDown1.Value.ToString());
-                    neededToPay = balance / 10;
-                    neededToPay = Math.Round((Double)neededToPay, 2);
+                    MessageBox.Show("The Payment should higher or equal than the downpayment");
                 }
-
-                studentBalance.addBalance(sno, balance, mod, neededToPay);
-                studentsDetailsController.updateEnrolled( sno);
-                textBox10.Text = String.Format("PHP " + "{0:0.00}", change);
-                MessageBox.Show("The student is Succesfully Enrolled");
-
-
-                OrReport frm2 = new OrReport(total);
-
-                frm2.ShowDialog();
-
-                ModeOfPaymentDiscount frm = new ModeOfPaymentDiscount();
-                this.Hide();
-                frm.Show();
             }
             else
             {
-                MessageBox.Show("The Payment should higher or equal than the downpayment");
+                MessageBox.Show("Not A number", "error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-               
         }
 
         private void Payment_Form_Load(object sender, EventArgs e)
@@ -158,6 +188,51 @@ namespace CST
             label11.Text = my.ToString("MM/dd/yyyy  hh:mm:ss tt");
 
             timer1.Enabled = true;
+        }
+
+
+
+
+        private void textBox4_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            string validKeys = "0123456789.";
+            if (validKeys.IndexOf(e.KeyChar) < 0 && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private float getTotalFee()
+        {
+            float total = 0;
+            float miscFee = 0;
+            float tuition = 0;
+            miscFee = miscController.getMiscFeeForGrade(grade);
+            tuition = TuitionFeeController.getTfPriceGrade(grade, mod);
+
+            total = tuition + miscFee;
+            return total;
+        }
+
+        private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
+        {
+            for (int i = 1; i <= 100; i++)
+            {
+                Thread.Sleep(10);
+                backgroundWorker1.WorkerReportsProgress = true;
+                backgroundWorker1.ReportProgress(i);
+            }
+        }
+
+        private void backgroundWorker1_ProgressChanged(object sender, ProgressChangedEventArgs e)
+        {
+
+        }
+
+        private void backgroundWorker1_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            loadingCashier.Hide();
+            //frmload.Hide();
         }
     }
 }
