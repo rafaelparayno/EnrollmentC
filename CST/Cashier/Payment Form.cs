@@ -25,6 +25,7 @@ namespace CST
         double total = 0;
         double downPay = 0;
         int orno = 0;
+        double reservationFee = 0;
         loadingCashier loadingCashier = new loadingCashier();
      
         TuitionFeeController TuitionFeeController = new TuitionFeeController();
@@ -33,6 +34,7 @@ namespace CST
         StudentBalance studentBalance = new StudentBalance();
         OrController orController = new OrController();
         StudentEnrolledController StudentEnrolledController = new StudentEnrolledController();
+        StudentReserveController studentReserveController = new StudentReserveController();
         public Payment_Form(string snoo,string fn,string md,string gr, double ds)
         {
             InitializeComponent();
@@ -45,7 +47,7 @@ namespace CST
             textBox1.Text = sno;
             textBox2.Text = fullname;
             textBox3.Text = grade;
-
+            reservationFee = studentReserveController.getReservationFee(sno);
 
             textBox7.Text = mod;
             textBox5.Text = String.Format("PHP " + "{0:0.00}",
@@ -55,7 +57,13 @@ namespace CST
 
             total = getTotalFee();
            
-            label7.Text = miscController.getInfoMiscForGrade(grade);
+            label7.Text = "MISC:" + "\n" + miscController.getInfoMiscForGrade(grade);
+
+            if (reservationFee != 0)
+            {
+                label7.Text = label7.Text + "\n" + "Reservation Fee : " + String.Format("PHP " + "{0:0.00}",
+                                        reservationFee);
+            }
         
             if (mod == "Fullpayment")
             {
@@ -91,6 +99,8 @@ namespace CST
                 label10.Visible = false;
                 textBox10.Visible = false;
             }
+            downPay -= reservationFee;
+            total -= reservationFee;
             textBox8.Text = String.Format("PHP " + "{0:0.00}", downPay);
 
         }

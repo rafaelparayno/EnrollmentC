@@ -57,7 +57,7 @@ namespace CST.Models
         private bool checkReserve(string sno)
         {
             bool hasRow = false;
-            string sql = String.Format(@"SELECT * FROM student_reservepay WHERE sno = '{0}'", sno);
+            string sql = String.Format(@"SELECT * FROM student_reservepay WHERE sno = '{0}' AND syid = {1}", sno,syid);
             MySqlDataReader reader = null;
             cs.RetrieveRecords(sql, ref reader);
 
@@ -67,6 +67,23 @@ namespace CST.Models
             }
             cs.CloseConnection();
             return hasRow;
+        }
+
+        public double getReservationFee(string sno)
+        {
+            double reservationFee = 0;
+          
+            string sql = String.Format(@"SELECT * FROM student_reservepay WHERE sno = '{0}' AND syid = {1}", sno, syid);
+            MySqlDataReader reader = null;
+            cs.RetrieveRecords(sql, ref reader);
+
+            while (reader.Read())
+            {
+                reservationFee = double.Parse(reader["payment"].ToString());
+            }
+
+            cs.CloseConnection();
+            return reservationFee;
         }
     }
 }
