@@ -24,13 +24,14 @@ namespace CST
         double totalDisc = 0;
         double total = 0;
         double downPay = 0;
+        int orno = 0;
         loadingCashier loadingCashier = new loadingCashier();
-        //   TotalFeeController TotalFeeController = new TotalFeeController();
+     
         TuitionFeeController TuitionFeeController = new TuitionFeeController();
 
         MiscController miscController = new MiscController();
         StudentBalance studentBalance = new StudentBalance();
-   //     StudentsDetailsController studentsDetailsController = new StudentsDetailsController();
+        OrController orController = new OrController();
         StudentEnrolledController StudentEnrolledController = new StudentEnrolledController();
         public Payment_Form(string snoo,string fn,string md,string gr, double ds)
         {
@@ -143,13 +144,26 @@ namespace CST
                             break;
 
                     }
-                    studentBalance.addBalance(sno, balance, mod, neededToPay);
+                    studentBalance.addBalance(sno, balance, mod, neededToPay,receivePayment);
+
                     StudentEnrolledController.updateEnrolled(sno);
                     textBox10.Text = String.Format("PHP " + "{0:0.00}", change);
-                  
+                    orno = orController.getRecentOr() + 1;
+                    orController.addOr(orno);
+                    if(mod== "Fullpayment")
+                    {
+                        string totalPhp = "PHP " + downPay;
+                        OrReport frm2 = new OrReport(receivePayment, sno, textBox5.Text, textBox6.Text,totalPhp,orno);
+                        frm2.ShowDialog();
+                    }
+                    else
+                    {
+                        string totalPhp = "PHP " + receivePayment;
+                        OrReport frm2 = new OrReport(receivePayment, sno, totalPhp, "", totalPhp,orno);
+                        frm2.ShowDialog();
 
-                    OrReport frm2 = new OrReport(receivePayment, sno,textBox5.Text,textBox6.Text);
-                    frm2.ShowDialog();
+                    }
+                   
                     ModeOfPaymentDiscount frm = new ModeOfPaymentDiscount();
                     frm.Show();
                     MessageBox.Show("The student is Succesfully Enrolled");
@@ -233,6 +247,11 @@ namespace CST
         {
             loadingCashier.Hide();
             //frmload.Hide();
+        }
+
+        private void textBox4_KeyDown(object sender, KeyEventArgs e)
+        {
+
         }
     }
 }

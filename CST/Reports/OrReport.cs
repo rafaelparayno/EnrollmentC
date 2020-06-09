@@ -18,17 +18,21 @@ namespace CST.Reports
         string name = "";
         string tuition = "";
         string misc = "";
-
+        string total = "";
+        int orno = 0;
         StudentsDetailsController studentsDetails = new StudentsDetailsController();
+        OrController ornocontroller = new OrController();
 
-        public OrReport(double total,string sno,string tui,string misc)
+        public OrReport(double total,string sno,string tui,string misc,string totalPhp,int orno)
         {
             InitializeComponent();
             tot = total;
             tuition = tui;
             this.misc = misc;
+            this.total = totalPhp;
+            this.orno = orno;
             name = studentsDetails.searchAllDetails(sno)[0] + " " + studentsDetails.searchAllDetails(sno)[1];
-
+            orno = ornocontroller.getRecentOr();
         }
 
         private void OrReport_Load(object sender, EventArgs e)
@@ -37,16 +41,26 @@ namespace CST.Reports
             numWord = NumberToWords(int.Parse(tot + ""));
             or rep =  new or();
 
-            rep.SetParameterValue("orNoParam", "22721");
+            rep.SetParameterValue("orNoParam", orno.ToString());
             rep.SetParameterValue("wordNumberparam", numWord);
             rep.SetParameterValue("totalParam", tot);
             rep.SetParameterValue("studentName", name);
             rep.SetParameterValue("DateNow", aDate.ToString("MM/dd/yyyy"));
             rep.SetParameterValue("cashierName", UserLog.getFullName());
-            rep.SetParameterValue("part1", "Tuition");
-            rep.SetParameterValue("part2", "Misc");
+            if(misc == "" || misc == null)
+            {
+                rep.SetParameterValue("part1", "Tuition Payment:");
+                rep.SetParameterValue("part2", "");
+            }
+            else
+            {
+                rep.SetParameterValue("part1", "Tuition");
+                rep.SetParameterValue("part2", "Misc");
+            }
+            
             rep.SetParameterValue("partvalue1", tuition);
             rep.SetParameterValue("partvalue2", misc);
+            rep.SetParameterValue("totalpart", total);
             crystalReportViewer1.ReportSource = rep;                    
         }
 

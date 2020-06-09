@@ -176,7 +176,10 @@ namespace CST.Models
         public string[] searchAllDetails2(string sno)
         {
             string[] details = new string[13];
-            string sql = String.Format(@"SELECT * FROM student_detail WHERE sno = '{0}' ", sno);
+            string sql = String.Format(@"SELECT student_detail.sno, `firstname`, `lastname`, `middlename`, `gender`, `age`, `birthdate`, `pob`, `contact_no`, 
+                                        `nationality`, `religion`, `address`, studentenrolledinfo.`grade_level`, studentenrolledinfo.sect_id FROM `student_detail` 
+                                        LEFT JOIN studentenrolledinfo ON student_detail.sno = studentenrolledinfo.sno
+                                        WHERE studentenrolledinfo.sy_id = {0} AND studentenrolledinfo.sno = '{1}'", syid,sno);
             MySqlDataReader reader = null;
             cs.RetrieveRecords(sql, ref reader);
             if (reader.Read())

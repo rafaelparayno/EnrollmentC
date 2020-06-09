@@ -93,11 +93,13 @@ namespace CST
             {
                 label5.Visible = true;
                 numericUpDown1.Visible = true;
+           
             }
             else
             {
                 label5.Visible = false;
                 numericUpDown1.Visible = false;
+             
                 disc = 0;
             }
         }
@@ -144,6 +146,15 @@ namespace CST
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void numericUpDown1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            string validKeys = "";
+            if (validKeys.IndexOf(e.KeyChar) < 0)
+            {
+                e.Handled = true;
+            }
         }
     }
 }

@@ -271,6 +271,7 @@
     <Compile Include="Models\EnrollScheduleController.cs" />
     <Compile Include="Models\GradeLevelController.cs" />
     <Compile Include="Models\MiscController.cs" />
+    <Compile Include="Models\OrController.cs" />
     <Compile Include="Models\RoomController.cs" />
     <Compile Include="Models\RoomTypeController.cs" />
     <Compile Include="Models\SchedSectionController.cs" />

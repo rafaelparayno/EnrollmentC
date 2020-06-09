@@ -19,10 +19,10 @@ namespace CST.Models
 
         }
 
-        public void addBalance(string sno,double balance,string mod,double need)
+        public void addBalance(string sno,double balance,string mod,double need,double totalPayment)
         {
-            string sql = String.Format(@"INSERT INTO `student_balance`(`sno`, `balance`, `modeofpayment`, `need_to_pay`, `SY_id`) VALUES ('{0}',{1},'{2}',{3},{4})",
-                                        sno, balance, mod, need, syid);
+            string sql = String.Format(@"INSERT INTO `student_balance`(`sno`, `balance`, `modeofpayment`, `need_to_pay`,`totalPayment`, `SY_id`) VALUES ('{0}',{1},'{2}',{3},{4},{5})",
+                                        sno, balance, mod, need, totalPayment,syid);
             cs.ExecuteQuery(sql);
         }
 
