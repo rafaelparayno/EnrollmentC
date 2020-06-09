@@ -94,6 +94,12 @@
     <Compile Include="Cashier\loadingCashier.Designer.cs">
       <DependentUpon>loadingCashier.cs</DependentUpon>
     </Compile>
+    <Compile Include="Cashier\studentreserve.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Cashier\studentreserve.Designer.cs">
+      <DependentUpon>studentreserve.cs</DependentUpon>
+    </Compile>
     <Compile Include="crudFile.cs" />
     <Compile Include="csBackupAndRestore.cs" />
     <Compile Include="Data\DataClass.cs" />
@@ -285,6 +291,7 @@
     <Compile Include="Models\StudentGradesController.cs" />
     <Compile Include="Models\StudentRequirementController.cs" />
     <Compile Include="Models\StudentRequirements\StudentRequirements.cs" />
+    <Compile Include="Models\StudentReserveController.cs" />
     <Compile Include="Models\StudentsDetailsController.cs" />
     <Compile Include="Models\Student\StudentModel.cs" />
     <Compile Include="Models\StudFamDetailsController.cs" />
@@ -667,6 +674,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Cashier\loadingCashier.resx">
       <DependentUpon>loadingCashier.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Cashier\studentreserve.resx">
+      <DependentUpon>studentreserve.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Enrollment Admin\AddMiscellaneousFee.resx">
       <DependentUpon>AddMiscellaneousFee.cs</DependentUpon>

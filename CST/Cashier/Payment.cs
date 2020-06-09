@@ -122,5 +122,11 @@ namespace CST
                 MessageBox.Show("Please Select Type of fees");
             }
         }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            studentreserve frm = new studentreserve();
+            frm.ShowDialog();
+        }
     }
 }
