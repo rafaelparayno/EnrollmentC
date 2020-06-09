@@ -126,12 +126,12 @@ namespace CST.Teacher
 
         private void button4_Click(object sender, EventArgs e)
         {
-            StudName = studentsDetailsController.searchName(textBox7.Text.Trim());
+            StudName = studentsDetailsController.searchStudInSection(textBox7.Text.Trim(), sect);
             textBox2.Text = StudName;
 
             if (StudName.Trim() == "")
             {
-                MessageBox.Show("Not Student Id Found");
+                MessageBox.Show("No Student Id Found in section ");
                 sno = "";
             }
             else

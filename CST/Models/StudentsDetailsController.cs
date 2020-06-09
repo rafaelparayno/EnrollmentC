@@ -95,7 +95,27 @@ namespace CST.Models
         public string searchName(string sno)
         {
             string name = "";
-            string sql = String.Format(@"SELECT Concat(firstname, ' ', lastname ) as Fullname FROM student_detail WHERE sno = '{0}' AND isEnrolled = 'not yet'", sno);
+            string sql = String.Format(@"SELECT Concat(firstname, ' ', lastname ) as Fullname FROM student_detail WHERE sno = '{0}'", sno);
+            MySqlDataReader reader = null;
+            cs.RetrieveRecords(sql, ref reader);
+
+            if (reader.Read())
+            {
+                name = reader["Fullname"].ToString();
+            }
+
+            cs.CloseConnection();
+
+            return name;
+        }
+
+        public string searchStudInSection(string sno,int section_id)
+        {
+            string name = "";
+            string sql = String.Format(@"SELECT Concat(firstname, ' ', lastname ) as Fullname FROM student_detail 
+                                        LEFT JOIN studentenrolledinfo ON student_detail.sno = studentenrolledinfo.sno
+                                        WHERE studentenrolledinfo.sect_id = {0} AND studentenrolledinfo.sno = '{1}' 
+                                        AND studentenrolledinfo.sy_id = {2}", section_id,sno,syid);
             MySqlDataReader reader = null;
             cs.RetrieveRecords(sql, ref reader);
 
