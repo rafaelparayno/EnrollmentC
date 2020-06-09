@@ -445,6 +445,12 @@
     <Compile Include="Registrar\selectingGradeSectionSched.Designer.cs">
       <DependentUpon>selectingGradeSectionSched.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reports\AccountRecordRep.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\AccountRecordRep.Designer.cs">
+      <DependentUpon>AccountRecordRep.cs</DependentUpon>
+    </Compile>
     <Compile Include="Reports\classList.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -497,6 +503,12 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>reportSched.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\studentAccount.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>studentAccount.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Reports\StudentSchedRep.cs">
@@ -801,6 +813,9 @@
     <EmbeddedResource Include="Registrar\selectingGradeSectionSched.resx">
       <DependentUpon>selectingGradeSectionSched.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reports\AccountRecordRep.resx">
+      <DependentUpon>AccountRecordRep.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reports\classList.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>classList.cs</LastGenOutput>
@@ -832,6 +847,10 @@
     <EmbeddedResource Include="Reports\reportSched.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>reportSched.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\studentAccount.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>studentAccount.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\StudentSchedRep.resx">
       <DependentUpon>StudentSchedRep.cs</DependentUpon>

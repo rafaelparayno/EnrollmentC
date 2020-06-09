@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using CST.Cashier;
 using CST.Models;
+using CST.Reports;
 
 namespace CST
 {
@@ -79,7 +80,32 @@ namespace CST
 
         private void button1_Click(object sender, EventArgs e)
         {
+            if (dataGridView1.Rows.Count > 0)
+            {
+                DataSet ds = new DataSet();
 
+                DataTable dt = new DataTable();
+                dt.Columns.Add("Student Number", typeof(string));
+                dt.Columns.Add("Student Name", typeof(string));
+                dt.Columns.Add("Total Payment", typeof(string));
+                dt.Columns.Add("Remaining Balance", typeof(string));
+                dt.Columns.Add("Mode of Payment", typeof(string));
+
+
+                foreach (DataGridViewRow dgv in dataGridView1.Rows)
+                {
+                    dt.Rows.Add(dgv.Cells[0].Value, dgv.Cells[1].Value, dgv.Cells[2].Value, dgv.Cells[3].Value, dgv.Cells[4].Value);
+
+                }
+
+
+                ds.Tables.Add(dt);
+             
+                AccountRecordRep rep = new AccountRecordRep(ds);
+                rep.ShowDialog();
+
+              
+            }
         }
     }
 }
