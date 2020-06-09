@@ -94,6 +94,12 @@
     <Compile Include="Cashier\loadingCashier.Designer.cs">
       <DependentUpon>loadingCashier.cs</DependentUpon>
     </Compile>
+    <Compile Include="Cashier\ReservationList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Cashier\ReservationList.Designer.cs">
+      <DependentUpon>ReservationList.cs</DependentUpon>
+    </Compile>
     <Compile Include="Cashier\studentreserve.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -674,6 +680,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Cashier\loadingCashier.resx">
       <DependentUpon>loadingCashier.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Cashier\ReservationList.resx">
+      <DependentUpon>ReservationList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Cashier\studentreserve.resx">
       <DependentUpon>studentreserve.cs</DependentUpon>

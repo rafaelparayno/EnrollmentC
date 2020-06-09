@@ -73,5 +73,12 @@ namespace CST.Cashier
 
             timer1.Enabled = true;
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            ReservationList frm = new ReservationList();
+            frm.Show();
+            this.Hide();
+        }
     }
 }

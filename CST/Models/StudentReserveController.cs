@@ -35,6 +35,24 @@ namespace CST.Models
             }
         }
 
+        public void fillGrid(ref DataGridView dg)
+        {
+            string sql = String.Format(@"SELECT reservepay AS 'ID',student_reservepay.sno,CONCAT(student_detail.firstname,' ',student_detail.lastname) AS 'StudentName',payment 
+                                        FROM `student_reservepay` LEFT JOIN student_detail ON student_reservepay.sno = student_detail.sno WHERE syid = {0}", syid);
+
+            cs.FillDataGrid(sql, ref dg);
+        }
+
+
+        public void fillGridSearchSno(ref DataGridView dg,string sno)
+        {
+            string sql = String.Format(@"SELECT reservepay AS 'ID',student_reservepay.sno,CONCAT(student_detail.firstname,' ',student_detail.lastname) AS 'StudentName',payment 
+                                        FROM `student_reservepay` LEFT JOIN student_detail ON student_reservepay.sno = student_detail.sno WHERE syid = {0} 
+                                        AND student_reservepay.sno = '{1}'", syid,sno);
+
+            cs.FillDataGrid(sql, ref dg);
+        }
+    
 
         private bool checkReserve(string sno)
         {
