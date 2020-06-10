@@ -26,6 +26,8 @@ namespace CST
         double downPay = 0;
         int orno = 0;
         double reservationFee = 0;
+        bool isChange = false;
+
         loadingCashier loadingCashier = new loadingCashier();
      
         TuitionFeeController TuitionFeeController = new TuitionFeeController();
@@ -64,44 +66,11 @@ namespace CST
                 label7.Text = label7.Text + "\n" + "Reservation Fee : " + String.Format("PHP " + "{0:0.00}",
                                         reservationFee);
             }
-        
-            if (mod == "Fullpayment")
-            {
-                label8.Text = "Fee";
-                disc = disc / 100;
-                totalDisc = TuitionFeeController.getTfPriceGrade(grade,mod) * disc;
 
-                downPay = total - totalDisc;
-                label7.Text = label7.Text + "\n" + "Discount : " + String.Format("PHP " + "{0:0.00}",
-                                        totalDisc) + " - " + disc +"%";
-             
-              
-            }
-            else if (mod == "Semi-Annual")
-            {
-                label8.Text = "Downpayment";
-                downPay = total /  2;
-                label10.Visible = false;
-                textBox10.Visible = false;
 
-            }
-            else if (mod == "Quarterly")
-            {
-                label8.Text = "Downpayment";
-                downPay  = total / 4;
-                label10.Visible = false;
-                textBox10.Visible = false;
-            }
-            else
-            {
-                label8.Text = "Downpayment";
-                downPay = 5500;
-                label10.Visible = false;
-                textBox10.Visible = false;
-            }
-            downPay -= reservationFee;
-            total -= reservationFee;
-            textBox8.Text = String.Format("PHP " + "{0:0.00}", downPay);
+            initPayment(mod);
+            
+          
 
         }
 
@@ -133,53 +102,131 @@ namespace CST
                         case "Fullpayment":
                             change = double.Parse(textBox4.Text.ToString()) - downPay;
                             receivePayment = downPay;
+                            receivePayment += reservationFee;
                             break;
                         case "Semi-Annual":
-                            balance = total - double.Parse(textBox4.Text.ToString());
-                            receivePayment = double.Parse(textBox4.Text.ToString());
-                            neededToPay = balance;
-                            neededToPay = Math.Round((Double)neededToPay, 2);
+                            if (isChange)
+                            {
+                                change  = double.Parse(textBox4.Text.ToString()) - downPay;
+                                balance = total - downPay;
+                                receivePayment = balance + reservationFee;
+                                balance -= reservationFee;
+                                neededToPay = balance;
+
+                            }
+                            else
+                            {
+                                if(double.Parse(textBox4.Text.ToString()) > total)
+                                {
+                                    MessageBox.Show("Cannot be greather than the total payment");
+                                    return;
+                                }
+                                else
+                                {
+                                    balance = total - double.Parse(textBox4.Text.ToString());
+                                    receivePayment = double.Parse(textBox4.Text.ToString());
+                                    receivePayment += reservationFee;
+                                    neededToPay = balance;
+                                    neededToPay = Math.Round((Double)neededToPay, 2);
+                                }
+                              
+                            }
                             break;
                         case "Quarterly":
-                            balance = total - double.Parse(textBox4.Text.ToString());
-                            receivePayment = double.Parse(textBox4.Text.ToString());
-                            neededToPay = balance / 3;
-                            neededToPay = Math.Round((Double)neededToPay, 2);
+                            if (isChange)
+                            {
+                                change = double.Parse(textBox4.Text.ToString()) - downPay;
+
+                                balance = total - downPay;
+                                receivePayment = downPay + reservationFee;
+                           
+                                neededToPay = balance/3;
+                                neededToPay = Math.Round((Double)neededToPay, 2);
+
+                            }
+                            else
+                            {
+                                if (double.Parse(textBox4.Text.ToString()) > total)
+                                {
+                                    MessageBox.Show("Cannot be greather than the total payment");
+                                    return;
+                                }
+                                else
+                                {
+                                    balance = total - double.Parse(textBox4.Text.ToString());
+                                    receivePayment = double.Parse(textBox4.Text.ToString());
+                                    receivePayment += reservationFee;
+                                    neededToPay = balance/3;
+                                    neededToPay = Math.Round((Double)neededToPay, 2);
+                                }
+
+                            }
+                          
                             break;
                         case "Monthly":
-                             balance = total - double.Parse(textBox4.Text.ToString());
-                            receivePayment = double.Parse(textBox4.Text.ToString());
-                            neededToPay = balance / 10;
-                             neededToPay = Math.Round((Double)neededToPay, 2);
+                            if (isChange)
+                            {
+                                change = double.Parse(textBox4.Text.ToString()) - downPay;
+
+                                balance = total - downPay;
+                                receivePayment = downPay + reservationFee;
+
+                                neededToPay = balance / 10;
+                                neededToPay = Math.Round((Double)neededToPay, 2);
+
+                            }
+                            else
+                            {
+                                if (double.Parse(textBox4.Text.ToString()) > total)
+                                {
+                                    MessageBox.Show("Cannot be greather than the total payment");
+                                    return;
+                                }
+                                else
+                                {
+                                    balance = total - double.Parse(textBox4.Text.ToString());
+                                    receivePayment = double.Parse(textBox4.Text.ToString());
+                                    receivePayment += reservationFee;
+                                    neededToPay = balance / 10;
+                                    neededToPay = Math.Round((Double)neededToPay, 2);
+                                }
+
+                            }
+                           
                             break;
 
                     }
-                    studentBalance.addBalance(sno, balance, mod, neededToPay,receivePayment);
+                   studentBalance.addBalance(sno, balance, mod, neededToPay,receivePayment);
 
                     StudentEnrolledController.updateEnrolled(sno);
                     textBox10.Text = String.Format("PHP " + "{0:0.00}", change);
                     orno = orController.getRecentOr() + 1;
                     orController.addOr(orno);
+
                     if(mod== "Fullpayment")
                     {
                         string totalPhp = "PHP " + downPay;
-                        OrReport frm2 = new OrReport(receivePayment, sno, textBox5.Text, textBox6.Text,totalPhp,orno);
+                        OrReport frm2 = new OrReport(receivePayment, sno, 
+                                                    textBox5.Text, textBox6.Text,
+                                                    totalPhp,orno);
                         frm2.ShowDialog();
                     }
                     else
                     {
                         string totalPhp = "PHP " + receivePayment;
-                        OrReport frm2 = new OrReport(receivePayment, sno, totalPhp, "", totalPhp,orno);
+                        OrReport frm2 = new OrReport(receivePayment, sno,
+                                                    totalPhp, "",
+                                                    totalPhp, orno);
                         frm2.ShowDialog();
 
                     }
-                   
-                    ModeOfPaymentDiscount frm = new ModeOfPaymentDiscount();
-                    frm.Show();
-                    MessageBox.Show("The student is Succesfully Enrolled");
-                    this.Hide();
 
-                  
+                    //ModeOfPaymentDiscount frm = new ModeOfPaymentDiscount();
+                    //frm.Show();
+                    
+                    //this.Hide();
+
+
                 }
                 else
                 {
@@ -194,9 +241,6 @@ namespace CST
 
         private void Payment_Form_Load(object sender, EventArgs e)
         {
-
-          
-        
 
         }
 
@@ -256,12 +300,91 @@ namespace CST
         private void backgroundWorker1_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
             loadingCashier.Hide();
+            button3.Enabled = false;
+            groupBox3.Enabled = false;
+            MessageBox.Show("The student is Succesfully Enrolled");
             //frmload.Hide();
         }
 
         private void textBox4_KeyDown(object sender, KeyEventArgs e)
         {
 
+        }
+
+        private void radioButton1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radioButton1.Checked)
+            {
+                textBox10.Visible = true;
+                label10.Visible = true;
+                isChange = true;
+            }
+            else
+            {
+                textBox10.Visible = false;
+                label10.Visible = false;
+            }
+        }
+
+        private void initPayment(string mode)
+        {
+            if (mode == "Fullpayment")
+            {
+                label8.Text = "Fee";
+                disc = disc / 100;
+                totalDisc = TuitionFeeController.getTfPriceGrade(grade, mod) * disc;
+
+                downPay = total - totalDisc;
+                label7.Text = label7.Text + "\n" + "Discount : " + String.Format("PHP " + "{0:0.00}",
+                                        totalDisc) + " - " + disc + "%";
+                groupBox3.Visible = false;
+                radioButton1.Checked = true;
+
+            }
+            else if (mode == "Semi-Annual")
+            {
+                label8.Text = "Downpayment";
+                downPay = total / 2;
+                label10.Visible = false;
+                textBox10.Visible = false;
+                radioButton2.Checked = true;
+
+            }
+            else if (mode == "Quarterly")
+            {
+                label8.Text = "Downpayment";
+                downPay = total / 4;
+                label10.Visible = false;
+                textBox10.Visible = false;
+                radioButton2.Checked = true;
+            }
+            else
+            {
+                label8.Text = "Downpayment";
+                downPay = 5500;
+                label10.Visible = false;
+                textBox10.Visible = false;
+                radioButton2.Checked = true;
+            }
+            downPay -= reservationFee;
+            total -= reservationFee;
+            textBox8.Text = String.Format("PHP " + "{0:0.00}", downPay);
+           
+        }
+
+        private void radioButton2_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radioButton2.Checked)
+            {
+                textBox10.Visible = false;
+                label10.Visible = false;
+                isChange = false;
+            }
+            else
+            {
+                textBox10.Visible = true;
+                label10.Visible = true;
+            }
         }
     }
 }

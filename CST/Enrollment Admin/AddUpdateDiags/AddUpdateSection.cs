@@ -110,7 +110,7 @@ namespace CST.Enrollment_Admin.AddUpdateDiags
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (comboBox1.SelectedIndex >= 10)
+            if (comboBox1.SelectedIndex > 8 )
             {
                 comboBox2.Items.Clear();
                 user_ids = sp.fillComboSecondaryTeacher(ref comboBox2);

@@ -39,7 +39,7 @@ namespace CST
             if (isValid())
             {
                 this.Hide();
-                Payment_Form fr1 = new Payment_Form(textBox1.Text.Trim(),textBox2.Text.Trim(),comboBox1.Text,textBox3.Text,disc);
+                Payment_Form fr1 = new Payment_Form("STUD-" +textBox1.Text.Trim(),textBox2.Text.Trim(),comboBox1.Text,textBox3.Text,disc);
                 fr1.ShowDialog();
             }
             else
@@ -59,7 +59,7 @@ namespace CST
 
         private void button3_Click(object sender, EventArgs e)
         {
-            string[] details = studentsDetailsController.searchEnrollment(textBox1.Text.Trim(), syid);
+            string[] details = studentsDetailsController.searchEnrollment("STUD-" +textBox1.Text.Trim(), syid);
 
             if(details[0] == "" || details[0] == null)
             {

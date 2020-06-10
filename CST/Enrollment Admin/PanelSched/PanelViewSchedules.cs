@@ -155,7 +155,7 @@ namespace CST.Enrollment_Admin.PanelSched
                         }
                         break;
                     default:
-                        MessageBox.Show("time");
+                   //     MessageBox.Show("time");
                         break;
                 }
             }
