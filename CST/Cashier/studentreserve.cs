@@ -39,7 +39,7 @@ namespace CST.Cashier
 
         private void button3_Click(object sender, EventArgs e)
         {
-            string[] details = studentsDetailsController.searchEnrollment(textBox1.Text.Trim(), syid);
+            string[] details = studentsDetailsController.searchEnrollment( "STUD-" +textBox1.Text.Trim(), syid);
 
             if (details[0] == "" || details[0] == null)
             {
@@ -60,7 +60,7 @@ namespace CST.Cashier
                 double payment = double.Parse(textBox4.Text.Trim());
                 if (payment >= 1000)
                 {
-                    studentReserveController.addReservation(payment, textBox1.Text);
+                    studentReserveController.addReservation(payment,  "STUD-"+textBox1.Text);
                     this.Hide();
                 }
                 else

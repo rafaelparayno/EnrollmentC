@@ -89,9 +89,9 @@ namespace CST
 
         private void button1_Click(object sender, EventArgs e)
         {
-            sno = textBox1.Text.Trim();
+            sno = "STUD-" + textBox1.Text.Trim();
             studentsDetailsArgs = studentsDetails.searchAllDetails2(sno);
-            textBox2.Text = studentsDetailsArgs[0]+ " "  + studentsDetailsArgs[2]+ " " + studentsDetailsArgs[1];
+            textBox2.Text = studentsDetailsArgs[1]+ " "  + studentsDetailsArgs[3]+ " " + studentsDetailsArgs[2];
             textBox3.Text = studentsDetailsArgs[12];
             studentBalance.fillDataGridBalance(ref dataGridView1, sno);
             neededTopay = studentBalance.getNeedToPay(sno);

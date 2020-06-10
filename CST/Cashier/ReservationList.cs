@@ -38,7 +38,7 @@ namespace CST.Cashier
 
         private void button1_Click(object sender, EventArgs e)
         {
-            studentReserveController.fillGridSearchSno(ref dataGridView1, txtUsername.Text.Trim());
+            studentReserveController.fillGridSearchSno(ref dataGridView1, "STUD-" +txtUsername.Text.Trim());
         }
     }
 }
