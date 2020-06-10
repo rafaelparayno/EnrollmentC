@@ -34,17 +34,16 @@
             this.button2 = new System.Windows.Forms.Button();
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label49 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.cbType = new System.Windows.Forms.ComboBox();
             this.button3 = new System.Windows.Forms.Button();
+            this.cbType = new System.Windows.Forms.ComboBox();
+            this.button4 = new System.Windows.Forms.Button();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -77,23 +76,10 @@
             // 
             this.panel4.BackColor = System.Drawing.Color.DarkSeaGreen;
             this.panel4.Controls.Add(this.panel5);
-            this.panel4.Location = new System.Drawing.Point(-1, 43);
+            this.panel4.Location = new System.Drawing.Point(-1, 33);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(578, 5);
+            this.panel4.Size = new System.Drawing.Size(609, 10);
             this.panel4.TabIndex = 202;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label1.Location = new System.Drawing.Point(12, 12);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(102, 16);
-            this.label1.TabIndex = 201;
-            this.label1.Text = "New Students";
             // 
             // label2
             // 
@@ -119,18 +105,6 @@
             this.label49.Size = new System.Drawing.Size(120, 25);
             this.label49.TabIndex = 232;
             this.label49.Text = "User Type";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.BackColor = System.Drawing.Color.Transparent;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.Black;
-            this.label6.Location = new System.Drawing.Point(301, 9);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(43, 20);
-            this.label6.TabIndex = 231;
-            this.label6.Text = "S.Y.";
             // 
             // label3
             // 
@@ -219,6 +193,21 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Type of Students";
             // 
+            // button3
+            // 
+            this.button3.BackColor = System.Drawing.Color.DarkSeaGreen;
+            this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button3.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.button3.Location = new System.Drawing.Point(409, 18);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(147, 48);
+            this.button3.TabIndex = 286;
+            this.button3.Text = "List of Student Sumbitted Req";
+            this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
             // cbType
             // 
             this.cbType.DropDownHeight = 150;
@@ -239,20 +228,19 @@
             this.cbType.TabIndex = 269;
             this.cbType.SelectedIndexChanged += new System.EventHandler(this.cbType_SelectedIndexChanged);
             // 
-            // button3
+            // button4
             // 
-            this.button3.BackColor = System.Drawing.Color.DarkSeaGreen;
-            this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button3.Location = new System.Drawing.Point(409, 18);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(147, 48);
-            this.button3.TabIndex = 286;
-            this.button3.Text = "List of Student Sumbitted Req";
-            this.button3.UseVisualStyleBackColor = false;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.button4.BackColor = System.Drawing.Color.DarkSeaGreen;
+            this.button4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button4.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button4.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.button4.Location = new System.Drawing.Point(209, 390);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(215, 35);
+            this.button4.TabIndex = 287;
+            this.button4.Text = "Student Grade";
+            this.button4.UseVisualStyleBackColor = false;
             // 
             // NewStudents
             // 
@@ -261,17 +249,16 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(598, 450);
+            this.Controls.Add(this.button4);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label49);
-            this.Controls.Add(this.label6);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.panel4);
-            this.Controls.Add(this.label1);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "NewStudents";
@@ -290,10 +277,8 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label49;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button button1;
@@ -301,5 +286,6 @@
         private System.Windows.Forms.GroupBox groupBox1;
         public System.Windows.Forms.ComboBox cbType;
         private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button4;
     }
 }

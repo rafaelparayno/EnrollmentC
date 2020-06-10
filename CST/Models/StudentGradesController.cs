@@ -31,6 +31,75 @@ namespace CST.Models
             cs.FillDataGrid(sql, ref dg);
         }
 
+        public void fillLisdViewTeacher(ref ListView lv, int section_id, int sub_id, int teacher_id)
+        {
+            string sql = String.Format(@"SELECT student_detail.sno AS 'StudentNo', Concat(firstname,' ',middlename,' ', lastname) AS 'StudentName', 
+                        student_grades.grade_first,student_grades.grade_second,
+                        student_grades.grade_third,student_grades.grade_fourth, avg
+                        FROM student_detail 
+                        LEFT JOIN student_grades on student_grades.sno  = student_detail.sno 
+                        AND student_grades.subject_id = {0} AND student_grades.teacher_ID = {1}
+                        LEFT JOIN studentenrolledinfo ON student_detail.sno = studentenrolledinfo.sno 
+                        WHERE studentenrolledinfo.sect_id = {2} AND studentenrolledinfo.is_Enrolled = 1", sub_id, teacher_id, section_id);
+            MySqlDataReader reader = null;
+
+            cs.RetrieveRecords(sql, ref reader);
+
+            while (reader.Read())
+            {
+                string gradefirst = reader["grade_first"].ToString() == "" ? "0" : reader["grade_first"].ToString();
+                string gradesecond = reader["grade_second"].ToString() == "" ? "0" : reader["grade_second"].ToString();
+                string gradethird = reader["grade_third"].ToString() == "" ? "0" : reader["grade_third"].ToString();
+                string gradefourth = reader["grade_fourth"].ToString() == "" ? "0" : reader["grade_fourth"].ToString();
+                string avg = reader["avg"].ToString() == "" ? "0" : reader["avg"].ToString();
+
+                ListViewItem lvs = new ListViewItem();
+                lvs.Text = reader["StudentNo"].ToString();
+                lvs.SubItems.Add(reader["StudentName"].ToString());
+                lvs.SubItems.Add(gradefirst);
+                lvs.SubItems.Add(gradesecond);
+                lvs.SubItems.Add(gradethird);
+                lvs.SubItems.Add(gradefourth);
+                lvs.SubItems.Add(avg);
+
+                lv.Items.Add(lvs);
+            }
+
+            cs.CloseConnection();
+
+        }
+
+
+        public void fillLvGrades(ref ListView lv,string syid)
+        {
+            string sql = String.Format(@"SELECT student_detail.sno,CONCAT(student_detail.firstname,' ',student_detail.lastname) AS 'Student Name',
+                                            CONCAT(useraccounts.Firstname,' ' ,useraccounts.Lastname) AS 'Teacher Name',
+                                            subject_name,avg FROM `student_detail` 
+                                            LEFT JOIN student_grades on student_detail.sno = student_grades.sno 
+                                            LEFT JOIN subjects ON student_grades.subject_id = subjects.subject_id
+                                            LEFT JOIN specialization ON student_grades.teacher_ID = specialization.teacher_ID
+                                            LEFT JOIN useraccounts ON specialization.acc_id = useraccounts.acc_id
+                                            LEFT JOIN studentenrolledinfo ON student_detail.sno = studentenrolledinfo.sno
+                                            WHERE studentenrolledinfo.is_Enrolled = 1 AND studentenrolledinfo.sy_id = 1", syid);
+
+            MySqlDataReader reader = null;
+
+            cs.RetrieveRecords(sql, ref reader);
+
+            while (reader.Read())
+            {
+                ListViewItem lvs = new ListViewItem();
+                lvs.Text = reader["start_time"].ToString();
+                lvs.SubItems.Add(reader["end_time"].ToString());
+                lvs.SubItems.Add(reader["subject_name"].ToString());
+                lvs.SubItems.Add(reader["Teachers Name"].ToString());
+
+                lv.Items.Add(lvs);
+            }
+
+            cs.CloseConnection();
+        }
+
         public void addStudentGrade(string sno,double g1,double g2,
                                     double g3,double g4,double avg,
                                     int subj,int section,int teacher_id)
@@ -47,7 +116,8 @@ namespace CST.Models
             }
             else
             {
-                MessageBox.Show("Student have already Grade", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                updateStudentGrade(sno, g1, g2, g3, g4, avg, subj, section, teacher_id);
+             
             }
       
         

@@ -451,6 +451,12 @@
     <Compile Include="Registrar\selectingGradeSectionSched.Designer.cs">
       <DependentUpon>selectingGradeSectionSched.cs</DependentUpon>
     </Compile>
+    <Compile Include="Registrar\StudentGradesReg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Registrar\StudentGradesReg.Designer.cs">
+      <DependentUpon>StudentGradesReg.cs</DependentUpon>
+    </Compile>
     <Compile Include="Reports\AccountRecordRep.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -821,6 +827,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Registrar\selectingGradeSectionSched.resx">
       <DependentUpon>selectingGradeSectionSched.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Registrar\StudentGradesReg.resx">
+      <DependentUpon>StudentGradesReg.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\AccountRecordRep.resx">
       <DependentUpon>AccountRecordRep.cs</DependentUpon>

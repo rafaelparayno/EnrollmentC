@@ -47,10 +47,10 @@ namespace CST.Teacher
             button4.Visible = false;
             textBox7.Text = sno;
             textBox7.Enabled = false;
-            numericUpDown1.Value = decimal.Parse(g1.ToString());
-            numericUpDown2.Value = decimal.Parse(g2.ToString());
-            numericUpDown3.Value = decimal.Parse(g3.ToString());
-            numericUpDown4.Value = decimal.Parse(g4.ToString());
+            numericUpDown1.Value = decimal.Parse(g1.ToString()) > 0 ? decimal.Parse(g1.ToString()) : 65;
+            numericUpDown2.Value = decimal.Parse(g2.ToString()) > 0 ? decimal.Parse(g2.ToString()) : 65; 
+            numericUpDown3.Value = decimal.Parse(g3.ToString()) >0 ? decimal.Parse(g3.ToString()) : 65; 
+            numericUpDown4.Value = decimal.Parse(g4.ToString()) >0 ? decimal.Parse(g4.ToString()) : 65; 
             isEdit = true;
 
         }
@@ -91,22 +91,18 @@ namespace CST.Teacher
                 g3 = double.Parse(numericUpDown3.Value.ToString());
                 g4 = double.Parse(numericUpDown4.Value.ToString());
 
-                if (isEdit)
-                {
-                    gradesController.updateStudentGrade(sno, g1, g2, g3, g4, avg, subj, sect, teacher);
-                }
-                else
-                {
-                    gradesController.addStudentGrade(sno, g1, g2, g3, g4, avg, subj, sect, teacher);
+              
+                
+               gradesController.addStudentGrade(sno, g1, g2, g3, g4, avg, subj, sect, teacher);
 
-                }
+                
                 MessageBox.Show("Succesfully Save Grade");
 
                 this.Hide();
             }
             else
             {
-                MessageBox.Show("Please Search Student");
+                MessageBox.Show("Please FIll Data");
             }
          
         }
@@ -126,7 +122,7 @@ namespace CST.Teacher
 
         private void button4_Click(object sender, EventArgs e)
         {
-            StudName = studentsDetailsController.searchStudInSection(textBox7.Text.Trim(), sect);
+            StudName = studentsDetailsController.searchStudInSection("STUD-" +textBox7.Text.Trim(), sect);
             textBox2.Text = StudName;
 
             if (StudName.Trim() == "")
@@ -136,9 +132,10 @@ namespace CST.Teacher
             }
             else
             {
-                sno = textBox7.Text.Trim();
+                sno = "STUD-" +textBox7.Text.Trim();
             }
         }
+
 
         private bool isValid()
         {

@@ -223,5 +223,10 @@ namespace CST.Enrollment_Admin.PanelSched
             load.Hide();
             getSchedSections();
         }
+
+        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

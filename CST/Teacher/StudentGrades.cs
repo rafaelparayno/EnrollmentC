@@ -149,7 +149,7 @@ namespace CST
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             selectedSubId = subjectids[comboBox1.SelectedIndex];
-            button3.Enabled = true;
+       
             button7.Enabled = true;
             button5.Enabled = true;
             refreshGrid();
@@ -159,20 +159,22 @@ namespace CST
         private void refreshGrid()
         {
             gradesController.fillDataGridGrades(ref dataGridView1, selectedSectionId, selectedSubId, teacherId);
+            listView1.Items.Clear();
+            gradesController.fillLisdViewTeacher(ref listView1, selectedSectionId, selectedSubId, teacherId);
         }
 
         private void button7_Click(object sender, EventArgs e)
         {
-            if(dataGridView1.Rows.Count > 0)
+            if(listView1.SelectedItems.Count > 0)
             {
                 addGradeStudent frm = new addGradeStudent(selectedSectionId, selectedSubId, teacherId,
-                                                    dataGridView1.SelectedRows[0].Cells[0].Value.ToString(),
-                                                    dataGridView1.SelectedRows[0].Cells[1].Value.ToString(),
-                                                     double.Parse(dataGridView1.SelectedRows[0].Cells[2].Value.ToString()),
-                                                      double.Parse(dataGridView1.SelectedRows[0].Cells[3].Value.ToString()),
-                                                       double.Parse(dataGridView1.SelectedRows[0].Cells[4].Value.ToString()),
-                                                        double.Parse(dataGridView1.SelectedRows[0].Cells[5].Value.ToString()),
-                                                         double.Parse(dataGridView1.SelectedRows[0].Cells[6].Value.ToString()));
+                                                     listView1.SelectedItems[0].SubItems[0].Text,
+                                                     listView1.SelectedItems[0].SubItems[1].Text,
+                                                     double.Parse(listView1.SelectedItems[0].SubItems[2].Text),
+                                                      double.Parse(listView1.SelectedItems[0].SubItems[3].Text),
+                                                       double.Parse(listView1.SelectedItems[0].SubItems[4].Text),
+                                                        double.Parse(listView1.SelectedItems[0].SubItems[5].Text),
+                                                         double.Parse(listView1.SelectedItems[0].SubItems[6].Text));
                 frm.ShowDialog();
                 refreshGrid();
             }
@@ -286,7 +288,7 @@ namespace CST
             {
                 if(dataGridView1.Rows.Count > 0)
                 {
-                    gradesController.deleteGrade(dataGridView1.SelectedRows[0].Cells[0].Value.ToString(),
+                    gradesController.deleteGrade(listView1.SelectedItems[0].SubItems[0].Text,
                                            selectedSubId, selectedSectionId, teacherId);
                     MessageBox.Show("Succesfully Remove Selected Student Grade");
                     refreshGrid();
@@ -303,7 +305,7 @@ namespace CST
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (dataGridView1.Rows.Count > 0)
+            if (listView1.Items.Count > 0)
             {
                 DataSet ds = new DataSet();
 
@@ -316,11 +318,19 @@ namespace CST
                 dt.Columns.Add("4th Grading", typeof(string));
                 dt.Columns.Add("Average", typeof(string));
 
-                foreach (DataGridViewRow dgv in dataGridView1.Rows)
+
+                for (int i = 0; i < listView1.Items.Count; i++)
                 {
-                    dt.Rows.Add(dgv.Cells[0].Value, dgv.Cells[1].Value, dgv.Cells[2].Value, dgv.Cells[3].Value, dgv.Cells[4].Value, dgv.Cells[5].Value, dgv.Cells[6].Value);
-                   
+                    dt.Rows.Add(listView1.Items[i].SubItems[0].Text,
+                        listView1.Items[i].SubItems[1].Text,
+                        listView1.Items[i].SubItems[2].Text,
+                        listView1.Items[i].SubItems[3].Text,
+                        listView1.Items[i].SubItems[4].Text,
+                        listView1.Items[i].SubItems[5].Text,
+                        listView1.Items[i].SubItems[3].Text);
                 }
+
+               
 
 
                 ds.Tables.Add(dt);
