@@ -37,7 +37,7 @@ namespace CST.Models
 
         public void fillDataHist(ref DataGridView dg)
         {
-            string sql = String.Format(@"SELECT `stud_his_id`, `sno`, `nameschool`, `past_school_add`, `past_level`, `year_attended`, `isCompletedVacine`, `vacination_details` FROM `stud_history_details` WHERE sno in(SELECT sno FROM student_detail where isEnrolled = 'enrolled')");
+            string sql = String.Format(@"SELECT `stud_his_id`, `sno`, `nameschool`, `past_school_add`, `past_level`, `year_attended`, `isCompletedVacine`, `vacination_details` FROM `stud_history_details` WHERE sno in(SELECT sno FROM studentenrolledinfo where is_Enrolled = 1)");
 
             cs.FillDataGrid(sql, ref dg);
         }

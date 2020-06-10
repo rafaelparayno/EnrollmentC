@@ -58,36 +58,50 @@ namespace CST.Models
 
         public void fillDataGridDetails(ref DataGridView dg)
         {
-            string sql = String.Format(@"SELECT  `sno`, `firstname`, `lastname`, `middlename`, `gender`, `age`, `birthdate`, `pob`, `contact_no`, `nationality`, `religion`, `address`, `grade_level` FROM student_detail WHERE isEnrolled = 'enrolled'");
+            string sql = String.Format(@"SELECT  studentenrolledinfo.`sno`, `firstname`, `lastname`, `middlename`, `gender`, `age`, `birthdate`, 
+                                        `pob`, `contact_no`, `nationality`, `religion`, `address` FROM student_detail 
+                                        LEFT JOIN studentenrolledinfo ON student_detail.sno = studentenrolledinfo.sno
+                                        WHERE studentenrolledinfo.sy_id = {0} AND studentenrolledinfo.is_Enrolled = 1", syid);
 
             cs.FillDataGrid(sql, ref dg);
         }
 
         public void fillDataGridDetails(ref DataGridView dg,int yrid)
         {
-            string sql = String.Format(@"SELECT  `sno`, `firstname`, `lastname`, `middlename`, `gender`, `age`, `birthdate`, `pob`, `contact_no`, `nationality`, `religion`, `address`, `grade_level` FROM student_detail WHERE isEnrolled = 'enrolled' AND sy_id = {0}", yrid);
+            string sql = String.Format(@"SELECT  studentenrolledinfo.`sno`, `firstname`, `lastname`, `middlename`, `gender`, `age`, `birthdate`, 
+                                        `pob`, `contact_no`, `nationality`, `religion`, `address` FROM student_detail 
+                                        LEFT JOIN studentenrolledinfo ON student_detail.sno = studentenrolledinfo.sno
+                                        WHERE studentenrolledinfo.sy_id = {0} AND studentenrolledinfo.is_Enrolled = 1", yrid);
 
             cs.FillDataGrid(sql, ref dg);
         }
 
         public void fillDataGridDetails(ref DataGridView dg, string sno)
         {
-            string sql = String.Format(@"SELECT  `sno`, `firstname`, `lastname`, `middlename`, `gender`, `age`, `birthdate`, `pob`, `contact_no`, `nationality`, `religion`, `address`, `grade_level` FROM student_detail WHERE isEnrolled = 'enrolled' AND sno = '{0}'", sno);
+            string sql = String.Format(@"SELECT  studentenrolledinfo.`sno`, `firstname`, `lastname`, `middlename`, `gender`, `age`, `birthdate`, 
+                                        `pob`, `contact_no`, `nationality`, `religion`, `address` FROM student_detail 
+                                        LEFT JOIN studentenrolledinfo ON student_detail.sno = studentenrolledinfo.sno
+                                        WHERE studentenrolledinfo.sno = '{0}' AND studentenrolledinfo.is_Enrolled = 1 AND studentenrolledinfo.sy_id = {1}", sno,syid);
 
             cs.FillDataGrid(sql, ref dg);
         }
 
         public void fillDataGridDetailsNotEnrolled(ref DataGridView dg)
         {
-            string sql = String.Format(@"SELECT  `sno`, `firstname`, `lastname`, `middlename`, `gender`, `age`, `birthdate`, `pob`, `contact_no`, `nationality`, `religion`, `address`, `grade_level` FROM student_detail WHERE isEnrolled = 'not yet'");
+            string sql = String.Format(@"SELECT  studentenrolledinfo.`sno`, `firstname`, `lastname`, `middlename`, `gender`, `age`, `birthdate`, 
+                                        `pob`, `contact_no`, `nationality`, `religion`, `address` FROM student_detail 
+                                        LEFT JOIN studentenrolledinfo ON student_detail.sno = studentenrolledinfo.sno
+                                        WHERE studentenrolledinfo.sy_id = {0} AND studentenrolledinfo.is_Enrolled = 0", syid);
 
             cs.FillDataGrid(sql, ref dg);
         }
 
         public void fillDataGridDetailsInSection(ref DataGridView dg,int section_id)
         {
-            string sql = String.Format(@"SELECT sno,Concat(firstname,' ',middlename,' ',lastname) AS 'Student Name',grade_level FROM student_detail WHERE sect_id = {0}",
-                                section_id);
+            string sql = String.Format(@"SELECT CONCAT(firstname,' ',lastname) AS 'Stutdent Name',studentenrolledinfo.grade_level FROM `studentenrolledinfo` 
+                                        LEFT JOIN student_detail on studentenrolledinfo.sno = student_detail.sno 
+                                        WHERE studentenrolledinfo.`sect_id`= {0}",
+                                        section_id);
 
             cs.FillDataGrid(sql, ref dg);
         }

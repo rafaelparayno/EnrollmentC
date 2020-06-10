@@ -36,6 +36,7 @@
             this.button2 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.button9 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.button1 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -51,7 +52,6 @@
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
-            this.button9 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -127,6 +127,21 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(646, 603);
             this.panel2.TabIndex = 197;
+            // 
+            // button9
+            // 
+            this.button9.BackColor = System.Drawing.Color.DarkSeaGreen;
+            this.button9.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.button9.Enabled = false;
+            this.button9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button9.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button9.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.button9.Location = new System.Drawing.Point(492, 547);
+            this.button9.Name = "button9";
+            this.button9.Size = new System.Drawing.Size(140, 32);
+            this.button9.TabIndex = 306;
+            this.button9.Text = "Print Schedule";
+            this.button9.UseVisualStyleBackColor = false;
             // 
             // dataGridView1
             // 
@@ -336,24 +351,9 @@
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(152, 62);
             this.button7.TabIndex = 231;
-            this.button7.Text = "Students Not Enrolled";
+            this.button7.Text = "Unofficially Enrolled";
             this.button7.UseVisualStyleBackColor = false;
             this.button7.Click += new System.EventHandler(this.button7_Click);
-            // 
-            // button9
-            // 
-            this.button9.BackColor = System.Drawing.Color.DarkSeaGreen;
-            this.button9.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.button9.Enabled = false;
-            this.button9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button9.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button9.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.button9.Location = new System.Drawing.Point(492, 547);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(140, 32);
-            this.button9.TabIndex = 306;
-            this.button9.Text = "Print Schedule";
-            this.button9.UseVisualStyleBackColor = false;
             // 
             // RegistrarRecord
             // 

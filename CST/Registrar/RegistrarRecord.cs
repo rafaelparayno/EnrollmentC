@@ -183,7 +183,7 @@ namespace CST
                 if(comboBox3.SelectedIndex == 0)
                 {
                     //Sno
-                    studentsDetailsController.fillDataGridDetails(ref dataGridView1, txtUsername.Text.Trim());
+                    studentsDetailsController.fillDataGridDetails(ref dataGridView1,"STUD-" + txtUsername.Text.Trim());
 
                 }
                 else
