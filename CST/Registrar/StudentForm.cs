@@ -12,6 +12,7 @@ using CST.Models;
 using CST.Models.Student;
 using CST.Registrar;
 
+
 namespace CST
 {
     public partial class StudentForm : Form
@@ -257,7 +258,7 @@ namespace CST
 
             isValid = !(StudentModel.getPob() == "") && isValid;
 
-            isValid = !(StudentModel.getCn() == "") && isValid;
+          
 
             isValid = !(StudentModel.getNat() == "") && isValid;
 
@@ -274,12 +275,10 @@ namespace CST
         {
             bool isValid = true;
 
-            isValid = !(txtPastSchool.Text.Trim() == "") && isValid;
 
-            isValid = !(txtPastAdd.Text.Trim() == "") && isValid;
-
-            isValid = !(txtPastLevel.Text.Trim() == "") && isValid;
-
+            isValid = isValid && (txtPastLevel.Text != "");
+            isValid = isValid && (txtPastSchool.Text != "");
+            isValid = isValid && (txtPastLevel.Text != "");
 
             return isValid;
 
@@ -516,6 +515,15 @@ namespace CST
             }
         }
 
+        private void errorHandlingIsEmpty(ref TextBox tb,string message)
+        {
+            if(tb.Text == string.Empty)
+            {
+                errorProvider1.SetError(tb, message);
+            }
+          
+        }
+
         private void tabControl1_Selecting(object sender, TabControlCancelEventArgs e)
         {
         
@@ -530,12 +538,25 @@ namespace CST
                     
                     currentTab = changedPage;
                     tabControl1.SelectedIndex = changedPage;
+                    errorProvider1.Clear();
             
                 }
                 else
                 {
                     e.Cancel = true;
                     MessageBox.Show("Please Complete Information for the Personal Details", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    errorHandlingIsEmpty(ref txtAddress, "Enter Address");
+                    errorHandlingIsEmpty(ref txtLastname, "Enter Lastname");
+                    errorHandlingIsEmpty(ref txtMiddlename, "Enter Middlename");
+                    errorHandlingIsEmpty(ref txtFirstname, "Enter Firstname");
+                    errorHandlingIsEmpty(ref textBox19, "Enter Age");
+          
+                    errorHandlingIsEmpty(ref txtNationality, "Enter Nationality");
+                    errorHandlingIsEmpty(ref txtReligion, "Enter Religion");
+                    errorHandlingIsEmpty(ref txtPOB, "Enter Place of birth");
+            
+
+
                 }
             }else if(currentTab == 1)
             {
@@ -548,12 +569,20 @@ namespace CST
                
                     currentTab = changedPage;
                     tabControl1.SelectedIndex = changedPage;
-              
+                    errorProvider1.Clear();
                 }
                 else
                 {
                     e.Cancel = true;
-                    MessageBox.Show("Please Complete Information for the Personal Details", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    errorHandlingIsEmpty(ref txtFLast, "Enter Fathers name");
+                    errorHandlingIsEmpty(ref txtFMobile, "Enter Fathers Mobile");
+                    errorHandlingIsEmpty(ref txtMiddlename, "Enter Father's Occu");
+                    errorHandlingIsEmpty(ref textBox12, "Enter Mother's name");
+                    errorHandlingIsEmpty(ref textBox5, "Enter Mothers Mobile");
+
+                    errorHandlingIsEmpty(ref textBox6, "Enter Mothers number");
+
+                    MessageBox.Show("Please Complete Information for the Family Details", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             else if(currentTab == 2)
@@ -738,6 +767,7 @@ namespace CST
             if (radioButton7.Checked)
             {
                 isVacinated = "Yes";
+                txtVaccination.Enabled = true;
             }
             else
             {
@@ -748,6 +778,51 @@ namespace CST
         private void groupBox3_Enter(object sender, EventArgs e)
         {
 
+        }
+
+        private void label11_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void radioButton6_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radioButton6.Checked)
+            {
+                txtVaccination.Enabled = false;
+            }
+        }
+
+        private void radioButton9_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radioButton9.Checked)
+            {
+                textBox17.Enabled = true;
+            }
+        }
+
+        private void radioButton8_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radioButton8.Checked)
+            {
+                textBox17.Enabled = false;
+            }
+        }
+
+        private void radioButton11_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radioButton11.Checked)
+            {
+                textBox18.Enabled = true;
+            }
+        }
+
+        private void radioButton10_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radioButton12.Checked)
+            {
+                textBox18.Enabled = false;
+            }
         }
     }
 }

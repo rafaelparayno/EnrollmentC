@@ -109,7 +109,7 @@ namespace CST.Models
 
         public void searchGrid(string condition, string searchKeys, ref DataGridView dg,int schoolId)
         {
-            string sql = String.Format(@"SELECT req_id,type_of_student,requirement_name FROM school_requirements WHERE SY_ID = {0} AND type_of_student = '{1}' AND requirement_name LIKE '%{2}%'", 
+            string sql = String.Format(@"SELECT req_id,type_of_student,requirement_name FROM school_requirements WHERE type_of_student = '{1}' AND requirement_name LIKE '%{2}%'", 
                                             schoolId,
                                             condition,
                                              searchKeys);
