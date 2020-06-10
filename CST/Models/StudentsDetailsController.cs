@@ -59,7 +59,7 @@ namespace CST.Models
         public void fillDataGridDetails(ref DataGridView dg)
         {
             string sql = String.Format(@"SELECT  studentenrolledinfo.`sno`, `firstname`, `lastname`, `middlename`, `gender`, `age`, `birthdate`, 
-                                        `pob`, `contact_no`, `nationality`, `religion`, `address` FROM student_detail 
+                                        `pob`, `contact_no`, `nationality`, `religion`, `address`,studentenrolledinfo.grade_level FROM student_detail 
                                         LEFT JOIN studentenrolledinfo ON student_detail.sno = studentenrolledinfo.sno
                                         WHERE studentenrolledinfo.sy_id = {0} AND studentenrolledinfo.is_Enrolled = 1", syid);
 
@@ -69,7 +69,7 @@ namespace CST.Models
         public void fillDataGridDetails(ref DataGridView dg,int yrid)
         {
             string sql = String.Format(@"SELECT  studentenrolledinfo.`sno`, `firstname`, `lastname`, `middlename`, `gender`, `age`, `birthdate`, 
-                                        `pob`, `contact_no`, `nationality`, `religion`, `address` FROM student_detail 
+                                        `pob`, `contact_no`, `nationality`, `religion`, `address`,studentenrolledinfo.grade_level FROM student_detail 
                                         LEFT JOIN studentenrolledinfo ON student_detail.sno = studentenrolledinfo.sno
                                         WHERE studentenrolledinfo.sy_id = {0} AND studentenrolledinfo.is_Enrolled = 1", yrid);
 

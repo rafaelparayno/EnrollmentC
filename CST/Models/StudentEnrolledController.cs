@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,6 +23,23 @@ namespace CST.Models
                                         sno, grade, sectid, 0, syid);
 
             cs.ExecuteQuery(sql);
+
+        }
+
+        public int getSchedId(string sno) 
+        {
+            int id = 0;
+            string sql = String.Format(@"SELECT * FROM studentenrolledinfo WHERE sno = '{0}'", sno);
+            MySqlDataReader reader = null;
+            cs.RetrieveRecords(sql, ref reader);
+
+            if (reader.Read())
+            {
+                id = int.Parse(reader["sect_id"].ToString());
+            }
+            cs.CloseConnection();
+
+            return id;
 
         }
 

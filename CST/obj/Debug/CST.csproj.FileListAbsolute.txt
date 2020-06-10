@@ -366,3 +366,4 @@ C:\Users\Xorn\Desktop\C#\versionRaf\EnrollmentC\CST\obj\Debug\CST.csprojAssembly
 C:\Users\Xorn\Desktop\C#\versionRaf\EnrollmentC\CST\obj\Debug\CST.Cashier.studentreserve.resources
 C:\Users\Xorn\Desktop\C#\versionRaf\EnrollmentC\CST\obj\Debug\CST.Cashier.ReservationList.resources
 C:\Users\Xorn\Desktop\C#\versionRaf\EnrollmentC\CST\obj\Debug\CST.Reports.AccountRecordRep.resources
+C:\Users\Xorn\Desktop\C#\versionRaf\EnrollmentC\CST\obj\Debug\CST.Registrar.RegRecordSched.resources

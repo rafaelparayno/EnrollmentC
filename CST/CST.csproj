@@ -439,6 +439,12 @@
     <Compile Include="Registrar\ListRequirements.Designer.cs">
       <DependentUpon>ListRequirements.cs</DependentUpon>
     </Compile>
+    <Compile Include="Registrar\RegRecordSched.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Registrar\RegRecordSched.Designer.cs">
+      <DependentUpon>RegRecordSched.cs</DependentUpon>
+    </Compile>
     <Compile Include="Registrar\selectingGradeSectionSched.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -809,6 +815,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Registrar\ListRequirements.resx">
       <DependentUpon>ListRequirements.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Registrar\RegRecordSched.resx">
+      <DependentUpon>RegRecordSched.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Registrar\selectingGradeSectionSched.resx">
       <DependentUpon>selectingGradeSectionSched.cs</DependentUpon>

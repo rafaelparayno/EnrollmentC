@@ -41,6 +41,7 @@ namespace CST
             studentsDetailsController.fillDataGridDetails(ref dataGridView1);
             clickedBut = "Personal";
             button6.Enabled = true;
+            button9.Enabled = true;
 
         }
 
@@ -55,6 +56,8 @@ namespace CST
         {
             studentsDetailsController.fillDataGridDetails(ref dataGridView1);
             clickedBut = "Personal";
+            button6.Enabled = true;
+            button9.Enabled = true;
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -146,6 +149,7 @@ namespace CST
             studFamDetailsController.filldataGridFam(ref dataGridView1);
             clickedBut = "Family";
             button6.Enabled = false;
+            button9.Enabled = false;
         }
 
         private void button5_Click(object sender, EventArgs e)
@@ -153,6 +157,7 @@ namespace CST
             StudHistDetailsController.fillDataHist(ref dataGridView1);
             clickedBut = "History";
             button6.Enabled = false;
+            button9.Enabled = false;
         }
 
         private void button7_Click(object sender, EventArgs e)
@@ -160,6 +165,7 @@ namespace CST
             studentsDetailsController.fillDataGridDetailsNotEnrolled(ref dataGridView1);
             clickedBut = "Personal";
             button6.Enabled = true;
+            button9.Enabled = false;
         }
 
         private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
@@ -218,6 +224,18 @@ namespace CST
             {
                 string sno = dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
                 RegFormRep frm = new RegFormRep(sno);
+                frm.ShowDialog();
+
+            }
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.Rows.Count > 0)
+            {
+                string sno = dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
+                string grade = dataGridView1.SelectedRows[0].Cells[12].Value.ToString();
+                RegRecordSched frm = new RegRecordSched(sno,grade);
                 frm.ShowDialog();
 
             }
