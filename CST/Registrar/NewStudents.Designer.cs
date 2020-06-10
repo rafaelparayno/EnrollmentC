@@ -241,6 +241,7 @@
             this.button4.TabIndex = 287;
             this.button4.Text = "Student Grade";
             this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // NewStudents
             // 

@@ -70,17 +70,17 @@ namespace CST.Models
         }
 
 
-        public void fillLvGrades(ref ListView lv,string syid)
+        public void fillLvGrades(ref ListView lv,int syid,string sno)
         {
-            string sql = String.Format(@"SELECT student_detail.sno,CONCAT(student_detail.firstname,' ',student_detail.lastname) AS 'Student Name',
-                                            CONCAT(useraccounts.Firstname,' ' ,useraccounts.Lastname) AS 'Teacher Name',
+            string sql = String.Format(@"SELECT student_detail.sno,CONCAT(student_detail.firstname,' ',student_detail.lastname) AS 'StudentName',
+                                            CONCAT(useraccounts.Firstname,' ' ,useraccounts.Lastname) AS 'TeacherName',
                                             subject_name,avg FROM `student_detail` 
                                             LEFT JOIN student_grades on student_detail.sno = student_grades.sno 
                                             LEFT JOIN subjects ON student_grades.subject_id = subjects.subject_id
                                             LEFT JOIN specialization ON student_grades.teacher_ID = specialization.teacher_ID
                                             LEFT JOIN useraccounts ON specialization.acc_id = useraccounts.acc_id
                                             LEFT JOIN studentenrolledinfo ON student_detail.sno = studentenrolledinfo.sno
-                                            WHERE studentenrolledinfo.is_Enrolled = 1 AND studentenrolledinfo.sy_id = 1", syid);
+                                             WHERE studentenrolledinfo.is_Enrolled = 1 AND studentenrolledinfo.sy_id = {0} AND student_detail.sno = '{1}'", syid,sno);
 
             MySqlDataReader reader = null;
 
@@ -88,11 +88,15 @@ namespace CST.Models
 
             while (reader.Read())
             {
+                
+                string avg = reader["avg"].ToString() == "" ? "0" : reader["avg"].ToString();
+
                 ListViewItem lvs = new ListViewItem();
-                lvs.Text = reader["start_time"].ToString();
-                lvs.SubItems.Add(reader["end_time"].ToString());
+                lvs.Text = reader["sno"].ToString();
+                lvs.SubItems.Add(reader["StudentName"].ToString());
+                lvs.SubItems.Add(reader["TeacherName"].ToString());
                 lvs.SubItems.Add(reader["subject_name"].ToString());
-                lvs.SubItems.Add(reader["Teachers Name"].ToString());
+                lvs.SubItems.Add(avg);
 
                 lv.Items.Add(lvs);
             }

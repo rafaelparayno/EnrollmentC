@@ -158,7 +158,7 @@ namespace CST
 
         private void refreshGrid()
         {
-            gradesController.fillDataGridGrades(ref dataGridView1, selectedSectionId, selectedSubId, teacherId);
+          
             listView1.Items.Clear();
             gradesController.fillLisdViewTeacher(ref listView1, selectedSectionId, selectedSubId, teacherId);
         }
@@ -186,97 +186,10 @@ namespace CST
 
         private void button4_Click_1(object sender, EventArgs e)
         {
-            if (dataGridView1.Rows.Count > 0)
-            {
-                SaveFileDialog sfd = new SaveFileDialog();
-                sfd.Filter = "Excel (.xlsx)|  *.xlsx";
-                sfd.FileName = "Output.xlsx";
-                bool fileError = false;
-                if (sfd.ShowDialog() == DialogResult.OK)
-                {
-                    if (File.Exists(sfd.FileName))
-                    {
-                        try
-                        {
-                            File.Delete(sfd.FileName);
-                        }
-                        catch (IOException ex)
-                        {
-                            fileError = true;
-                            MessageBox.Show("It wasn't possible to write the data to the disk." + ex.Message);
-                        }
-                    }
-                    if (!fileError)
-                    {
-                        try
-                        {
-                            Microsoft.Office.Interop.Excel.Application XcelApp = new Microsoft.Office.Interop.Excel.Application();
-                            Microsoft.Office.Interop.Excel._Workbook workbook = XcelApp.Workbooks.Add(Type.Missing);
-                            Microsoft.Office.Interop.Excel._Worksheet worksheet = null;
-
-                            worksheet = workbook.Sheets["Sheet1"];
-                            worksheet = workbook.ActiveSheet;
-                            worksheet.Name = "Output";
-                            worksheet.Application.ActiveWindow.SplitRow = 1;
-                            worksheet.Application.ActiveWindow.FreezePanes = true;
-
-                            for (int i = 1; i < dataGridView1.Columns.Count + 1; i++)
-                            {
-                                worksheet.Cells[1, i] = dataGridView1.Columns[i - 1].HeaderText;
-                                worksheet.Cells[1, i].Font.NAME = "Calibri";
-                                worksheet.Cells[1, i].Font.Bold = true;
-                                worksheet.Cells[1, i].Interior.Color = Color.Wheat;
-                                worksheet.Cells[1, i].Font.Size = 12;
-                            }
-
-                            for (int i = 0; i < dataGridView1.Rows.Count; i++)
-                            {
-                                for (int j = 0; j < dataGridView1.Columns.Count; j++)
-                                {
-                                    worksheet.Cells[i + 2, j + 1] = dataGridView1.Rows[i].Cells[j].Value.ToString();
-                                }
-                            }
-
-                            worksheet.Columns.AutoFit();
-                            workbook.SaveAs(sfd.FileName);
-                            XcelApp.Quit();
-
-                            ReleaseObject(worksheet);
-                            ReleaseObject(workbook);
-                            ReleaseObject(XcelApp);
-
-                            MessageBox.Show("Data Exported Successfully !!!", "Info");
-                        }
-                        catch (Exception ex)
-                        {
-                            MessageBox.Show("Error :" + ex.Message);
-                        }
-                    }
-                }
-            }
-            else
-            {
-                MessageBox.Show("No Record To Export !!!", "Info");
-            }
+           
         }
 
-        private void ReleaseObject(object obj)
-        {
-            try
-            {
-                System.Runtime.InteropServices.Marshal.ReleaseComObject(obj);
-                obj = null;
-            }
-            catch (Exception ex)
-            {
-                obj = null;
-                MessageBox.Show("Exception Occured while releasing object " + ex.Message, "Error");
-            }
-            finally
-            {
-                GC.Collect();
-            }
-        }
+       
 
         private void button5_Click(object sender, EventArgs e)
         {
@@ -286,7 +199,7 @@ namespace CST
 
             if (form1 == DialogResult.Yes)
             {
-                if(dataGridView1.Rows.Count > 0)
+                if(listView1.SelectedItems.Count > 0)
                 {
                     gradesController.deleteGrade(listView1.SelectedItems[0].SubItems[0].Text,
                                            selectedSubId, selectedSectionId, teacherId);

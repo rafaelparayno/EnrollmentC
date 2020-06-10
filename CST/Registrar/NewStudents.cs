@@ -102,5 +102,13 @@ namespace CST
             frm.pbClose.Visible = true;
             frm.ShowDialog();
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            StudentGradesReg frm = new StudentGradesReg();
+            frm.Show();
+            this.Hide();
+
+        }
     }
 }
