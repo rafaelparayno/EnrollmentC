@@ -36,6 +36,23 @@ namespace CST.Models
            
         }
 
+        public int getStatusEnrollment()
+        {
+            int status = 0;
+            string sql = String.Format(@"SELECT is_open FROM enrollment_schedule WHERE SY_id = {0}", syid);
+
+            MySqlDataReader reader = null;
+            cs.RetrieveRecords(sql, ref reader);
+
+            if (reader.Read())
+            {
+                status = int.Parse(reader["is_open"].ToString());
+            }
+            cs.CloseConnection();
+
+            return status;
+        }
+
 
         private void updateEnrollmentSchedule(string sd,string ed)
         {

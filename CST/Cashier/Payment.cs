@@ -19,6 +19,8 @@ namespace CST
 
         TuitionFeeController tuitionFeeController = new TuitionFeeController();
         MiscController miscController = new MiscController();
+        EnrollScheduleController en = new EnrollScheduleController();
+        int enStatus = 0;
 
         public Payment()
         {
@@ -26,6 +28,20 @@ namespace CST
             foreach(string grade in DataClass.getAllGrade())
             {
                 comboBox2.Items.Add(grade);
+            }
+
+            enStatus = en.getStatusEnrollment();
+
+
+            if(enStatus == 0)
+            {
+                button1.Enabled = false;
+                button6.Enabled = false;
+            }
+            else
+            {
+                button1.Enabled = true;
+                button6.Enabled = true;
             }
         }
 

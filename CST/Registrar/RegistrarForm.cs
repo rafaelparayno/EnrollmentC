@@ -18,6 +18,8 @@ namespace  CST
         YearController yearController = new YearController();
         AuditTrailControl auditTrailControl = new AuditTrailControl();
         loginController controller = new loginController();
+        EnrollScheduleController en = new EnrollScheduleController();
+        int statusEn = 0;
         public RegistrarForm()
         {
             InitializeComponent();
@@ -26,6 +28,16 @@ namespace  CST
             timer1.Start();
 
             label6.Text = yearController.getSyActivated();
+            statusEn = en.getStatusEnrollment();
+
+            if(statusEn == 0)
+            {
+                btnEnroll.Enabled = false;
+            }
+            else
+            {
+                btnEnroll.Enabled = true;
+            }
         }
 
         private void RegistrarForm_Load(object sender, EventArgs e)

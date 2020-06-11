@@ -19,12 +19,30 @@ namespace CST
         globalVariables gv = new globalVariables();
         AuditTrailControl auditTrailControl = new AuditTrailControl();
         loginController controller = new loginController();
+        EnrollScheduleController en = new EnrollScheduleController();
+        int statusEnrollment = 0;
         public EnrollmentAdmin()
         {
             InitializeComponent();
             this.label5.Text = UserLog.getUserName();
             this.label1.Text = UserLog.getRole();
             this.label6.Text = SchoolYearModel.getSchoolYear();
+
+            statusEnrollment = en.getStatusEnrollment();
+            if (statusEnrollment == 0)
+            {
+                btnEnroll.Enabled = true;
+                btnRecord.Enabled = true;
+                button2.Enabled = true;
+                button1.Enabled = true;
+            }
+            else
+            {
+                btnEnroll.Enabled = false;
+                btnRecord.Enabled = false;
+                button2.Enabled = false;
+                button1.Enabled = false;
+            }
 
         }
 
