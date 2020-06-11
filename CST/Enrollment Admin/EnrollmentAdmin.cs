@@ -87,7 +87,7 @@ namespace CST
             DateTime my = DateTimeOffset.Now.DateTime.ToLocalTime().ToUniversalTime();
 
 
-            DateTime mys = DateTimeOffset.Now.UtcDateTime.ToLocalTime();
+            //DateTime mys = DateTimeOffset.Now.UtcDateTime.ToLocalTime();
 
 
             label7.Text = my.ToString("MM/dd/yyyy  hh:mm:ss tt");

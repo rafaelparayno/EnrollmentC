@@ -16,10 +16,14 @@ namespace CST
     {
 
         EnrollScheduleController en = new EnrollScheduleController();
+        string OpenEnrollemnt = "";
+        string[] dataEn = { };
         public EnrollmentSchedule()
         {
             InitializeComponent();
-         
+            refreshData();
+            timer1.Start();
+
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -31,7 +35,7 @@ namespace CST
 
         private void EnrollmentSchedule_Load(object sender, EventArgs e)
         {
-            refreshGrid();
+            //refreshGrid();
            
         }
 
@@ -74,18 +78,76 @@ namespace CST
         {
             addEnrollmentSched frm = new addEnrollmentSched();
             frm.ShowDialog();
+            refreshData();
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            addEnrollmentSched frm = new addEnrollmentSched(dataGridView1.SelectedRows[0].Cells[1].Value.ToString(),
-                                                            dataGridView1.SelectedRows[0].Cells[2].Value.ToString());
-            frm.ShowDialog();
+            
         }
 
-        private void refreshGrid()
+        private void refreshData()
         {
-            en.fillDataEnrolSched(ref dataGridView1);
+            dataEn = en.getEnrollSched();
+        
+            string syname = dataEn[0] == "" || dataEn[0] == null ? "No Date Yet" : dataEn[0];
+            string startdate = dataEn[1] == "" || dataEn[1] == null ? "No Date Yet" : dataEn[1];
+            string endDate = dataEn[2] == "" || dataEn[2] == null ? "No Date Yet" : dataEn[2];
+            OpenEnrollemnt = dataEn[3] == "" || dataEn[3] == null ? "No Data" :
+                int.Parse(dataEn[3]) == 0 ? "Close" : "Open";
+
+
+            bool isdateStart = DateTime.TryParse(startdate, out _);
+
+           
+            if (isdateStart)
+            {
+                DateTime dateStart = DateTime.Parse(startdate);
+                DateTime dateEnd = DateTime.Parse(endDate);
+                label3.Text = "Start Date :  " + dateStart.ToString("MMMM dd, yyyy");
+                label4.Text = "End Date :" + dateEnd.ToString("MMMM dd, yyyy");
+            }
+            else
+            {
+                label3.Text =  "Start Date :  " + startdate;
+                label4.Text =  "End Date : " + endDate;
+            }
+
+            label5.Text = "School Year :" + " " + syname;
+          
+            
+            label2.Text = "Open Enrollment : " + OpenEnrollemnt;
+
+            if (OpenEnrollemnt == "Close")
+            {
+                button4.Text = "Open Enrollment";
+                button4.Enabled = true;
+            }
+            else if (OpenEnrollemnt == "Open")
+            {
+                button4.Text = "Closed Enrollment";
+                button4.Enabled = true;
+            }
+            else
+            {
+                button4.Enabled = false;
+            }
+
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            if(OpenEnrollemnt == "Close")
+            {
+                en.updateOpenEn();
+                MessageBox.Show("Open Enrollment");
+            }
+            else if(OpenEnrollemnt == "Open")
+            {
+                en.updateCloseEn();
+                MessageBox.Show("Close Enrollment");
+            }
+            refreshData();
         }
     }
 }

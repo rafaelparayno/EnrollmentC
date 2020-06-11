@@ -37,6 +37,8 @@ namespace CST.Enrollment_Admin.AddUpdateDiags
         private void button3_Click(object sender, EventArgs e)
         {
             en.addEnrollmentSchedul(dateTimePicker1.Value.ToString("dd/MM/yyyy"), dateTimePicker2.Value.ToString("dd/MM/yyyy"));
+            MessageBox.Show("Succesfully Save Date");
+            this.Hide();
         }
 
         private void addEnrollmentSched_Load(object sender, EventArgs e)

@@ -23,16 +23,24 @@ namespace CST.Models
         {
             if (isEnrollmentCurrentlyExists())
             {
-                string sql = String.Format(@"INSERT INTO `enrollment_schedule`(`start_date`, `end_date`, `SY_id`) VALUES('{0}','{1}',{2})", sd, ed, syid);
+                string sql = String.Format(@"INSERT INTO `enrollment_schedule`(`start_date`, `end_date`, is_open ,`SY_id`) VALUES('{0}','{1}',0,{2})", sd, ed, syid);
 
                 cs.ExecuteQuery(sql);
 
             }
             else
             {
-                MessageBox.Show("This School Year Has Already An Schedule", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                updateEnrollmentSchedule(sd, ed);
+              
             }
            
+        }
+
+
+        private void updateEnrollmentSchedule(string sd,string ed)
+        {
+            string sql = String.Format(@"UPDATE enrollment_schedule SET start_date = '{0}', end_date = '{1}' WHERE SY_id = {2} ", sd, ed, syid);
+            cs.ExecuteQuery(sql);
         }
 
         private bool isEnrollmentCurrentlyExists()
@@ -56,6 +64,43 @@ namespace CST.Models
             string sql = "SELECT school_year,start_date,end_date FROM `enrollment_schedule` LEFT JOIN school_year ON enrollment_schedule.SY_id = school_year.id";
 
             cs.FillDataGrid(sql, ref dg);
+        }
+
+        public string [] getEnrollSched()
+        {
+            string[] data = new string[4];
+
+            string sql = String.Format(@"SELECT  school_year,start_date,end_date,is_open FROM enrollment_schedule 
+                                        LEFT JOIN school_year ON enrollment_schedule.SY_id = school_year.id 
+                                        WHERE enrollment_schedule.SY_id = {0}",syid);
+
+            MySqlDataReader reader = null;
+
+            cs.RetrieveRecords(sql, ref reader);
+
+            if (reader.Read())
+            {
+                data[0] = reader["school_year"].ToString();
+                data[1] = reader["start_date"].ToString();
+                data[2] = reader["end_date"].ToString();
+                data[3] = reader["is_open"].ToString();
+            }
+
+            cs.CloseConnection();
+            return data;
+        }
+
+        public void updateCloseEn()
+        {
+            string sql = String.Format(@"UPDATE enrollment_schedule SET is_open = 0 WHERE SY_id = {0} ",  syid);
+            cs.ExecuteQuery(sql);
+        }
+
+
+        public void updateOpenEn()
+        {
+            string sql = String.Format(@"UPDATE enrollment_schedule SET is_open = 1 WHERE SY_id = {0} ", syid);
+            cs.ExecuteQuery(sql);
         }
 
 
