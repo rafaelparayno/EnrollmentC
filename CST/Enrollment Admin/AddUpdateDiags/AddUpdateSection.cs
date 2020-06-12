@@ -21,13 +21,14 @@ namespace CST.Enrollment_Admin.AddUpdateDiags
         private int sect_id = 0;
         int teacherId = 0;
         private bool isEdited = false;
+      
         public AddUpdateSection()
         {
             InitializeComponent();
             fillCombo();
         }
 
-        public AddUpdateSection(int sect_id,string grade_level,string fullName,string section_name)
+        public AddUpdateSection(int sect_id,string grade_level,string fullName,string section_name,int caps)
         {
             InitializeComponent();
             fillCombo();
@@ -38,6 +39,7 @@ namespace CST.Enrollment_Admin.AddUpdateDiags
             string teachernameWithID = sp.findTeacherName(fullName.Split(' ')[0], fullName.Split(' ')[1]);
             comboBox2.SelectedItem = teachernameWithID.Split('-')[0];
             teacherId = int.Parse(teachernameWithID.Split('-')[1]);
+            textBox2.Text = caps + "";
         }
 
         private void AddUpdateSection_Load(object sender, EventArgs e)
@@ -56,13 +58,12 @@ namespace CST.Enrollment_Admin.AddUpdateDiags
             {
                 if (!isEdited)
                 {
-                    sect.addSection(comboBox1.SelectedItem.ToString(), teacherId, textBox1.Text.Trim());
-                
+                    sect.addSection(comboBox1.SelectedItem.ToString(), teacherId, textBox1.Text.Trim(), int.Parse(textBox2.Text.ToString().Trim()));                
                     this.Hide();
                 }
                 else
                 {
-                    sect.updateSection(sect_id, comboBox1.SelectedItem.ToString(), teacherId, textBox1.Text.Trim(), yr.getSchoolYearId());
+                    sect.updateSection(sect_id, comboBox1.SelectedItem.ToString(), teacherId, textBox1.Text.Trim(), yr.getSchoolYearId(),int.Parse(textBox2.Text.Trim()));
                   
                     this.Hide();
                 }
@@ -81,6 +82,7 @@ namespace CST.Enrollment_Admin.AddUpdateDiags
 
             isValid = !(textBox1.Text == "") && isValid;
 
+            isValid = int.TryParse(textBox2.Text.Trim(),out _) && isValid;
 
             if (!isValid)
             {
@@ -119,6 +121,15 @@ namespace CST.Enrollment_Admin.AddUpdateDiags
             {
                 comboBox2.Items.Clear();
                 user_ids = sp.fillDataTeacherSect(ref comboBox2);
+            }
+        }
+
+        private void textBox2_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            string validKeys = "0123456789";
+            if (validKeys.IndexOf(e.KeyChar) < 0 && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
             }
         }
     }

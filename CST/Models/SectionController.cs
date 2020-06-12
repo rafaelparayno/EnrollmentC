@@ -19,13 +19,13 @@ namespace CST.Models
             yearID = yearController.getSchoolYearId();
         }
 
-        public void addSection(string grade_level,int teacher_id,string section_name)
+        public void addSection(string grade_level,int teacher_id,string section_name,int capacity)
         {
             int yearId = yearController.getSchoolYearId();
 
             if (!isChecked(grade_level,section_name)){
-                string sql = String.Format("INSERT INTO sections (grade_level,teacher_ID,section_name,SY_ID) VALUES ('{0}',{1},'{2}',{3})", grade_level,
-                                        teacher_id, section_name, yearID);
+                string sql = String.Format("INSERT INTO sections (grade_level,teacher_ID,section_name,limit_capacity,SY_ID) VALUES ('{0}',{1},'{2}',{3},{4})", grade_level,
+                                        teacher_id, section_name,capacity, yearID);
 
                 cs.ExecuteQuery(sql);
                 MessageBox.Show("Succesfully Added new Section");
@@ -37,27 +37,43 @@ namespace CST.Models
             
         }
 
-        public void updateSection(int sect_id,string grade_level, int teacher_id, string section_name,int yearId)
+        public void updateSection(int sect_id,string grade_level, int teacher_id, string section_name,int yearId,int caps)
         {
-
-            if (!isChecked(grade_level, section_name))
+            if (!isChanged(section_name,sect_id))
             {
-                string sql = String.Format(@"UPDATE sections SET grade_level = '{0}',teacher_ID = {1},section_name = '{2}' WHERE SY_ID = {3} AND sect_id = {4}",
-                                        grade_level, teacher_id, section_name, yearId, sect_id);
+                if (!isChecked(grade_level, section_name))
+                {
+                    string sql = String.Format(@"UPDATE sections SET grade_level = '{0}',teacher_ID = {1},section_name = '{2}',
+                                             limit_capacity = {3} WHERE SY_ID = {4} AND sect_id = {5}",
+                                          grade_level, teacher_id, section_name, caps, yearId, sect_id);
+                    MessageBox.Show("Succesfully Update Section");
+
+                    cs.ExecuteQuery(sql);
+                }
+                else
+                {
+                    MessageBox.Show("No same name with that grade level", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                }
+            }
+            else
+            {
+                string sql = String.Format(@"UPDATE sections SET grade_level = '{0}',teacher_ID = {1},section_name = '{2}',
+                                             limit_capacity = {3} WHERE SY_ID = {4} AND sect_id = {5}",
+                                         grade_level, teacher_id, section_name, caps,yearId, sect_id);
                 MessageBox.Show("Succesfully Update Section");
 
                 cs.ExecuteQuery(sql);
             }
-            else
-            {
-                MessageBox.Show("No same name with that grade level", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
-            }
+           
         }
 
         public void fillDataGridSect(ref DataGridView dg)
         {
-            string sql = String.Format("SELECT sect_id,sections.section_name, CONCAT(Firstname,' ',LastName) AS Adviser_Name,grade_level FROM `specialization` LEFT JOIN `useraccounts` ON specialization.acc_id = useraccounts.acc_id INNER JOIN `sections` ON sections.teacher_ID = specialization.teacher_ID WHERE sections.SY_ID = {0}", yearID);
+            string sql = String.Format(@"SELECT sect_id,sections.section_name, CONCAT(Firstname,' ',LastName) AS Adviser_Name,grade_level,limit_capacity AS 'Section limit' 
+                                        FROM `specialization` LEFT JOIN `useraccounts` ON specialization.acc_id = useraccounts.acc_id 
+                                        LEFT JOIN `sections` ON sections.teacher_ID = specialization.teacher_ID WHERE sections.SY_ID = {0}", yearID);
 
             cs.FillDataGrid(sql, ref dg);
         }
@@ -314,6 +330,24 @@ namespace CST.Models
             return grade_level;
         }
 
+
+        private bool isChanged(string sectname,int id)
+        {
+            bool isChange = false;
+
+            string sql = String.Format(@"SELECT * FROM `sections` WHERE sect_id = {0} AND section_name = '{1}' AND SY_ID = {2}", id,sectname, yearID);
+
+            MySqlDataReader reader = null;
+            reader = cs.RetrieveRecords(sql, ref reader);
+            if (reader.HasRows)
+            {
+                isChange = true;
+            }
+
+            cs.CloseConnection();
+
+            return isChange;
+        }
 
         private bool isChecked(string grade, string sectname)
         {

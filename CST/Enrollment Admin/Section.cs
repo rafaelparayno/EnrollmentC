@@ -73,7 +73,8 @@ namespace CST
             AddUpdateSection frm = new AddUpdateSection(int.Parse(dataGridView1.SelectedRows[0].Cells[0].Value.ToString()),
                                                         dataGridView1.SelectedRows[0].Cells[3].Value.ToString(),
                                                         dataGridView1.SelectedRows[0].Cells[2].Value.ToString(),
-                                                        dataGridView1.SelectedRows[0].Cells[1].Value.ToString());
+                                                        dataGridView1.SelectedRows[0].Cells[1].Value.ToString(),
+                                                        int.Parse(dataGridView1.SelectedRows[0].Cells[4].Value.ToString()));
             frm.ShowDialog();
             refreshGrid();
         }
