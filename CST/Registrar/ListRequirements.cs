@@ -108,8 +108,44 @@ namespace CST.Registrar
                 }
                 else
                 {
-                 //TODO
-                  
+                    if (comboBox1.SelectedIndex == 1)
+                    {
+
+                        //sno
+
+                        sql = String.Format(@"SELECT school_requirements.requirement_name AS 'Requirement Name',student_detail.sno, 
+                                            CONCAT(firstname,' ',lastname) AS 'StudentName' FROM `school_requirements` 
+                                            LEFT JOIN students_requirement ON school_requirements.req_id = students_requirement.req_id 
+                                            LEFT JOIN student_detail ON student_detail.sno = '{0}' 
+                                             WHERE type_of_student in (SELECT studentype FROM student_detail 
+                                                                            WHERE student_detail.sno = '{0}') 
+                                                AND school_requirements.req_id NOT IN (SELECT students_requirement.req_id FROM students_requirement 
+                                                                                        WHERE students_requirement.student_no = '{0}')",
+                                                 "STUD-" + txtUsername.Text.Trim());
+
+                        studentRequirementController.RawQuery(ref dataGridView1, sql);
+                    }
+                    else if (comboBox1.SelectedIndex == 2)
+                    {
+                      
+                        sql = String.Format(@"SELECT school_requirements.requirement_name AS 'Requirement Name',student_detail.sno, 
+                                            CONCAT(firstname,' ',lastname) AS 'StudentName' FROM `school_requirements` 
+                                            LEFT JOIN students_requirement ON school_requirements.req_id = students_requirement.req_id 
+                                            LEFT JOIN student_detail ON CONCAT(firstname,' ',lastname) LIKE '%{0}%' 
+                                             WHERE type_of_student in (SELECT studentype FROM student_detail 
+                                                                            WHERE  CONCAT(firstname,' ',lastname) LIKE '%{0}%') 
+                                                AND school_requirements.req_id NOT IN (SELECT students_requirement.req_id FROM students_requirement 
+                                                                                        WHERE students_requirement.student_no = 
+                                                            (SELECT sno FROM student_detail WHERE CONCAT(firstname,' ',lastname) LIKE '%{0}%' ))",
+                                            txtUsername.Text.Trim());
+                        studentRequirementController.RawQuery(ref dataGridView1, sql);
+                    }
+                    else
+                    {
+                        //*
+                        refreshGrid();
+                    }
+
 
                 }
             }
@@ -160,14 +196,7 @@ namespace CST.Registrar
                         studentRequirementController.RawQuery(ref dataGridView1, sql);
                     }
                 }
-                else
-                {
-
-                    //TODO
-
-                }
-           
-
+                
             }
            
 
@@ -180,6 +209,11 @@ namespace CST.Registrar
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
         {
 
         }

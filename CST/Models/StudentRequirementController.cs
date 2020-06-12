@@ -32,67 +32,14 @@ namespace CST.Models
             cs.FillDataGrid(sql, ref dg);
         }
 
-        public void SearchGrid(ref DataGridView dg,string searchKey)
-        {
-          
-
-            string sql = String.Format(@"SELECT student_req_id AS 'Requirement ID' ,requirement_name As 'Requirements',
-                                        student_detail.sno,Concat(firstname,' ',lastname) AS 'Student name' 
-                                        FROM students_requirement 
-                                        LEFT JOIN student_detail ON students_requirement.student_no = student_detail.sno 
-                                        LEFT JOIN  school_requirements ON school_requirements.req_id = students_requirement.req_id 
-                                        WHERE students_requirement.student_no = '{0}'",
-                    searchKey);
-
-            cs.FillDataGrid(sql, ref dg);
-            
-        }
-
-        public void SearchGridWithType(ref DataGridView dg, string searchKey,string type)
-        {
-
-
-            string sql = String.Format(@"SELECT student_req_id AS 'Requirement ID' ,requirement_name As 'Requirements',
-                                        Concat(firstname,' ',lastname) AS 'Student name' FROM students_requirement 
-                                        LEFT JOIN student_detail ON students_requirement.student_no = student_detail.sno 
-                                        LEFT JOIN  school_requirements ON school_requirements.req_id = students_requirement.req_id 
-                                        WHERE students_requirement.student_no = '{0}' AND school_requirements.type_of_student = '{1}'",
-                                        searchKey,type);
-
-            cs.FillDataGrid(sql, ref dg);
-
-        }
 
         public void RawQuery(ref DataGridView dg, string sql)
         {
             cs.FillDataGrid(sql, ref dg);
         }
 
-        public void SearchGridWithTypeName(ref DataGridView dg, string name, string type)
-        {
+    
 
-
-            string sql = String.Format(@"SELECT student_req_id AS 'Pass_id' ,requirement_name, 
-                                        Concat(firstname,' ',lastname) AS 'Studentname' FROM students_requirement 
-                                        LEFT JOIN student_detail ON students_requirement.student_no = student_detail.sno 
-                                        LEFT JOIN school_requirements ON school_requirements.req_id = students_requirement.req_id 
-                                        WHERE Concat(firstname,' ',lastname) LIKE '%{0}%' AND school_requirements.type_of_student = '{1}'", name,type);
-
-            cs.FillDataGrid(sql, ref dg);
-
-        }
-
-
-        public void searchName(ref DataGridView dg, string name)
-        {
-            string sql = String.Format(@"SELECT student_req_id AS 'Pass_id' ,requirement_name, 
-                                        Concat(firstname,' ',lastname) AS 'Studentname' FROM students_requirement 
-                                        LEFT JOIN student_detail ON students_requirement.student_no = student_detail.sno 
-                                        LEFT JOIN school_requirements ON school_requirements.req_id = students_requirement.req_id 
-                                        WHERE Concat(firstname,' ',lastname) LIKE '%{0}%'", name);
-
-            cs.FillDataGrid(sql, ref dg);
-        }
         
         public bool findSame(string sno,int req)
         {
