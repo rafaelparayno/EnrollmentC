@@ -42,6 +42,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label2
@@ -72,7 +73,7 @@
             this.listView1.Location = new System.Drawing.Point(22, 248);
             this.listView1.MultiSelect = false;
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(650, 274);
+            this.listView1.Size = new System.Drawing.Size(684, 274);
             this.listView1.TabIndex = 12;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
@@ -98,7 +99,7 @@
             // columnHeader5
             // 
             this.columnHeader5.Text = "Teacher";
-            this.columnHeader5.Width = 166;
+            this.columnHeader5.Width = 190;
             // 
             // label1
             // 
@@ -118,7 +119,7 @@
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Location = new System.Drawing.Point(104, 137);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(284, 28);
+            this.comboBox1.Size = new System.Drawing.Size(602, 28);
             this.comboBox1.TabIndex = 15;
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
@@ -130,7 +131,7 @@
             this.comboBox2.FormattingEnabled = true;
             this.comboBox2.Location = new System.Drawing.Point(104, 194);
             this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(284, 28);
+            this.comboBox2.Size = new System.Drawing.Size(602, 28);
             this.comboBox2.TabIndex = 16;
             this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
             // 
@@ -151,9 +152,9 @@
             this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button5.Font = new System.Drawing.Font("Times New Roman", 12F);
             this.button5.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button5.Location = new System.Drawing.Point(17, 564);
+            this.button5.Location = new System.Drawing.Point(22, 577);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(140, 48);
+            this.button5.Size = new System.Drawing.Size(293, 48);
             this.button5.TabIndex = 18;
             this.button5.Text = "Save";
             this.button5.UseVisualStyleBackColor = false;
@@ -175,7 +176,7 @@
             this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(397, 49);
+            this.label5.Location = new System.Drawing.Point(18, 93);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(129, 20);
             this.label5.TabIndex = 20;
@@ -187,13 +188,28 @@
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Times New Roman", 12F);
             this.button1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button1.Location = new System.Drawing.Point(163, 564);
+            this.button1.Location = new System.Drawing.Point(413, 577);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(225, 48);
+            this.button1.Size = new System.Drawing.Size(293, 48);
             this.button1.TabIndex = 21;
             this.button1.Text = "Print Sched";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.BackColor = System.Drawing.Color.Transparent;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.ForestGreen;
+            this.label6.Location = new System.Drawing.Point(353, 535);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(353, 29);
+            this.label6.TabIndex = 22;
+            this.label6.Text = "Selected Section Is Available";
+            this.label6.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            this.label6.Visible = false;
+            this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
             // selectingGradeSectionSched
             // 
@@ -201,7 +217,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::CST.Properties.Resources.b;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(718, 624);
+            this.ClientSize = new System.Drawing.Size(718, 637);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
@@ -217,6 +234,8 @@
             this.Name = "selectingGradeSectionSched";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "selectingGradeSectionSched";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.selectingGradeSectionSched_FormClosing);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.selectingGradeSectionSched_FormClosed);
             this.Load += new System.EventHandler(this.selectingGradeSectionSched_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -239,5 +258,6 @@
         public System.Windows.Forms.Label label4;
         public System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button button1;
+        public System.Windows.Forms.Label label6;
     }
 }

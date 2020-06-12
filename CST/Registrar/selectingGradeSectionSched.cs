@@ -20,10 +20,12 @@ namespace CST.Registrar
         string sno = "";
         string fn = "";
         int[] sectionIds = { };
+        int countTotalStuds = 0;
+        int caps = 0;
         int selectedSectIds = 0;
         SectionController sectionController = new SectionController();
         SchedSectionController schedSectionController = new SchedSectionController();
-        StudentsDetailsController studentsDetailsController = new StudentsDetailsController();
+      
         StudentEnrolledController studentEnrolledController = new StudentEnrolledController();
         public selectingGradeSectionSched(string studno,string name)
         {
@@ -56,13 +58,33 @@ namespace CST.Registrar
             selectedSectIds = sectionIds[comboBox2.SelectedIndex];
             listView1.Items.Clear();
             schedSectionController.fillListSched(ref listView1, selectedSectIds);
+            countTotalStuds = sectionController.totalStudentInSections(selectedSectIds);
+            caps = sectionController.getCapacity(selectedSectIds);
+
+            if(caps> countTotalStuds)
+            {
+                button1.Enabled = true;
+                button5.Enabled = true;
+                
+                label6.ForeColor = Color.ForestGreen;
+                label6.Text = "Selected Section Is Available";
+
+            }
+            else if(caps == countTotalStuds)
+            {
+                button1.Enabled = false;
+                button5.Enabled = false;
+                label6.ForeColor = Color.IndianRed;
+                label6.Text = "Selected Section Is Currently full";
+            }
+            label6.Visible = true;
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
             if (isValid())
             {
-                //studentsDetailsController.updateSectAndGrade(selectedSectIds, comboBox1.Text, sno);
+             
                 studentEnrolledController.addEnrolledStudents(sno, comboBox1.Text, selectedSectIds);
                 this.Hide();
                 RegistrarForm frm = new RegistrarForm();
@@ -118,6 +140,22 @@ namespace CST.Registrar
 
             StudentSchedRep form = new StudentSchedRep(ds, comboBox2.SelectedItem.ToString(), comboBox1.SelectedItem.ToString());
             form.ShowDialog();
+
+        }
+
+        private void selectingGradeSectionSched_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            
+        }
+
+        private void selectingGradeSectionSched_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            MessageBox.Show("Cannot Close The Application When Selecting of sections");
+            e.Cancel = true;
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
 
         }
     }

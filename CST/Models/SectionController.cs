@@ -366,5 +366,41 @@ namespace CST.Models
             return noSameNameInGrade;
         }
 
+        public int getCapacity(int sectid)
+        {
+            int count = 0;
+            string sql = String.Format(@"SELECT limit_capacity FROM sections WHERE sect_id = {0}", sectid);
+            MySqlDataReader reader = null;
+
+            cs.RetrieveRecords(sql, ref reader);
+
+            if (reader.Read())
+            {
+                count = int.Parse(reader["limit_capacity"].ToString());
+            }
+
+            cs.CloseConnection();
+
+            return count;
+        }
+
+        public int totalStudentInSections(int sectid)
+        {
+            int count = 0;
+            string sql = String.Format(@"SELECT COUNT(sno) AS 'totalStudent' FROM studentenrolledinfo WHERE sect_id = {0} AND is_Enrolled = 1", sectid);
+            MySqlDataReader reader = null;
+
+            cs.RetrieveRecords(sql, ref reader);
+
+            if (reader.Read())
+            {
+                count = int.Parse(reader["totalStudent"].ToString());
+            }
+
+            cs.CloseConnection();
+
+            return count;
+        }
+
     }
 }
