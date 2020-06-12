@@ -20,9 +20,11 @@ namespace CST.Models
 
         public void addStudDetails(string []arrDetails)
         {
-            string sql = String.Format(@"INSERT INTO student_detail(`sno`,`firstname`,`lastname`,`middlename`,`gender`,`age`,`birthdate`,`pob`,`contact_no`,`nationality`,`religion`,`address`) VALUES ('{0}','{1}','{2}','{3}','{4}',{5},'{6}','{7}','{8}','{9}','{10}','{11}')",
+            string sql = String.Format(@"INSERT INTO student_detail(`sno`,`firstname`,`lastname`,`middlename`,`gender`,`age`,
+                                        `birthdate`,`pob`,`contact_no`,`nationality`,`religion`,`address`,`studentype`) 
+                                        VALUES ('{0}','{1}','{2}','{3}','{4}',{5},'{6}','{7}','{8}','{9}','{10}','{11}','{12}')",
                                         arrDetails[0], arrDetails[1], arrDetails[2], arrDetails[3], arrDetails[4], arrDetails[5], arrDetails[6], arrDetails[7], arrDetails[8],
-                                        arrDetails[9], arrDetails[10], arrDetails[11]);
+                                        arrDetails[9], arrDetails[10], arrDetails[11],arrDetails[12]);
       
             cs.ExecuteQuery(sql);
         }
@@ -48,10 +50,13 @@ namespace CST.Models
             cs.ExecuteQuery(sql);
         }
 
-        public void updateStudDetails2(string fn, string ln, string mn, string gen, int age, string bd, string pob, string cn, string nat, string rel, string add, string sno)
+        public void updateStudDetails2(string fn, string ln, string mn, string gen, int age, string bd, string pob, string cn, string nat, string rel, string add,string studtype ,string sno)
         {
-            string sql = String.Format(@"UPDATE `student_detail` SET `firstname`='{0}',`lastname`='{1}',`middlename`='{2}',`gender`='{3}',`age`={4},`birthdate`='{5}',`pob`='{6}',`contact_no`='{7}',`nationality`='{8}',`religion`='{9}',`address`='{10}' WHERE sno = '{11}'",
-                                        fn, ln, mn, gen, age, bd, pob, cn, nat, rel, add, sno);
+            string sql = String.Format(@"UPDATE `student_detail` SET `firstname`='{0}',`lastname`='{1}',`middlename`='{2}',
+                                        `gender`='{3}',`age`={4},`birthdate`='{5}',`pob`='{6}',`contact_no`='{7}',
+                                        `nationality`='{8}',`religion`='{9}',`address`='{10}',
+                                        `studentype` = '{11}' WHERE sno = '{12}'",
+                                        fn, ln, mn, gen, age, bd, pob, cn, nat, rel, add, studtype, sno);
          
             cs.ExecuteQuery(sql);
         }
@@ -271,18 +276,6 @@ namespace CST.Models
             return details;
         }
 
-        public void updateEnrolled(string sno)
-        {
-            string sql = String.Format(@"UPDATE student_detail SET isEnrolled ='enrolled' WHERE sno = '{0}'", sno);
-
-            cs.ExecuteQuery(sql);
-        }
-
-        public void updateSectAndGrade(int sect_id,string grade,string sno)
-        {
-            string sql = String.Format(@"UPDATE student_detail SET sect_id = {0},grade_level = '{1}' WHERE sno = '{2}'",sect_id,grade, sno);
-
-            cs.ExecuteQuery(sql);
-        }
+       
     }
 }

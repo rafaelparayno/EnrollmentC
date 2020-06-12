@@ -25,7 +25,7 @@ namespace CST
        // StudentEnrolledController studentEnrolledController = new StudentEnrolledController();
         bool isUpdate = false;
         string sno = "";
-        string[] studentDetails = new string[12];
+        string[] studentDetails = new string[13];
         string[] famDetails = new string[17];
         bool inValid2 = false;
         int currentTab = 0;
@@ -180,7 +180,7 @@ namespace CST
                     StudentsDetailsController.updateStudDetails2(studentDetails[1], studentDetails[2], studentDetails[3],
                                                                  studentDetails[4], int.Parse(studentDetails[5]), studentDetails[6],
                                                                  studentDetails[7], studentDetails[8], studentDetails[9],
-                                                                 studentDetails[10], studentDetails[11], sno);
+                                                                 studentDetails[10], studentDetails[11], StudentModel.getTypeStud(),sno);
                     studFam.updateFamDetails(famDetails, sno);
                     studHis.updateHisDetails(sno, txtPastSchool.Text.Trim(), txtPastAdd.Text.Trim(), txtPastLevel.Text.Trim(), 
                                             dateTimePicker2.Value.ToShortDateString(), isVacinated, txtVaccination.Text.Trim());
@@ -520,7 +520,7 @@ namespace CST
             studentDetails[9] = StudentModel.getNat();
             studentDetails[10] = StudentModel.getRel();
             studentDetails[11] = StudentModel.getAddress();
-
+            studentDetails[12] = StudentModel.getTypeStud();
         }
 
         private void radioButton12_CheckedChanged(object sender, EventArgs e)
