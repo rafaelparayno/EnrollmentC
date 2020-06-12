@@ -27,9 +27,11 @@ namespace CST
         string sno = "";
         string[] studentDetails = new string[12];
         string[] famDetails = new string[17];
+        bool inValid2 = false;
         int currentTab = 0;
         string currentSy = "";
         string isVacinated = "";
+        bool inValid = false;
         public StudentForm()
         {
             InitializeComponent();
@@ -46,9 +48,13 @@ namespace CST
                 txtStudentID.Enabled = false;
                 StudentModel.setSno(generateSNO());
                 dateTimePicker1.MaxDate = DateTime.Now;
+                inValid = true;
+                inValid2 = true;
             }
             else
             {
+                inValid = false;
+                inValid2 = false;
                 isUpdate = true;
                 txtStudentID.Text = "";
                 txtStudentID.Enabled = true;
@@ -126,9 +132,18 @@ namespace CST
         private void backgroundWorker1_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
             MessageBox.Show("Succesfully Added Student Details");
-           
-            selectingGradeSectionSched frm = new selectingGradeSectionSched(txtStudentID.Text.Trim(),txtFirstname.Text.Trim() + " " + txtLastname.Text.Trim());
-            frm.Show();
+            if (StudentModel.getTypeStud() == "New Student" || StudentModel.getTypeStud() == "Transferee Student")
+            {
+                selectingGradeSectionSched frm = new selectingGradeSectionSched(txtStudentID.Text.Trim(), txtFirstname.Text.Trim() + " " + txtLastname.Text.Trim());
+                frm.Show();
+               
+            }
+            else
+            {
+                selectingGradeSectionSched frm = new selectingGradeSectionSched("STUD-" +txtStudentID.Text.Trim(), txtFirstname.Text.Trim() + " " + txtLastname.Text.Trim());
+                frm.Show();
+               
+            }
             this.Hide();
         }
 
@@ -140,6 +155,8 @@ namespace CST
             isvalid = validationTab3() && isvalid;
             isvalid = validationTab1() && isvalid;
             isvalid = validationTab2() && isvalid;
+            isvalid = inValid && isvalid;
+            isvalid = inValid2 && isvalid;
             if (isvalid)
             {
                 getAllDetails();
@@ -173,7 +190,7 @@ namespace CST
 
                 for (int i = 0; i < reqIds.Length; i++)
                 {
-                    studReq.addStudentReq(StudentModel.getSno(), StudentModel.getTypeStud(), reqIds[i]);
+                    studReq.addStudentReq(StudentModel.getSno(),  reqIds[i]);
                 }
 
              //   studentEnrolledController.addEnrolledStudents(StudentModel.getSno(),)
@@ -181,7 +198,7 @@ namespace CST
             }
             else
             {
-                MessageBox.Show("Please Complete Information for the Personal Details", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Please Complete Information for the Details or Student Already Enrolled..", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
            
 
@@ -314,8 +331,8 @@ namespace CST
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            studentDetails = StudentsDetailsController.searchAllDetails2(txtStudentID.Text.Trim());
-            famDetails = studFam.getAllFamDetails(txtStudentID.Text.Trim());
+            studentDetails = StudentsDetailsController.searchEnrollment("STUD-" + txtStudentID.Text.Trim());
+            famDetails = studFam.getAllFamDetails("STUD-"+txtStudentID.Text.Trim());
             if (studentDetails[0] == null)
             {
 
@@ -331,10 +348,14 @@ namespace CST
                 txtReligion.Text = "";
                 txtNationality.Text = "";
                 txtAddress.Text = "";
+                inValid = false;
+                inValid2 = false;
             }
             else
             {
                 //student_details
+                inValid = true;
+                inValid2 = studentDetails[12] == null || studentDetails[12] == "" ? true : false;
                 sno = studentDetails[0];
                 txtFirstname.Text = studentDetails[1];
                 txtLastname.Text = studentDetails[2];
@@ -395,10 +416,10 @@ namespace CST
 
                 //stud hist
 
-                txtPastSchool.Text = studHis.getHistStudent(txtStudentID.Text.Trim())[0];
-                txtPastAdd.Text = studHis.getHistStudent(txtStudentID.Text.Trim())[1];
-                txtPastLevel.Text = studHis.getHistStudent(txtStudentID.Text.Trim())[2];
-                dateTimePicker2.Value = DateTime.Parse(studHis.getHistStudent(txtStudentID.Text.Trim())[3]);
+                txtPastSchool.Text = studHis.getHistStudent("STUD-" + txtStudentID.Text.Trim())[0];
+                txtPastAdd.Text = studHis.getHistStudent("STUD-" + txtStudentID.Text.Trim())[1];
+                txtPastLevel.Text = studHis.getHistStudent("STUD-" + txtStudentID.Text.Trim())[2];
+                dateTimePicker2.Value = DateTime.Parse(studHis.getHistStudent("STUD-" + txtStudentID.Text.Trim())[3]);
                 if (studHis.getHistStudent(txtStudentID.Text.Trim())[4] == "Yes")
                 {
                     radioButton7.Checked = true;
@@ -408,8 +429,7 @@ namespace CST
                     radioButton6.Checked = true;
                 }
                 txtVaccination.Text = studHis.getHistStudent(txtStudentID.Text.Trim())[5];
-                /*   studHis.addHisDetails(StudentModel.getSno(), txtPastSchool.Text.Trim(), txtPastAdd.Text.Trim(), txtPastLevel.Text.Trim(),
-                                          dateTimePicker2.Value.ToShortDateString(), isVacinated, txtVaccination.Text.Trim());*/
+         
             }
         }
 

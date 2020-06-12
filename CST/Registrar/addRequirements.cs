@@ -78,7 +78,7 @@ namespace CST.Registrar
             {
                 if (!studentRequirementController.findSame(sno, selectedReqId))
                 {
-                    studentRequirementController.addStudentReq(sno, comboBox1.Text, selectedReqId);
+                    studentRequirementController.addStudentReq(sno,  selectedReqId);
                     this.Hide();
                 }
                 else

@@ -207,10 +207,10 @@ namespace CST
                     {
                         string totalPhp = "PHP " + downPay;
                         receivePayment -= reservationFee;
-                        OrReport frm2 = new OrReport(receivePayment, sno, 
+                        OrReport frm2 = new OrReport(receivePayment, sno,
                                                     textBox5.Text, textBox6.Text,
-                                                    totalPhp,orno,
-                                                    totalDisc,reservationFee);
+                                                    totalPhp, orno,
+                                                    totalDisc, reservationFee);
                         frm2.ShowDialog();
                     }
                     else

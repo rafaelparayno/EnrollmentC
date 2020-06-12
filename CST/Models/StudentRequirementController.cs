@@ -16,17 +16,16 @@ namespace CST.Models
 
         }
 
-        public void addStudentReq(string sno,string type_of_student,int req_id)
+        public void addStudentReq(string sno,int req_id)
         {
-            string sql = String.Format(@"INSERT INTO `students_requirement`(`student_no`, `type_of_student`, `req_id`) VALUES ('{0}','{1}',{2})",
-                                        sno, type_of_student, req_id);
+            string sql = String.Format(@"INSERT INTO `students_requirement`(`student_no`, `req_id`) VALUES ('{0}',{1})",
+                                        sno, req_id);
             cs.ExecuteQuery(sql);
         }
 
         public void fillGridReq(ref DataGridView dg)
         {
-            string sql = String.Format(@"SELECT student_req_id AS 'Pass_id' ,requirement_name,
-                                        students_requirement.type_of_student,Concat(firstname,' ',lastname) AS 'Student name' 
+            string sql = String.Format(@"SELECT student_req_id AS 'Requirement ID' ,requirement_name  As 'Requirements', student_detail.sno,Concat(firstname,' ',lastname) AS 'Student name' 
                                         FROM students_requirement LEFT JOIN student_detail ON students_requirement.student_no = student_detail.sno 
                                         LEFT JOIN  school_requirements ON school_requirements.req_id = students_requirement.req_id ");
 
@@ -37,8 +36,9 @@ namespace CST.Models
         {
           
 
-            string sql = String.Format(@"SELECT student_req_id AS 'Pass_id' ,requirement_name,students_requirement.type_of_student,
-                                        Concat(firstname,' ',lastname) AS 'Student name' FROM students_requirement 
+            string sql = String.Format(@"SELECT student_req_id AS 'Requirement ID' ,requirement_name As 'Requirements',
+                                        student_detail.sno,Concat(firstname,' ',lastname) AS 'Student name' 
+                                        FROM students_requirement 
                                         LEFT JOIN student_detail ON students_requirement.student_no = student_detail.sno 
                                         LEFT JOIN  school_requirements ON school_requirements.req_id = students_requirement.req_id 
                                         WHERE students_requirement.student_no = '{0}'",
@@ -48,9 +48,44 @@ namespace CST.Models
             
         }
 
+        public void SearchGridWithType(ref DataGridView dg, string searchKey,string type)
+        {
+
+
+            string sql = String.Format(@"SELECT student_req_id AS 'Requirement ID' ,requirement_name As 'Requirements',
+                                        Concat(firstname,' ',lastname) AS 'Student name' FROM students_requirement 
+                                        LEFT JOIN student_detail ON students_requirement.student_no = student_detail.sno 
+                                        LEFT JOIN  school_requirements ON school_requirements.req_id = students_requirement.req_id 
+                                        WHERE students_requirement.student_no = '{0}' AND school_requirements.type_of_student = '{1}'",
+                                        searchKey,type);
+
+            cs.FillDataGrid(sql, ref dg);
+
+        }
+
+        public void RawQuery(ref DataGridView dg, string sql)
+        {
+            cs.FillDataGrid(sql, ref dg);
+        }
+
+        public void SearchGridWithTypeName(ref DataGridView dg, string name, string type)
+        {
+
+
+            string sql = String.Format(@"SELECT student_req_id AS 'Pass_id' ,requirement_name, 
+                                        Concat(firstname,' ',lastname) AS 'Studentname' FROM students_requirement 
+                                        LEFT JOIN student_detail ON students_requirement.student_no = student_detail.sno 
+                                        LEFT JOIN school_requirements ON school_requirements.req_id = students_requirement.req_id 
+                                        WHERE Concat(firstname,' ',lastname) LIKE '%{0}%' AND school_requirements.type_of_student = '{1}'", name,type);
+
+            cs.FillDataGrid(sql, ref dg);
+
+        }
+
+
         public void searchName(ref DataGridView dg, string name)
         {
-            string sql = String.Format(@"SELECT student_req_id AS 'Pass_id' ,requirement_name,students_requirement.type_of_student, 
+            string sql = String.Format(@"SELECT student_req_id AS 'Pass_id' ,requirement_name, 
                                         Concat(firstname,' ',lastname) AS 'Studentname' FROM students_requirement 
                                         LEFT JOIN student_detail ON students_requirement.student_no = student_detail.sno 
                                         LEFT JOIN school_requirements ON school_requirements.req_id = students_requirement.req_id 
