@@ -18,6 +18,7 @@ namespace CST.Registrar
         StudentRequirementController studentRequirementController = new StudentRequirementController();
         string sno = "";
         string name = "";
+        string studType = "";
         int[] req_ids;
         int selectedReqId = 0;
         public addRequirements()
@@ -28,24 +29,29 @@ namespace CST.Registrar
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
-            comboBox2.Items.Clear();
-            req_ids = schoolRequirements.fillComboReq(comboBox1.SelectedItem.ToString(), ref comboBox2);
-            comboBox2.Enabled = true;
+            //comboBox2.Items.Clear();
+         //   req_ids = schoolRequirements.fillComboReq(comboBox1.SelectedItem.ToString(), ref comboBox2);
+         //   comboBox2.Enabled = true;
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
             name = studentsDetails.searchName(textBox1.Text.Trim());
+            studType = studentsDetails.searchStudType(textBox1.Text.Trim());
 
             label3.Text = "Name :" + name;
-
-            if(name == "")
+            label2.Text = "Type of Student : " + studType;
+            comboBox2.Items.Clear();
+            if (name == "")
             {
                 MessageBox.Show("No Student Number Found");
+                comboBox2.Enabled = false;
             }
             else
             {
-                sno = textBox1.Text.Trim();
+                sno =  "STUD-"+textBox1.Text.Trim();
+                req_ids = schoolRequirements.fillComboReq(studType, ref comboBox2);
+                comboBox2.Enabled = true;
             }
         }
 
@@ -59,8 +65,6 @@ namespace CST.Registrar
             bool isValid = true;
 
             isValid = !(sno == "") && isValid;
-
-            isValid = comboBox1.SelectedIndex > -1 && isValid;
 
             isValid = comboBox2.SelectedIndex > -1 && isValid;
 
@@ -91,6 +95,11 @@ namespace CST.Registrar
             {
                 MessageBox.Show("Complete Required Field", "validation", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void addRequirements_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

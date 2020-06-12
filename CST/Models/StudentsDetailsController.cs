@@ -114,7 +114,7 @@ namespace CST.Models
         public string searchName(string sno)
         {
             string name = "";
-            string sql = String.Format(@"SELECT Concat(firstname, ' ', lastname ) as Fullname FROM student_detail WHERE sno = '{0}'", sno);
+            string sql = String.Format(@"SELECT Concat(firstname, ' ', lastname ) as Fullname FROM student_detail WHERE sno = '{0}'", "STUD-" +sno);
             MySqlDataReader reader = null;
             cs.RetrieveRecords(sql, ref reader);
 
@@ -126,6 +126,23 @@ namespace CST.Models
             cs.CloseConnection();
 
             return name;
+        }
+
+        public string searchStudType(string sno)
+        {
+            string type = "";
+            string sql = String.Format(@"SELECT studentype FROM student_detail WHERE sno = '{0}'", "STUD-" +sno);
+            MySqlDataReader reader = null;
+            cs.RetrieveRecords(sql, ref reader);
+
+            if (reader.Read())
+            {
+                type = reader["studentype"].ToString();
+            }
+
+            cs.CloseConnection();
+
+            return type;
         }
 
         public string searchStudInSection(string sno,int section_id)

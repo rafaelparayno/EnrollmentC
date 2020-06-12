@@ -135,7 +135,7 @@ namespace CST.Registrar
                                              WHERE type_of_student in (SELECT studentype FROM student_detail 
                                                                             WHERE  CONCAT(firstname,' ',lastname) LIKE '%{0}%') 
                                                 AND school_requirements.req_id NOT IN (SELECT students_requirement.req_id FROM students_requirement 
-                                                                                        WHERE students_requirement.student_no = 
+                                                                                        WHERE students_requirement.student_no IN 
                                                             (SELECT sno FROM student_detail WHERE CONCAT(firstname,' ',lastname) LIKE '%{0}%' ))",
                                             txtUsername.Text.Trim());
                         studentRequirementController.RawQuery(ref dataGridView1, sql);
