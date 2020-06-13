@@ -79,7 +79,7 @@ namespace CST.Models
 
             while (reader.Read())
             {
-                infos = infos + "Detail : " + reader["details"].ToString() + " - PHP " + reader["price"].ToString() + "\n";
+                infos = infos + "Detail : " + reader["details"].ToString() + " - ₱ " + reader["price"].ToString() + "\n";
             }
             cs.CloseConnection();
             return infos;

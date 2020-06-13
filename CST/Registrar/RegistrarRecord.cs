@@ -277,10 +277,10 @@ namespace CST
                 disc = StudentBalance.getDisc(sno);
                 total = tf + mf;
                 string endDate = enrollSchedule.getEnrollSched()[2];
-                string tfPhp = "PHP " + tf;
-                string mfPhp = "PHP " + mf;
-                string totalPhp = "PHP " + total;
-                string discPhp =  disc == 0 ? "" :  "PHP " + disc;
+                string tfPhp = "₱ " + tf;
+                string mfPhp = "₱ " + mf;
+                string totalPhp = "₱ " + total;
+                string discPhp =  disc == 0 ? "" : "₱ " + disc;
                 string detailMf = mfController.getInfoMiscForGrade(grade);
                 roomname = SchedSectionController.roomname(sectid);
                 sectionname = sectionController.getSectionName(sectid);
@@ -325,14 +325,14 @@ namespace CST
 
                 case "Semi-Annual":
                    date = date.AddMonths(4);
-                    dues = "Due Date of Payment : \n" + date.ToString("MMMM") + " 15" + "-" + dateEndPayment.ToString("MMMM") + "-" + payments;
+                    dues = "Due Date of Payment : \n" + date.ToString("MMMM") + " 15" + "-" + dateEndPayment.ToString("MMMM") + "- ₱" + payments;
                     break;
                 case "Quarterly":
                     duess = "Due Date of Payment : \n";
                     for (int i = 0; i < 3; i++)
                     {
                         date = date.AddMonths(3);
-                        duess +=  date.ToString("MMMM") + " 15" + " " + payments + "\n";      
+                        duess +=  date.ToString("MMMM") + " 15" + " ₱" + payments + "\n";      
                     }
                     dues = duess;
                     break;
@@ -342,7 +342,7 @@ namespace CST
                      for(int i = 0; i < 9; i++)
                     {
                         date =  date.AddMonths(1);
-                        duess +=  date.ToString("MMMM") + " 15" + " " + payments + "\n";
+                        duess +=  date.ToString("MMMM") + ", 15 " + date.ToString("yyyy") + " ₱" + payments + "\n";
                     }
                     dues = duess;
                     break;
