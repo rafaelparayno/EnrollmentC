@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -27,7 +28,8 @@ namespace CST.Models
             string password = "";
             password = GeneratePassword(8);
 
-            string sql = String.Format(@"Insert into useraccounts(acc_id,Username,Firstname,Middlename,Lastname,role,Password,create_at,status,isPaswordChanged) VALUES('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','Offline',0)",
+            string sql = String.Format(@"Insert into useraccounts(acc_id,Username,Firstname,Middlename,Lastname,role,Password,create_at,status,isPaswordChanged) 
+                                        VALUES('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','Offline',0)",
                         accid, username, firstname, middleName, lastname, role, password, dateCreated);
 
             cs.ExecuteQuery(sql);
@@ -89,6 +91,27 @@ namespace CST.Models
             cs.ExecuteQuery(sql);
    
         }
+
+        public bool isSameUser(string username)
+        {
+            bool isSame = false;
+
+            string sql = String.Format(@"SELECT * FROM useraccounts WHERE Username = '{0}'", username);
+            MySqlDataReader reader = null;
+            cs.RetrieveRecords(sql, ref reader);
+
+
+            if (reader.HasRows)
+            {
+                isSame = true;
+            }
+
+            cs.CloseConnection();
+
+            return isSame; 
+
+        }
+
 
         private string GeneratePassword(int length)
         {

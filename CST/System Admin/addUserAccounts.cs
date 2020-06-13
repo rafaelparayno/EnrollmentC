@@ -14,11 +14,14 @@ namespace CST.System_Admin
     public partial class addUserAccounts : Form
     {
         bool isEdited = false;
+        string sy = "";
+        YearController yr = new YearController();
         UserController userController = new UserController();
         AuditTrailControl auditTrail = new AuditTrailControl();
         public addUserAccounts()
         {
             InitializeComponent();
+            sy = yr.getSyActivated();
         }
 
         public addUserAccounts(string user,string fn, string ln, string mn, string role,
@@ -91,7 +94,7 @@ namespace CST.System_Admin
             int values = random.Next(10000);
             //textBox3.Text = "CST-2013-" + values.ToString();
 
-            string userId = "CST-2013-" + values.ToString();
+            string userId = "CST-"+ sy.Split('-')[0] + "-" + values.ToString();
 
 
             //string newString = txtFirstname.Text.Substring(0, 1);
@@ -119,8 +122,15 @@ namespace CST.System_Admin
                     }
                     else
                     {
+                        string username = txtUsername.Text.Trim();
 
-                        userController.addUser(userId, txtUsername.Text.Trim(), txtFirstname.Text.Trim(),
+                        if (userController.isSameUser(username))
+                        {
+                            username += values.ToString();
+                        }
+                        
+
+                        userController.addUser(userId, username, txtFirstname.Text.Trim(),
                                        txtLastname.Text.Trim(), txtMiddlename.Text.Trim(), cbUsertype.SelectedItem.ToString(),
                                        label7.Text);
                         MessageBox.Show("Succesfully Added");
