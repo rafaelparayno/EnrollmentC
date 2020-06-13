@@ -16,6 +16,7 @@ namespace CST.Cashier
         StudentsDetailsController studentsDetailsController = new StudentsDetailsController();
         StudentReserveController studentReserveController = new StudentReserveController();
         YearController YearController = new YearController();
+        bool isValid = false;
         int syid = 0;
         public studentreserve()
         {
@@ -49,19 +50,29 @@ namespace CST.Cashier
             {
                 textBox2.Text = details[0] + " " + details[2] + " " + details[1];
                 textBox3.Text = details[12];
+                isValid = true;
             }
         }
+
 
         private void button1_Click(object sender, EventArgs e)
         {
             if(double.TryParse(textBox4.Text.Trim(), out _))
             {
-                
+               
                 double payment = double.Parse(textBox4.Text.Trim());
                 if (payment >= 1000)
                 {
-                    studentReserveController.addReservation(payment,  "STUD-"+textBox1.Text);
-                    this.Hide();
+                    if (isValid)
+                    {
+                        studentReserveController.addReservation(payment, "STUD-" + textBox1.Text);
+                        this.Hide();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Please Search A Valid Student Number", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                 
                 }
                 else
                 {
