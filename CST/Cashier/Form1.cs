@@ -55,8 +55,8 @@ namespace CST
                         loading.Show();
                         studentBalance.updateBalance(sno);
                         int orno = orcontroller.getRecentOr() + 1;
-
-                        orcontroller.addOr(orno,sno, neededTopay,today.ToString("dd/MM/yyyy"));
+                        string ornumber = "OR#" + orno;
+                        orcontroller.addOr(ornumber, sno, neededTopay,today.ToString("dd/MM/yyyy"));
                         double change = double.Parse(textBox5.Text.ToString()) - neededTopay;
                         textBox4.Text = String.Format("PHP " + "{0:0.00}", change);
                         MessageBox.Show("Succesfully Pay the balance");

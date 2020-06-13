@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CST.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -38,8 +39,9 @@ namespace CST.Reports
             cos.SetParameterValue("bsAddF", data[9]);
             cos.SetParameterValue("bsAddM", data[10]);
             cos.SetParameterValue("modParam", data[11]);
-            cos.SetParameterValue("totalBalanceParam", data[12]);
-            cos.SetParameterValue("remBalanceParam", data[13]);
+            cos.SetParameterValue("totalBalanceParam","Total :" + data[12]);
+            cos.SetParameterValue("remBalanceParam", "Remaining Balance: \n" + data[13]);
+            cos.SetParameterValue("cashNameParam", UserLog.getFullName());
             crystalReportViewer1.ReportSource = cos;
         }
     }

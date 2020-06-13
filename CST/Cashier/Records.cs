@@ -144,8 +144,8 @@ namespace CST
                 datas[9] = fcAdd;
                 datas[10] = mcAdd;
                 datas[11] = mod;
-                datas[12] = "PHP :" + totalBal;
-                datas[13] = "PHP " + balanceStud;
+                datas[12] = "₱ " + totalBal;
+                datas[13] = "₱ " + balanceStud;
 
                 StudentPaymentReps frm = new StudentPaymentReps(ds,datas);
                 frm.ShowDialog();

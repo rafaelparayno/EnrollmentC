@@ -57,9 +57,9 @@ namespace CST.Models
 
         }
 
-            public void addOr(int orno,string sno,double amt,string datePay)
+            public void addOr(string orno,string sno,double amt,string datePay)
         {
-            string sql = String.Format(@"INSERT INTO orno (`oror`, `sno`, `amount`,`date_pay`,`syid`) VALUES ({0},'{1}',{2},'{3}',{4})", orno,sno,amt, datePay, syid);
+            string sql = String.Format(@"INSERT INTO orno (`oror`, `sno`, `amount`,`date_pay`,`syid`) VALUES ('{0}','{1}',{2},'{3}',{4})", orno,sno,amt, datePay, syid);
 
             cs.ExecuteQuery(sql);
         }
