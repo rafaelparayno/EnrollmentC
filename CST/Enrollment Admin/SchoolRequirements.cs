@@ -75,27 +75,35 @@ namespace CST
 
         private void button3_Click_1(object sender, EventArgs e)
         {
-            addUpdateRequirements frm = new addUpdateRequirements(dataGridView1.SelectedRows[0].Cells[1].Value.ToString(),
-                                                                  dataGridView1.SelectedRows[0].Cells[2].Value.ToString(),
-                                                                  int.Parse(dataGridView1.SelectedRows[0].Cells[0].Value.ToString()));
-            frm.ShowDialog();
+            if (dataGridView1.Rows.Count > 0)
+            {
+                addUpdateRequirements frm = new addUpdateRequirements(dataGridView1.SelectedRows[0].Cells[1].Value.ToString(),
+                                                                dataGridView1.SelectedRows[0].Cells[2].Value.ToString(),
+                                                                int.Parse(dataGridView1.SelectedRows[0].Cells[0].Value.ToString()));
+                frm.ShowDialog();
 
-            refreshGrid();
+                refreshGrid();
+            }
+          
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
 
-            DialogResult form1 = MessageBox.Show("Do you really want to Remove?",
+            if(dataGridView1.Rows.Count> 0)
+            {
+                DialogResult form1 = MessageBox.Show("Do you really want to Remove?",
                    "Exit", MessageBoxButtons.YesNo);
 
 
-            if (form1 == DialogResult.Yes)
-            {
-                schoolRequirementsController.removeSchoolReq(int.Parse(dataGridView1.SelectedRows[0].Cells[0].Value.ToString()));
-                MessageBox.Show("Succesfully Remove Requirements");
-                refreshGrid();
+                if (form1 == DialogResult.Yes)
+                {
+                    schoolRequirementsController.removeSchoolReq(int.Parse(dataGridView1.SelectedRows[0].Cells[0].Value.ToString()));
+                    MessageBox.Show("Succesfully Remove Requirements");
+                    refreshGrid();
+                }
             }
+            
         }
 
         private void button2_Click(object sender, EventArgs e)

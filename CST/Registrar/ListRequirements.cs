@@ -50,6 +50,9 @@ namespace CST.Registrar
 
         private void button5_Click(object sender, EventArgs e)
         {
+            if (dataGridView1.Rows.Count == 0)
+                return;
+
 
             DialogResult form1 = MessageBox.Show("Do you really want to Remove?",
                    "Exit", MessageBoxButtons.YesNo);

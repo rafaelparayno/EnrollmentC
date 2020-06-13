@@ -24,14 +24,18 @@ namespace CST.Enrollment_Admin.AddUpdateDiags
 
         private void button1_Click(object sender, EventArgs e)
         {
-            room.addRoom(selecteRoomTypeIds, int.Parse(txtRoomNo.Value.ToString()));
-            this.Hide();
+            if(cbRoom.SelectedIndex > -1)
+            {
+                room.addRoom(selecteRoomTypeIds, int.Parse(txtRoomNo.Value.ToString()));
+                this.Hide();
+            }
+           
         }
 
         private void AddUpdateRoom_Load(object sender, EventArgs e)
         {
             roomtypeids = typeController.fillCombo(ref cbRoom);
-            cbRoom.SelectedIndex = 0;
+         
         }
 
         private void txtRoomNo_ValueChanged(object sender, EventArgs e)

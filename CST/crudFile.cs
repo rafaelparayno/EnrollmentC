@@ -81,31 +81,26 @@ namespace CST
             }
         }
 
+        
 
-
-        public void FillCombo(string sql, ref ComboBox cb)
+        public DataSet getDs(string sql, ref DataSet ds)
         {
             try
             {
+                DataSet dataSet = new DataSet();
                 cn.Open();
                 cmd = new MySqlCommand(sql, cn);
                 adptr = new MySqlDataAdapter(cmd);
-                ds = new DataSet();  //remove previous data
-                adptr.Fill(ds);      // load result to dataset
-                MySqlDataReader dr = cmd.ExecuteReader();
-
-                while (dr.Read())
-                {
-                    cb.Items.Add(dr[0]);
-
-                }
-
+                ds = new DataSet();
+                adptr.Fill(dataSet);           
+                return dataSet;
+            ;
             }
-            catch
+            catch(Exception e)
             {
-                MessageBox.Show("Error");
+                MessageBox.Show("" + e.Message);
+                return null;
             }
-            cn.Close(); // to exit the connection
         }
 
         public void CloseConnection()

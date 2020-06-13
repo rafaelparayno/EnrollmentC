@@ -463,6 +463,18 @@
     <Compile Include="Reports\AccountRecordRep.Designer.cs">
       <DependentUpon>AccountRecordRep.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reports\assestmentFormRep.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\assestmentFormRep.Designer.cs">
+      <DependentUpon>assestmentFormRep.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\assestmentRep.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>assestmentRep.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Reports\classList.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -833,6 +845,13 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\AccountRecordRep.resx">
       <DependentUpon>AccountRecordRep.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\assestmentFormRep.resx">
+      <DependentUpon>assestmentFormRep.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\assestmentRep.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>assestmentRep.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\classList.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>

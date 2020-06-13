@@ -77,27 +77,34 @@ namespace CST
 
         private void button2_Click(object sender, EventArgs e)
         {
-            AddUpdateSubject frm = new AddUpdateSubject(dataGridView1.SelectedRows[0].Cells[1].Value.ToString(),
+            if(dataGridView1.Rows.Count> 0)
+            {
+                AddUpdateSubject frm = new AddUpdateSubject(dataGridView1.SelectedRows[0].Cells[1].Value.ToString(),
                                                         dataGridView1.SelectedRows[0].Cells[2].Value.ToString(),
                                                         int.Parse(dataGridView1.SelectedRows[0].Cells[0].Value.ToString()));
-            frm.ShowDialog();
-            refreshGrid();
+                frm.ShowDialog();
+                refreshGrid();
+
+            }
 
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            
-            DialogResult form1 = MessageBox.Show("Do you really want to Remove?",
+
+            if (dataGridView1.Rows.Count > 0)
+            {
+                DialogResult form1 = MessageBox.Show("Do you really want to Remove?",
                    "Exit", MessageBoxButtons.YesNo);
 
 
-            if (form1 == DialogResult.Yes)
-            {
-                SubjectController.removeSubjects(int.Parse(dataGridView1.SelectedRows[0].Cells[0].Value.ToString()));
+                if (form1 == DialogResult.Yes)
+                {
+                    SubjectController.removeSubjects(int.Parse(dataGridView1.SelectedRows[0].Cells[0].Value.ToString()));
 
-                MessageBox.Show("Succesfully Remove Selected Subject");
-                refreshGrid();
+                    MessageBox.Show("Succesfully Remove Selected Subject");
+                    refreshGrid();
+                }
             }
         }
     }

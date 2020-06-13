@@ -17,10 +17,17 @@ namespace CST
     public partial class RegistrarRecord : Form
     {
 
+
+        SchedSectionController SchedSectionController = new SchedSectionController();
         StudentsDetailsController studentsDetailsController = new StudentsDetailsController();
         StudFamDetailsController studFamDetailsController = new StudFamDetailsController();
         StudHistDetailsController StudHistDetailsController = new StudHistDetailsController();
+        StudentEnrolledController studentEnrolledController = new StudentEnrolledController();
+        SectionController sectionController = new SectionController();
         YearController yearController = new YearController();
+        TuitionFeeController tf = new TuitionFeeController();
+        MiscController mf = new MiscController();
+        StudentBalance StudentBalance = new StudentBalance();
         int[] yrids = { };
         int selectedYrid = 0;
         string clickedBut = "";
@@ -42,7 +49,7 @@ namespace CST
             clickedBut = "Personal";
             button6.Enabled = true;
             button9.Enabled = true;
-
+            button10.Enabled = true;
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -58,6 +65,7 @@ namespace CST
             clickedBut = "Personal";
             button6.Enabled = true;
             button9.Enabled = true;
+            button10.Enabled = true;
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -150,6 +158,7 @@ namespace CST
             clickedBut = "Family";
             button6.Enabled = false;
             button9.Enabled = false;
+            button10.Enabled = false;
         }
 
         private void button5_Click(object sender, EventArgs e)
@@ -158,6 +167,7 @@ namespace CST
             clickedBut = "History";
             button6.Enabled = false;
             button9.Enabled = false;
+            button10.Enabled = false;
         }
 
         private void button7_Click(object sender, EventArgs e)
@@ -166,6 +176,7 @@ namespace CST
             clickedBut = "Personal";
             button6.Enabled = true;
             button9.Enabled = false;
+            button10.Enabled = false;
         }
 
         private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
@@ -237,6 +248,35 @@ namespace CST
                 string grade = dataGridView1.SelectedRows[0].Cells[12].Value.ToString();
                 RegRecordSched frm = new RegRecordSched(sno,grade);
                 frm.ShowDialog();
+
+            }
+        }
+
+        private void button10_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.Rows.Count > 0)
+            {
+                string sno = dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
+                string grade = dataGridView1.SelectedRows[0].Cells[12].Value.ToString();
+                string fullname = dataGridView1.SelectedRows[0].Cells[1].Value.ToString() + " " +
+                                  dataGridView1.SelectedRows[0].Cells[3].Value.ToString() + " " +
+                                    dataGridView1.SelectedRows[0].Cells[2].Value.ToString();
+                int sectid = studentEnrolledController.getSchedId(sno);
+                string yrName = yearController.getSyActivated();
+                string roomname = "";
+                string sectionname = "";
+
+
+                roomname = SchedSectionController.roomname(sectid);
+                sectionname = sectionController.getSectionName(sectid);
+
+                DataSet ds = new DataSet();
+              
+                ds = SchedSectionController.getStudSchedDataSet(sectid);
+                
+
+
+
 
             }
         }

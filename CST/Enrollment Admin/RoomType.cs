@@ -46,15 +46,17 @@ namespace CST.Enrollment_Admin
 
         private void button3_Click(object sender, EventArgs e)
         {
-
-            DialogResult form1 = MessageBox.Show("Do you really want to Remove? ALL Related Data will Also be Deleted",
+            if (dataGridView1.Rows.Count > 0)
+            {
+                DialogResult form1 = MessageBox.Show("Do you really want to Remove? ALL Related Data will Also be Deleted",
                    "Exit", MessageBoxButtons.YesNo);
 
-            if(form1 == DialogResult.Yes)
-            {
-                typeController.RemoveRoomType(int.Parse(dataGridView1.SelectedRows[0].Cells[0].Value.ToString()));
-                MessageBox.Show("Data Deleted");
-                fillRefreshGrid();
+                if (form1 == DialogResult.Yes)
+                {
+                    typeController.RemoveRoomType(int.Parse(dataGridView1.SelectedRows[0].Cells[0].Value.ToString()));
+                    MessageBox.Show("Data Deleted");
+                    fillRefreshGrid();
+                }
             }
         }
     }

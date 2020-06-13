@@ -52,6 +52,7 @@
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
+            this.button10 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -118,6 +119,7 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.button10);
             this.panel2.Controls.Add(this.button9);
             this.panel2.Controls.Add(this.dataGridView1);
             this.panel2.Controls.Add(this.button1);
@@ -136,7 +138,7 @@
             this.button9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button9.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button9.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.button9.Location = new System.Drawing.Point(398, 547);
+            this.button9.Location = new System.Drawing.Point(503, 547);
             this.button9.Name = "button9";
             this.button9.Size = new System.Drawing.Size(140, 32);
             this.button9.TabIndex = 306;
@@ -167,7 +169,7 @@
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.button1.Location = new System.Drawing.Point(121, 547);
+            this.button1.Location = new System.Drawing.Point(6, 547);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(102, 32);
             this.button1.TabIndex = 209;
@@ -271,11 +273,11 @@
             this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button6.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button6.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.button6.Location = new System.Drawing.Point(243, 547);
+            this.button6.Location = new System.Drawing.Point(114, 547);
             this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(140, 32);
+            this.button6.Size = new System.Drawing.Size(151, 32);
             this.button6.TabIndex = 202;
-            this.button6.Text = "Print Reg Form";
+            this.button6.Text = "Print Data Form";
             this.button6.UseVisualStyleBackColor = false;
             this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
@@ -356,6 +358,22 @@
             this.button7.UseVisualStyleBackColor = false;
             this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
+            // button10
+            // 
+            this.button10.BackColor = System.Drawing.Color.DarkSeaGreen;
+            this.button10.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.button10.Enabled = false;
+            this.button10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button10.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button10.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.button10.Location = new System.Drawing.Point(271, 547);
+            this.button10.Name = "button10";
+            this.button10.Size = new System.Drawing.Size(226, 32);
+            this.button10.TabIndex = 307;
+            this.button10.Text = "Print Assesment Form";
+            this.button10.UseVisualStyleBackColor = false;
+            this.button10.Click += new System.EventHandler(this.button10_Click);
+            // 
             // RegistrarRecord
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -414,5 +432,6 @@
         public System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Button button8;
         private System.Windows.Forms.Button button9;
+        private System.Windows.Forms.Button button10;
     }
 }

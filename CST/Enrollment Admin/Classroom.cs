@@ -114,17 +114,20 @@ namespace CST
 
         private void button3_Click(object sender, EventArgs e)
         {
-
-            DialogResult form1 = MessageBox.Show("Do you really want to Remove?",
-                   "Exit", MessageBoxButtons.YesNo);
-
-
-            if (form1 == DialogResult.Yes)
+            if (dataGridView1.Rows.Count > 0)
             {
-                rm.removeRoom(int.Parse(dataGridView1.SelectedRows[0].Cells[0].Value.ToString()));
-                MessageBox.Show("Succesfully Remove Room");
-                refreshGrid();
+                DialogResult form1 = MessageBox.Show("Do you really want to Remove?",
+                  "Exit", MessageBoxButtons.YesNo);
+
+
+                if (form1 == DialogResult.Yes)
+                {
+                    rm.removeRoom(int.Parse(dataGridView1.SelectedRows[0].Cells[0].Value.ToString()));
+                    MessageBox.Show("Succesfully Remove Room");
+                    refreshGrid();
+                }
             }
+           
         }
 
         private void button5_Click(object sender, EventArgs e)

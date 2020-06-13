@@ -62,6 +62,8 @@ namespace CST.Enrollment_Admin
 
         private void button1_Click(object sender, EventArgs e)
         {
+            if (dataGridView2.Rows.Count == 0)
+                return;
             // miscfee_id,grade_level,details,price FROM misc_f
             diagMisc frm = new diagMisc(dataGridView2.SelectedRows[0].Cells[1].Value.ToString(),
                                        dataGridView2.SelectedRows[0].Cells[2].Value.ToString(),
@@ -73,6 +75,8 @@ namespace CST.Enrollment_Admin
 
         private void button8_Click(object sender, EventArgs e)
         {
+            if (dataGridView2.Rows.Count == 0)
+                return;
             DialogResult form1 = MessageBox.Show("Do you really want to Remove?",
                     "Exit", MessageBoxButtons.YesNo);
 

@@ -70,29 +70,37 @@ namespace CST
 
         private void button2_Click(object sender, EventArgs e)
         {
-            AddUpdateSection frm = new AddUpdateSection(int.Parse(dataGridView1.SelectedRows[0].Cells[0].Value.ToString()),
-                                                        dataGridView1.SelectedRows[0].Cells[3].Value.ToString(),
-                                                        dataGridView1.SelectedRows[0].Cells[2].Value.ToString(),
-                                                        dataGridView1.SelectedRows[0].Cells[1].Value.ToString(),
-                                                        int.Parse(dataGridView1.SelectedRows[0].Cells[4].Value.ToString()));
-            frm.ShowDialog();
-            refreshGrid();
+            if (dataGridView1.Rows.Count > 0)
+            {
+                AddUpdateSection frm = new AddUpdateSection(int.Parse(dataGridView1.SelectedRows[0].Cells[0].Value.ToString()),
+                                                      dataGridView1.SelectedRows[0].Cells[3].Value.ToString(),
+                                                      dataGridView1.SelectedRows[0].Cells[2].Value.ToString(),
+                                                      dataGridView1.SelectedRows[0].Cells[1].Value.ToString(),
+                                                      int.Parse(dataGridView1.SelectedRows[0].Cells[4].Value.ToString()));
+                frm.ShowDialog();
+                refreshGrid();
+            }
+          
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            DialogResult form1 = MessageBox.Show("Do you really want to Remove?",
+            if (dataGridView1.Rows.Count > 0)
+            {
+                DialogResult form1 = MessageBox.Show("Do you really want to Remove?",
                 "Exit", MessageBoxButtons.YesNo);
 
 
-            if (form1 == DialogResult.Yes)
-            {
-                sectionController.removeSection(int.Parse(dataGridView1.SelectedRows[0].Cells[0].Value.ToString()),
-                                                yr.getSchoolYearId());
+                if (form1 == DialogResult.Yes)
+                {
+                    sectionController.removeSection(int.Parse(dataGridView1.SelectedRows[0].Cells[0].Value.ToString()),
+                                                    yr.getSchoolYearId());
 
-                MessageBox.Show("Succesfully Remove a section");
-                refreshGrid();
+                    MessageBox.Show("Succesfully Remove a section");
+                    refreshGrid();
+                }
             }
+                
         }
     }
 }
