@@ -1,6 +1,7 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -32,7 +33,31 @@ namespace CST.Models
             return last_id;
         }
 
-        public void addOr(int orno,string sno,double amt,string datePay)
+
+        public void getOrStudDataSet(string sno, ref DataSet dataSet)
+        {
+            string sql = String.Format(@"SELECT *  FROM orno WHERE sno = '{0}' AND syid = {1}", sno,syid);
+            MySqlDataReader reader = null;
+
+            cs.RetrieveRecords(sql, ref reader);
+
+            DataTable dt = new DataTable();
+            dt.Columns.Add("Date Paid", typeof(string));
+            dt.Columns.Add("O.R No.", typeof(string));
+            dt.Columns.Add("Amount Paid", typeof(string));
+         
+            while (reader.Read())
+            {
+                dt.Rows.Add(reader["date_pay"].ToString(),
+                  reader["oror"].ToString(),
+                   reader["amount"].ToString());
+            }
+            dataSet.Tables.Add(dt);
+            cs.CloseConnection();
+
+        }
+
+            public void addOr(int orno,string sno,double amt,string datePay)
         {
             string sql = String.Format(@"INSERT INTO orno (`oror`, `sno`, `amount`,`date_pay`,`syid`) VALUES ({0},'{1}',{2},'{3}',{4})", orno,sno,amt, datePay, syid);
 

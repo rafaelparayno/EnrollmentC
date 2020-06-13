@@ -128,6 +128,27 @@ namespace CST.Models
             return mod;
         }
 
-        
+
+        public double getBalance(string sno)
+        {
+            double bal = 0;
+            string sql = String.Format(@"SELECT balance FROM student_balance WHERE sno ='{0}' AND SY_id = {1}", sno, syid);
+
+            MySqlDataReader reader = null;
+            cs.RetrieveRecords(sql, ref reader);
+
+            if (reader.Read())
+            {
+
+                bal = double.Parse(reader["balance"].ToString());
+            }
+            cs.CloseConnection();
+
+
+
+            return bal;
+        }
+
+
     }
 }

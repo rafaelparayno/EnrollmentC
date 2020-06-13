@@ -337,7 +337,7 @@ namespace CST
                     for (int i = 0; i < 3; i++)
                     {
                         date = date.AddMonths(3);
-                        duess +=  date.ToString("MMMM") + " 15" + date.ToString("yyyy")  + " | ₱" + payments + "\n";      
+                        duess +=  date.ToString("MMMM") + " 15 " + date.ToString("yyyy")  + " | ₱" + payments + "\n";      
                     }
                     dues = duess;
                     break;

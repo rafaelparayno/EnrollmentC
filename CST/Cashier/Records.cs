@@ -16,6 +16,12 @@ namespace CST
     public partial class Records : Form
     {
         StudentBalance studentBalance = new StudentBalance();
+        StudFamDetailsController studFamController = new StudFamDetailsController();
+        TuitionFeeController tfController = new TuitionFeeController();
+        MiscController mfController = new MiscController();
+        StudentsDetailsController studentsDetailsController = new StudentsDetailsController();
+        YearController yr = new YearController();
+        OrController orController = new OrController();
         public Records()
         {
             InitializeComponent();
@@ -31,7 +37,7 @@ namespace CST
         private void button2_Click(object sender, EventArgs e)
         {
             CashierDashboard c = new CashierDashboard();
-      //      Cashier C = new Cashier();
+  
             c.Show();
             this.Hide();
         }
@@ -39,22 +45,13 @@ namespace CST
         private void button8_Click(object sender, EventArgs e)
         {
             this.Hide();
-           // RemainingBalance fr7 = new RemainingBalance(label5.Text, label3.Text, label6.Text,label9.Text);
-         //   fr7.ShowDialog();
+        
         }
 
         private void Records_Load(object sender, EventArgs e)
         {
-            label3.Hide();
-            //label9.Hide();
-            DateTime my = DateTimeOffset.Now.DateTime.ToLocalTime().ToUniversalTime();
 
-
-            DateTime mys = DateTimeOffset.Now.UtcDateTime.ToLocalTime();
-
-           
-
-            label7.Text = my.ToString("MM/dd/yyyy  hh:mm:ss tt");
+            label6.Text = yr.getSyActivated();
 
             timer1.Enabled = true;
         }
@@ -105,6 +102,53 @@ namespace CST
                 rep.ShowDialog();
 
               
+            }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            if(dataGridView1.Rows.Count > 0)
+            {
+                DataSet ds = new DataSet();
+                string sno = dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
+                string fullname = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
+                string bdate = studentsDetailsController.searchAllDetails2(sno)[6];
+                string grade = studentsDetailsController.searchAllDetails2(sno)[12];
+                DateTime bdateDateForm = DateTime.Parse(bdate);
+                string add = studentsDetailsController.searchAllDetails2(sno)[11];
+                string sex = studentsDetailsController.searchAllDetails2(sno)[4];
+                string fname = studFamController.getAllFamDetails(sno)[0];
+                string mname = studFamController.getAllFamDetails(sno)[6];
+                string foccu = studFamController.getAllFamDetails(sno)[2];
+                string moccu = studFamController.getAllFamDetails(sno)[8];
+                string fcAdd = studFamController.getAllFamDetails(sno)[5];
+                string mcAdd = studFamController.getAllFamDetails(sno)[11];
+                string mod = studentBalance.getModOfPayment(sno);
+                double balanceStud = studentBalance.getBalance(sno);
+                double totalBal = tfController.getTfPriceGrade(grade,mod) + mfController.getMiscFeeForGrade(grade);
+
+                orController.getOrStudDataSet(sno, ref ds);
+
+
+
+                string[] datas = new string[14];
+                datas[0] = fullname;
+                datas[1] = sno;
+                datas[2] = bdateDateForm.ToString("MMMM dd, yyyy");
+                datas[3] = add;
+                datas[4] = sex;
+                datas[5] = fname;
+                datas[6] = mname;
+                datas[7] = foccu;
+                datas[8] = moccu;
+                datas[9] = fcAdd;
+                datas[10] = mcAdd;
+                datas[11] = mod;
+                datas[12] = "PHP :" + totalBal;
+                datas[13] = "PHP " + balanceStud;
+
+                StudentPaymentReps frm = new StudentPaymentReps(ds,datas);
+                frm.ShowDialog();
             }
         }
     }

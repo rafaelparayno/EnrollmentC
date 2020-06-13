@@ -535,6 +535,18 @@
       <DependentUpon>studentAccount.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Reports\StudentPaymentReps.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\StudentPaymentReps.Designer.cs">
+      <DependentUpon>StudentPaymentReps.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\studentPaymentsRep.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>studentPaymentsRep.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Reports\StudentSchedRep.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -888,6 +900,13 @@
     <EmbeddedResource Include="Reports\studentAccount.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>studentAccount.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\StudentPaymentReps.resx">
+      <DependentUpon>StudentPaymentReps.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\studentPaymentsRep.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>studentPaymentsRep.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\StudentSchedRep.resx">
       <DependentUpon>StudentSchedRep.cs</DependentUpon>
