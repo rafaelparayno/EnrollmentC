@@ -127,10 +127,10 @@ namespace CST
                 double balanceStud = studentBalance.getBalance(sno);
                 double totalBal = tfController.getTfPriceGrade(grade,mod) + mfController.getMiscFeeForGrade(grade);
 
-                orController.getOrStudDataSet(sno, ref ds);
+                orController.getOrStudDataSet(sno, totalBal, ref ds);
 
 
-
+                //  ds.WriteXmlSchema("studentAccountsType.xml");
                 string[] datas = new string[14];
                 datas[0] = fullname;
                 datas[1] = sno;
@@ -147,7 +147,7 @@ namespace CST
                 datas[12] = "₱ " + totalBal;
                 datas[13] = "₱ " + balanceStud;
 
-                StudentPaymentReps frm = new StudentPaymentReps(ds,datas);
+                StudentPaymentReps frm = new StudentPaymentReps(ds, datas);
                 frm.ShowDialog();
             }
         }

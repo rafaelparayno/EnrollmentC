@@ -34,7 +34,7 @@ namespace CST.Models
         }
 
 
-        public void getOrStudDataSet(string sno, ref DataSet dataSet)
+        public void getOrStudDataSet(string sno,double balance ,ref DataSet dataSet)
         {
             string sql = String.Format(@"SELECT *  FROM orno WHERE sno = '{0}' AND syid = {1}", sno,syid);
             MySqlDataReader reader = null;
@@ -45,12 +45,16 @@ namespace CST.Models
             dt.Columns.Add("Date Paid", typeof(string));
             dt.Columns.Add("O.R No.", typeof(string));
             dt.Columns.Add("Amount Paid", typeof(string));
+            dt.Columns.Add("Balance", typeof(string));
          
             while (reader.Read())
             {
+                double amt = double.Parse(reader["amount"].ToString());
+                balance -= amt;
                 dt.Rows.Add(reader["date_pay"].ToString(),
                   reader["oror"].ToString(),
-                   reader["amount"].ToString());
+                "₱ " + reader["amount"].ToString(),
+                 "₱ " +  balance ) ;
             }
             dataSet.Tables.Add(dt);
             cs.CloseConnection();
