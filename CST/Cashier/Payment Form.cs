@@ -196,12 +196,12 @@ namespace CST
                             break;
 
                     }
-                   studentBalance.addBalance(sno, balance, mod, neededToPay,receivePayment);
+                   studentBalance.addBalance(sno, balance, mod, neededToPay,receivePayment,totalDisc);
 
                     StudentEnrolledController.updateEnrolled(sno);
                     textBox10.Text = String.Format("PHP " + "{0:0.00}", change);
                     orno = orController.getRecentOr() + 1;
-                    orController.addOr(orno);
+                    orController.addOr(orno,sno,receivePayment);
 
                     if(mod== "Fullpayment")
                     {

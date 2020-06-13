@@ -55,7 +55,7 @@ namespace CST
                         studentBalance.updateBalance(sno);
                         int orno = orcontroller.getRecentOr() + 1;
 
-                        orcontroller.addOr(orno);
+                        orcontroller.addOr(orno,sno, neededTopay);
                         double change = double.Parse(textBox5.Text.ToString()) - neededTopay;
                         textBox4.Text = String.Format("PHP " + "{0:0.00}", change);
                         MessageBox.Show("Succesfully Pay the balance");

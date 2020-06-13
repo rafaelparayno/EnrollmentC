@@ -19,10 +19,13 @@ namespace CST.Models
 
         }
 
-        public void addBalance(string sno,double balance,string mod,double need,double totalPayment)
+        public void addBalance(string sno,double balance,
+                            string mod,double need,
+                            double totalPayment,double disc)
         {
-            string sql = String.Format(@"INSERT INTO `student_balance`(`sno`, `balance`, `modeofpayment`, `need_to_pay`,`totalPayment`, `SY_id`) VALUES ('{0}',{1},'{2}',{3},{4},{5})",
-                                        sno, balance, mod, need, totalPayment,syid);
+            string sql = String.Format(@"INSERT INTO `student_balance`(`sno`, `balance`, `modeofpayment`, `need_to_pay`,`totalPayment`, `disc`,`SY_id`) 
+                                                VALUES ('{0}',{1},'{2}',{3},{4},{5},{6})",
+                                        sno, balance, mod, need, totalPayment,disc,syid);
             cs.ExecuteQuery(sql);
         }
 
@@ -66,6 +69,26 @@ namespace CST.Models
             cs.CloseConnection();
 
             return getNeedToPay;
+        }
+
+        public string getModOfPayment(string sno)
+        {
+            string mod = "";
+            string sql = String.Format(@"SELECT modeofpayment FROM student_balance WHERE sno ='{0}' AND SY_id = {1}", sno, syid);
+
+            MySqlDataReader reader = null;
+            cs.RetrieveRecords(sql, ref reader);
+          
+            if (reader.Read())
+            {
+
+                mod = reader["modeofpayment"].ToString();
+            }
+            cs.CloseConnection();
+
+          
+
+            return mod;
         }
 
         

@@ -10,6 +10,13 @@ namespace CST.Models
     class OrController
     {
         crudFile cs = new crudFile();
+        YearController yr = new YearController();
+        int syid = 0;
+
+        public OrController()
+        {
+            syid = yr.getSchoolYearId();
+        }
 
         public int getRecentOr()
         {
@@ -25,9 +32,9 @@ namespace CST.Models
             return last_id;
         }
 
-        public void addOr(int orno)
+        public void addOr(int orno,string sno,double amt)
         {
-            string sql = String.Format(@"INSERT INTO orno (oror) VALUES ({0})", orno);
+            string sql = String.Format(@"INSERT INTO orno (`oror`, `sno`, `amount`, `syid`) VALUES ({0},'{1}',{2},{3})", orno,sno,amt,syid);
 
             cs.ExecuteQuery(sql);
         }

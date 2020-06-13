@@ -25,8 +25,8 @@ namespace CST
         StudentEnrolledController studentEnrolledController = new StudentEnrolledController();
         SectionController sectionController = new SectionController();
         YearController yearController = new YearController();
-        TuitionFeeController tf = new TuitionFeeController();
-        MiscController mf = new MiscController();
+        TuitionFeeController tfController = new TuitionFeeController();
+        MiscController mfController = new MiscController();
         StudentBalance StudentBalance = new StudentBalance();
         int[] yrids = { };
         int selectedYrid = 0;
@@ -262,9 +262,19 @@ namespace CST
                                   dataGridView1.SelectedRows[0].Cells[3].Value.ToString() + " " +
                                     dataGridView1.SelectedRows[0].Cells[2].Value.ToString();
                 int sectid = studentEnrolledController.getSchedId(sno);
+                double tf =  0;
+                double mf = 0;
+                string mod = StudentBalance.getModOfPayment(sno);
                 string yrName = yearController.getSyActivated();
                 string roomname = "";
                 string sectionname = "";
+                tf = tfController.getTfPriceGrade(grade, mod);
+                mf = mfController.getMiscFeeForGrade(grade);
+
+
+                string tfPhp = "PHP " + tf;
+                string mfPhp = "PHP " + mf;
+                string detailMf = mfController.getInfoMiscForGrade(grade);
 
 
                 roomname = SchedSectionController.roomname(sectid);
