@@ -32,9 +32,9 @@ namespace CST.Models
             return last_id;
         }
 
-        public void addOr(int orno,string sno,double amt)
+        public void addOr(int orno,string sno,double amt,string datePay)
         {
-            string sql = String.Format(@"INSERT INTO orno (`oror`, `sno`, `amount`, `syid`) VALUES ({0},'{1}',{2},{3})", orno,sno,amt,syid);
+            string sql = String.Format(@"INSERT INTO orno (`oror`, `sno`, `amount`,`date_pay`,`syid`) VALUES ({0},'{1}',{2},'{3}',{4})", orno,sno,amt, datePay, syid);
 
             cs.ExecuteQuery(sql);
         }

@@ -257,30 +257,35 @@ namespace CST
         {
             if (dataGridView1.Rows.Count > 0)
             {
+                double tf = 0;
+                double mf = 0;
+                double total = 0;
+                double disc = 0;
+                string roomname = "";
+                string sectionname = "";
+                double upon = 0;
                 string sno = dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
                 string grade = dataGridView1.SelectedRows[0].Cells[12].Value.ToString();
                 string fullname = dataGridView1.SelectedRows[0].Cells[1].Value.ToString() + " " +
                                   dataGridView1.SelectedRows[0].Cells[3].Value.ToString() + " " +
                                     dataGridView1.SelectedRows[0].Cells[2].Value.ToString();
                 int sectid = studentEnrolledController.getSchedId(sno);
-                double tf =  0;
-                double mf = 0;
-                double total = 0;
-                double disc = 0;
+              
                 string mod = StudentBalance.getModOfPayment(sno);
                 string yrName = yearController.getSyActivated();
-                string roomname = "";
-                string sectionname = "";
+            
                 double neededTopay = StudentBalance.getNeedToPay(sno);
                 tf = tfController.getTfPriceGrade(grade, mod);
                 mf = mfController.getMiscFeeForGrade(grade);
                 disc = StudentBalance.getDisc(sno);
-                total = tf + mf;
+                upon = StudentBalance.getUponPay(sno);
+                total = (tf + mf) - disc;
                 string endDate = enrollSchedule.getEnrollSched()[2];
                 string tfPhp = "₱ " + tf;
                 string mfPhp = "₱ " + mf;
+                string discPhp = disc == 0 ? "₱ 0" : "₱ " + disc;
                 string totalPhp = "₱ " + total;
-                string discPhp =  disc == 0 ? "" : "₱ " + disc;
+                string uponPhp = mod == "Fullpayment" ? "" : "Upon Enrollment : ₱ " + upon;
                 string detailMf = mfController.getInfoMiscForGrade(grade);
                 roomname = SchedSectionController.roomname(sectid);
                 sectionname = sectionController.getSectionName(sectid);
@@ -289,7 +294,7 @@ namespace CST
               
                 SchedSectionController.getStudSchedDataSet(sectid,ref ds);
                 string dueDates = mod == "Fullpayment" ? "Upon Enrollment : " + DateTime.Parse(endDate).ToString("MMMM,dd") + " - " + totalPhp : setDueDates(mod, endDate, neededTopay);
-                string[] dataParam = new string[12];
+                string[] dataParam = new string[13];
                 dataParam[0] = fullname;
                 dataParam[1] = roomname;
                 dataParam[2] = yrName;
@@ -302,7 +307,7 @@ namespace CST
                 dataParam[9] = totalPhp;
                 dataParam[10] = discPhp;
                 dataParam[11] = dueDates;
-
+                dataParam[12] = uponPhp;
                 assestmentFormRep frm = new assestmentFormRep(ds, dataParam);
                 frm.Show();
 
@@ -332,7 +337,7 @@ namespace CST
                     for (int i = 0; i < 3; i++)
                     {
                         date = date.AddMonths(3);
-                        duess +=  date.ToString("MMMM") + " 15" + " ₱" + payments + "\n";      
+                        duess +=  date.ToString("MMMM") + " 15" + date.ToString("yyyy")  + " | ₱" + payments + "\n";      
                     }
                     dues = duess;
                     break;
@@ -342,7 +347,7 @@ namespace CST
                      for(int i = 0; i < 9; i++)
                     {
                         date =  date.AddMonths(1);
-                        duess +=  date.ToString("MMMM") + ", 15 " + date.ToString("yyyy") + " ₱" + payments + "\n";
+                        duess +=  date.ToString("MMMM") + ", 15 " + date.ToString("yyyy") + " |  ₱" + payments + "\n";
                     }
                     dues = duess;
                     break;

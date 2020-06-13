@@ -40,6 +40,7 @@ namespace CST.Reports
             cos.SetParameterValue("discParam", datasParam[10]);
             cos.SetParameterValue("duesParam", datasParam[11]);
             cos.SetParameterValue("regParam", UserLog.getFullName());
+            cos.SetParameterValue("uponPaymentParams", datasParam[12]);
             crystalReportViewer1.ReportSource = cos;
         }
     }

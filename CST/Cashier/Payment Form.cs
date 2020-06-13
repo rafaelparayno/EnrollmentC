@@ -196,12 +196,14 @@ namespace CST
                             break;
 
                     }
-                   studentBalance.addBalance(sno, balance, mod, neededToPay,receivePayment,totalDisc);
+                   studentBalance.addBalance(sno, balance, mod, neededToPay,receivePayment,totalDisc,receivePayment);
 
                     StudentEnrolledController.updateEnrolled(sno);
                     textBox10.Text = String.Format("PHP " + "{0:0.00}", change);
                     orno = orController.getRecentOr() + 1;
-                    orController.addOr(orno,sno,receivePayment);
+                    DateTime today = DateTime.Today;
+
+                    orController.addOr(orno,sno,receivePayment,today.ToString("dd/MM/yyyy"));
 
                     if(mod== "Fullpayment")
                     {

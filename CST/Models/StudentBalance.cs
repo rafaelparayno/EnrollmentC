@@ -21,11 +21,11 @@ namespace CST.Models
 
         public void addBalance(string sno,double balance,
                             string mod,double need,
-                            double totalPayment,double disc)
+                            double totalPayment,double disc,double uponPay)
         {
-            string sql = String.Format(@"INSERT INTO `student_balance`(`sno`, `balance`, `modeofpayment`, `need_to_pay`,`totalPayment`, `disc`,`SY_id`) 
-                                                VALUES ('{0}',{1},'{2}',{3},{4},{5},{6})",
-                                        sno, balance, mod, need, totalPayment,disc,syid);
+            string sql = String.Format(@"INSERT INTO `student_balance`(`sno`, `balance`, `modeofpayment`, `need_to_pay`,`totalPayment`, `disc`,`upon_pay`,`SY_id`) 
+                                                VALUES ('{0}',{1},'{2}',{3},{4},{5},{6},{7})",
+                                        sno, balance, mod, need, totalPayment,disc, uponPay, syid);
             cs.ExecuteQuery(sql);
         }
 
@@ -74,7 +74,7 @@ namespace CST.Models
         public double getDisc(string sno)
         {
 
-            string sql = String.Format(@"SELECT disc FROM student_balance WHERE sno ='{0}' AND SY_id = {1} AND balance > 0", sno, syid);
+            string sql = String.Format(@"SELECT disc FROM student_balance WHERE sno ='{0}' AND SY_id = {1} ", sno, syid);
 
             MySqlDataReader reader = null;
             cs.RetrieveRecords(sql, ref reader);
@@ -87,6 +87,25 @@ namespace CST.Models
             cs.CloseConnection();
 
             return getdisc;
+        }
+
+
+        public double getUponPay(string sno)
+        {
+
+            string sql = String.Format(@"SELECT upon_pay FROM student_balance WHERE sno ='{0}' AND SY_id = {1} ", sno, syid);
+
+            MySqlDataReader reader = null;
+            cs.RetrieveRecords(sql, ref reader);
+            double upon = 0;
+            if (reader.Read())
+            {
+
+                upon = double.Parse(reader["upon_pay"].ToString());
+            }
+            cs.CloseConnection();
+
+            return upon;
         }
 
         public string getModOfPayment(string sno)
