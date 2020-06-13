@@ -171,7 +171,7 @@ namespace CST
                                 balance = total - downPay;
                                 receivePayment = downPay + reservationFee;
 
-                                neededToPay = balance / 10;
+                                neededToPay = balance / 9;
                                 neededToPay = Math.Round((Double)neededToPay, 2);
 
                             }

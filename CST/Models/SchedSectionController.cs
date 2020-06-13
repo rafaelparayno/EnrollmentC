@@ -5,7 +5,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Microsoft.Office.Interop.Excel;
 using MySql.Data.MySqlClient;
 
 namespace CST.Models
@@ -58,21 +57,39 @@ namespace CST.Models
         }
 
 
-        public DataSet getStudSchedDataSet(int sect_id)
+        public void getStudSchedDataSet(int sect_id,ref DataSet dataSet)
         {
-            DataSet dataSet = new DataSet();
+         
             string sql = String.Format(@"SELECT timestamp.start_time,timestamp.end_time,subjects.subject_name,CONCAT(useraccounts.Firstname,' ',useraccounts.Lastname) AS 'Teachers Name' 
                                         FROM `sched_section` LEFT JOIN timestamp ON sched_section.timestamp_id = timestamp.timestamp_id 
                                         LEFT JOIN subjects ON sched_section.subject_id = subjects.subject_id 
                                         LEFT JOIN specialization ON sched_section.teacher_ID = specialization.teacher_ID 
                                         LEFT JOIN useraccounts ON specialization.acc_id = useraccounts.acc_id 
                                         WHERE sched_section.sect_id = {0} AND sched_section.SY_id = {1}",
-                                    sect_id, syid);
-            cs.getDs(sql, ref dataSet);
+                                         sect_id, syid);
+            /// cs.getDs(sql, ref dataSet);
+            /// 
+            MySqlDataReader reader = null;
 
+            cs.RetrieveRecords(sql, ref reader);
+            DataTable dt = new DataTable();
+            dt.Columns.Add("Time Start", typeof(string));
+            dt.Columns.Add("Time End", typeof(string));
+            dt.Columns.Add("Subjects", typeof(string));
+            dt.Columns.Add("Teacher", typeof(string));
+
+
+            while (reader.Read())
+            {
+                dt.Rows.Add(reader["start_time"].ToString(),
+                   reader["end_time"].ToString(),
+                    reader["subject_name"].ToString(),
+                    reader["Teachers Name"].ToString());
+            }
+            dataSet.Tables.Add(dt);
             cs.CloseConnection();
 
-            return dataSet;
+        
         }
 
 

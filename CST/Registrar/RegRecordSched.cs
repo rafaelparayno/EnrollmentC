@@ -63,6 +63,8 @@ namespace CST.Registrar
             }
 
             ds.Tables.Add(dt);
+
+         
             //  ds.WriteXmlSchema("StudSched.xml");
 
             StudentSchedRep form = new StudentSchedRep(ds, sectionname, grade);

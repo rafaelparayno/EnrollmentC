@@ -71,6 +71,24 @@ namespace CST.Models
             return getNeedToPay;
         }
 
+        public double getDisc(string sno)
+        {
+
+            string sql = String.Format(@"SELECT disc FROM student_balance WHERE sno ='{0}' AND SY_id = {1} AND balance > 0", sno, syid);
+
+            MySqlDataReader reader = null;
+            cs.RetrieveRecords(sql, ref reader);
+            double getdisc = 0;
+            if (reader.Read())
+            {
+
+                getdisc = double.Parse(reader["disc"].ToString());
+            }
+            cs.CloseConnection();
+
+            return getdisc;
+        }
+
         public string getModOfPayment(string sno)
         {
             string mod = "";

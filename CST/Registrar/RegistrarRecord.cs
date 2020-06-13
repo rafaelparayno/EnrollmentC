@@ -23,6 +23,7 @@ namespace CST
         StudFamDetailsController studFamDetailsController = new StudFamDetailsController();
         StudHistDetailsController StudHistDetailsController = new StudHistDetailsController();
         StudentEnrolledController studentEnrolledController = new StudentEnrolledController();
+        EnrollScheduleController enrollSchedule = new EnrollScheduleController();
         SectionController sectionController = new SectionController();
         YearController yearController = new YearController();
         TuitionFeeController tfController = new TuitionFeeController();
@@ -242,7 +243,7 @@ namespace CST
 
         private void button9_Click(object sender, EventArgs e)
         {
-            if (dataGridView1.Rows.Count > 0)
+             if (dataGridView1.Rows.Count > 0)
             {
                 string sno = dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
                 string grade = dataGridView1.SelectedRows[0].Cells[12].Value.ToString();
@@ -264,31 +265,92 @@ namespace CST
                 int sectid = studentEnrolledController.getSchedId(sno);
                 double tf =  0;
                 double mf = 0;
+                double total = 0;
+                double disc = 0;
                 string mod = StudentBalance.getModOfPayment(sno);
                 string yrName = yearController.getSyActivated();
                 string roomname = "";
                 string sectionname = "";
+                double neededTopay = StudentBalance.getNeedToPay(sno);
                 tf = tfController.getTfPriceGrade(grade, mod);
                 mf = mfController.getMiscFeeForGrade(grade);
-
-
+                disc = StudentBalance.getDisc(sno);
+                total = tf + mf;
+                string endDate = enrollSchedule.getEnrollSched()[2];
                 string tfPhp = "PHP " + tf;
                 string mfPhp = "PHP " + mf;
+                string totalPhp = "PHP " + total;
+                string discPhp =  disc == 0 ? "" :  "PHP " + disc;
                 string detailMf = mfController.getInfoMiscForGrade(grade);
-
-
                 roomname = SchedSectionController.roomname(sectid);
                 sectionname = sectionController.getSectionName(sectid);
 
                 DataSet ds = new DataSet();
               
-                ds = SchedSectionController.getStudSchedDataSet(sectid);
-                
+                SchedSectionController.getStudSchedDataSet(sectid,ref ds);
+                string dueDates = mod == "Fullpayment" ? "Upon Enrollment : " + DateTime.Parse(endDate).ToString("MMMM,dd") + " - " + totalPhp : setDueDates(mod, endDate, neededTopay);
+                string[] dataParam = new string[12];
+                dataParam[0] = fullname;
+                dataParam[1] = roomname;
+                dataParam[2] = yrName;
+                dataParam[3] = sectionname;
+                dataParam[4] = sno;
+                dataParam[5] = tfPhp;
+                dataParam[6] = mfPhp;
+                dataParam[7] = mod;
+                dataParam[8] = detailMf;
+                dataParam[9] = totalPhp;
+                dataParam[10] = discPhp;
+                dataParam[11] = dueDates;
 
-
-
+                assestmentFormRep frm = new assestmentFormRep(ds, dataParam);
+                frm.Show();
 
             }
         }
+
+
+
+        private string setDueDates(string mod,string dateEnd,double payments)
+        {
+            string dues = "" ;
+            string duess = "";
+            DateTime date = DateTime.Parse(dateEnd);
+            DateTime dateEndPayment = DateTime.Parse(dateEnd).AddMonths(9);
+
+            dateEndPayment.AddMonths(9);
+            switch (mod)
+            {
+            
+
+                case "Semi-Annual":
+                   date = date.AddMonths(4);
+                    dues = "Due Date of Payment : \n" + date.ToString("MMMM") + " 15" + "-" + dateEndPayment.ToString("MMMM") + "-" + payments;
+                    break;
+                case "Quarterly":
+                    duess = "Due Date of Payment : \n";
+                    for (int i = 0; i < 3; i++)
+                    {
+                        date = date.AddMonths(3);
+                        duess +=  date.ToString("MMMM") + " 15" + " " + payments + "\n";      
+                    }
+                    dues = duess;
+                    break;
+
+                case "Monthly":
+                     duess = "Dute Date of Payment : \n";
+                     for(int i = 0; i < 9; i++)
+                    {
+                        date =  date.AddMonths(1);
+                        duess +=  date.ToString("MMMM") + " 15" + " " + payments + "\n";
+                    }
+                    dues = duess;
+                    break;
+            }
+
+            return dues;
+        }
+
+     
     }
 }

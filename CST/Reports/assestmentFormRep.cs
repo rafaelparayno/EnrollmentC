@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CST.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,16 +14,33 @@ namespace CST.Reports
     public partial class assestmentFormRep : Form
     {
 
-        DataSet ds = new DataSet();
-        public assestmentFormRep(DataSet ds)
+        DataSet ds = null;
+        string[] datasParam;
+        public assestmentFormRep(DataSet ds,string[] datasParam)
         {
             InitializeComponent();
             this.ds = ds;
+            this.datasParam = datasParam;
         }
 
         private void assestmentFormRep_Load(object sender, EventArgs e)
         {
-
+            assestmentRep cos = new assestmentRep();
+            cos.SetDataSource(ds);
+            cos.SetParameterValue("studNameParam", datasParam[0]);
+            cos.SetParameterValue("roomNameParam", datasParam[1]);
+            cos.SetParameterValue("syParam", datasParam[2]);
+            cos.SetParameterValue("sectionNameParam", datasParam[3]);
+            cos.SetParameterValue("studNoParam", datasParam[4]);
+            cos.SetParameterValue("tfParam", datasParam[5]);
+            cos.SetParameterValue("msParam", datasParam[6]);
+            cos.SetParameterValue("modParam", datasParam[7]);
+            cos.SetParameterValue("listofMiscParam", datasParam[8]);
+            cos.SetParameterValue("totalParam", datasParam[9]);
+            cos.SetParameterValue("discParam", datasParam[10]);
+            cos.SetParameterValue("duesParam", datasParam[11]);
+            cos.SetParameterValue("regParam", UserLog.getFullName());
+            crystalReportViewer1.ReportSource = cos;
         }
     }
 }

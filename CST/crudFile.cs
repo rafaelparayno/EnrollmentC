@@ -83,25 +83,7 @@ namespace CST
 
         
 
-        public DataSet getDs(string sql, ref DataSet ds)
-        {
-            try
-            {
-                DataSet dataSet = new DataSet();
-                cn.Open();
-                cmd = new MySqlCommand(sql, cn);
-                adptr = new MySqlDataAdapter(cmd);
-                ds = new DataSet();
-                adptr.Fill(dataSet);           
-                return dataSet;
-            ;
-            }
-            catch(Exception e)
-            {
-                MessageBox.Show("" + e.Message);
-                return null;
-            }
-        }
+    
 
         public void CloseConnection()
         {
