@@ -125,7 +125,8 @@ namespace CST
                 string mcAdd = studFamController.getAllFamDetails(sno)[11];
                 string mod = studentBalance.getModOfPayment(sno);
                 double balanceStud = studentBalance.getBalance(sno);
-                double totalBal = tfController.getTfPriceGrade(grade,mod) + mfController.getMiscFeeForGrade(grade);
+                double disc = studentBalance.getDisc(sno);
+                double totalBal = (tfController.getTfPriceGrade(grade,mod) + mfController.getMiscFeeForGrade(grade)) - disc;
 
                 orController.getOrStudDataSet(sno, totalBal, ref ds);
 
@@ -136,7 +137,7 @@ namespace CST
                 datas[1] = sno;
                 datas[2] = bdateDateForm.ToString("MMMM dd, yyyy");
                 datas[3] = add;
-                datas[4] = sex;
+                datas[4] = sex; 
                 datas[5] = fname;
                 datas[6] = mname;
                 datas[7] = foccu;
