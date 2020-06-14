@@ -65,9 +65,9 @@
             this.labelGradeLevel.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.labelGradeLevel.Location = new System.Drawing.Point(9, 26);
             this.labelGradeLevel.Name = "labelGradeLevel";
-            this.labelGradeLevel.Size = new System.Drawing.Size(100, 16);
+            this.labelGradeLevel.Size = new System.Drawing.Size(127, 16);
             this.labelGradeLevel.TabIndex = 290;
-            this.labelGradeLevel.Text = "Subject Type";
+            this.labelGradeLevel.Text = "Subject Category";
             // 
             // AddUpdateSubjectType
             // 

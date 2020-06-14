@@ -125,9 +125,9 @@
             this.label1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.label1.Location = new System.Drawing.Point(17, 77);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(100, 16);
+            this.label1.Size = new System.Drawing.Size(127, 16);
             this.label1.TabIndex = 291;
-            this.label1.Text = "Subject Type";
+            this.label1.Text = "Subject Category";
             // 
             // AddUpdateSubject
             // 

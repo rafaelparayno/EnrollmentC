@@ -270,7 +270,7 @@
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(152, 35);
             this.button8.TabIndex = 296;
-            this.button8.Text = "Subject Type";
+            this.button8.Text = "Subject Categories";
             this.button8.UseVisualStyleBackColor = false;
             this.button8.Click += new System.EventHandler(this.button8_Click);
             // 
