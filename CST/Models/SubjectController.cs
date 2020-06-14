@@ -35,6 +35,50 @@ namespace CST.Models
           
         }
 
+
+        public void updateSubjects(string grade_level, string subject_name, int subject_type, int id)
+        {
+            if (!isChanged(subject_name, id))
+            {
+                if (!findSameName(subject_name, grade_level))
+                {
+                    string sql = String.Format(@"UPDATE subjects SET grade_level = '{0}', subject_name = '{1}',subject_type_id = {2} WHERE subject_id = {3}",
+                                    grade_level, subject_name, subject_type, id);
+
+                    cs.ExecuteQuery(sql);
+                }
+                else
+                {
+                    MessageBox.Show("Cannot Add With Same Name Subject With that Grade level");
+                }
+            }
+            else
+            {
+                string sql = String.Format(@"UPDATE subjects SET grade_level = '{0}', subject_name = '{1}',subject_type_id = {2} WHERE subject_id = {3}",
+                                  grade_level, subject_name, subject_type, id);
+
+                cs.ExecuteQuery(sql);
+            }
+        }
+
+        private bool isChanged(string subj, int id)
+        {
+            bool isChange = false;
+
+            string sql = String.Format(@"SELECT * FROM `subjects` WHERE subject_id = {0} AND subject_name = '{1}' ", id, subj);
+
+            MySqlDataReader reader = null;
+            reader = cs.RetrieveRecords(sql, ref reader);
+            if (reader.HasRows)
+            {
+                isChange = true;
+            }
+
+            cs.CloseConnection();
+
+            return isChange;
+        }
+
         private bool findSameName(string name,string gradelevel)
         {
             bool found = false;
@@ -146,13 +190,7 @@ namespace CST.Models
             //  cs.FillDataGrid(sql, ref dg);
         }
 
-        public void updateSubjects(string grade_level,string subject_name,int subject_type,int id)
-        {
-            string sql = String.Format(@"UPDATE subjects SET grade_level = '{0}', subject_name = '{1}',subject_type_id = {2} WHERE subject_id = {3}", 
-                                    grade_level, subject_name, subject_type, id);
-
-            cs.ExecuteQuery(sql);
-        }
+      
 
         public void removeSubjects(int id)
         {
