@@ -44,6 +44,7 @@ namespace CST.Reports
             cos.SetParameterValue("syParam", syLevel);
             cos.SetParameterValue("adviserParam", adviserName);
             cos.SetParameterValue("gLevelParam", gradelevel);
+            cos.SetParameterValue("nameLogParam", UserLog.getFullName());
             crystalReportViewer1.ReportSource = cos;
         }
     }
