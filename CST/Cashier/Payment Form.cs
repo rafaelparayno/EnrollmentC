@@ -84,7 +84,7 @@ namespace CST
 
         private void button3_Click(object sender, EventArgs e)
         {
-
+            double _;
             bool isValidNumber = double.TryParse(textBox4.Text.Trim(),out _);
 
             if (isValidNumber)

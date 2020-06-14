@@ -44,6 +44,7 @@ namespace CST
 
         private void button3_Click(object sender, EventArgs e)
         {
+            double _;
             if(double.TryParse(textBox5.Text.ToString(), out _))
             {
                 if (double.Parse(textBox5.Text.ToString()) >= neededTopay)

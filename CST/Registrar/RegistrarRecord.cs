@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Globalization;
 using CST.Registrar;
 using CST.Models;
 using CST.Models.Student;
@@ -29,6 +30,7 @@ namespace CST
         TuitionFeeController tfController = new TuitionFeeController();
         MiscController mfController = new MiscController();
         StudentBalance StudentBalance = new StudentBalance();
+        CultureInfo provider = CultureInfo.InvariantCulture;
         int[] yrids = { };
         int selectedYrid = 0;
         string clickedBut = "";
@@ -291,9 +293,10 @@ namespace CST
                 sectionname = sectionController.getSectionName(sectid);
 
                 DataSet ds = new DataSet();
-              
-                SchedSectionController.getStudSchedDataSet(sectid,ref ds);
-                string dueDates = mod == "Fullpayment" ? "Upon Enrollment : " + DateTime.Parse(endDate).ToString("MMMM,dd") + " - " + totalPhp : setDueDates(mod, endDate, neededTopay);
+                
+               // MessageBox.Show(endDate);
+                SchedSectionController.getStudSchedDataSet(sectid, ref ds);
+                string dueDates = mod == "Fullpayment" ? "Upon Enrollment : " + DateTime.ParseExact(endDate,"dd/MM/yyyy",provider).ToString("MMMM,dd") + " - " + totalPhp : setDueDates(mod, endDate, neededTopay);
                 string[] dataParam = new string[13];
                 dataParam[0] = fullname;
                 dataParam[1] = roomname;
@@ -320,8 +323,8 @@ namespace CST
         {
             string dues = "" ;
             string duess = "";
-            DateTime date = DateTime.Parse(dateEnd);
-            DateTime dateEndPayment = DateTime.Parse(dateEnd).AddMonths(9);
+            DateTime date = DateTime.ParseExact(dateEnd, "dd/MM/yyyy", provider);
+            DateTime dateEndPayment = DateTime.ParseExact(dateEnd, "dd/MM/yyyy", provider).AddMonths(9);
 
             dateEndPayment.AddMonths(9);
             switch (mod)

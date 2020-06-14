@@ -178,8 +178,8 @@ namespace CST.Models
         {
             string sql = String.Format(@"SELECT teacher_ID,CONCAT(Firstname,' ',LastName) as FullName FROM `specialization` 
                                         LEFT JOIN useraccounts ON specialization.acc_id = useraccounts.acc_id 
-                                        WHERE specialization.subject_id = {0}",
-                                    subjectid);
+                                        WHERE specialization.subject_id in (SELECT subject_type_id FROM subjects WHERE subject_id = {0} )",
+                                        subjectid);
             MySqlDataReader reader = null;
             cs.RetrieveRecords(sql, ref reader);
             int totalCount = 0;

@@ -95,7 +95,7 @@ namespace CST
             string endDate = dataEn[2] == "" || dataEn[2] == null ? "No Date Yet" : dataEn[2];
             OpenEnrollemnt = dataEn[3] == "" || dataEn[3] == null ? "No Data" :
                 int.Parse(dataEn[3]) == 0 ? "Close" : "Open";
-
+            DateTime _;
 
             bool isdateStart = DateTime.TryParse(startdate, out _);
 

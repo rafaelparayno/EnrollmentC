@@ -57,6 +57,7 @@ namespace CST.Cashier
 
         private void button1_Click(object sender, EventArgs e)
         {
+            double _;
             if(double.TryParse(textBox4.Text.Trim(), out _))
             {
                

@@ -57,8 +57,8 @@ namespace CST.Enrollment_Admin.AddUpdateDiags
 
         private void button6_Click(object sender, EventArgs e)
         {
-           
 
+            double _;
             if (validation())
             {
                 if (!double.TryParse(textBox1.Text, out _))
