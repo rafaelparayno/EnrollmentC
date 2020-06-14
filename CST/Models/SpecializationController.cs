@@ -263,6 +263,13 @@ namespace CST.Models
             return ids;
         }
 
+        public void removeTeacher(int id)
+        {
+            string sql = String.Format(@"DELETE FROM specialization WHERE teacher_ID = {0}", id);
+
+            cs.ExecuteQuery(sql);
+        }
+
         public int[] teacherAvailWithTime(string start, string end, ref ComboBox cb)
         {
             int[] ids;
