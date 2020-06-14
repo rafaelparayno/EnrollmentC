@@ -47,17 +47,27 @@ namespace CST.Models
 
         public void updateSubjectType(string subject_name, int id)
         {
-
-            if (!findSameName(subject_name))
+            if (!isChanged(subject_name, id))
             {
-                string sql = String.Format(@"UPDATE subjectype SET  subject_type = '{0}' WHERE sub_type_id = {1}", subject_name, id);
 
-                cs.ExecuteQuery(sql);
-                MessageBox.Show("Succesfully Update Subject");
+                if (!findSameName(subject_name))
+                {
+                    string sql = String.Format(@"UPDATE subjectype SET subject_type = '{0}' WHERE sub_type_id = {1}", subject_name, id);
+
+                    cs.ExecuteQuery(sql);
+                    MessageBox.Show("Succesfully Update Subject");
+                }
+                else
+                {
+                    MessageBox.Show("Cannot Add With Same Name Type");
+                }
             }
             else
             {
-                MessageBox.Show("Cannot Add With Same Name Type");
+                string sql = String.Format(@"UPDATE subjectype SET subject_type = '{0}' WHERE sub_type_id = {1}", subject_name, id);
+
+                cs.ExecuteQuery(sql);
+                MessageBox.Show("Succesfully Update Subject");
             }
           
         }
@@ -69,6 +79,25 @@ namespace CST.Models
             cs.ExecuteQuery(sql);
         }
 
+
+
+        private bool isChanged(string subjtype, int id)
+        {
+            bool isChange = false;
+
+            string sql = String.Format(@"SELECT * FROM `subjectype` WHERE sub_type_id = {0} AND subject_type = '{1}' ", id, subjtype);
+
+            MySqlDataReader reader = null;
+            reader = cs.RetrieveRecords(sql, ref reader);
+            if (reader.HasRows)
+            {
+                isChange = true;
+            }
+
+            cs.CloseConnection();
+
+            return isChange;
+        }
 
         private bool findSameName(string name)
         {
