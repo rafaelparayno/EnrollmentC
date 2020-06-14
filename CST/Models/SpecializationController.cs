@@ -125,8 +125,9 @@ namespace CST.Models
 
         public void fillDataGridTeacher(ref DataGridView dg)
         {
-            string sql = String.Format(@"SELECT teacher_ID,subject,CONCAT(Firstname,' ',LastName) as FullName,teaching_type 
-                                    FROM `specialization` LEFT JOIN useraccounts ON specialization.acc_id = useraccounts.acc_id ");
+            string sql = String.Format(@"SELECT teacher_ID,CONCAT(Firstname,' ',LastName) as FullName,teaching_type,subjectype.subject_type AS 'Specialization'
+                                    FROM `specialization` LEFT JOIN useraccounts ON specialization.acc_id = useraccounts.acc_id
+                                    LEFT JOIN subjectype ON specialization.subject_id = subjectype.sub_type_id");
 
             cs.FillDataGrid(sql, ref dg);
         }

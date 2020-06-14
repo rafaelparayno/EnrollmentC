@@ -15,10 +15,11 @@ namespace CST
     public partial class UpdateTeacherSpecialization : Form
     {
         SpecializationController specializationController = new SpecializationController();
+        SubjectTypeController SubjectTypeController = new SubjectTypeController();
         SubjectController subj = new SubjectController();
         private string[] user_ids = { };
         private string selectedId = "";
-        private string[] subjectsids = { };
+        private int[] subjectsids = { };
         private int selectedSubIds = 0;
      //   private int[] subids = { };
         private string sub = "";
@@ -46,7 +47,7 @@ namespace CST
         {
             timer1.Start();
             user_ids = specializationController.fillDataTeacher(ref cbTeacher);
-            subjectsids = subj.getAllSubjectsForSecondary(ref cbSubjects);
+            subjectsids = SubjectTypeController.fillComboSubjectTypes(ref cbSubjects);
 
         }
 
@@ -109,7 +110,7 @@ namespace CST
         private void cbSubjects_SelectedIndexChanged(object sender, EventArgs e)
         {
             sub = cbSubjects.SelectedItem.ToString();
-            selectedSubIds = int.Parse(subjectsids[cbSubjects.SelectedIndex]);
+            selectedSubIds = subjectsids[cbSubjects.SelectedIndex];
         }
 
         private bool checkValidation()
