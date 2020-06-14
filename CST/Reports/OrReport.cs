@@ -45,7 +45,20 @@ namespace CST.Reports
         private void OrReport_Load(object sender, EventArgs e)
         {
             DateTime aDate = DateTime.Now;
-            numWord = NumberToWords(int.Parse(tot + ""));
+            int _;
+
+            if(int.TryParse(tot + "",out _))
+            {
+                numWord = NumberToWords(int.Parse(tot + ""));
+            }
+            else
+            {
+                double newTot = Math.Floor(tot);
+                numWord = NumberToWords(int.Parse(newTot + ""));
+            }
+
+
+          
             or rep = new or();
 
             rep.SetParameterValue("orNoParam", orno.ToString());
@@ -120,7 +133,7 @@ namespace CST.Reports
             if (number > 0)
             {
                 if (words != "")
-                    words += "and ";
+                    words += " ";
 
                 string[] unitsMap = new[] { "zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen", "nineteen" };
                string[] tensMap = new[] { "zero", "ten", "twenty", "thirty", "forty", "fifty", "sixty", "seventy", "eighty", "ninety" };

@@ -155,8 +155,7 @@ namespace CST.Registrar
 
         private void selectingGradeSectionSched_FormClosing(object sender, FormClosingEventArgs e)
         {
-            MessageBox.Show("Cannot Close The Application When Selecting of sections");
-            e.Cancel = true;
+        
         }
 
         private void label6_Click(object sender, EventArgs e)
