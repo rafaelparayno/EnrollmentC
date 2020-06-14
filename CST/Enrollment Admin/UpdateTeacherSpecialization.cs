@@ -79,7 +79,7 @@ namespace CST
 
             if (isValid)
             {
-                specializationController.addSpecialization(selectedId, sub,cbType.SelectedItem.ToString(),selectedSubIds);
+                specializationController.addSpecialization(selectedId,cbType.SelectedItem.ToString(),selectedSubIds);
                 MessageBox.Show("Succesfully Assign a teacher");
                 this.Hide();
             }

@@ -18,11 +18,12 @@ namespace CST.Models
        
         }
 
-        public void addSubject(string grade_level,string subject_name)
+        public void addSubject(string grade_level,string subject_name,int subject_type_id)
         {
             if (!findSameName(subject_name, grade_level))
             {
-                string sql = String.Format(@"INSERT INTO subjects(grade_level,subject_name) VALUES ('{0}','{1}')", grade_level, subject_name);
+                string sql = String.Format(@"INSERT INTO subjects(grade_level,subject_name,subject_type_id) 
+                                        VALUES ('{0}','{1}',{2})", grade_level, subject_name,subject_type_id);
 
                 cs.ExecuteQuery(sql);
                 MessageBox.Show("Succesfully Added new Subject");
@@ -54,7 +55,8 @@ namespace CST.Models
         public void fillDataGridSub(ref DataGridView dg)
         {
 
-            string sql = String.Format(@"SELECT * FROM subjects");
+            string sql = String.Format(@"SELECT subject_id,grade_level,subject_name,subject_type 
+                                        FROM subjects LEFT JOIN subjectype ON subjects.subject_type_id = subjectype.sub_type_id");
 
             cs.FillDataGrid(sql,ref dg);
         }
@@ -144,9 +146,10 @@ namespace CST.Models
             //  cs.FillDataGrid(sql, ref dg);
         }
 
-        public void updateSubjects(string grade_level,string subject_name,int id)
+        public void updateSubjects(string grade_level,string subject_name,int subject_type,int id)
         {
-            string sql = String.Format(@"UPDATE subjects SET grade_level = '{0}', subject_name = '{1}' WHERE subject_id = {2}", grade_level, subject_name, id);
+            string sql = String.Format(@"UPDATE subjects SET grade_level = '{0}', subject_name = '{1}',subject_type_id = {2} WHERE subject_id = {3}", 
+                                    grade_level, subject_name, subject_type, id);
 
             cs.ExecuteQuery(sql);
         }
