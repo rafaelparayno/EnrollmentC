@@ -173,6 +173,13 @@ namespace CST
                     studFam.addFamDetails(StudentModel.getSno(), famDetails);
                     studHis.addHisDetails(StudentModel.getSno(), txtPastSchool.Text.Trim(), txtPastAdd.Text.Trim(), txtPastLevel.Text.Trim(),
                                         dateTimePicker2.Value.ToShortDateString(), isVacinated, txtVaccination.Text.Trim());
+                    int[] reqIds = StudentModel.getReq_ids();
+
+                    for (int i = 0; i < reqIds.Length; i++)
+                    {
+                        studReq.addStudentReq(StudentModel.getSno(), reqIds[i]);
+
+                    }
 
                 }
                 else
@@ -182,18 +189,20 @@ namespace CST
                                                                  studentDetails[7], studentDetails[8], studentDetails[9],
                                                                  studentDetails[10], studentDetails[11], StudentModel.getTypeStud(),sno);
                     studFam.updateFamDetails(famDetails, sno);
-                    studHis.updateHisDetails(sno, txtPastSchool.Text.Trim(), txtPastAdd.Text.Trim(), txtPastLevel.Text.Trim(), 
+                    studHis.updateHisDetails(sno, txtPastSchool.Text.Trim(), txtPastAdd.Text.Trim(), txtPastLevel.Text.Trim(),
                                             dateTimePicker2.Value.ToShortDateString(), isVacinated, txtVaccination.Text.Trim());
+                    int[] reqIds = StudentModel.getReq_ids();
+
+                    for (int i = 0; i < reqIds.Length; i++)
+                    {
+                        studReq.addStudentReq(sno, reqIds[i]);
+
+                    }
                 }
 
-                int[] reqIds = StudentModel.getReq_ids();
+                
 
-                for (int i = 0; i < reqIds.Length; i++)
-                {
-                    studReq.addStudentReq(StudentModel.getSno(),  reqIds[i]);
-                }
-
-             //   studentEnrolledController.addEnrolledStudents(StudentModel.getSno(),)
+           
                 StudentModel.clearAll();
             }
             else
@@ -843,6 +852,11 @@ namespace CST
             {
                 textBox18.Enabled = false;
             }
+        }
+
+        private void txtStudentID_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

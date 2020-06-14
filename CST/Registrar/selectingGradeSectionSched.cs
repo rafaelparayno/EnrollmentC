@@ -49,6 +49,7 @@ namespace CST.Registrar
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             comboBox2.Items.Clear();
+            listView1.Items.Clear();
             sectionIds = sectionController.fillComboSect3(ref comboBox2, comboBox1.Text);
             comboBox2.Enabled = true;
         }
@@ -119,27 +120,31 @@ namespace CST.Registrar
 
         private void button1_Click(object sender, EventArgs e)
         {
-            DataSet ds = new DataSet();
-
-            DataTable dt = new DataTable();
-            dt.Columns.Add("Time Start", typeof(string));
-            dt.Columns.Add("Time End", typeof(string));
-            dt.Columns.Add("Subjects", typeof(string));
-            dt.Columns.Add("Teacher", typeof(string));
-
-            for (int i = 0; i < listView1.Items.Count; i++)
+            if(listView1.Items.Count> 0)
             {
-                dt.Rows.Add(listView1.Items[i].SubItems[0].Text,
-                    listView1.Items[i].SubItems[1].Text, 
-                    listView1.Items[i].SubItems[2].Text, 
-                    listView1.Items[i].SubItems[3].Text);
+                DataSet ds = new DataSet();
+
+                DataTable dt = new DataTable();
+                dt.Columns.Add("Time Start", typeof(string));
+                dt.Columns.Add("Time End", typeof(string));
+                dt.Columns.Add("Subjects", typeof(string));
+                dt.Columns.Add("Teacher", typeof(string));
+
+                for (int i = 0; i < listView1.Items.Count; i++)
+                {
+                    dt.Rows.Add(listView1.Items[i].SubItems[0].Text,
+                        listView1.Items[i].SubItems[1].Text,
+                        listView1.Items[i].SubItems[2].Text,
+                        listView1.Items[i].SubItems[3].Text);
+                }
+
+                ds.Tables.Add(dt);
+                //  ds.WriteXmlSchema("StudSched.xml");
+
+                StudentSchedRep form = new StudentSchedRep(ds, comboBox2.SelectedItem.ToString(), comboBox1.SelectedItem.ToString());
+                form.ShowDialog();
             }
-
-            ds.Tables.Add(dt);
-            //  ds.WriteXmlSchema("StudSched.xml");
-
-            StudentSchedRep form = new StudentSchedRep(ds, comboBox2.SelectedItem.ToString(), comboBox1.SelectedItem.ToString());
-            form.ShowDialog();
+           
 
         }
 
