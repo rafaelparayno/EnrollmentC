@@ -214,7 +214,7 @@ namespace CST
                         OrReport frm2 = new OrReport(receivePayment, sno,
                                                     textBox5.Text, textBox6.Text,
                                                     totalPhp, orno,
-                                                    totalDisc, reservationFee);
+                                                    totalDisc, reservationFee,"enrollment");
                         frm2.ShowDialog();
                     }
                     else
@@ -223,7 +223,7 @@ namespace CST
                         OrReport frm2 = new OrReport(receivePayment, sno,
                                                     totalPhp, "",
                                                     totalPhp, orno,
-                                                    0,0);
+                                                    0,0, "enrollment");
                         frm2.ShowDialog();
 
                     }

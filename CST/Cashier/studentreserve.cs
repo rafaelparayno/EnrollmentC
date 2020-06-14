@@ -1,4 +1,5 @@
 ﻿using CST.Models;
+using CST.Reports;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,7 +17,10 @@ namespace CST.Cashier
         StudentsDetailsController studentsDetailsController = new StudentsDetailsController();
         StudentReserveController studentReserveController = new StudentReserveController();
         YearController YearController = new YearController();
+        OrController orController = new OrController();
         bool isValid = false;
+        string sno = "";
+        int orno = 0;
         int syid = 0;
         public studentreserve()
         {
@@ -45,11 +49,13 @@ namespace CST.Cashier
             if (details[0] == "" || details[0] == null)
             {
                 MessageBox.Show("No SNO exists or Student is already enrolled");
+                sno = "";
             }
             else
             {
                 textBox2.Text = details[0] + " " + details[2] + " " + details[1];
                 textBox3.Text = details[12];
+                sno = "STUD-" + textBox1.Text.Trim();
                 isValid = true;
             }
         }
@@ -66,8 +72,23 @@ namespace CST.Cashier
                 {
                     if (isValid)
                     {
-                        studentReserveController.addReservation(payment, "STUD-" + textBox1.Text);
-                        this.Hide();
+                        studentReserveController.addReservation(payment,sno);
+                        orno = orController.getRecentOr() + 1;
+                        string ornumber = "OR#" + orno;
+                        DateTime today = DateTime.Today;
+                    
+                        orController.addOr(ornumber, sno, payment, today.ToString("dd/MM/yyyy"));
+
+                        string totalPhp = "PHP " + payment;
+
+                        OrReport frm2 = new OrReport(payment, sno,
+                                                    totalPhp, "",
+                                                    totalPhp, orno,
+                                                    0, 0, "reservation");
+                        frm2.ShowDialog();
+
+                        textBox1.Text = "";
+                        sno = "";
                     }
                     else
                     {

@@ -22,13 +22,15 @@ namespace CST.Reports
         double disc = 0;
         double reservation = 0;
         int orno = 0;
+        string part = "";
         StudentsDetailsController studentsDetails = new StudentsDetailsController();
         OrController ornocontroller = new OrController();
 
         public OrReport(double total,string sno,
                         string tui,string misc,
                         string totalPhp,int orno,
-                        double disc,double reservation)
+                        double disc,double reservation,
+                        string fromPart )
         {
             InitializeComponent();
             tot = total;
@@ -40,6 +42,7 @@ namespace CST.Reports
             this.reservation = reservation;
             name = studentsDetails.searchAllDetails(sno)[0] + " " + studentsDetails.searchAllDetails(sno)[1];
             orno = ornocontroller.getRecentOr();
+            this.part = fromPart;
         }
 
         private void OrReport_Load(object sender, EventArgs e)
@@ -67,7 +70,8 @@ namespace CST.Reports
             rep.SetParameterValue("studentName", name);
             rep.SetParameterValue("DateNow", aDate.ToString("MM/dd/yyyy"));
             rep.SetParameterValue("cashierName", UserLog.getFullName());
-            if (misc == "" || misc == null)
+
+            if (misc == "" || misc == null && part == "enrollment")
             {
                 rep.SetParameterValue("part1", "Tuition Payment:");
                 rep.SetParameterValue("part2", "");
@@ -77,6 +81,18 @@ namespace CST.Reports
                 rep.SetParameterValue("part1", "Tuition");
                 rep.SetParameterValue("part2", "Misc");
 
+            }
+            
+            if(part == "balance")
+            {
+                rep.SetParameterValue("part1", "Balance Payment:");
+                rep.SetParameterValue("part2", "");
+            }
+
+            if(part == "reservation")
+            {
+                rep.SetParameterValue("part1", "Reservation Payment:");
+                rep.SetParameterValue("part2", "");
             }
 
             if (reservation > 0 )
