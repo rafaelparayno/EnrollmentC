@@ -103,7 +103,7 @@ namespace CST.Models
 
         public void fillDataGridDetailsInSection(ref DataGridView dg,int section_id)
         {
-            string sql = String.Format(@"SELECT CONCAT(firstname,' ',lastname) AS 'Stutdent Name',studentenrolledinfo.grade_level FROM `studentenrolledinfo` 
+            string sql = String.Format(@"SELECT student_detail.sno,CONCAT(firstname,' ',lastname) AS 'Stutdent Name',studentenrolledinfo.grade_level FROM `studentenrolledinfo` 
                                         LEFT JOIN student_detail on studentenrolledinfo.sno = student_detail.sno 
                                         WHERE studentenrolledinfo.`sect_id`= {0}",
                                         section_id);
