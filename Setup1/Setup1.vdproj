@@ -1020,9 +1020,9 @@
         "Product"
         {
         "Name" = "8:Microsoft Visual Studio"
-        "ProductName" = "8:Setup1"
+        "ProductName" = "8:GhostProgrammer"
         "ProductCode" = "8:{CDBCAF58-354A-454F-8203-9196F178E10A}"
-        "PackageCode" = "8:{E76E4D8A-AE22-4808-91AD-141DCB00A2F7}"
+        "PackageCode" = "8:{D43D6346-6859-4AD5-A904-C29739A8D1DB}"
         "UpgradeCode" = "8:{D3F76295-D41B-4F82-9C66-5F989919E053}"
         "AspNetVersion" = "8:2.0.50727.0"
         "RestartWWWService" = "11:FALSE"
