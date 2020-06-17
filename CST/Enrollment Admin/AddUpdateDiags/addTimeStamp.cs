@@ -48,7 +48,7 @@ namespace CST.Enrollment_Admin.AddUpdateDiags
 
         private void button6_Click(object sender, EventArgs e)
         {
-            timestampController.addTime(time_end.Value.ToString("HH:mm"), time_start.Value.ToShortTimeString());
+            timestampController.addTime(time_end.Value.ToString("HH:mm"), time_start.Value.ToString("HH:mm"));
             this.Hide();
           
         }

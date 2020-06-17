@@ -387,7 +387,7 @@ namespace CST.Models
         public int totalStudentInSections(int sectid)
         {
             int count = 0;
-            string sql = String.Format(@"SELECT COUNT(sno) AS 'totalStudent' FROM studentenrolledinfo WHERE sect_id = {0} AND is_Enrolled = 1", sectid);
+            string sql = String.Format(@"SELECT COUNT(sno) AS 'totalStudent' FROM studentenrolledinfo WHERE sect_id = {0}", sectid);
             MySqlDataReader reader = null;
 
             cs.RetrieveRecords(sql, ref reader);

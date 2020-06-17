@@ -240,7 +240,7 @@ namespace CST
                         listView1.Items[i].SubItems[3].Text,
                         listView1.Items[i].SubItems[4].Text,
                         listView1.Items[i].SubItems[5].Text,
-                        listView1.Items[i].SubItems[3].Text);
+                        listView1.Items[i].SubItems[6].Text);
                 }
 
                
