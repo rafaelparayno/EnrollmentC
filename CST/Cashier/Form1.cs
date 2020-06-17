@@ -44,6 +44,7 @@ namespace CST
 
         private void button3_Click(object sender, EventArgs e)
         {
+            double _;
             if(double.TryParse(textBox5.Text.ToString(), out _))
             {
                 if (double.Parse(textBox5.Text.ToString()) >= neededTopay)
@@ -61,7 +62,7 @@ namespace CST
                         textBox4.Text = String.Format("PHP " + "{0:0.00}", change);
                         MessageBox.Show("Succesfully Pay the balance");
 
-                        OrReport orep = new OrReport(neededTopay, sno, neededTopay+" PHP", "", neededTopay+" PHP", orno,0,0);
+                        OrReport orep = new OrReport(neededTopay, sno, neededTopay+" PHP", "", neededTopay+" PHP", orno,0,0,"balance");
                         orep.ShowDialog();
                         clearData();
                     }

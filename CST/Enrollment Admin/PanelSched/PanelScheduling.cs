@@ -226,10 +226,12 @@ namespace CST.Enrollment_Admin.PanelSched
             if (listView1.Items.Count > 0)
             {
                 int lastIndex = listView1.Items.Count;
-                AssignRoom frm = new AssignRoom(listView1.Items[lastIndex-1].SubItems[0].Text,listView1.Items[0].SubItems[0].Text);
+                AssignRoom frm = new AssignRoom(listView1.Items[lastIndex - 1].SubItems[1].Text,
+                                                listView1.Items[0].SubItems[0].Text);
                 frm.ShowDialog();
                 label3.Text = "Room : " + frm.roomName;
                 roomId = frm.selectedRoomId2;
+                // MessageBox.Show(listView1.Items[lastIndex - 1].SubItems[1].Text);
             }
         }
 

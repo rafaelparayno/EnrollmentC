@@ -15,34 +15,40 @@ namespace CST.Enrollment_Admin.AddUpdateDiags
     public partial class AddUpdateSubject : Form
     {
         string[] gradeAll = { };
+        int[] subjectTypeIds = { };
+        int selectedSubjectType = 0;
         bool isValid = false;
         bool isEdited = false;
         private int id;
         SubjectController subjectController = new SubjectController();
+        SubjectTypeController SubjectTypeController = new SubjectTypeController();
         public AddUpdateSubject()
         {
             InitializeComponent();
            
             gradeAll = DataClass.getAllGrade();
+            subjectTypeIds = SubjectTypeController.fillComboSubjectTypes(ref comboBox1);
             fillCombo();
         }
 
-        public AddUpdateSubject(string gradelevel,string subject_name, int id)
+        public AddUpdateSubject(string gradelevel,string subject_name, int id,string subjectTypeName)
         {
             InitializeComponent();
            
             gradeAll = DataClass.getAllGrade();
+            subjectTypeIds = SubjectTypeController.fillComboSubjectTypes(ref comboBox1);
             isEdited = true;
             fillCombo();
             textBox1.Text = subject_name;
             cbGradeLevel.SelectedItem = gradelevel;
+            comboBox1.SelectedItem = subjectTypeName;
             this.id = id;
         }
 
         private void AddUpdateSection_Load(object sender, EventArgs e)
         {
-         
 
+          
             //cbGradeLevel.SelectedIndex = 0;
         }
 
@@ -54,13 +60,13 @@ namespace CST.Enrollment_Admin.AddUpdateDiags
             {
                 if (!isEdited)
                 {
-                    subjectController.addSubject(cbGradeLevel.SelectedItem.ToString(), textBox1.Text.Trim());
+                    subjectController.addSubject(cbGradeLevel.SelectedItem.ToString(), textBox1.Text.Trim(),selectedSubjectType);
                  
                    
                 }
                 else
                 {
-                    subjectController.updateSubjects(cbGradeLevel.SelectedItem.ToString(), textBox1.Text.Trim(), id);
+                    subjectController.updateSubjects(cbGradeLevel.SelectedItem.ToString(), textBox1.Text.Trim(),selectedSubjectType, id);
                     MessageBox.Show("Succesfully Edited New Subject");
                     
                 }
@@ -97,6 +103,16 @@ namespace CST.Enrollment_Admin.AddUpdateDiags
             {
                 cbGradeLevel.Items.Add(grade);
             }
+        }
+
+        private void cbGradeLevel_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            selectedSubjectType = subjectTypeIds[comboBox1.SelectedIndex];
         }
     }
 }

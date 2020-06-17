@@ -41,7 +41,7 @@ namespace CST.Reports
             rep.SetParameterValue("gradeLevelParam", gradeLevel);
             rep.SetParameterValue("syParam", sy);
             rep.SetParameterValue("subjectParam", subject);
-
+            rep.SetParameterValue("nameLogParam", UserLog.getFullName());
 
             crystalReportViewer1.ReportSource = rep;
         }

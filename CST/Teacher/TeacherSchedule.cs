@@ -71,6 +71,11 @@ namespace CST
             listView1.Items.Clear();
             schedSectionController.fillListTeachSched2(ref listView1, teacher_id, comboBox1.SelectedItem.ToString());
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
     }
 

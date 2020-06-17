@@ -510,6 +510,7 @@
             this.txtStudentID.Name = "txtStudentID";
             this.txtStudentID.Size = new System.Drawing.Size(296, 26);
             this.txtStudentID.TabIndex = 126;
+            this.txtStudentID.TextChanged += new System.EventHandler(this.txtStudentID_TextChanged);
             // 
             // label9
             // 

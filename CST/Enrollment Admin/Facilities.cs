@@ -120,5 +120,12 @@ namespace CST
             this.Hide();
             frm.Show();
         }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            SubjectType frm = new SubjectType();
+            this.Hide();
+            frm.Show();
+        }
     }
 }

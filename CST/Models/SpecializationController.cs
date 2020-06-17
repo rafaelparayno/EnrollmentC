@@ -19,9 +19,10 @@ namespace CST.Models
             syId = yr.getSchoolYearId();
         }
 
-        public void addSpecialization(string user_id, string subject_name, string teaching_type, int subj_id)
+        public void addSpecialization(string user_id, string teaching_type, int subj_id)
         {
-            string sql = String.Format(@"INSERT INTO specialization (acc_id,subject,subject_id,teaching_type) VALUES('{0}','{1}',{2},'{3}')", user_id, subject_name, subj_id, teaching_type);
+            string sql = String.Format(@"INSERT INTO specialization (acc_id,subject_id,teaching_type)
+                                    VALUES('{0}',{1},'{2}')", user_id, subj_id, teaching_type);
 
             cs.ExecuteQuery(sql);
         }
@@ -56,7 +57,8 @@ namespace CST.Models
         {
             int[] teacher_ids = { };
 
-            string sql = String.Format("SELECT teacher_ID,CONCAT(Firstname,' ',LastName) as FullName FROM `specialization` LEFT JOIN useraccounts ON specialization.acc_id = useraccounts.acc_id");
+            string sql = String.Format(@"SELECT teacher_ID,CONCAT(Firstname,' ',LastName) as FullName FROM `specialization` 
+                                        LEFT JOIN useraccounts ON specialization.acc_id = useraccounts.acc_id");
 
             MySqlDataReader reader = null;
             cs.RetrieveRecords(sql, ref reader);
@@ -88,7 +90,9 @@ namespace CST.Models
         public string[] fillComboSecondaryTeacher(ref ComboBox cb)
         {
             string[] teacher_ids = { };
-            string sql = String.Format(@"SELECT teacher_ID,CONCAT(Firstname,' ',LastName) as FullName FROM `specialization` LEFT JOIN useraccounts ON specialization.acc_id = useraccounts.acc_id WHERE specialization.subject_id != 0 ");
+            string sql = String.Format(@"SELECT teacher_ID,CONCAT(Firstname,' ',LastName) as FullName FROM `specialization` 
+                                        LEFT JOIN useraccounts ON specialization.acc_id = useraccounts.acc_id 
+                                        WHERE specialization.subject_id != 0 ");
 
 
             MySqlDataReader reader = null;
@@ -121,14 +125,17 @@ namespace CST.Models
 
         public void fillDataGridTeacher(ref DataGridView dg)
         {
-            string sql = String.Format(@"SELECT teacher_ID,subject,CONCAT(Firstname,' ',LastName) as FullName,teaching_type FROM `specialization` LEFT JOIN useraccounts ON specialization.acc_id = useraccounts.acc_id ");
+            string sql = String.Format(@"SELECT teacher_ID,CONCAT(Firstname,' ',LastName) as FullName,teaching_type,subjectype.subject_type AS 'Specialization'
+                                    FROM `specialization` LEFT JOIN useraccounts ON specialization.acc_id = useraccounts.acc_id
+                                    LEFT JOIN subjectype ON specialization.subject_id = subjectype.sub_type_id");
 
             cs.FillDataGrid(sql, ref dg);
         }
 
         public string[] fillDataTeacherSect(ref ComboBox cb)
         {
-            string sql = String.Format(@"SELECT teacher_ID,CONCAT(Firstname,' ',LastName) as FullName FROM `specialization` LEFT JOIN useraccounts ON specialization.acc_id = useraccounts.acc_id");
+            string sql = String.Format(@"SELECT teacher_ID,CONCAT(Firstname,' ',LastName) as FullName 
+                                        FROM `specialization` LEFT JOIN useraccounts ON specialization.acc_id = useraccounts.acc_id");
             MySqlDataReader reader = null;
             cs.RetrieveRecords(sql, ref reader);
             int totalCount = 0;
@@ -156,7 +163,9 @@ namespace CST.Models
             string name = "";
 
             MySqlDataReader reader = null;
-            string sql = String.Format(@"SELECT Concat(Firstname,' ',Lastname) As 'FullName' FROM useraccounts WHERE acc_id = (SELECT acc_id FROM specialization WHERE teacher_ID = {0} )", teacher_id);
+            string sql = String.Format(@"SELECT Concat(Firstname,' ',Lastname) As 'FullName' 
+                                         FROM useraccounts WHERE acc_id = (SELECT acc_id FROM specialization 
+                                        WHERE teacher_ID = {0} )", teacher_id);
             cs.RetrieveRecords(sql, ref reader);
             if (reader.Read())
             {
@@ -167,8 +176,10 @@ namespace CST.Models
         }
         public string[] findTeacherWithAvailSub(ref ComboBox cb, int subjectid)
         {
-            string sql = String.Format(@"SELECT teacher_ID,CONCAT(Firstname,' ',LastName) as FullName FROM `specialization` LEFT JOIN useraccounts ON specialization.acc_id = useraccounts.acc_id WHERE specialization.subject_id = {0}",
-                                    subjectid);
+            string sql = String.Format(@"SELECT teacher_ID,CONCAT(Firstname,' ',LastName) as FullName FROM `specialization` 
+                                        LEFT JOIN useraccounts ON specialization.acc_id = useraccounts.acc_id 
+                                        WHERE specialization.subject_id in (SELECT subject_type_id FROM subjects WHERE subject_id = {0} )",
+                                        subjectid);
             MySqlDataReader reader = null;
             cs.RetrieveRecords(sql, ref reader);
             int totalCount = 0;
@@ -193,7 +204,9 @@ namespace CST.Models
 
         public string findTeacherName(string fn, string ln)
         {
-            string sql = String.Format("SELECT teacher_ID,CONCAT(Firstname,' ',LastName) as FullName FROM `specialization` LEFT JOIN useraccounts ON specialization.acc_id = useraccounts.acc_id WHERE useraccounts.Firstname = '{0}' AND useraccounts.Lastname ='{1}'", fn, ln);
+            string sql = String.Format(@"SELECT teacher_ID,CONCAT(Firstname,' ',LastName) as FullName FROM `specialization` 
+                                        LEFT JOIN useraccounts ON specialization.acc_id = useraccounts.acc_id 
+                                        WHERE useraccounts.Firstname = '{0}' AND useraccounts.Lastname ='{1}'", fn, ln);
             MySqlDataReader reader = null;
             cs.RetrieveRecords(sql, ref reader);
             string nameWithId = "";
@@ -261,6 +274,13 @@ namespace CST.Models
        
 
             return ids;
+        }
+
+        public void removeTeacher(int id)
+        {
+            string sql = String.Format(@"DELETE FROM specialization WHERE teacher_ID = {0}", id);
+
+            cs.ExecuteQuery(sql);
         }
 
         public int[] teacherAvailWithTime(string start, string end, ref ComboBox cb)

@@ -202,12 +202,12 @@
             this.label6.BackColor = System.Drawing.Color.Transparent;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.ForestGreen;
-            this.label6.Location = new System.Drawing.Point(353, 535);
+            this.label6.Location = new System.Drawing.Point(353, 536);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(353, 29);
             this.label6.TabIndex = 22;
             this.label6.Text = "Selected Section Is Available";
-            this.label6.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.label6.Visible = false;
             this.label6.Click += new System.EventHandler(this.label6_Click);
             // 

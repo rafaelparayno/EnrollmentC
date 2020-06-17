@@ -159,6 +159,12 @@
     <Compile Include="Enrollment Admin\AddUpdateDiags\AddUpdateSubject.Designer.cs">
       <DependentUpon>AddUpdateSubject.cs</DependentUpon>
     </Compile>
+    <Compile Include="Enrollment Admin\AddUpdateDiags\AddUpdateSubjectType.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Enrollment Admin\AddUpdateDiags\AddUpdateSubjectType.Designer.cs">
+      <DependentUpon>AddUpdateSubjectType.cs</DependentUpon>
+    </Compile>
     <Compile Include="Enrollment Admin\AddUpdateDiags\addUpdateTuition.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -273,6 +279,12 @@
     <Compile Include="Enrollment Admin\SchedulingFinal.Designer.cs">
       <DependentUpon>SchedulingFinal.cs</DependentUpon>
     </Compile>
+    <Compile Include="Enrollment Admin\SubjectType.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Enrollment Admin\SubjectType.Designer.cs">
+      <DependentUpon>SubjectType.cs</DependentUpon>
+    </Compile>
     <Compile Include="Enrollment Admin\Tfees.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -303,6 +315,7 @@
     <Compile Include="Models\StudFamDetailsController.cs" />
     <Compile Include="Models\StudHistDetailsController.cs" />
     <Compile Include="Models\SubjectController.cs" />
+    <Compile Include="Models\SubjectTypeController.cs" />
     <Compile Include="Models\TeacherSchedController.cs" />
     <Compile Include="Models\TimestampController.cs" />
     <Compile Include="Models\Timetable\TimeTableModel.cs" />
@@ -765,6 +778,9 @@
     <EmbeddedResource Include="Enrollment Admin\AddUpdateDiags\AddUpdateSubject.resx">
       <DependentUpon>AddUpdateSubject.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Enrollment Admin\AddUpdateDiags\AddUpdateSubjectType.resx">
+      <DependentUpon>AddUpdateSubjectType.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Enrollment Admin\AddUpdateDiags\addUpdateTuition.resx">
       <DependentUpon>addUpdateTuition.cs</DependentUpon>
     </EmbeddedResource>
@@ -821,6 +837,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Enrollment Admin\SchedulingFinal.resx">
       <DependentUpon>SchedulingFinal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Enrollment Admin\SubjectType.resx">
+      <DependentUpon>SubjectType.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Enrollment Admin\Tfees.resx">
       <DependentUpon>Tfees.cs</DependentUpon>

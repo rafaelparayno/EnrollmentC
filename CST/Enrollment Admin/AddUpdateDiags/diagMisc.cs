@@ -75,7 +75,7 @@ namespace CST.Enrollment_Admin.AddUpdateDiags
         private bool validation()
         {
             bool isValid = true;
-
+            double _;
             isValid = comboBox2.SelectedIndex > -1 && isValid;
 
             isValid = !(textBox1.Text.Trim() == "") && isValid;

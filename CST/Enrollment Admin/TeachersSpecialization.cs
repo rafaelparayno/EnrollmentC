@@ -68,7 +68,20 @@ namespace CST
 
         private void button3_Click(object sender, EventArgs e)
         {
+            if(dataGridView1.Rows.Count> 0)
+            {
+                DialogResult form1 = MessageBox.Show("Do you really want to Remove?",
+                     "Exit", MessageBoxButtons.YesNo);
 
+
+                if (form1 == DialogResult.Yes)
+                {
+
+                    specialization.removeTeacher(int.Parse(dataGridView1.SelectedRows[0].Cells[0].Value.ToString()));
+                    MessageBox.Show("Succesfully Remove Data");
+                    refreshGrid();
+                }
+            }
         }
     }
 }

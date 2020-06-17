@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CST.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -22,7 +23,9 @@ namespace CST.Reports
         private void AccountRecordRep_Load(object sender, EventArgs e)
         {
             studentAccount cos = new studentAccount();
+            
             cos.SetDataSource(ds);
+            cos.SetParameterValue("nameLogParam", UserLog.getFullName());
             crystalReportViewer1.ReportSource = cos;
         }
     }

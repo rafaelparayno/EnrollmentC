@@ -192,6 +192,7 @@ namespace CST.Reports
             cos.SetParameterValue("mComp", mcomp);
             cos.SetParameterValue("mCompNo", mcompno);
             cos.SetParameterValue("fCompNo", fcompno);
+
             cos.SetParameterValue("fCompAd", fcompadd);
             cos.SetParameterValue("mCompAd", mcompadd);
             cos.SetParameterValue("Guard", gname);
@@ -201,7 +202,7 @@ namespace CST.Reports
             cos.SetParameterValue("pSAd", pAdd);
             cos.SetParameterValue("pGlvl", pGlvl);
             cos.SetParameterValue("pLvl", pylvl);
-
+            cos.SetParameterValue("nameLogParam", UserLog.getFullName());
             crystalReportViewer1.ReportSource = cos;
         }
 

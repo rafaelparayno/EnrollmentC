@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CST.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -30,6 +31,7 @@ namespace CST.Reports
             cos.SetDataSource(ds);
             cos.SetParameterValue("SectName", sectionName);
             cos.SetParameterValue("GradeLevel", gradeLevel);
+            cos.SetParameterValue("nameLogParam", UserLog.getFullName());
             crystalReportViewer1.ReportSource = cos;
         }
     }

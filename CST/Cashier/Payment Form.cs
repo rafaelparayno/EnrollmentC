@@ -84,7 +84,7 @@ namespace CST
 
         private void button3_Click(object sender, EventArgs e)
         {
-
+            double _;
             bool isValidNumber = double.TryParse(textBox4.Text.Trim(),out _);
 
             if (isValidNumber)
@@ -97,6 +97,7 @@ namespace CST
                     double neededToPay = 0;
                     double change = 0;
                     double receivePayment = 0;
+                    double forOrPay = 0;
                     switch (mod)
                     {
                         case "Fullpayment":
@@ -109,7 +110,7 @@ namespace CST
                             {
                                 change  = double.Parse(textBox4.Text.ToString()) - downPay;
                                 balance = total - downPay;
-                                receivePayment = balance + reservationFee;
+                                receivePayment = downPay + reservationFee;
                                 balance -= reservationFee;
                                 neededToPay = balance;
 
@@ -187,7 +188,7 @@ namespace CST
                                     balance = total - double.Parse(textBox4.Text.ToString());
                                     receivePayment = double.Parse(textBox4.Text.ToString());
                                     receivePayment += reservationFee;
-                                    neededToPay = balance / 10;
+                                    neededToPay = balance / 9;
                                     neededToPay = Math.Round((Double)neededToPay, 2);
                                 }
 
@@ -203,17 +204,17 @@ namespace CST
                     orno = orController.getRecentOr() + 1;
                     string ornumber = "OR#" + orno;
                     DateTime today = DateTime.Today;
-
-                    orController.addOr(ornumber, sno,receivePayment,today.ToString("dd/MM/yyyy"));
-
-                    if(mod== "Fullpayment")
+                    forOrPay = receivePayment - reservationFee;
+                    orController.addOr(ornumber, sno, forOrPay, today.ToString("dd/MM/yyyy"));
+                    receivePayment -= reservationFee;
+                    if (mod== "Fullpayment")
                     {
                         string totalPhp = "PHP " + downPay;
-                        receivePayment -= reservationFee;
+                      
                         OrReport frm2 = new OrReport(receivePayment, sno,
                                                     textBox5.Text, textBox6.Text,
                                                     totalPhp, orno,
-                                                    totalDisc, reservationFee);
+                                                    totalDisc, reservationFee,"enrollment");
                         frm2.ShowDialog();
                     }
                     else
@@ -222,17 +223,12 @@ namespace CST
                         OrReport frm2 = new OrReport(receivePayment, sno,
                                                     totalPhp, "",
                                                     totalPhp, orno,
-                                                    0,0);
+                                                    0,0, "enrollment");
                         frm2.ShowDialog();
 
                     }
 
-                    //ModeOfPaymentDiscount frm = new ModeOfPaymentDiscount();
-                    //frm.Show();
-                    
-                    //this.Hide();
-
-
+                  
                 }
                 else
                 {
@@ -324,6 +320,7 @@ namespace CST
                 textBox10.Visible = true;
                 label10.Visible = true;
                 isChange = true;
+
             }
             else
             {

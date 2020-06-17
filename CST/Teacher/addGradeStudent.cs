@@ -23,7 +23,7 @@ namespace CST.Teacher
         public double g3 = 65;
         public double g4 = 65;
         public double avg = 65;
-        bool isEdit = false;
+    
         int sect = 0;
         int subj = 0;
         int teacher = 0;
@@ -51,7 +51,7 @@ namespace CST.Teacher
             numericUpDown2.Value = decimal.Parse(g2.ToString()) > 0 ? decimal.Parse(g2.ToString()) : 65; 
             numericUpDown3.Value = decimal.Parse(g3.ToString()) >0 ? decimal.Parse(g3.ToString()) : 65; 
             numericUpDown4.Value = decimal.Parse(g4.ToString()) >0 ? decimal.Parse(g4.ToString()) : 65; 
-            isEdit = true;
+         
 
         }
 
