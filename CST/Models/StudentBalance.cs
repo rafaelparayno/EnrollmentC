@@ -48,7 +48,8 @@ namespace CST.Models
         {
             string sql = String.Format(@"SELECT student_balance.sno, Concat(firstname,' ',middlename,' ',lastname) AS 'Student Name',totalPayment As 'Total Payment',
                                         balance AS 'Remaining Balance', modeofpayment AS 'Mode of Payment' 
-                                        FROM `student_balance` LEFT JOIN student_detail ON student_balance.sno = student_detail.sno");
+                                        FROM `student_balance` LEFT JOIN student_detail ON student_balance.sno = student_detail.sno
+                                        WHERE SY_id = {0} ",syid);
 
 
             cs.FillDataGrid(sql, ref dg);

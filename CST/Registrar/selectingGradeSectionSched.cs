@@ -27,11 +27,11 @@ namespace CST.Registrar
         SchedSectionController schedSectionController = new SchedSectionController();
       
         StudentEnrolledController studentEnrolledController = new StudentEnrolledController();
-        public selectingGradeSectionSched(string studno,string name)
+        public selectingGradeSectionSched(string studno, string name, string studentType)
         {
             InitializeComponent();
             grades = DataClass.getAllGrade();
-            foreach(string grade in grades)
+            foreach (string grade in grades)
             {
                 comboBox1.Items.Add(grade);
             }
@@ -39,11 +39,25 @@ namespace CST.Registrar
             fn = name;
             label4.Text = "Student No: " + sno;
             label5.Text = "Student Name: " + fn;
+
+
+            if (studentType == "New Student" || studentType == "Transferee Student")
+            {
+                label7.Visible = false;
+            }
+            else
+            {
+                label7.Visible = true;
+                string gradeLast = studentEnrolledController.getLastGraDe(studno);
+
+                label7.Text = label7.Text+ " "+  gradeLast;
+
+            }
         }
 
         private void selectingGradeSectionSched_Load(object sender, EventArgs e)
         {
-
+           
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)

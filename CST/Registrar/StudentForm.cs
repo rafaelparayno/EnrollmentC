@@ -134,17 +134,19 @@ namespace CST
             MessageBox.Show("Succesfully Added Student Details");
             if (StudentModel.getTypeStud() == "New Student" || StudentModel.getTypeStud() == "Transferee Student")
             {
-                selectingGradeSectionSched frm = new selectingGradeSectionSched(txtStudentID.Text.Trim(), txtFirstname.Text.Trim() + " " + txtLastname.Text.Trim());
+                selectingGradeSectionSched frm = new selectingGradeSectionSched(txtStudentID.Text.Trim(), txtFirstname.Text.Trim() + " " + txtLastname.Text.Trim(), StudentModel.getTypeStud());
                 frm.Show();
                
             }
             else
             {
-                selectingGradeSectionSched frm = new selectingGradeSectionSched("STUD-" +txtStudentID.Text.Trim(), txtFirstname.Text.Trim() + " " + txtLastname.Text.Trim());
+                selectingGradeSectionSched frm = new selectingGradeSectionSched("STUD-" +txtStudentID.Text.Trim(), txtFirstname.Text.Trim() + " " + txtLastname.Text.Trim(),StudentModel.getTypeStud());
                 frm.Show();
                
             }
+            StudentModel.clearAll();
             this.Hide();
+
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -203,7 +205,7 @@ namespace CST
                 
 
            
-                StudentModel.clearAll();
+                
             }
             else
             {

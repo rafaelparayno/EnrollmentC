@@ -77,5 +77,24 @@ namespace CST.Models
 
             cs.ExecuteQuery(sql);
         }
+
+        public string getLastGraDe(string sno)
+        {
+            string grade = "";
+            string sql = String.Format(@"SELECT * FROM `studentenrolledinfo` 
+                                    WHERE sno  = '{0}'
+                                    ORDER BY `studentenrolledinfo`.`sy_id` DESC",sno);
+            MySqlDataReader reader = null;
+
+            cs.RetrieveRecords(sql, ref reader);
+
+            if (reader.Read())
+            {
+                grade = reader["grade_level"].ToString();
+            }
+
+            cs.CloseConnection();
+            return grade;
+        }
     }
 }
