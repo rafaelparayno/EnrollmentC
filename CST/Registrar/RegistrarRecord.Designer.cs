@@ -36,6 +36,7 @@
             this.button2 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.button11 = new System.Windows.Forms.Button();
             this.button10 = new System.Windows.Forms.Button();
             this.button9 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
@@ -53,7 +54,7 @@
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
-            this.button11 = new System.Windows.Forms.Button();
+            this.button12 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -132,6 +133,21 @@
             this.panel2.Size = new System.Drawing.Size(675, 603);
             this.panel2.TabIndex = 197;
             // 
+            // button11
+            // 
+            this.button11.BackColor = System.Drawing.Color.DarkSeaGreen;
+            this.button11.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.button11.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button11.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button11.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.button11.Location = new System.Drawing.Point(89, 542);
+            this.button11.Name = "button11";
+            this.button11.Size = new System.Drawing.Size(145, 32);
+            this.button11.TabIndex = 308;
+            this.button11.Text = "Edit Grade/ Section";
+            this.button11.UseVisualStyleBackColor = false;
+            this.button11.Click += new System.EventHandler(this.button11_Click);
+            // 
             // button10
             // 
             this.button10.BackColor = System.Drawing.Color.DarkSeaGreen;
@@ -198,6 +214,7 @@
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.Transparent;
+            this.groupBox1.Controls.Add(this.button12);
             this.groupBox1.Controls.Add(this.comboBox1);
             this.groupBox1.Controls.Add(this.button8);
             this.groupBox1.Controls.Add(this.label10);
@@ -234,9 +251,9 @@
             this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button8.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button8.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.button8.Location = new System.Drawing.Point(460, 40);
+            this.button8.Location = new System.Drawing.Point(418, 39);
             this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(194, 32);
+            this.button8.Size = new System.Drawing.Size(115, 32);
             this.button8.TabIndex = 306;
             this.button8.Text = "Search";
             this.button8.UseVisualStyleBackColor = false;
@@ -280,7 +297,7 @@
             this.txtUsername.ForeColor = System.Drawing.Color.Black;
             this.txtUsername.Location = new System.Drawing.Point(178, 45);
             this.txtUsername.Name = "txtUsername";
-            this.txtUsername.Size = new System.Drawing.Size(276, 26);
+            this.txtUsername.Size = new System.Drawing.Size(234, 26);
             this.txtUsername.TabIndex = 203;
             // 
             // button6
@@ -376,20 +393,19 @@
             this.button7.UseVisualStyleBackColor = false;
             this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
-            // button11
+            // button12
             // 
-            this.button11.BackColor = System.Drawing.Color.DarkSeaGreen;
-            this.button11.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.button11.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button11.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button11.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.button11.Location = new System.Drawing.Point(89, 542);
-            this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(145, 32);
-            this.button11.TabIndex = 308;
-            this.button11.Text = "Edit Grade/ Section";
-            this.button11.UseVisualStyleBackColor = false;
-            this.button11.Click += new System.EventHandler(this.button11_Click);
+            this.button12.BackColor = System.Drawing.Color.DarkSeaGreen;
+            this.button12.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.button12.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button12.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button12.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.button12.Location = new System.Drawing.Point(539, 39);
+            this.button12.Name = "button12";
+            this.button12.Size = new System.Drawing.Size(115, 32);
+            this.button12.TabIndex = 308;
+            this.button12.Text = "View All";
+            this.button12.UseVisualStyleBackColor = false;
             // 
             // RegistrarRecord
             // 
@@ -451,5 +467,6 @@
         private System.Windows.Forms.Button button9;
         private System.Windows.Forms.Button button10;
         private System.Windows.Forms.Button button11;
+        private System.Windows.Forms.Button button12;
     }
 }

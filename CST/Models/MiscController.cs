@@ -68,6 +68,26 @@ namespace CST.Models
             return fee;
         }
 
+
+        public float getMiscFeeForGrade(string grade,int yrid)
+        {
+            float fee = 0;
+
+            string sql = String.Format(@"SELECT * FROM misc_fee WHERE grade_level = '{0}' AND SY_ID = {1}",
+                                        grade, yrid);
+
+            MySqlDataReader reader = null;
+            cs.RetrieveRecords(sql, ref reader);
+
+            while (reader.Read())
+            {
+                fee = fee + float.Parse(reader["price"].ToString());
+            }
+            cs.CloseConnection();
+
+            return fee;
+        }
+
         public string getInfoMiscForGrade(string grade)
         {
             string infos = "";

@@ -110,5 +110,20 @@ namespace CST.Models
             cs.CloseConnection();
             return tf;
         }
+
+        public float getTfPriceGrade(string grade_level, string mod,int yrid)
+        {
+            float tf = 0;
+            string sql = String.Format(@"SELECT * FROM `tuition_fee` WHERE grade_level = '{0}' AND mode_of_payment = '{1}' AND SY_ID = {2}", grade_level, mod,yrid);
+            MySqlDataReader reader = null;
+            reader = cs.RetrieveRecords(sql, ref reader);
+            if (reader.Read())
+            {
+                tf = float.Parse(reader["tuition_fee"].ToString());
+            }
+
+            cs.CloseConnection();
+            return tf;
+        }
     }
 }

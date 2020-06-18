@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,6 +16,9 @@ namespace CST
 {
     public partial class Records : Form
     {
+
+        int[] yrids = { };
+        int selectedYrid = 0;
         StudentBalance studentBalance = new StudentBalance();
         StudFamDetailsController studFamController = new StudFamDetailsController();
         TuitionFeeController tfController = new TuitionFeeController();
@@ -22,11 +26,12 @@ namespace CST
         StudentsDetailsController studentsDetailsController = new StudentsDetailsController();
         YearController yr = new YearController();
         OrController orController = new OrController();
+        CultureInfo provider = CultureInfo.InvariantCulture;
         public Records()
         {
             InitializeComponent();
             studentBalance.fillDataGridTotal(ref dataGridView1);
-
+            yrids = yr.fillComboSy(ref comboBox1);
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -109,12 +114,36 @@ namespace CST
         {
             if(dataGridView1.Rows.Count > 0)
             {
-                DataSet ds = new DataSet();
+                if (comboBox3.SelectedIndex == 1)
+                {
+                    if (comboBox1.SelectedIndex > -1)
+                    {
+
+                        showStudentAccountSearchYr();
+
+                    }
+                    else
+                    {
+                        MessageBox.Show("Please Select in the Combobox");
+                    }
+                }
+                else
+                {
+                    showStudentAccountCurrentYear();
+                }
+            
+            }
+        }
+
+
+        private void showStudentAccountCurrentYear()
+        {
+            DataSet ds = new DataSet();
                 string sno = dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
                 string fullname = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
                 string bdate = studentsDetailsController.searchAllDetails2(sno)[6];
                 string grade = studentsDetailsController.searchAllDetails2(sno)[12];
-                DateTime bdateDateForm = DateTime.Parse(bdate);
+                DateTime bdateDateForm = DateTime.ParseExact(bdate, "dd/MM/yyyy", provider);
                 string add = studentsDetailsController.searchAllDetails2(sno)[11];
                 string sex = studentsDetailsController.searchAllDetails2(sno)[4];
                 string fname = studFamController.getAllFamDetails(sno)[0];
@@ -150,7 +179,115 @@ namespace CST
 
                 StudentPaymentReps frm = new StudentPaymentReps(ds, datas);
                 frm.ShowDialog();
+        }
+
+        private void showStudentAccountSearchYr()
+        {
+            DataSet ds = new DataSet();
+            string sno = dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
+            string fullname = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
+            string bdate = studentsDetailsController.searchAllDetails2(sno,selectedYrid)[6];
+            string grade = studentsDetailsController.searchAllDetails2(sno,selectedYrid)[12];
+            DateTime bdateDateForm = DateTime.ParseExact(bdate, "dd/MM/yyyy", provider);
+            string add = studentsDetailsController.searchAllDetails2(sno,selectedYrid)[11];
+            string sex = studentsDetailsController.searchAllDetails2(sno,selectedYrid)[4];
+            string fname = studFamController.getAllFamDetails(sno)[0];
+            string mname = studFamController.getAllFamDetails(sno)[6];
+            string foccu = studFamController.getAllFamDetails(sno)[2];
+            string moccu = studFamController.getAllFamDetails(sno)[8];
+            string fcAdd = studFamController.getAllFamDetails(sno)[5];
+            string mcAdd = studFamController.getAllFamDetails(sno)[11];
+            string mod = studentBalance.getModOfPayment(sno,selectedYrid);
+            double balanceStud = studentBalance.getBalance(sno,selectedYrid);
+            double disc = studentBalance.getDisc(sno,selectedYrid);
+            double totalBal = (tfController.getTfPriceGrade(grade, mod,selectedYrid) + mfController.getMiscFeeForGrade(grade,selectedYrid)) - disc;
+
+            orController.getOrStudDataSet(sno, totalBal, ref ds,selectedYrid);
+
+
+            //  ds.WriteXmlSchema("studentAccountsType.xml");
+            string[] datas = new string[14];
+            datas[0] = fullname;
+            datas[1] = sno;
+            datas[2] = bdateDateForm.ToString("MMMM dd, yyyy");
+            datas[3] = add;
+            datas[4] = sex;
+            datas[5] = fname;
+            datas[6] = mname;
+            datas[7] = foccu;
+            datas[8] = moccu;
+            datas[9] = fcAdd;
+            datas[10] = mcAdd;
+            datas[11] = mod;
+            datas[12] = "₱ " + totalBal;
+            datas[13] = "₱ " + balanceStud;
+
+            StudentPaymentReps frm = new StudentPaymentReps(ds, datas);
+            frm.ShowDialog();
+        }
+
+        private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (comboBox3.SelectedIndex == 1)
+            {
+                comboBox1.Visible = true;
+                txtUsername.Visible = false;
+                button12.Visible = false;
+                selectedYrid = 0;
             }
+            else
+            {
+                comboBox1.Visible = false;
+                txtUsername.Visible = true;
+                button12.Visible = true;
+                selectedYrid = yr.getSchoolYearId();
+              
+            }
+        }
+
+        private void button8_Click_1(object sender, EventArgs e)
+        {
+            if (comboBox3.SelectedIndex > -1)
+            {
+                if (comboBox3.SelectedIndex == 0)
+                {
+                    //Sno
+                    studentBalance.fillDataGridTotal(ref dataGridView1, "STUD-" + txtUsername.Text.Trim());
+
+
+                }
+                else
+                {
+                    //Year
+                    if (comboBox1.SelectedIndex > -1)
+                    {
+
+                        studentBalance.fillDataGridTotal(ref dataGridView1, selectedYrid);
+
+                    }
+                    else
+                    {
+                        MessageBox.Show("Please Select in the Combobox");
+                    }
+
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please Select in the Combobox");
+            }
+        }
+
+        private void button12_Click(object sender, EventArgs e)
+        {
+            studentBalance.fillDataGridTotal(ref dataGridView1);
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            selectedYrid = yrids[comboBox1.SelectedIndex];
+         
+
         }
     }
 }
