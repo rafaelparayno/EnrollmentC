@@ -50,9 +50,15 @@ namespace CST
         {
             studentsDetailsController.fillDataGridDetails(ref dataGridView1);
             clickedBut = "Personal";
+           
             button6.Enabled = true;
+            button11.Enabled = true;
             button9.Enabled = true;
             button10.Enabled = true;
+            if (comboBox3.SelectedIndex == 1)
+            {
+                button11.Enabled = false;
+            }
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -162,6 +168,8 @@ namespace CST
             button6.Enabled = false;
             button9.Enabled = false;
             button10.Enabled = false;
+            button11.Enabled = false;
+           
         }
 
         private void button5_Click(object sender, EventArgs e)
@@ -171,15 +179,23 @@ namespace CST
             button6.Enabled = false;
             button9.Enabled = false;
             button10.Enabled = false;
+            button11.Enabled = false;
+          
         }
 
         private void button7_Click(object sender, EventArgs e)
         {
             studentsDetailsController.fillDataGridDetailsNotEnrolled(ref dataGridView1);
-            clickedBut = "Personal";
+            clickedBut = "PersonalUnEnrolled";
             button6.Enabled = true;
+            button11.Enabled = true;
             button9.Enabled = false;
             button10.Enabled = false;
+            if (comboBox3.SelectedIndex == 1)
+            {
+                button11.Enabled = false;
+            }
+
         }
 
         private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
@@ -188,11 +204,13 @@ namespace CST
             {
                 comboBox1.Visible = true;
                 txtUsername.Visible = false;
+                button11.Enabled = false;
             }
             else
             {
                 comboBox1.Visible = false;
                 txtUsername.Visible = true;
+                button11.Enabled = true;
             }
         }
 
@@ -203,7 +221,14 @@ namespace CST
                 if(comboBox3.SelectedIndex == 0)
                 {
                     //Sno
-                    studentsDetailsController.fillDataGridDetails(ref dataGridView1,"STUD-" + txtUsername.Text.Trim());
+                    if(clickedBut == "Personal")
+                    {
+                        studentsDetailsController.fillDataGridDetails(ref dataGridView1, "STUD-" + txtUsername.Text.Trim());
+                    }else if(clickedBut == "PersonalUnEnrolled")
+                    {
+                        studentsDetailsController.fillDataGridDetailsNotEnrolledWithSno(ref dataGridView1, "STUD-" + txtUsername.Text.Trim());
+                    }
+                  
 
                 }
                 else
@@ -211,8 +236,16 @@ namespace CST
                     //Year
                     if(comboBox3.SelectedIndex > -1)
                     {
-                        studentsDetailsController.fillDataGridDetails(ref dataGridView1, selectedYrid);
-                      
+                        if (clickedBut == "Personal")
+                        {
+                            studentsDetailsController.fillDataGridDetails(ref dataGridView1, selectedYrid);
+                        }
+                        else if (clickedBut == "PersonalUnEnrolled")
+                        {
+
+                        }
+
+
                     }
                     else
                     {
@@ -359,6 +392,18 @@ namespace CST
             return dues;
         }
 
-     
+        private void button11_Click(object sender, EventArgs e)
+        {
+            if(dataGridView1.Rows.Count > 0)
+            {
+                string sno = dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
+                string fullname = dataGridView1.SelectedRows[0].Cells[1].Value.ToString() + " " +
+                                      dataGridView1.SelectedRows[0].Cells[3].Value.ToString() + " " +
+                                        dataGridView1.SelectedRows[0].Cells[2].Value.ToString();
+                editGradeAndSection frm = new editGradeAndSection(sno,fullname);
+                frm.ShowDialog();
+            }
+           
+        }
     }
 }

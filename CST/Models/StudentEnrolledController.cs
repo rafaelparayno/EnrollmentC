@@ -29,7 +29,7 @@ namespace CST.Models
         public int getSchedId(string sno) 
         {
             int id = 0;
-            string sql = String.Format(@"SELECT * FROM studentenrolledinfo WHERE sno = '{0}'", sno);
+            string sql = String.Format(@"SELECT * FROM studentenrolledinfo WHERE sno = '{0}' AND sy_id = {1}", sno,syid);
             MySqlDataReader reader = null;
             cs.RetrieveRecords(sql, ref reader);
 
@@ -43,9 +43,30 @@ namespace CST.Models
 
         }
 
-        public void updateSection(string sno,string sectid)
+
+        public string [] getDataAll(string sno)
         {
-            string sql = String.Format(@"UPDATE studentenrolledinfo SET sect_id = {0} WHERE sno = '{1}'", sectid, sno);
+            string[] datas = new string[4];
+
+            string sql = String.Format(@"SELECT * FROM studentenrolledinfo WHERE sno = '{0}' AND sy_id = {1} ", sno,syid);
+            MySqlDataReader reader = null;
+            cs.RetrieveRecords(sql, ref reader);
+
+            if (reader.Read())
+            {
+                datas[0] = reader["grade_level"].ToString();
+                datas[1] = reader["sect_id"].ToString();
+                datas[2] = reader["is_Enrolled"].ToString();
+                datas[3] = reader["sy_id"].ToString();
+            }
+            cs.CloseConnection();
+
+            return datas;
+        }
+
+        public void updateSectionGrade(string sno,string grade,int sectid)
+        {
+            string sql = String.Format(@"UPDATE studentenrolledinfo SET sect_id = {0},grade_level ='{1}' WHERE sno = '{2}'", sectid,grade, sno);
 
             cs.ExecuteQuery(sql);
         }

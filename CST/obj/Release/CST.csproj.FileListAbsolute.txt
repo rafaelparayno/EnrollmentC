@@ -581,3 +581,4 @@ C:\Users\Xorn\Desktop\C#\versionRaf\EnrollmentC\CST\obj\Release\CST.pdb
 C:\Users\Xorn\Desktop\C#\versionRaf\EnrollmentC\CST\obj\Release\CST.csprojAssemblyReference.cache
 C:\Users\Xorn\Desktop\C#\versionRaf\EnrollmentC\CST\obj\Release\CST.Enrollment_Admin.AddUpdateDiags.AddUpdateSubjectType.resources
 C:\Users\Xorn\Desktop\C#\versionRaf\EnrollmentC\CST\obj\Release\CST.Enrollment_Admin.SubjectType.resources
+C:\Users\Xorn\Desktop\C#\versionRaf\EnrollmentC\CST\obj\Release\CST.Registrar.editGradeAndSection.resources
