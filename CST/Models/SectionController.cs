@@ -227,6 +227,42 @@ namespace CST.Models
         }
 
 
+        public int[] fillComboSect4(ref ComboBox cb, int teacher_id,string gradelevel)
+        {
+            int[] sectionIds = { };
+
+            string sql = String.Format(@"SELECT sect_id,section_name FROM sections WHERE sect_id in (SELECT sect_id FROM sched_section WHERE sched_section.teacher_ID = {0}) 
+                                        AND SY_ID ={1} AND grade_level = '{2}'",
+                teacher_id, yearID,gradelevel);
+
+            MySqlDataReader reader = null;
+            cs.RetrieveRecords(sql, ref reader);
+
+            int total = 0;
+            while (reader.Read())
+            {
+                cb.Items.Add(reader["section_name"].ToString());
+                total++;
+            }
+
+            cs.CloseConnection();
+
+            sectionIds = new int[total];
+
+            reader = null;
+
+            cs.RetrieveRecords(sql, ref reader);
+            int i = 0;
+            while (reader.Read())
+            {
+                sectionIds[i] = int.Parse(reader["sect_id"].ToString());
+                i++;
+            }
+            cs.CloseConnection();
+            return sectionIds;
+        }
+
+
         public int[] fillComboSect5(ref ComboBox cb, int teacher_id)
         {
             int[] sectionIds = { };
@@ -400,6 +436,27 @@ namespace CST.Models
             cs.CloseConnection();
 
             return count;
+        }
+
+        public bool isHandledGradeInSection(string grade)
+        {
+            bool isFound = false;
+
+            string sql = String.Format(@"SELECT * FROM `sections` 
+                                        WHERE sect_id in(SELECT sect_id FROM sched_section WHERE grade_level = '{0}') 
+                                        AND SY_ID  = {1}", grade, yearID);
+
+            MySqlDataReader reader = null;
+
+            cs.RetrieveRecords(sql, ref reader);
+
+            if (reader.HasRows)
+            {
+                isFound = true;
+            }
+            cs.CloseConnection();
+
+            return isFound;
         }
 
     }

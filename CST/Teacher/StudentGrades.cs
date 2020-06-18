@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using CST.Models;
 using CST.Teacher;
 using CST.Reports;
+using CST.Data;
 
 namespace CST
 {
@@ -20,19 +21,28 @@ namespace CST
         SpecializationController specializationController = new SpecializationController();
         SubjectController subjectController = new SubjectController();
         StudentGradesController gradesController = new StudentGradesController();
-      
+        SectionController sectionController = new SectionController();
+
         int [] subjectids = { };
         int[] sectids = { };
         int teacherId = 0;
         int selectedSectionId = 0;
         int selectedSubId = 0;
       
-        SectionController sectionController = new SectionController();
+        
         public StudentGrades()
         {
             InitializeComponent();
             teacherId = specializationController.findTeacherId(UserLog.getUserId());
-            sectids = sectionController.fillComboSect4(ref comboBox2, teacherId);
+          ///  
+
+            foreach(string grade in DataClass.getAllGrade())
+            {
+                if (sectionController.isHandledGradeInSection(grade))
+                {
+                    comboBox3.Items.Add(grade);
+                }
+            }
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -251,6 +261,12 @@ namespace CST
                 gradeReport frm = new gradeReport(ds, selectedSectionId, comboBox1.SelectedItem.ToString());
                 frm.ShowDialog();
             }
+        }
+
+        private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            sectids = sectionController.fillComboSect4(ref comboBox2, teacherId,comboBox3.SelectedItem.ToString());
+            comboBox2.Enabled = true;
         }
     }
 }
