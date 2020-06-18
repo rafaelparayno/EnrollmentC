@@ -29,17 +29,17 @@ namespace CST.Models
             cs.ExecuteQuery(sql);
         }
 
-        public void updateBalance(string sno)
+        public void updateBalance(string sno,int yrid)
         {
             string sql = String.Format(@"UPDATE `student_balance` SET `balance` = `balance` - `need_to_pay`,totalPayment = totalPayment + `need_to_pay` WHERE sno = '{0}' AND SY_id = {1}",
-                                        sno, syid);
+                                        sno, yrid);
 
             cs.ExecuteQuery(sql);
         }
 
-        public void fillDataGridBalance(ref DataGridView dg,string sno)
+        public void fillDataGridBalance(ref DataGridView dg,string sno,int yrid)
         {
-            string sql = String.Format("SELECT balance AS 'Remaining Balance',modeofpayment FROM `student_balance` WHERE sno ='{0}'", sno);
+            string sql = String.Format("SELECT balance AS 'Remaining Balance',modeofpayment FROM `student_balance` WHERE sno ='{0}' AND SY_id = {1}", sno,yrid);
 
             cs.FillDataGrid(sql, ref dg);
         }
@@ -93,6 +93,25 @@ namespace CST.Models
 
             return getNeedToPay;
         }
+
+        public double getNeedToPay(string sno,int yrid)
+        {
+            string sql = String.Format(@"SELECT need_to_pay FROM student_balance WHERE sno ='{0}' AND SY_id = {1} AND balance > 0", sno, yrid);
+
+            MySqlDataReader reader = null;
+            cs.RetrieveRecords(sql, ref reader);
+            double getNeedToPay = 0;
+            if (reader.Read())
+            {
+
+                getNeedToPay = double.Parse(reader["need_to_pay"].ToString());
+            }
+            cs.CloseConnection();
+
+            return getNeedToPay;
+        }
+
+
 
         public double getDisc(string sno)
         {

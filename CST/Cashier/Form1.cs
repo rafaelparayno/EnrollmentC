@@ -20,14 +20,17 @@ namespace CST
         loadingCashier loading = new loadingCashier();
         StudentsDetailsController studentsDetails = new StudentsDetailsController();
         StudentBalance studentBalance = new StudentBalance();
+        YearController yearController = new YearController();
         string[] studentsDetailsArgs = { };
         string sno = "";
         double neededTopay = 0;
+        int[] yrids = { };
+        int selectedYrid = 0;
 
         public RemainingBalance()
         {
             InitializeComponent();
-        
+            yrids = yearController.fillComboSy(ref comboBox1);
         }
 
         private void RemainingBalance_Load(object sender, EventArgs e)
@@ -54,10 +57,10 @@ namespace CST
                         DateTime today = DateTime.Today;
                         backgroundWorker1.RunWorkerAsync();
                         loading.Show();
-                        studentBalance.updateBalance(sno);
+                        studentBalance.updateBalance(sno,selectedYrid);
                         int orno = orcontroller.getRecentOr() + 1;
                         string ornumber = "OR#" + orno;
-                        orcontroller.addOr(ornumber, sno, neededTopay,today.ToString("dd/MM/yyyy"));
+                        orcontroller.addOr(ornumber, sno, neededTopay,today.ToString("dd/MM/yyyy"),selectedYrid);
                         double change = double.Parse(textBox5.Text.ToString()) - neededTopay;
                         textBox4.Text = String.Format("PHP " + "{0:0.00}", change);
                         MessageBox.Show("Succesfully Pay the balance");
@@ -91,18 +94,26 @@ namespace CST
 
         private void button1_Click(object sender, EventArgs e)
         {
-            sno = "STUD-" + textBox1.Text.Trim();
-            studentsDetailsArgs = studentsDetails.searchAllDetails2(sno);
-            textBox2.Text = studentsDetailsArgs[1]+ " "  + studentsDetailsArgs[3]+ " " + studentsDetailsArgs[2];
-            textBox3.Text = studentsDetailsArgs[12];
-            studentBalance.fillDataGridBalance(ref dataGridView1, sno);
-            neededTopay = studentBalance.getNeedToPay(sno);
-
-            textBox6.Text = String.Format("PHP " + "{0:0.00}", neededTopay);
-            if(textBox2.Text.Trim() == "")
+            if(comboBox1.SelectedIndex > -1)
             {
-                MessageBox.Show("No Student Number found");
+                sno = "STUD-" + textBox1.Text.Trim();
+                studentsDetailsArgs = studentsDetails.searchAllDetails2(sno, selectedYrid);
+                textBox2.Text = studentsDetailsArgs[1] + " " + studentsDetailsArgs[3] + " " + studentsDetailsArgs[2];
+                textBox3.Text = studentsDetailsArgs[12];
+                studentBalance.fillDataGridBalance(ref dataGridView1, sno, selectedYrid);
+                neededTopay = studentBalance.getNeedToPay(sno,selectedYrid);
+
+                textBox6.Text = String.Format("PHP " + "{0:0.00}", neededTopay);
+                if (textBox2.Text.Trim() == "")
+                {
+                    MessageBox.Show("No Student Number found");
+                }
             }
+            else
+            {
+                MessageBox.Show("Select a year");
+            }
+         
         }
 
         private void clearData()
@@ -114,6 +125,7 @@ namespace CST
             textBox1.Text = "";
             textBox2.Text = "";
             textBox3.Text = "";
+            textBox5.Text = "";
             /*numericUpDown1.Value = 0;*/
             textBox6.Text = "";
             dataGridView1.DataSource = null;
@@ -146,6 +158,11 @@ namespace CST
         private void backgroundWorker1_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
             loading.Hide();
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            selectedYrid = yrids[comboBox1.SelectedIndex];
         }
     }
 }
