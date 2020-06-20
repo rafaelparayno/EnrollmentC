@@ -41,6 +41,7 @@
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Avg = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.label5 = new System.Windows.Forms.Label();
+            this.grade = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // button2
@@ -130,8 +131,8 @@
             this.columnHeader2,
             this.columnHeader4,
             this.columnHeader5,
-            this.Avg});
-            this.listView1.Enabled = false;
+            this.Avg,
+            this.grade});
             this.listView1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listView1.ForeColor = System.Drawing.Color.Black;
             this.listView1.FullRowSelect = true;
@@ -140,7 +141,7 @@
             this.listView1.Location = new System.Drawing.Point(12, 122);
             this.listView1.MultiSelect = false;
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(808, 362);
+            this.listView1.Size = new System.Drawing.Size(837, 362);
             this.listView1.TabIndex = 281;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
@@ -159,20 +160,23 @@
             // 
             // columnHeader4
             // 
+            this.columnHeader4.DisplayIndex = 3;
             this.columnHeader4.Tag = "1";
             this.columnHeader4.Text = "Teacher";
             this.columnHeader4.Width = 160;
             // 
             // columnHeader5
             // 
+            this.columnHeader5.DisplayIndex = 4;
             this.columnHeader5.Text = "Subject";
             this.columnHeader5.Width = 166;
             // 
             // Avg
             // 
+            this.Avg.DisplayIndex = 5;
             this.Avg.Text = "Grade Avg";
             this.Avg.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.Avg.Width = 160;
+            this.Avg.Width = 100;
             // 
             // label5
             // 
@@ -186,6 +190,12 @@
             this.label5.Size = new System.Drawing.Size(57, 16);
             this.label5.TabIndex = 282;
             this.label5.Text = "Search";
+            // 
+            // grade
+            // 
+            this.grade.DisplayIndex = 2;
+            this.grade.Text = "Grade Level";
+            this.grade.Width = 120;
             // 
             // StudentGradesReg
             // 
@@ -228,5 +238,6 @@
         private System.Windows.Forms.ColumnHeader columnHeader5;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ColumnHeader Avg;
+        private System.Windows.Forms.ColumnHeader grade;
     }
 }

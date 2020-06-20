@@ -73,14 +73,15 @@ namespace CST.Models
         public void fillLvGrades(ref ListView lv,int syid,string sno)
         {
             string sql = String.Format(@"SELECT student_detail.sno,CONCAT(student_detail.firstname,' ',student_detail.lastname) AS 'StudentName',
-                                            CONCAT(useraccounts.Firstname,' ' ,useraccounts.Lastname) AS 'TeacherName',
-                                            subject_name,avg FROM `student_detail` 
-                                            LEFT JOIN student_grades on student_detail.sno = student_grades.sno 
-                                            LEFT JOIN subjects ON student_grades.subject_id = subjects.subject_id
-                                            LEFT JOIN specialization ON student_grades.teacher_ID = specialization.teacher_ID
-                                            LEFT JOIN useraccounts ON specialization.acc_id = useraccounts.acc_id
-                                            LEFT JOIN studentenrolledinfo ON student_detail.sno = studentenrolledinfo.sno
-                                             WHERE studentenrolledinfo.is_Enrolled = 1 AND studentenrolledinfo.sy_id = {0} AND student_detail.sno = '{1}'", syid,sno);
+                                         CONCAT(useraccounts.Firstname,' ' ,useraccounts.Lastname) AS 'TeacherName',
+                                         subject_name,avg,studentenrolledinfo.grade_level FROM student_grades
+                                         LEFT JOIN student_detail on student_detail.sno  = '{1}'
+                                         LEFT JOIN subjects ON student_grades.subject_id = subjects.subject_id
+                                         LEFT JOIN specialization ON student_grades.teacher_ID = specialization.teacher_ID
+                                         LEFT JOIN useraccounts ON specialization.acc_id = useraccounts.acc_id
+                                         LEFT JOIN studentenrolledinfo ON studentenrolledinfo.sno = '{1}'
+                                         AND studentenrolledinfo.sy_id = {0}
+                                         WHERE student_grades.sno = '{1}' AND student_grades.SY_ID = {0}", syid,sno);
 
             MySqlDataReader reader = null;
 
@@ -97,6 +98,7 @@ namespace CST.Models
                 lvs.SubItems.Add(reader["TeacherName"].ToString());
                 lvs.SubItems.Add(reader["subject_name"].ToString());
                 lvs.SubItems.Add(avg);
+                lvs.SubItems.Add(reader["grade_level"].ToString());
 
                 lv.Items.Add(lvs);
             }
