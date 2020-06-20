@@ -125,7 +125,20 @@ namespace CST.Enrollment_Admin.PanelSched
 
         private void button2_Click(object sender, EventArgs e)
         {
+            if (dataGridView1.Rows.Count > 0)
+            {
+                DialogResult form1 = MessageBox.Show("Do you really want to Remove?",
+                   "Exit", MessageBoxButtons.YesNo);
 
+
+                if (form1 == DialogResult.Yes)
+                {
+                    timestampController.removeTimeStamp(int.Parse(dataGridView1.SelectedRows[0].Cells[0].Value.ToString()));
+
+                    MessageBox.Show("Succesfully Remove Selected Subject");
+                    refreshGrid();
+                }
+            }
         }
     }
 }

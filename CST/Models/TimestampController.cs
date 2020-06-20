@@ -72,5 +72,12 @@ namespace CST.Models
             return conflict;
         }
 
+        public void removeTimeStamp(int id)
+        {
+            string sql = String.Format(@"DELETE FROM timestamp WHERE timestamp_id = {0} ", id);
+
+            cs.ExecuteQuery(sql);
+        }
+
     }
 }
