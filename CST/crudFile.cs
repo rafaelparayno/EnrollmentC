@@ -28,7 +28,7 @@ namespace CST
           
 
         }
-        public void FillDataGrid(string sql, ref DataGridView dg)
+        public  void FillDataGrid(string sql, ref DataGridView dg)
         {
             try
             {
@@ -38,7 +38,7 @@ namespace CST
                 ds = new DataSet();
                 adptr.Fill(ds);
                 dg.DataSource = "";
-                dg.DataSource = ds.Tables[0];
+                dg.DataSource =  ds.Tables[0];
                 dg.AutoResizeColumns();
                 cn.Close();
             }

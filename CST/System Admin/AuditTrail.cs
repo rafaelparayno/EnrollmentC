@@ -41,12 +41,11 @@ namespace CST
 
         }
 
-        private void AuditTrail_Load(object sender, EventArgs e)
+        private void  AuditTrail_Load(object sender, EventArgs e)
         {
 
 
             auditTrailControl.fillDataGridAudit(ref dataGridView1);
-
 
         }
 
@@ -59,6 +58,8 @@ namespace CST
         {
 
         }
+
+      
 
         private void timer1_Tick(object sender, EventArgs e)
         {
