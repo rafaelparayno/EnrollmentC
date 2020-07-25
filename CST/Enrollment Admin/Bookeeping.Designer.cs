@@ -34,7 +34,11 @@
             this.label1 = new System.Windows.Forms.Label();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.label6 = new System.Windows.Forms.Label();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.panel5 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.panel4.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnLogout
@@ -121,12 +125,44 @@
             this.dataGridView1.Size = new System.Drawing.Size(789, 367);
             this.dataGridView1.TabIndex = 294;
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.BackColor = System.Drawing.Color.Transparent;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.Black;
+            this.label6.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.label6.Location = new System.Drawing.Point(15, 11);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(109, 16);
+            this.label6.TabIndex = 295;
+            this.label6.Text = "Housekeeping";
+            // 
+            // panel4
+            // 
+            this.panel4.BackColor = System.Drawing.Color.DarkSeaGreen;
+            this.panel4.Controls.Add(this.panel5);
+            this.panel4.Location = new System.Drawing.Point(-3, 29);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(827, 5);
+            this.panel4.TabIndex = 296;
+            // 
+            // panel5
+            // 
+            this.panel5.BackColor = System.Drawing.Color.DarkSeaGreen;
+            this.panel5.Location = new System.Drawing.Point(273, 192);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(236, 5);
+            this.panel5.TabIndex = 144;
+            // 
             // Bookeeping
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackgroundImage = global::CST.Properties.Resources.b;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(827, 520);
+            this.Controls.Add(this.panel4);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.comboBox2);
             this.Controls.Add(this.label1);
@@ -140,6 +176,7 @@
             this.Text = "Bookeeping";
             this.Load += new System.EventHandler(this.Bookeeping_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.panel4.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -153,5 +190,8 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Panel panel5;
     }
 }

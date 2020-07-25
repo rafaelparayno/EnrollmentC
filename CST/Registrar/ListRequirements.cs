@@ -23,6 +23,7 @@ namespace CST.Registrar
 
         private void ListRequirements_Load(object sender, EventArgs e)
         {
+            label7.Hide();
             refreshGrid();
             cbType.SelectedIndex = 0;
             comboBox1.SelectedIndex = 0;

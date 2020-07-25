@@ -36,7 +36,6 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label12 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.btnSearch = new System.Windows.Forms.Button();
@@ -152,7 +151,6 @@
             this.label22 = new System.Windows.Forms.Label();
             this.txtPastAdd = new System.Windows.Forms.TextBox();
             this.label63 = new System.Windows.Forms.Label();
-            this.label60 = new System.Windows.Forms.Label();
             this.label59 = new System.Windows.Forms.Label();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnBack = new System.Windows.Forms.Button();
@@ -238,7 +236,6 @@
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.White;
-            this.groupBox1.Controls.Add(this.label12);
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.btnSearch);
@@ -279,19 +276,6 @@
             this.groupBox1.Size = new System.Drawing.Size(1003, 413);
             this.groupBox1.TabIndex = 182;
             this.groupBox1.TabStop = false;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.BackColor = System.Drawing.Color.Transparent;
-            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.ForeColor = System.Drawing.Color.IndianRed;
-            this.label12.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label12.Location = new System.Drawing.Point(672, 90);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(24, 29);
-            this.label12.TabIndex = 241;
-            this.label12.Text = "*";
             // 
             // label7
             // 
@@ -1390,9 +1374,9 @@
             this.label62.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.label62.Location = new System.Drawing.Point(25, 318);
             this.label62.Name = "label62";
-            this.label62.Size = new System.Drawing.Size(400, 16);
+            this.label62.Size = new System.Drawing.Size(406, 16);
             this.label62.TabIndex = 253;
-            this.label62.Text = "Just put N/a for the School History and adress, and Level";
+            this.label62.Text = "Just put N/A for the School History and address and Level";
             // 
             // label61
             // 
@@ -1403,9 +1387,9 @@
             this.label61.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.label61.Location = new System.Drawing.Point(25, 291);
             this.label61.Name = "label61";
-            this.label61.Size = new System.Drawing.Size(332, 16);
+            this.label61.Size = new System.Drawing.Size(323, 16);
             this.label61.TabIndex = 252;
-            this.label61.Text = "NOTE:  if the new student enrolling is a nursery.";
+            this.label61.Text = "Note:  if the new student enrolling is a nursery.";
             // 
             // groupBox5
             // 
@@ -1605,7 +1589,6 @@
             this.groupBox4.Controls.Add(this.label22);
             this.groupBox4.Controls.Add(this.txtPastAdd);
             this.groupBox4.Controls.Add(this.label63);
-            this.groupBox4.Controls.Add(this.label60);
             this.groupBox4.Controls.Add(this.label59);
             this.groupBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox4.Location = new System.Drawing.Point(18, 24);
@@ -1716,19 +1699,6 @@
             this.label63.TabIndex = 253;
             this.label63.Text = "*";
             // 
-            // label60
-            // 
-            this.label60.AutoSize = true;
-            this.label60.BackColor = System.Drawing.Color.Transparent;
-            this.label60.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label60.ForeColor = System.Drawing.Color.IndianRed;
-            this.label60.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label60.Location = new System.Drawing.Point(430, 22);
-            this.label60.Name = "label60";
-            this.label60.Size = new System.Drawing.Size(24, 29);
-            this.label60.TabIndex = 252;
-            this.label60.Text = "*";
-            // 
             // label59
             // 
             this.label59.AutoSize = true;
@@ -1797,11 +1767,11 @@
             this.label51.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label51.ForeColor = System.Drawing.Color.Black;
             this.label51.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label51.Location = new System.Drawing.Point(767, 40);
+            this.label51.Location = new System.Drawing.Point(846, 42);
             this.label51.Name = "label51";
-            this.label51.Size = new System.Drawing.Size(197, 16);
+            this.label51.Size = new System.Drawing.Size(111, 16);
             this.label51.TabIndex = 250;
-            this.label51.Text = "A input with this is Required";
+            this.label51.Text = "Required Field";
             // 
             // label52
             // 
@@ -1982,7 +1952,6 @@
         private System.Windows.Forms.ProgressBar progressBar1;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.ErrorProvider errorProvider1;
-        private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label14;
@@ -2002,7 +1971,6 @@
         private System.Windows.Forms.Label label55;
         private System.Windows.Forms.Label label54;
         private System.Windows.Forms.Label label34;
-        private System.Windows.Forms.Label label60;
         private System.Windows.Forms.Label label59;
         private System.Windows.Forms.Label label62;
         private System.Windows.Forms.Label label61;

@@ -126,9 +126,9 @@
             this.label2.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.label2.Location = new System.Drawing.Point(184, 76);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(105, 16);
+            this.label2.Size = new System.Drawing.Size(96, 16);
             this.label2.TabIndex = 266;
-            this.label2.Text = "Requierement";
+            this.label2.Text = "Requirement";
             // 
             // textBox1
             // 
@@ -177,11 +177,11 @@
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Black;
             this.label1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label1.Location = new System.Drawing.Point(13, 25);
+            this.label1.Location = new System.Drawing.Point(13, 22);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(148, 16);
+            this.label1.Size = new System.Drawing.Size(156, 16);
             this.label1.TabIndex = 261;
-            this.label1.Text = "School Requiremets";
+            this.label1.Text = "School Requirements";
             // 
             // panel5
             // 

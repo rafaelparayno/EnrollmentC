@@ -42,11 +42,6 @@
             this.button1 = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // comboBox2
@@ -186,61 +181,6 @@
             this.backgroundWorker1.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.backgroundWorker1_ProgressChanged);
             this.backgroundWorker1.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.backgroundWorker1_RunWorkerCompleted);
             // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.Color.Transparent;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(683, 107);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(187, 16);
-            this.label4.TabIndex = 25;
-            this.label4.Text = "You Can Change Subjects";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.BackColor = System.Drawing.Color.Transparent;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(683, 140);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(97, 16);
-            this.label5.TabIndex = 26;
-            this.label5.Text = "And Teacher";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.BackColor = System.Drawing.Color.Transparent;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(683, 173);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(139, 16);
-            this.label6.TabIndex = 27;
-            this.label6.Text = "By Double Clicking";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.BackColor = System.Drawing.Color.Transparent;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(683, 206);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(160, 16);
-            this.label7.TabIndex = 28;
-            this.label7.Text = "The Column You Want";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.BackColor = System.Drawing.Color.Transparent;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(683, 239);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(78, 16);
-            this.label8.TabIndex = 29;
-            this.label8.Text = "to Change";
-            // 
             // PanelViewSchedules
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -248,12 +188,7 @@
             this.BackColor = System.Drawing.Color.White;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(882, 659);
-            this.Controls.Add(this.label8);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
+            this.ClientSize = new System.Drawing.Size(718, 659);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.button5);
@@ -287,10 +222,5 @@
         private System.Windows.Forms.Button button1;
         public System.Windows.Forms.Label label3;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
-        public System.Windows.Forms.Label label4;
-        public System.Windows.Forms.Label label5;
-        public System.Windows.Forms.Label label6;
-        public System.Windows.Forms.Label label7;
-        public System.Windows.Forms.Label label8;
     }
 }

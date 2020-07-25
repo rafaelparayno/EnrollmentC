@@ -119,7 +119,7 @@
             this.textBox1.Enabled = false;
             this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox1.ForeColor = System.Drawing.Color.Black;
-            this.textBox1.Location = new System.Drawing.Point(127, 89);
+            this.textBox1.Location = new System.Drawing.Point(127, 135);
             this.textBox1.MaxLength = 4;
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
@@ -135,7 +135,7 @@
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Black;
             this.label2.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label2.Location = new System.Drawing.Point(67, 60);
+            this.label2.Location = new System.Drawing.Point(67, 106);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(78, 16);
             this.label2.TabIndex = 211;
@@ -146,7 +146,7 @@
             this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox2.ForeColor = System.Drawing.Color.Black;
-            this.textBox2.Location = new System.Drawing.Point(7, 89);
+            this.textBox2.Location = new System.Drawing.Point(7, 134);
             this.textBox2.MaxLength = 4;
             this.textBox2.Multiline = true;
             this.textBox2.Name = "textBox2";
@@ -162,7 +162,7 @@
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.Black;
             this.label3.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label3.Location = new System.Drawing.Point(100, 96);
+            this.label3.Location = new System.Drawing.Point(100, 141);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(13, 16);
             this.label3.TabIndex = 213;
@@ -175,7 +175,7 @@
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button3.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button3.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button3.Location = new System.Drawing.Point(12, 204);
+            this.button3.Location = new System.Drawing.Point(12, 250);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(195, 35);
             this.button3.TabIndex = 214;
@@ -253,7 +253,7 @@
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button1.Location = new System.Drawing.Point(12, 147);
+            this.button1.Location = new System.Drawing.Point(12, 193);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(195, 35);
             this.button1.TabIndex = 253;
@@ -267,7 +267,7 @@
             this.dateTimePicker1.CustomFormat = "yyyy";
             this.dateTimePicker1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker1.Location = new System.Drawing.Point(6, 89);
+            this.dateTimePicker1.Location = new System.Drawing.Point(6, 134);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.ShowUpDown = true;
             this.dateTimePicker1.Size = new System.Drawing.Size(90, 31);

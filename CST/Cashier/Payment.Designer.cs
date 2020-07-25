@@ -75,7 +75,7 @@
             this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.Black;
-            this.label5.Location = new System.Drawing.Point(51, 180);
+            this.label5.Location = new System.Drawing.Point(41, 180);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(118, 25);
             this.label5.TabIndex = 251;
@@ -161,7 +161,7 @@
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(56, 215);
+            this.label2.Location = new System.Drawing.Point(42, 215);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(118, 25);
             this.label2.TabIndex = 270;

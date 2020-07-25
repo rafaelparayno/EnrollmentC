@@ -16,7 +16,7 @@ namespace CST
     public partial class Payment : Form
     {
 
-
+        YearController yearController = new YearController();
         TuitionFeeController tuitionFeeController = new TuitionFeeController();
         MiscController miscController = new MiscController();
         EnrollScheduleController en = new EnrollScheduleController();
@@ -25,7 +25,10 @@ namespace CST
         public Payment()
         {
             InitializeComponent();
-            foreach(string grade in DataClass.getAllGrade())
+
+            label2.Text = yearController.getSyActivated();
+            label5.Text = UserLog.getUserName();
+            foreach (string grade in DataClass.getAllGrade())
             {
                 comboBox2.Items.Add(grade);
             }
@@ -47,7 +50,7 @@ namespace CST
 
         private void Payment_Load(object sender, EventArgs e)
         {
-            label2.Hide();
+            
             label9.Hide();
             DateTime my = DateTimeOffset.Now.DateTime.ToLocalTime().ToUniversalTime();
 

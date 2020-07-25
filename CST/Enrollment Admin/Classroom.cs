@@ -29,6 +29,8 @@ namespace CST
 
         private void Classroom_Load(object sender, EventArgs e)
         {
+            label5.Hide();
+            label7.Hide();
             timer1.Start();
             label5.Text = yr.getSyActivated();
             syid = yr.getSchoolYearId();

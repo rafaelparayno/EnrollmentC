@@ -43,7 +43,7 @@ namespace CST
 
         private void AuditTrail_Load(object sender, EventArgs e)
         {
-
+            label7.Hide();
 
             auditTrailControl.fillDataGridAudit(ref dataGridView1);
 

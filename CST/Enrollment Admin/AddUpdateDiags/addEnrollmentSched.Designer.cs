@@ -105,7 +105,7 @@
             this.DoubleBuffered = true;
             this.Name = "addEnrollmentSched";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "addEnrollmentSched";
+            this.Text = "Add Enrollment Schedule";
             this.Load += new System.EventHandler(this.addEnrollmentSched_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

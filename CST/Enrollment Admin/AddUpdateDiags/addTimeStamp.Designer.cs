@@ -158,7 +158,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "addTimeStamp";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "addTimeStamp";
+            this.Text = "Add Time Stamp";
             this.Load += new System.EventHandler(this.addTimeStamp_Load);
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.ResumeLayout(false);

@@ -178,9 +178,9 @@
             this.label2.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.label2.Location = new System.Drawing.Point(12, 9);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(68, 16);
+            this.label2.Size = new System.Drawing.Size(149, 16);
             this.label2.TabIndex = 316;
-            this.label2.Text = "Subjects";
+            this.label2.Text = "List of Requirements";
             // 
             // pbClose
             // 

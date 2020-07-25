@@ -34,6 +34,8 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.comboBox3 = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -53,8 +55,6 @@
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
-            this.label4 = new System.Windows.Forms.Label();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
             this.panel4.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -71,7 +71,7 @@
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(147, 35);
             this.button2.TabIndex = 253;
-            this.button2.Text = "BACK";
+            this.button2.Text = "Back";
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
@@ -102,12 +102,40 @@
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.comboBox2);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(12, 51);
+            this.groupBox1.Location = new System.Drawing.Point(76, 51);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(758, 101);
             this.groupBox1.TabIndex = 254;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Search By";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.Transparent;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.Black;
+            this.label4.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.label4.Location = new System.Drawing.Point(11, 24);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(93, 16);
+            this.label4.TabIndex = 234;
+            this.label4.Text = "Grade Level";
+            // 
+            // comboBox3
+            // 
+            this.comboBox3.DropDownHeight = 150;
+            this.comboBox3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.comboBox3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.comboBox3.FormattingEnabled = true;
+            this.comboBox3.IntegralHeight = false;
+            this.comboBox3.ItemHeight = 20;
+            this.comboBox3.Location = new System.Drawing.Point(11, 51);
+            this.comboBox3.Name = "comboBox3";
+            this.comboBox3.Size = new System.Drawing.Size(228, 28);
+            this.comboBox3.TabIndex = 235;
+            this.comboBox3.SelectedIndexChanged += new System.EventHandler(this.comboBox3_SelectedIndexChanged);
             // 
             // label3
             // 
@@ -187,7 +215,7 @@
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button1.Location = new System.Drawing.Point(730, 473);
+            this.button1.Location = new System.Drawing.Point(592, 473);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(147, 35);
             this.button1.TabIndex = 256;
@@ -286,9 +314,9 @@
             this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button4.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button4.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button4.Location = new System.Drawing.Point(828, 89);
+            this.button4.Location = new System.Drawing.Point(746, 473);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(65, 52);
+            this.button4.Size = new System.Drawing.Size(147, 35);
             this.button4.TabIndex = 258;
             this.button4.Text = "Export Excel";
             this.button4.UseVisualStyleBackColor = false;
@@ -303,7 +331,7 @@
             this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button5.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button5.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button5.Location = new System.Drawing.Point(577, 473);
+            this.button5.Location = new System.Drawing.Point(439, 473);
             this.button5.Name = "button5";
             this.button5.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.button5.Size = new System.Drawing.Size(147, 35);
@@ -320,41 +348,13 @@
             this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button7.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button7.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button7.Location = new System.Drawing.Point(407, 473);
+            this.button7.Location = new System.Drawing.Point(269, 473);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(164, 35);
             this.button7.TabIndex = 261;
-            this.button7.Text = "Edit Grade";
+            this.button7.Text = "Input/Update Grade";
             this.button7.UseVisualStyleBackColor = false;
             this.button7.Click += new System.EventHandler(this.button7_Click);
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.Color.Transparent;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.Black;
-            this.label4.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label4.Location = new System.Drawing.Point(11, 24);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(93, 16);
-            this.label4.TabIndex = 234;
-            this.label4.Text = "Grade Level";
-            // 
-            // comboBox3
-            // 
-            this.comboBox3.DropDownHeight = 150;
-            this.comboBox3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.comboBox3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.IntegralHeight = false;
-            this.comboBox3.ItemHeight = 20;
-            this.comboBox3.Location = new System.Drawing.Point(11, 51);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(228, 28);
-            this.comboBox3.TabIndex = 235;
-            this.comboBox3.SelectedIndexChanged += new System.EventHandler(this.comboBox3_SelectedIndexChanged);
             // 
             // StudentGrades
             // 

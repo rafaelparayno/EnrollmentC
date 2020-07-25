@@ -243,7 +243,7 @@ namespace CST
 
         private void Payment_Form_Load(object sender, EventArgs e)
         {
-
+            label11.Hide();
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -388,6 +388,11 @@ namespace CST
                 textBox10.Visible = true;
                 label10.Visible = true;
             }
+        }
+
+        private void groupBox3_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -13,15 +13,19 @@ using System.Windows.Forms;
 
 namespace CST
 {
+    
     public partial class SchoolFees : Form
     {
-
+        YearController yrController = new YearController();
         MiscController miscController = new MiscController();
         TuitionFeeController tfController = new TuitionFeeController();
         public SchoolFees()
         {
             InitializeComponent();
-            
+
+            label6.Text = yrController.getSyActivated();
+
+
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)

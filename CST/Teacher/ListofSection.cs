@@ -80,7 +80,8 @@ namespace CST
 
         private void ListofSection_Load(object sender, EventArgs e)
         {
-            
+            label6.Hide();
+            label7.Hide();
         }
 
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)

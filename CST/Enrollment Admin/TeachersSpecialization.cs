@@ -45,6 +45,8 @@ namespace CST
 
         private void TeachersSpecialization_Load(object sender, EventArgs e)
         {
+            label7.Hide();
+            label9.Hide();
             refreshGrid();
         }
 

@@ -165,7 +165,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "addUpdateTuition";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "addUpdateTuition";
+            this.Text = "Add/Update Tuition";
             this.Load += new System.EventHandler(this.addUpdateTuition_Load);
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.ResumeLayout(false);

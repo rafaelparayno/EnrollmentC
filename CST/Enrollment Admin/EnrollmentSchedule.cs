@@ -94,7 +94,7 @@ namespace CST
             string startdate = dataEn[1] == "" || dataEn[1] == null ? "No Date Yet" : dataEn[1];
             string endDate = dataEn[2] == "" || dataEn[2] == null ? "No Date Yet" : dataEn[2];
             OpenEnrollemnt = dataEn[3] == "" || dataEn[3] == null ? "No Data" :
-                int.Parse(dataEn[3]) == 0 ? "Close" : "Open";
+                int.Parse(dataEn[3]) == 0 ? "Closed" : "Open";
             DateTime _;
 
             bool isdateStart = DateTime.TryParse(startdate, out _);
@@ -118,14 +118,14 @@ namespace CST
             
             label2.Text = "Open Enrollment : " + OpenEnrollemnt;
 
-            if (OpenEnrollemnt == "Close")
+            if (OpenEnrollemnt == "Closed")
             {
                 button4.Text = "Open Enrollment";
                 button4.Enabled = true;
             }
             else if (OpenEnrollemnt == "Open")
             {
-                button4.Text = "Closed Enrollment";
+                button4.Text = "Close Enrollment";
                 button4.Enabled = true;
             }
             else
@@ -137,7 +137,7 @@ namespace CST
 
         private void button4_Click(object sender, EventArgs e)
         {
-            if(OpenEnrollemnt == "Close")
+            if(OpenEnrollemnt == "Closed")
             {
                 en.updateOpenEn();
                 MessageBox.Show("Open Enrollment");
@@ -145,7 +145,7 @@ namespace CST
             else if(OpenEnrollemnt == "Open")
             {
                 en.updateCloseEn();
-                MessageBox.Show("Close Enrollment");
+                MessageBox.Show("Closed Enrollment");
             }
             refreshData();
         }

@@ -179,7 +179,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "dialogTuition";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "dialogTuition";
+            this.Text = "Add/Update Tuition";
             this.Load += new System.EventHandler(this.dialogTuition_Load);
             this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.dialogTuition_KeyPress);
             this.groupBox1.ResumeLayout(false);

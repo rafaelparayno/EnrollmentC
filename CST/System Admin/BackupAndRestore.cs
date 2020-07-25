@@ -71,7 +71,7 @@ namespace CST
 
         private void BackupAndRestore_Load(object sender, EventArgs e)
         {
-           
+            label7.Hide();
         }
 
         private void txtUT_Click(object sender, EventArgs e)

@@ -83,9 +83,9 @@
             this.label1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.label1.Location = new System.Drawing.Point(12, 18);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(115, 16);
+            this.label1.Size = new System.Drawing.Size(75, 16);
             this.label1.TabIndex = 203;
-            this.label1.Text = "List Of Students";
+            this.label1.Text = "Class List";
             // 
             // panel4
             // 

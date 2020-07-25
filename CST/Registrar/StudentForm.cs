@@ -40,7 +40,7 @@ namespace CST
 
         private void StudentForm_Load(object sender, EventArgs e)
         {
-           
+            label44.Hide();
             if (StudentModel.getTypeStud() == "New Student" || StudentModel.getTypeStud() == "Transferee Student")
             {
                 btnSearch.Visible = false;

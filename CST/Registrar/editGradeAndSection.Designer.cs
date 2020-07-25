@@ -181,7 +181,6 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "editGradeAndSection";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "editGradeAndSection";
             this.ResumeLayout(false);
             this.PerformLayout();
 

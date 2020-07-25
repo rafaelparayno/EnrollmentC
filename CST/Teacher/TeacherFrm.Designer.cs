@@ -97,7 +97,7 @@
             this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button4.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button4.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button4.Location = new System.Drawing.Point(389, 297);
+            this.button4.Location = new System.Drawing.Point(390, 238);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(147, 35);
             this.button4.TabIndex = 255;
@@ -123,7 +123,7 @@
             this.label7.BackColor = System.Drawing.Color.Transparent;
             this.label7.Font = new System.Drawing.Font("Lucida Sans Typewriter", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.Black;
-            this.label7.Location = new System.Drawing.Point(23, 308);
+            this.label7.Location = new System.Drawing.Point(32, 280);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(87, 15);
             this.label7.TabIndex = 259;
@@ -200,7 +200,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::CST.Properties.Resources.b;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(559, 349);
+            this.ClientSize = new System.Drawing.Size(559, 307);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label6);

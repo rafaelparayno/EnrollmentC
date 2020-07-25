@@ -35,6 +35,7 @@
             this.button4 = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel4.SuspendLayout();
             this.SuspendLayout();
@@ -132,6 +133,19 @@
             this.panel5.Size = new System.Drawing.Size(236, 5);
             this.panel5.TabIndex = 144;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Black;
+            this.label1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.label1.Location = new System.Drawing.Point(12, 6);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(100, 16);
+            this.label1.TabIndex = 299;
+            this.label1.Text = "Subject Type";
+            // 
             // SubjectType
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -139,6 +153,7 @@
             this.BackgroundImage = global::CST.Properties.Resources.b;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(735, 474);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.button2);
@@ -154,6 +169,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.panel4.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -166,5 +182,6 @@
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.Label label1;
     }
 }

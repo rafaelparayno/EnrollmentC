@@ -26,6 +26,7 @@ namespace CST
 
         private void SchoolYear_Load(object sender, EventArgs e)
         {
+            label7.Hide();
             yearC.fillDataGridSY(ref dgSY);
             
         }

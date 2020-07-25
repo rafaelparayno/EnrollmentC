@@ -35,6 +35,8 @@ namespace CST
         private void UserAccount_Load(object sender, EventArgs e)
 
         {
+            label2.Show();
+            label7.Hide();
             timer1.Start();
             DateTime my = DateTimeOffset.Now.DateTime.ToLocalTime().ToUniversalTime();
 
@@ -514,6 +516,11 @@ namespace CST
                     dr.Cells["Password"].Value = "*********";
                 }        
             }
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
