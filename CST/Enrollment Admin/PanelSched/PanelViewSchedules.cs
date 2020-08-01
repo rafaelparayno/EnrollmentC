@@ -37,7 +37,7 @@ namespace CST.Enrollment_Admin.PanelSched
 
         private void PanelViewSchedules_Load(object sender, EventArgs e)
         {
-
+            MessageBox.Show("To change subject or teacher double click the column you wanted to change","Information",MessageBoxButtons.OK);
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)

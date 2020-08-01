@@ -118,7 +118,7 @@
             this.DoubleBuffered = true;
             this.Name = "ReservationList";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "ReservationList";
+            this.Text = "Reservation List";
             this.Load += new System.EventHandler(this.ReservationList_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);

@@ -237,7 +237,7 @@ namespace CST
                 dt.Columns.Add("Student Name", typeof(string));
                 dt.Columns.Add("1st Grading", typeof(string));
                 dt.Columns.Add("2nd Grading", typeof(string));
-                dt.Columns.Add("3rd Grading", typeof(string));
+                dt.Columns.Add("3rd Grading", typeof(string)); 
                 dt.Columns.Add("4th Grading", typeof(string));
                 dt.Columns.Add("Average", typeof(string));
 

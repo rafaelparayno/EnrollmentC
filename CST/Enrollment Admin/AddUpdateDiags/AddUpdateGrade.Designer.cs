@@ -123,7 +123,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "AddUpdateGrade";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Add or Update";
+            this.Text = "Add/Update";
             this.ResumeLayout(false);
             this.PerformLayout();
 

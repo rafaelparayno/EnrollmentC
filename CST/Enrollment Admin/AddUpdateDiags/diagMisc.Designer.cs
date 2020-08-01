@@ -169,7 +169,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "diagMisc";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "diagMisc";
+            this.Text = "Add/update Misc";
             this.Load += new System.EventHandler(this.diagMisc_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

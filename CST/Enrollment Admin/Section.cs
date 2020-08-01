@@ -32,6 +32,8 @@ namespace CST
 
         private void Section_Load(object sender, EventArgs e)
         {
+            label5.Hide();
+            label7.Hide();
             refreshGrid();
         }
 

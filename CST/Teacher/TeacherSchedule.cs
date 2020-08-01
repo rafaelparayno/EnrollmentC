@@ -33,7 +33,7 @@ namespace CST
 
         private void TeacherSchedule_Load(object sender, EventArgs e)
         {
-           
+            label7.Hide();
         }
 
 

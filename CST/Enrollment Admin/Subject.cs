@@ -28,6 +28,8 @@ namespace CST
 
         private void Subject_Load(object sender, EventArgs e)
         {
+            label5.Hide();
+            label7.Hide();
             refreshGrid();
         }
 

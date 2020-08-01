@@ -132,7 +132,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "AddUpdateRoom";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "AddUpdateRoom";
+            this.Text = "Add/Update Room";
             this.Load += new System.EventHandler(this.AddUpdateRoom_Load);
             ((System.ComponentModel.ISupportInitialize)(this.txtRoomNo)).EndInit();
             this.ResumeLayout(false);

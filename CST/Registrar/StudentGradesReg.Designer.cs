@@ -40,8 +40,8 @@
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Avg = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.label5 = new System.Windows.Forms.Label();
             this.grade = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.label5 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // button2
@@ -178,6 +178,12 @@
             this.Avg.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.Avg.Width = 100;
             // 
+            // grade
+            // 
+            this.grade.DisplayIndex = 2;
+            this.grade.Text = "Grade Level";
+            this.grade.Width = 120;
+            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -187,15 +193,9 @@
             this.label5.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.label5.Location = new System.Drawing.Point(15, 18);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(57, 16);
+            this.label5.Size = new System.Drawing.Size(173, 16);
             this.label5.TabIndex = 282;
-            this.label5.Text = "Search";
-            // 
-            // grade
-            // 
-            this.grade.DisplayIndex = 2;
-            this.grade.Text = "Grade Level";
-            this.grade.Width = 120;
+            this.label5.Text = "Viewing Student Grades";
             // 
             // StudentGradesReg
             // 

@@ -107,7 +107,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "EditTeacherSched";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "EditTeacherSched";
+            this.Text = "Edit Teacher Assign";
             this.Load += new System.EventHandler(this.EditTeacherSched_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

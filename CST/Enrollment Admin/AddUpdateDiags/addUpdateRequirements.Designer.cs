@@ -119,7 +119,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "addUpdateRequirements";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "addUpdateRequirements";
+            this.Text = "Add/Update Requirement";
             this.Load += new System.EventHandler(this.addUpdateRequirements_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

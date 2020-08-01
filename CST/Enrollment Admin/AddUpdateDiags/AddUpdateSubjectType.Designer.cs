@@ -83,7 +83,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "AddUpdateSubjectType";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "AddUpdateSubjectType";
+            this.Text = "Add/Update Subject Type";
             this.Load += new System.EventHandler(this.AddUpdateSubjectType_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

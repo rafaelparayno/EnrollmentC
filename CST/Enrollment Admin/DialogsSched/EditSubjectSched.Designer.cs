@@ -90,7 +90,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "EditSubjectSched";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "EditSubjectSched";
+            this.Text = "Edit Subject Assign";
             this.Load += new System.EventHandler(this.EditSubjectSched_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

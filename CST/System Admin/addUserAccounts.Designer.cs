@@ -317,7 +317,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "addUserAccounts";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "addUserAccounts";
+            this.Text = "add/Update UserAccounts";
             this.Load += new System.EventHandler(this.addUserAccounts_Load);
             this.gbUserForm.ResumeLayout(false);
             this.gbUserForm.PerformLayout();

@@ -42,6 +42,7 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.button1 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.button12 = new System.Windows.Forms.Button();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.button8 = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
@@ -54,7 +55,6 @@
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
-            this.button12 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -67,7 +67,7 @@
             this.label6.BackColor = System.Drawing.Color.Transparent;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.Black;
-            this.label6.Location = new System.Drawing.Point(95, 183);
+            this.label6.Location = new System.Drawing.Point(67, 183);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(43, 20);
             this.label6.TabIndex = 186;
@@ -228,6 +228,20 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Student Information";
             // 
+            // button12
+            // 
+            this.button12.BackColor = System.Drawing.Color.DarkSeaGreen;
+            this.button12.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.button12.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button12.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button12.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.button12.Location = new System.Drawing.Point(539, 39);
+            this.button12.Name = "button12";
+            this.button12.Size = new System.Drawing.Size(115, 32);
+            this.button12.TabIndex = 308;
+            this.button12.Text = "View All";
+            this.button12.UseVisualStyleBackColor = false;
+            // 
             // comboBox1
             // 
             this.comboBox1.DropDownHeight = 150;
@@ -327,7 +341,7 @@
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(152, 35);
             this.button3.TabIndex = 198;
-            this.button3.Text = "Personal Information";
+            this.button3.Text = "Officially Enrolled";
             this.button3.UseVisualStyleBackColor = false;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
@@ -392,20 +406,6 @@
             this.button7.Text = "Unofficially Enrolled";
             this.button7.UseVisualStyleBackColor = false;
             this.button7.Click += new System.EventHandler(this.button7_Click);
-            // 
-            // button12
-            // 
-            this.button12.BackColor = System.Drawing.Color.DarkSeaGreen;
-            this.button12.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.button12.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button12.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button12.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.button12.Location = new System.Drawing.Point(539, 39);
-            this.button12.Name = "button12";
-            this.button12.Size = new System.Drawing.Size(115, 32);
-            this.button12.TabIndex = 308;
-            this.button12.Text = "View All";
-            this.button12.UseVisualStyleBackColor = false;
             // 
             // RegistrarRecord
             // 

@@ -170,6 +170,7 @@
             this.label2.TabIndex = 198;
             this.label2.Text = "User Account";
             this.label2.Visible = false;
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // panel5
             // 

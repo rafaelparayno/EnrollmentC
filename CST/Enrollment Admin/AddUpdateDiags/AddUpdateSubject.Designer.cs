@@ -145,7 +145,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "AddUpdateSubject";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Add or Update Section";
+            this.Text = "Add/Update Section";
             this.Load += new System.EventHandler(this.AddUpdateSection_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

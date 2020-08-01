@@ -69,6 +69,7 @@ namespace CST.System_Admin
 
         private void addUserAccounts_Load(object sender, EventArgs e)
         {
+            label7.Hide();
             timer1.Start();
             DateTime my = DateTimeOffset.Now.DateTime.ToLocalTime().ToUniversalTime();
 

@@ -39,6 +39,8 @@ namespace CST
             InitializeComponent();
             timer1.Start();
             yrids = yearController.fillComboSy(ref comboBox1);
+            label6.Text = yearController.getSyActivated();
+
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -114,6 +116,7 @@ namespace CST
                     //string fn,string ln,string mn,string gen,int age,string bd,string pob, string cn,string nat,string rel,string add,string sno
                     frm.ShowDialog();
                     StudHistDetailsController.fillDataHist(ref dataGridView1);
+                   
                 }
                 else if (clickedBut == "Family")
                 {
@@ -138,6 +141,7 @@ namespace CST
                     editStudFam frm = new editStudFam();
                     frm.ShowDialog();
                     studFamDetailsController.filldataGridFam(ref dataGridView1);
+                
 
                 }
                 else if (clickedBut == "History")
