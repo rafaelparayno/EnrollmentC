@@ -106,15 +106,15 @@ namespace CST
                             receivePayment += reservationFee;
                             break;
                         case "Semi-Annual":
-                            if (isChange)
-                            {
+                      /*      if (isChange)
+                            {*/
                                 change  = double.Parse(textBox4.Text.ToString()) - downPay;
                                 balance = total - downPay;
                                 receivePayment = downPay + reservationFee;
                                 balance -= reservationFee;
                                 neededToPay = balance;
 
-                            }
+                           /* }
                             else
                             {
                                 if(double.Parse(textBox4.Text.ToString()) > total)
@@ -131,11 +131,11 @@ namespace CST
                                     neededToPay = Math.Round((Double)neededToPay, 2);
                                 }
                               
-                            }
+                            }*/
                             break;
                         case "Quarterly":
-                            if (isChange)
-                            {
+                           /* if (isChange)
+                            {*/
                                 change = double.Parse(textBox4.Text.ToString()) - downPay;
 
                                 balance = total - downPay;
@@ -144,7 +144,7 @@ namespace CST
                                 neededToPay = balance/3;
                                 neededToPay = Math.Round((Double)neededToPay, 2);
 
-                            }
+                          /*  }
                             else
                             {
                                 if (double.Parse(textBox4.Text.ToString()) > total)
@@ -162,11 +162,11 @@ namespace CST
                                 }
 
                             }
-                          
+                          */
                             break;
                         case "Monthly":
-                            if (isChange)
-                            {
+                        /*    if (isChange)
+                            {*/
                                 change = double.Parse(textBox4.Text.ToString()) - downPay;
 
                                 balance = total - downPay;
@@ -175,7 +175,7 @@ namespace CST
                                 neededToPay = balance / 9;
                                 neededToPay = Math.Round((Double)neededToPay, 2);
 
-                            }
+                         /*   }
                             else
                             {
                                 if (double.Parse(textBox4.Text.ToString()) > total)
@@ -192,7 +192,7 @@ namespace CST
                                     neededToPay = Math.Round((Double)neededToPay, 2);
                                 }
 
-                            }
+                            }*/
                            
                             break;
 
@@ -303,7 +303,7 @@ namespace CST
         {
             loadingCashier.Hide();
             button3.Enabled = false;
-            groupBox3.Enabled = false;
+           /* groupBox3.Enabled = false;*/
             MessageBox.Show("The student is Succesfully Enrolled");
             //frmload.Hide();
         }
@@ -315,7 +315,7 @@ namespace CST
 
         private void radioButton1_CheckedChanged(object sender, EventArgs e)
         {
-            if (radioButton1.Checked)
+            /*if (radioButton1.Checked)
             {
                 textBox10.Visible = true;
                 label10.Visible = true;
@@ -326,7 +326,7 @@ namespace CST
             {
                 textBox10.Visible = false;
                 label10.Visible = false;
-            }
+            }*/
         }
 
         private void initPayment(string mode)
@@ -340,34 +340,34 @@ namespace CST
                 downPay = total - totalDisc;
                 label7.Text = label7.Text + "\n" + "Discount : " + String.Format("PHP " + "{0:0.00}",
                                         totalDisc) + " - " + disc + "%";
-                groupBox3.Visible = false;
-                radioButton1.Checked = true;
+                /*groupBox3.Visible = false;
+                radioButton1.Checked = true;*/
 
             }
             else if (mode == "Semi-Annual")
             {
                 label8.Text = "Downpayment";
                 downPay = total / 2;
-                label10.Visible = false;
-                textBox10.Visible = false;
-                radioButton2.Checked = true;
+               /* label10.Visible = false;
+                textBox10.Visible = false;*/
+               
 
             }
             else if (mode == "Quarterly")
             {
                 label8.Text = "Downpayment";
                 downPay = total / 4;
-                label10.Visible = false;
-                textBox10.Visible = false;
-                radioButton2.Checked = true;
+                /*label10.Visible = false;
+                textBox10.Visible = false;*/
+             
             }
             else
             {
                 label8.Text = "Downpayment";
                 downPay = 5500;
-                label10.Visible = false;
-                textBox10.Visible = false;
-                radioButton2.Checked = true;
+                /*label10.Visible = false;
+                textBox10.Visible = false;*/
+              
             }
             downPay -= reservationFee;
             total -= reservationFee;
@@ -376,7 +376,7 @@ namespace CST
         }
 
         private void radioButton2_CheckedChanged(object sender, EventArgs e)
-        {
+        {/*
             if (radioButton2.Checked)
             {
                 textBox10.Visible = false;
@@ -387,7 +387,7 @@ namespace CST
             {
                 textBox10.Visible = true;
                 label10.Visible = true;
-            }
+            }*/
         }
 
         private void groupBox3_Enter(object sender, EventArgs e)

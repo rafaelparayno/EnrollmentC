@@ -75,7 +75,7 @@ namespace CST.Registrar
             schedSectionController.fillListSched(ref listView1, selectedSectIds);
             countTotalStuds = sectionController.totalStudentInSections(selectedSectIds);
             caps = sectionController.getCapacity(selectedSectIds);
-
+            caps--;
             if(caps> countTotalStuds)
             {
                 button1.Enabled = true;
