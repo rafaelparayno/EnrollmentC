@@ -60,7 +60,8 @@ namespace CST.Models
         public void getStudSchedDataSet(int sect_id,ref DataSet dataSet)
         {
          
-            string sql = String.Format(@"SELECT timestamp.start_time,timestamp.end_time,subjects.subject_name,CONCAT(useraccounts.Firstname,' ',useraccounts.Lastname) AS 'Teachers Name' 
+            string sql = String.Format(@"SELECT DATE_FORMAT(timestamp.`start_time`,'%h:%i %p') AS `start_time`,DATE_FORMAT(timestamp.end_time,'%h:%i %p') AS `end_time`,
+                                        subjects.subject_name,CONCAT(useraccounts.Firstname,' ',useraccounts.Lastname) AS 'Teachers Name' 
                                         FROM `sched_section` LEFT JOIN timestamp ON sched_section.timestamp_id = timestamp.timestamp_id 
                                         LEFT JOIN subjects ON sched_section.subject_id = subjects.subject_id 
                                         LEFT JOIN specialization ON sched_section.teacher_ID = specialization.teacher_ID 
