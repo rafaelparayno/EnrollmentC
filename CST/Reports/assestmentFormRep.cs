@@ -35,9 +35,9 @@ namespace CST.Reports
             cos.SetParameterValue("tfParam", datasParam[5]);
             cos.SetParameterValue("msParam", datasParam[6]);
             cos.SetParameterValue("modParam", datasParam[7]);
+            datasParam[8] += "\n" + "Discount: " + datasParam[10] + "\n" + "Total : "  + datasParam[9]; 
             cos.SetParameterValue("listofMiscParam", datasParam[8]);
-            cos.SetParameterValue("totalParam", datasParam[9]);
-            cos.SetParameterValue("discParam", datasParam[10]);
+         
             cos.SetParameterValue("duesParam", datasParam[11]);
             cos.SetParameterValue("regParam", UserLog.getFullName());
             cos.SetParameterValue("uponPaymentParams", datasParam[12]);
