@@ -11,7 +11,7 @@ using System.Threading;
 using CST.Models;
 using CST.Models.Student;
 using CST.Registrar;
-
+using CST.Data;
 
 namespace CST
 {
@@ -22,6 +22,7 @@ namespace CST
         StudFamDetailsController studFam = new StudFamDetailsController();
         StudHistDetailsController studHis = new StudHistDetailsController();
         StudentRequirementController studReq = new StudentRequirementController();
+        
        // StudentEnrolledController studentEnrolledController = new StudentEnrolledController();
         bool isUpdate = false;
         string sno = "";
@@ -68,7 +69,10 @@ namespace CST
             radioButton7.Checked = true;
          
             StudentModel.setBd(dateTimePicker1.Value.ToString().Split()[0]);
-
+            foreach(string grade in DataClass.getAllGrade())
+            {
+                cbPastLevel.Items.Add(grade);
+            }
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -173,7 +177,7 @@ namespace CST
                     StudentsDetailsController.addStudDetails(studentDetails);
                  
                     studFam.addFamDetails(StudentModel.getSno(), famDetails);
-                    studHis.addHisDetails(StudentModel.getSno(), txtPastSchool.Text.Trim(), txtPastAdd.Text.Trim(), txtPastLevel.Text.Trim(),
+                    studHis.addHisDetails(StudentModel.getSno(), txtPastSchool.Text.Trim(), txtPastAdd.Text.Trim(), cbPastLevel.SelectedItem.ToString().Trim(),
                                         dateTimePicker2.Value.ToShortDateString(), isVacinated, txtVaccination.Text.Trim());
                     int[] reqIds = StudentModel.getReq_ids();
 
@@ -191,7 +195,7 @@ namespace CST
                                                                  studentDetails[7], studentDetails[8], studentDetails[9],
                                                                  studentDetails[10], studentDetails[11], StudentModel.getTypeStud(),sno);
                     studFam.updateFamDetails(famDetails, sno);
-                    studHis.updateHisDetails(sno, txtPastSchool.Text.Trim(), txtPastAdd.Text.Trim(), txtPastLevel.Text.Trim(),
+                    studHis.updateHisDetails(sno, txtPastSchool.Text.Trim(), txtPastAdd.Text.Trim(), cbPastLevel.SelectedItem.ToString().Trim(),
                                             dateTimePicker2.Value.ToShortDateString(), isVacinated, txtVaccination.Text.Trim());
                     int[] reqIds = StudentModel.getReq_ids();
 
@@ -304,9 +308,9 @@ namespace CST
             bool isValid = true;
 
 
-            isValid = isValid && (txtPastLevel.Text != "");
+            isValid = isValid && (cbPastLevel.SelectedItem.ToString() != "");
             isValid = isValid && (txtPastSchool.Text != "");
-            isValid = isValid && (txtPastLevel.Text != "");
+          
 
             return isValid;
 
@@ -429,7 +433,7 @@ namespace CST
 
                 txtPastSchool.Text = studHis.getHistStudent("STUD-" + txtStudentID.Text.Trim())[0];
                 txtPastAdd.Text = studHis.getHistStudent("STUD-" + txtStudentID.Text.Trim())[1];
-                txtPastLevel.Text = studHis.getHistStudent("STUD-" + txtStudentID.Text.Trim())[2];
+                cbPastLevel.Text = studHis.getHistStudent("STUD-" + txtStudentID.Text.Trim())[2];
                 dateTimePicker2.Value = DateTime.Parse(studHis.getHistStudent("STUD-" + txtStudentID.Text.Trim())[3]);
                 if (studHis.getHistStudent(txtStudentID.Text.Trim())[4] == "Yes")
                 {

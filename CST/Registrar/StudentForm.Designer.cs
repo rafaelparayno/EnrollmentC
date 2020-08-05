@@ -146,7 +146,6 @@
             this.label21 = new System.Windows.Forms.Label();
             this.label26 = new System.Windows.Forms.Label();
             this.txtPastSchool = new System.Windows.Forms.TextBox();
-            this.txtPastLevel = new System.Windows.Forms.TextBox();
             this.label23 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
             this.txtPastAdd = new System.Windows.Forms.TextBox();
@@ -160,6 +159,7 @@
             this.label51 = new System.Windows.Forms.Label();
             this.label52 = new System.Windows.Forms.Label();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.cbPastLevel = new System.Windows.Forms.ComboBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -1580,11 +1580,11 @@
             // 
             // groupBox4
             // 
+            this.groupBox4.Controls.Add(this.cbPastLevel);
             this.groupBox4.Controls.Add(this.dateTimePicker2);
             this.groupBox4.Controls.Add(this.label21);
             this.groupBox4.Controls.Add(this.label26);
             this.groupBox4.Controls.Add(this.txtPastSchool);
-            this.groupBox4.Controls.Add(this.txtPastLevel);
             this.groupBox4.Controls.Add(this.label23);
             this.groupBox4.Controls.Add(this.label22);
             this.groupBox4.Controls.Add(this.txtPastAdd);
@@ -1602,7 +1602,7 @@
             // 
             this.dateTimePicker2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker2.Location = new System.Drawing.Point(818, 41);
+            this.dateTimePicker2.Location = new System.Drawing.Point(870, 41);
             this.dateTimePicker2.Name = "dateTimePicker2";
             this.dateTimePicker2.ShowUpDown = true;
             this.dateTimePicker2.Size = new System.Drawing.Size(103, 26);
@@ -1626,7 +1626,7 @@
             this.label26.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label26.ForeColor = System.Drawing.Color.Black;
             this.label26.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label26.Location = new System.Drawing.Point(815, 22);
+            this.label26.Location = new System.Drawing.Point(867, 22);
             this.label26.Name = "label26";
             this.label26.Size = new System.Drawing.Size(106, 16);
             this.label26.TabIndex = 150;
@@ -1641,16 +1641,6 @@
             this.txtPastSchool.Name = "txtPastSchool";
             this.txtPastSchool.Size = new System.Drawing.Size(354, 26);
             this.txtPastSchool.TabIndex = 145;
-            // 
-            // txtPastLevel
-            // 
-            this.txtPastLevel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtPastLevel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPastLevel.ForeColor = System.Drawing.Color.Black;
-            this.txtPastLevel.Location = new System.Drawing.Point(730, 41);
-            this.txtPastLevel.Name = "txtPastLevel";
-            this.txtPastLevel.Size = new System.Drawing.Size(82, 26);
-            this.txtPastLevel.TabIndex = 149;
             // 
             // label23
             // 
@@ -1790,6 +1780,15 @@
             // 
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
+            // 
+            // cbPastLevel
+            // 
+            this.cbPastLevel.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbPastLevel.FormattingEnabled = true;
+            this.cbPastLevel.Location = new System.Drawing.Point(730, 41);
+            this.cbPastLevel.Name = "cbPastLevel";
+            this.cbPastLevel.Size = new System.Drawing.Size(134, 24);
+            this.cbPastLevel.TabIndex = 254;
             // 
             // StudentForm
             // 
@@ -1942,7 +1941,6 @@
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Label label26;
         public System.Windows.Forms.TextBox txtPastSchool;
-        public System.Windows.Forms.TextBox txtPastLevel;
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.Label label22;
         public System.Windows.Forms.TextBox txtPastAdd;
@@ -1975,5 +1973,6 @@
         private System.Windows.Forms.Label label62;
         private System.Windows.Forms.Label label61;
         private System.Windows.Forms.Label label63;
+        private System.Windows.Forms.ComboBox cbPastLevel;
     }
 }
