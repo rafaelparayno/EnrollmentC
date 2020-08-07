@@ -61,6 +61,24 @@ namespace CST.Models
 
         }
 
+        public int totalPaid(string sno)
+        {
+            int tot = 0;
+
+            string sql = String.Format(@"SELECT COUNT(orNo) AS 'total' FROM `orno` WHERE sno = '{0}' AND syid = {1}", sno, syid);
+            MySqlDataReader reader = null;
+
+            cs.RetrieveRecords(sql, ref reader);
+
+            if (reader.Read())
+            {
+                tot = int.Parse(reader["total"].ToString());
+
+            }
+            cs.CloseConnection();
+            return tot;
+        }
+
 
         public void getOrStudDataSet(string sno, double balance, ref DataSet dataSet, int yrid)
         {

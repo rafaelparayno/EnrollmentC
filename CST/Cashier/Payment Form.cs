@@ -26,7 +26,7 @@ namespace CST
         double downPay = 0;
         int orno = 0;
         double reservationFee = 0;
-        bool isChange = false;
+      /*  bool isChange = false;*/
 
         loadingCashier loadingCashier = new loadingCashier();
      
@@ -112,7 +112,7 @@ namespace CST
                                 balance = total - downPay;
                                 receivePayment = downPay + reservationFee;
                                 balance -= reservationFee;
-                                neededToPay = balance;
+                                neededToPay = Math.Round((Double)balance, 2); ;
 
                            /* }
                             else
@@ -337,7 +337,7 @@ namespace CST
                 disc = disc / 100;
                 totalDisc = TuitionFeeController.getTfPriceGrade(grade, mod) * disc;
 
-                downPay = total - totalDisc;
+                downPay = Math.Round(total - totalDisc,3);
                 label7.Text = label7.Text + "\n" + "Discount : " + String.Format("PHP " + "{0:0.00}",
                                         totalDisc) + " - " + disc + "%";
                 /*groupBox3.Visible = false;

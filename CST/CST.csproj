@@ -106,6 +106,12 @@
     <Compile Include="Cashier\studentreserve.Designer.cs">
       <DependentUpon>studentreserve.cs</DependentUpon>
     </Compile>
+    <Compile Include="Cashier\ViewDueDates.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Cashier\ViewDueDates.Designer.cs">
+      <DependentUpon>ViewDueDates.cs</DependentUpon>
+    </Compile>
     <Compile Include="crudFile.cs" />
     <Compile Include="csBackupAndRestore.cs" />
     <Compile Include="Data\DataClass.cs" />
@@ -753,6 +759,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Cashier\studentreserve.resx">
       <DependentUpon>studentreserve.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Cashier\ViewDueDates.resx">
+      <DependentUpon>ViewDueDates.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Enrollment Admin\AddMiscellaneousFee.resx">
       <DependentUpon>AddMiscellaneousFee.cs</DependentUpon>

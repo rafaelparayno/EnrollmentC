@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using CST.Cashier;
 using CST.Models;
 using CST.Reports;
+using Microsoft.Vbe.Interop;
 
 namespace CST
 {
@@ -24,9 +25,14 @@ namespace CST
         TuitionFeeController tfController = new TuitionFeeController();
         MiscController mfController = new MiscController();
         StudentsDetailsController studentsDetailsController = new StudentsDetailsController();
+        EnrollScheduleController enrollSchedule = new EnrollScheduleController();
+        OrController orCon = new OrController();
         YearController yr = new YearController();
         OrController orController = new OrController();
+        StudentReserveController reserveController = new StudentReserveController();
         CultureInfo provider = CultureInfo.InvariantCulture;
+        string idRightClick = "";
+        string modRightClick = "";
         public Records()
         {
             InitializeComponent();
@@ -143,7 +149,8 @@ namespace CST
                 string fullname = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
                 string bdate = studentsDetailsController.searchAllDetails2(sno)[6];
                 string grade = studentsDetailsController.searchAllDetails2(sno)[12];
-                DateTime bdateDateForm = DateTime.ParseExact(bdate, "dd/MM/yyyy", provider);
+
+                //DateTime bdateDateForm = DateTime.ParseExact(bdate, "MM/dd/yyyy", provider);
                 string add = studentsDetailsController.searchAllDetails2(sno)[11];
                 string sex = studentsDetailsController.searchAllDetails2(sno)[4];
                 string fname = studFamController.getAllFamDetails(sno)[0];
@@ -164,7 +171,8 @@ namespace CST
                 string[] datas = new string[14];
                 datas[0] = fullname;
                 datas[1] = sno;
-                datas[2] = bdateDateForm.ToString("MMMM dd, yyyy");
+            datas[2] = "";
+           
                 datas[3] = add;
                 datas[4] = sex; 
                 datas[5] = fname;
@@ -188,7 +196,7 @@ namespace CST
             string fullname = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
             string bdate = studentsDetailsController.searchAllDetails2(sno,selectedYrid)[6];
             string grade = studentsDetailsController.searchAllDetails2(sno,selectedYrid)[12];
-            DateTime bdateDateForm = DateTime.ParseExact(bdate, "dd/MM/yyyy", provider);
+            DateTime bdateDateForm = DateTime.ParseExact(bdate, "MM/dd/yyyy", provider);
             string add = studentsDetailsController.searchAllDetails2(sno,selectedYrid)[11];
             string sex = studentsDetailsController.searchAllDetails2(sno,selectedYrid)[4];
             string fname = studFamController.getAllFamDetails(sno)[0];
@@ -288,6 +296,114 @@ namespace CST
             selectedYrid = yrids[comboBox1.SelectedIndex];
          
 
+        }
+
+        private void dataGridView1_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (comboBox3.SelectedIndex != 0)
+            {
+                return;
+            }
+                if (e.Button == MouseButtons.Right)
+            {
+                ContextMenu m = new ContextMenu();
+                m.MenuItems.Add(new MenuItem("View Due Date"));
+
+                int currentMouseOverRow = dataGridView1.HitTest(e.X, e.Y).RowIndex;
+
+
+                if (currentMouseOverRow >= 0)
+                {
+                    idRightClick = dataGridView1.Rows[currentMouseOverRow].Cells[0].Value.ToString();
+                    contextMenuStrip1.Show(dataGridView1, new Point(e.X, e.Y));
+                    modRightClick = dataGridView1.Rows[currentMouseOverRow].Cells[4].Value.ToString();
+                }
+                         
+            }
+
+        }
+
+        private void contextMenuStrip1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void viewDueDateToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+           
+            string endDate = enrollSchedule.getEnrollSched()[2];
+
+            string[] dues = setDueDates(endDate);
+            int tot = orCon.totalPaid(idRightClick);
+            tot = reserveController.checkReserve(idRightClick) ? tot -1 : tot;
+             MessageBox.Show(getDueDates(dues, tot, modRightClick));
+          
+        }
+
+
+        private string getDueDates(string[] dues,int tot,string mod)
+        {
+            string due = "";
+
+            switch (mod)
+            {
+                case "Fullpayment":
+                    due = "No Dues";
+                    break;
+                case "Semi-Annual":
+                    if(tot == 1)
+                    {
+                        due = dues[4];
+                    }
+                    else
+                    {
+                        due = "No Dues";
+                    }                   
+                    break;
+                case "Quarterly":
+                    if(tot == 4)
+                    {
+                        due = "No Dues";
+                    }
+                    else
+                    {
+                      
+                        due = dues[(tot * 3)-1];
+                    }
+                    break;
+                case "Monthly":
+                    if(tot == 10)
+                    {
+                        due = "No Dues";
+                    }
+                    else
+                    {
+                        due = dues[tot - 1];
+                    }
+                    break;
+            }
+
+
+            return due;
+        }
+
+        private string[] setDueDates( string dateEnd)
+        {
+            string[] duesDates = new string[9];
+            string duess;
+            DateTime date = DateTime.ParseExact(dateEnd, "dd/MM/yyyy", provider);
+       
+        
+
+           
+            for (int i = 0; i < 9; i++)
+            {
+                date = date.AddMonths(1);
+                duess = date.ToString("MMMM") + ", 15 " + date.ToString("yyyy");
+                duesDates[i] = duess;
+            }
+
+            return duesDates;
         }
     }
 }

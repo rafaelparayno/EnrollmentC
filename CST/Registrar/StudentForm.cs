@@ -484,7 +484,8 @@ namespace CST
 
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
         {
-            StudentModel.setBd(dateTimePicker1.Value.ToString().Split()[0]);
+            StudentModel.setBd(dateTimePicker1.Value.ToString("MM/dd/yyyy"));
+         
         }
 
         private void textBox24_TextChanged(object sender, EventArgs e)
