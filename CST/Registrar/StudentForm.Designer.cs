@@ -142,6 +142,7 @@
             this.label46 = new System.Windows.Forms.Label();
             this.label47 = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.cbPastLevel = new System.Windows.Forms.ComboBox();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.label21 = new System.Windows.Forms.Label();
             this.label26 = new System.Windows.Forms.Label();
@@ -159,7 +160,6 @@
             this.label51 = new System.Windows.Forms.Label();
             this.label52 = new System.Windows.Forms.Label();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.cbPastLevel = new System.Windows.Forms.ComboBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -1598,6 +1598,15 @@
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "School History";
             // 
+            // cbPastLevel
+            // 
+            this.cbPastLevel.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbPastLevel.FormattingEnabled = true;
+            this.cbPastLevel.Location = new System.Drawing.Point(730, 41);
+            this.cbPastLevel.Name = "cbPastLevel";
+            this.cbPastLevel.Size = new System.Drawing.Size(134, 24);
+            this.cbPastLevel.TabIndex = 254;
+            // 
             // dateTimePicker2
             // 
             this.dateTimePicker2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
@@ -1607,6 +1616,7 @@
             this.dateTimePicker2.ShowUpDown = true;
             this.dateTimePicker2.Size = new System.Drawing.Size(103, 26);
             this.dateTimePicker2.TabIndex = 151;
+            this.dateTimePicker2.ValueChanged += new System.EventHandler(this.dateTimePicker2_ValueChanged);
             // 
             // label21
             // 
@@ -1780,15 +1790,6 @@
             // 
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
-            // 
-            // cbPastLevel
-            // 
-            this.cbPastLevel.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbPastLevel.FormattingEnabled = true;
-            this.cbPastLevel.Location = new System.Drawing.Point(730, 41);
-            this.cbPastLevel.Name = "cbPastLevel";
-            this.cbPastLevel.Size = new System.Drawing.Size(134, 24);
-            this.cbPastLevel.TabIndex = 254;
             // 
             // StudentForm
             // 

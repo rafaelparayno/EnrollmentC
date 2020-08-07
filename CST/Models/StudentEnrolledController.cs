@@ -96,5 +96,25 @@ namespace CST.Models
             cs.CloseConnection();
             return grade;
         }
+
+        public int getLastSyidEnrolled(string sno)
+        {
+            int id = 0;
+
+            string sql = String.Format(@"SELECT * FROM `studentenrolledinfo` 
+                                    WHERE sno  = '{0}'
+                                    ORDER BY `studentenrolledinfo`.`sy_id` DESC", sno);
+            MySqlDataReader reader = null;
+
+            cs.RetrieveRecords(sql, ref reader);
+
+            if (reader.Read())
+            {
+                id = int.Parse(reader["sy_id"].ToString());
+            }
+            cs.CloseConnection();
+
+            return id;
+        }
     }
 }

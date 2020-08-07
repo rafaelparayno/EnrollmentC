@@ -25,16 +25,14 @@ namespace CST.Registrar
         int selectedSectIds = 0;
         SectionController sectionController = new SectionController();
         SchedSectionController schedSectionController = new SchedSectionController();
+        StudentGradesController StudentGradesController = new StudentGradesController();
       
         StudentEnrolledController studentEnrolledController = new StudentEnrolledController();
         public selectingGradeSectionSched(string studno, string name, string studentType)
         {
             InitializeComponent();
-            grades = DataClass.getAllGrade();
-            foreach (string grade in grades)
-            {
-                comboBox1.Items.Add(grade);
-            }
+
+          
             sno = studno;
             fn = name;
             label4.Text = "Student No: " + sno;
@@ -44,14 +42,35 @@ namespace CST.Registrar
             if (studentType == "New Student" || studentType == "Transferee Student")
             {
                 label7.Visible = false;
+                foreach (string grade in DataClass.getAllGrade())
+                {
+                    comboBox1.Items.Add(grade);
+                }
             }
             else
             {
                 label7.Visible = true;
                 string gradeLast = studentEnrolledController.getLastGraDe(studno);
-
+                int lastSyid = studentEnrolledController.getLastSyidEnrolled(studno);
                 label7.Text = label7.Text+ " "+  gradeLast;
+                int index = Array.IndexOf(DataClass.getAllGrade(), gradeLast);
+                int totalFailed = StudentGradesController.getTotalFailed(studno, lastSyid);
+             
+                if(totalFailed == 0)
+                {
+                    label8.Visible = false;
+                    for(int i = index; i < DataClass.getAllGrade().Length; i++)
+                    {
+                        comboBox1.Items.Add(DataClass.getAllGrade()[i]);
+                    }
+                }
+                else if(totalFailed >= 3)
+                {
+                    label8.Visible = true;
+                    label8.Text = "Number of Failed Subjects :" + totalFailed;
 
+                    comboBox1.Items.Add(DataClass.getAllGrade()[index]);
+                }
             }
         }
 

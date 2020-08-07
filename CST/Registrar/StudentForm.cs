@@ -178,7 +178,7 @@ namespace CST
                  
                     studFam.addFamDetails(StudentModel.getSno(), famDetails);
                     studHis.addHisDetails(StudentModel.getSno(), txtPastSchool.Text.Trim(), txtPastAdd.Text.Trim(), cbPastLevel.SelectedItem.ToString().Trim(),
-                                        dateTimePicker2.Value.ToShortDateString(), isVacinated, txtVaccination.Text.Trim());
+                                        dateTimePicker2.Value.ToString("MM/dd/yyyy"), isVacinated, txtVaccination.Text.Trim());
                     int[] reqIds = StudentModel.getReq_ids();
 
                     for (int i = 0; i < reqIds.Length; i++)
@@ -196,7 +196,7 @@ namespace CST
                                                                  studentDetails[10], studentDetails[11], StudentModel.getTypeStud(),sno);
                     studFam.updateFamDetails(famDetails, sno);
                     studHis.updateHisDetails(sno, txtPastSchool.Text.Trim(), txtPastAdd.Text.Trim(), cbPastLevel.SelectedItem.ToString().Trim(),
-                                            dateTimePicker2.Value.ToShortDateString(), isVacinated, txtVaccination.Text.Trim());
+                                            dateTimePicker2.Value.ToString("MM/dd/yyyy"), isVacinated, txtVaccination.Text.Trim());
                     int[] reqIds = StudentModel.getReq_ids();
 
                     for (int i = 0; i < reqIds.Length; i++)
@@ -386,7 +386,7 @@ namespace CST
                 textBox19.Text = studentDetails[5];
             
                 string bday = studentDetails[6].Split('/')[0] + "/" + studentDetails[6].Split('/')[1] + "/" + studentDetails[6].Split('/')[2];
-             //   MessageBox.Show(bday);
+                //   MessageBox.Show(bday);
                 DateTime bdate = DateTime.Parse(bday);
 
                 dateTimePicker1.Value = bdate;
@@ -862,6 +862,11 @@ namespace CST
         }
 
         private void txtStudentID_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dateTimePicker2_ValueChanged(object sender, EventArgs e)
         {
 
         }

@@ -166,5 +166,25 @@ namespace CST.Models
             cs.CloseConnection();
             return isValid;
         }
+
+        public int getTotalFailed(string sno,int syid)
+        {
+            int total = 0;
+
+            string sql = String.Format(@"SELECT COUNT(studentgrade_id) AS 'failedcount' 
+                                        FROM `student_grades` 
+                                        WHERE avg <75 AND sno = '{0}' AND SY_ID = {1}", sno,syid);
+            MySqlDataReader reader = null;
+
+            cs.RetrieveRecords(sql, ref reader);
+
+            if (reader.Read())
+            {
+                total = int.Parse(reader["failedcount"].ToString());
+            }
+            cs.CloseConnection();
+            //
+            return total;
+        }
     }
 }
