@@ -1602,6 +1602,8 @@
             // 
             this.cbPastLevel.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbPastLevel.FormattingEnabled = true;
+            this.cbPastLevel.Items.AddRange(new object[] {
+            "N/a"});
             this.cbPastLevel.Location = new System.Drawing.Point(730, 41);
             this.cbPastLevel.Name = "cbPastLevel";
             this.cbPastLevel.Size = new System.Drawing.Size(134, 24);

@@ -308,7 +308,7 @@ namespace CST
             bool isValid = true;
 
 
-            isValid = isValid && (cbPastLevel.SelectedItem.ToString() != "");
+            isValid = isValid && (cbPastLevel.SelectedIndex != -1);
             isValid = isValid && (txtPastSchool.Text != "");
           
 
@@ -433,7 +433,7 @@ namespace CST
 
                 txtPastSchool.Text = studHis.getHistStudent("STUD-" + txtStudentID.Text.Trim())[0];
                 txtPastAdd.Text = studHis.getHistStudent("STUD-" + txtStudentID.Text.Trim())[1];
-                cbPastLevel.Text = studHis.getHistStudent("STUD-" + txtStudentID.Text.Trim())[2];
+                cbPastLevel.SelectedItem = studHis.getHistStudent("STUD-" + txtStudentID.Text.Trim())[2];
                 dateTimePicker2.Value = DateTime.Parse(studHis.getHistStudent("STUD-" + txtStudentID.Text.Trim())[3]);
                 if (studHis.getHistStudent(txtStudentID.Text.Trim())[4] == "Yes")
                 {
