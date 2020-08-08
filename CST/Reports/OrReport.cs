@@ -57,7 +57,10 @@ namespace CST.Reports
             else
             {
                 double newTot = Math.Floor(tot);
+                int decplaces = (int)(((decimal)tot % 1) * 100);
+              
                 numWord = NumberToWords(int.Parse(newTot + ""));
+                numWord = decplaces > 0 ? numWord + getDecPlacesWord(decplaces) : numWord;
             }
 
 
@@ -165,6 +168,16 @@ namespace CST.Reports
             }
 
             return words;
+        }
+
+        private string getDecPlacesWord(int number)
+        {
+            string word = " and ";
+
+            string[] tensMap = new[] { "zero", "ten", "twenty", "thirty", "forty", "fifty", "sixty", "seventy", "eighty", "ninety" };
+
+            word += tensMap[number / 10];
+            return word + " Cents";
         }
     }
 }
