@@ -157,6 +157,41 @@ namespace CST.Models
             return sectionIds;
         }
 
+
+        public int[] fillComboSect3(ref ComboBox cb, string grade,int syid)
+        {
+            int[] sectionIds = { };
+
+            string sql = String.Format("SELECT sect_id,section_name FROM sections WHERE grade_level = '{0}' AND SY_ID ={1}",
+                grade, syid);
+
+            MySqlDataReader reader = null;
+            cs.RetrieveRecords(sql, ref reader);
+
+            int total = 0;
+            while (reader.Read())
+            {
+                cb.Items.Add(reader["section_name"].ToString());
+                total++;
+            }
+
+            cs.CloseConnection();
+
+            sectionIds = new int[total];
+
+            reader = null;
+
+            cs.RetrieveRecords(sql, ref reader);
+            int i = 0;
+            while (reader.Read())
+            {
+                sectionIds[i] = int.Parse(reader["sect_id"].ToString());
+                i++;
+            }
+            cs.CloseConnection();
+            return sectionIds;
+        }
+
         public int[] fillComboSect4(ref ComboBox cb, string grade,int yrid)
         {
             int[] sectionIds = { };

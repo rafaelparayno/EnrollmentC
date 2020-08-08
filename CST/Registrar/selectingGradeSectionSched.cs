@@ -59,7 +59,7 @@ namespace CST.Registrar
                 if(totalFailed == 0)
                 {
                     label8.Visible = false;
-                    for(int i = index; i < DataClass.getAllGrade().Length; i++)
+                    for(int i = index; i < DataClass.getAllGrade().Length-1; i++)
                     {
                         comboBox1.Items.Add(DataClass.getAllGrade()[i]);
                     }

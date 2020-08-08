@@ -81,6 +81,16 @@ namespace CST.Models
             cs.FillDataGrid(sql, ref dg);
         }
 
+        public void fillDataGridDetails(ref DataGridView dg, int yrid,string grade)
+        {
+            string sql = String.Format(@"SELECT  studentenrolledinfo.`sno`, `firstname`, `lastname`, `middlename`, `gender`, `age`, `birthdate`, 
+                                        `pob`, `contact_no`, `nationality`, `religion`, `address`,studentenrolledinfo.grade_level FROM student_detail 
+                                        LEFT JOIN studentenrolledinfo ON student_detail.sno = studentenrolledinfo.sno
+                                        WHERE studentenrolledinfo.sy_id = {0} AND studentenrolledinfo.grade_level = '{1}' AND studentenrolledinfo.is_Enrolled = 1", yrid,grade);
+
+            cs.FillDataGrid(sql, ref dg);
+        }
+
         public void fillDataGridDetails(ref DataGridView dg, string sno)
         {
             string sql = String.Format(@"SELECT  studentenrolledinfo.`sno`, `firstname`, `lastname`, `middlename`, `gender`, `age`, `birthdate`, 
