@@ -56,20 +56,21 @@ namespace CST.Registrar
                 int index = Array.IndexOf(DataClass.getAllGrade(), gradeLast);
                 int totalFailed = StudentGradesController.getTotalFailed(studno, lastSyid);
              
-                if(totalFailed == 0)
-                {
-                    label8.Visible = false;
-                    for(int i = index; i < DataClass.getAllGrade().Length-1; i++)
-                    {
-                        comboBox1.Items.Add(DataClass.getAllGrade()[i]);
-                    }
-                }
-                else if(totalFailed >= 3)
+                if(totalFailed >= 3)
                 {
                     label8.Visible = true;
                     label8.Text = "Number of Failed Subjects :" + totalFailed;
 
                     comboBox1.Items.Add(DataClass.getAllGrade()[index]);
+                   
+                }
+                else
+                {
+                    label8.Visible = false;
+                    for (int i = index; i < DataClass.getAllGrade().Length; i++)
+                    {
+                        comboBox1.Items.Add(DataClass.getAllGrade()[i]);
+                    }
                 }
             }
         }
