@@ -150,7 +150,7 @@ namespace CST
                 string bdate = studentsDetailsController.searchAllDetails2(sno)[6];
                 string grade = studentsDetailsController.searchAllDetails2(sno)[12];
 
-                //DateTime bdateDateForm = DateTime.ParseExact(bdate, "MM/dd/yyyy", provider);
+                DateTime bdateDateForm = DateTime.ParseExact(bdate, "MM/dd/yyyy", provider);
                 string add = studentsDetailsController.searchAllDetails2(sno)[11];
                 string sex = studentsDetailsController.searchAllDetails2(sno)[4];
                 string fname = studFamController.getAllFamDetails(sno)[0];
@@ -171,8 +171,8 @@ namespace CST
                 string[] datas = new string[14];
                 datas[0] = fullname;
                 datas[1] = sno;
-            datas[2] = "";
-           
+                datas[2] = bdateDateForm.ToString("MMMM dd, yyyy");
+
                 datas[3] = add;
                 datas[4] = sex; 
                 datas[5] = fname;
