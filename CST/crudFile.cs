@@ -23,7 +23,7 @@ namespace CST
 		//globalVariables global = new globalVariables();
 		public crudFile()
 		{
-			cnString = String.Format("SERVER={0};Database={1};Uid={2};Pwd={3}", SERVER, DATABASE, USERNAME, PASSWORD);
+			cnString = String.Format("SERVER={0};PORT=3306;Database={1};Uid={2};Pwd={3};Ssl Mode=none", SERVER, DATABASE, USERNAME, PASSWORD);
 			cn = new MySqlConnection(cnString);
           
 
