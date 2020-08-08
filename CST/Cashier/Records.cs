@@ -300,7 +300,7 @@ namespace CST
 
         private void dataGridView1_MouseClick(object sender, MouseEventArgs e)
         {
-            if (comboBox3.SelectedIndex != 0)
+            if (comboBox3.SelectedIndex == 1)
             {
                 return;
             }
