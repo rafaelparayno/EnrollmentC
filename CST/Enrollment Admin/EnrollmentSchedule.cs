@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using CST.Models;
 using CST.Enrollment_Admin.AddUpdateDiags;
+using System.Globalization;
 
 namespace CST
 {
@@ -18,6 +19,7 @@ namespace CST
         EnrollScheduleController en = new EnrollScheduleController();
         string OpenEnrollemnt = "";
         string[] dataEn = { };
+        CultureInfo provider = CultureInfo.InvariantCulture;
         public EnrollmentSchedule()
         {
             InitializeComponent();
@@ -102,8 +104,11 @@ namespace CST
            
             if (isdateStart)
             {
-                DateTime dateStart = DateTime.Parse(startdate);
-                DateTime dateEnd = DateTime.Parse(endDate);
+                //  DateTime dateStart = DateTime.Parse(startdate);
+
+                DateTime dateStart = DateTime.ParseExact(startdate, "dd/MM/yyyy", provider);
+                DateTime dateEnd = DateTime.ParseExact(endDate, "dd/MM/yyyy", provider);
+            
                 label3.Text = "Start Date :  " + dateStart.ToString("MMMM dd, yyyy");
                 label4.Text = "End Date :" + dateEnd.ToString("MMMM dd, yyyy");
             }
