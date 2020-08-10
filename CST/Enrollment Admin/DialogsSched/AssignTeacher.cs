@@ -59,6 +59,11 @@ namespace CST.Enrollment_Admin.DialogsSched
         {
             if(cbTeacher.SelectedIndex > -1)
             {
+                DateTime timeE = DateTime.Parse(timeEnd);
+                DateTime timeS = DateTime.Parse(timestart);
+
+                string formattedEnd = timeE.ToString("HH:mm:ss");
+                string formattedStart = timeS.ToString("HH:mm:ss");
                 if (!teacherSchedController.isConflictWithTheTime(timeEnd, timestart, int.Parse(idsTeacher[cbTeacher.SelectedIndex])))
                 {
                     TeacherName = cbTeacher.Text;
