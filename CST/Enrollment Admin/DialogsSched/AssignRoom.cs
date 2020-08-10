@@ -24,8 +24,8 @@ namespace CST.Enrollment_Admin.DialogsSched
         {
             InitializeComponent();
             //   r_ids = roomController.fillClassRoomAvail(ref comboBox1, te, ts);
-            DateTime timestart = DateTime.Parse(te);
-            DateTime timeEnd = DateTime.Parse(ts);
+            DateTime timestart = DateTime.Parse(ts);
+            DateTime timeEnd = DateTime.Parse(te);
             string teFormat = timeEnd.ToString("HH:mm:ss");
             string tsFormat = timestart.ToString("HH:mm:ss");
 

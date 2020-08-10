@@ -104,7 +104,7 @@ namespace CST.Models
             string sql = String.Format(@"SELECT CONCAT(classroom_type.name,' ',classroom_no) As RoomName,classroom_id FROM classroom 
                                         LEFT JOIN classroom_type ON classroom.classroom_type = classroom_type.classroom_type_id 
                                         WHERE classroom_id not in(SELECT classroom_id FROM sched_section WHERE timestamp_id in
-                                        (SELECT timestamp_id FROM timestamp WHERE start_time <= '{0}' AND end_time > '{1}') AND SY_id = {2})",
+                                        (SELECT timestamp_id FROM timestamp WHERE start_time < '{0}' AND end_time > '{1}') AND SY_id = {2})",
                                             te,ts,sy);
 
             MySqlDataReader reader = null;
@@ -130,6 +130,7 @@ namespace CST.Models
                 room_ids[i] = int.Parse(reader["classroom_id"].ToString());
                 i++;
             }
+           
             cs.CloseConnection();
             return room_ids;
         }
