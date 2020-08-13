@@ -306,8 +306,8 @@ namespace CST
             }
                 if (e.Button == MouseButtons.Right)
             {
-                ContextMenu m = new ContextMenu();
-                m.MenuItems.Add(new MenuItem("View Due Date"));
+                /*ContextMenu m = new ContextMenu();
+                m.MenuItems.Add(new MenuItem("View Due Date"))*/;
 
                 int currentMouseOverRow = dataGridView1.HitTest(e.X, e.Y).RowIndex;
 

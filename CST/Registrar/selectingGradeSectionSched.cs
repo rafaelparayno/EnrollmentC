@@ -67,7 +67,11 @@ namespace CST.Registrar
                 else
                 {
                     label8.Visible = false;
-                    for (int i = index; i < DataClass.getAllGrade().Length; i++)
+
+                    if (gradeLast == "Grade 10")
+                        return;
+
+                    for (int i = index + 1; i < DataClass.getAllGrade().Length; i++)
                     {
                         comboBox1.Items.Add(DataClass.getAllGrade()[i]);
                     }
