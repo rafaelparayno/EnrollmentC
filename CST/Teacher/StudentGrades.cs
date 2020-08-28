@@ -265,6 +265,7 @@ namespace CST
 
         private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
         {
+            comboBox2.Items.Clear();
             sectids = sectionController.fillComboSect4(ref comboBox2, teacherId,comboBox3.SelectedItem.ToString());
             comboBox2.Enabled = true;
         }
