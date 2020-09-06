@@ -22,6 +22,8 @@ namespace CST.Enrollment_Admin.AddUpdateDiags
         private int id;
         SubjectController subjectController = new SubjectController();
         SubjectTypeController SubjectTypeController = new SubjectTypeController();
+
+        AuditTrailControl auditTrail = new AuditTrailControl();
         public AddUpdateSubject()
         {
             InitializeComponent();
@@ -47,8 +49,9 @@ namespace CST.Enrollment_Admin.AddUpdateDiags
 
         private void AddUpdateSection_Load(object sender, EventArgs e)
         {
+            label3.Hide();
+            timer1.Start();
 
-          
             //cbGradeLevel.SelectedIndex = 0;
         }
 
@@ -61,16 +64,19 @@ namespace CST.Enrollment_Admin.AddUpdateDiags
                 if (!isEdited)
                 {
                     subjectController.addSubject(cbGradeLevel.SelectedItem.ToString(), textBox1.Text.Trim(),selectedSubjectType);
-                 
-                   
+                    auditTrail.addAudit(label3.Text, "Added " + textBox1.Text.Trim() +" Subject For " + cbGradeLevel.SelectedItem.ToString());
+
+
                 }
                 else
                 {
                     subjectController.updateSubjects(cbGradeLevel.SelectedItem.ToString(), textBox1.Text.Trim(),selectedSubjectType, id);
-                    MessageBox.Show("Succesfully Edited New Subject");
-                    
+                    MessageBox.Show("Succesfully Edit Subject");
+                    auditTrail.addAudit(label3.Text, "Edit Subject");
+
+
                 }
-                    this.Hide();
+                this.Hide();
 
             }
         }
@@ -113,6 +119,20 @@ namespace CST.Enrollment_Admin.AddUpdateDiags
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             selectedSubjectType = subjectTypeIds[comboBox1.SelectedIndex];
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            DateTime my = DateTimeOffset.Now.DateTime.ToLocalTime().ToUniversalTime();
+            DateTime mys = DateTimeOffset.Now.UtcDateTime.ToLocalTime();
+            label3.Text = my.ToString("MM/dd/yyyy  hh:mm:ss tt");
+            timer1.Enabled = true;
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

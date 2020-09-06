@@ -31,7 +31,7 @@ namespace CST
         loadingCashier loadingCashier = new loadingCashier();
      
         TuitionFeeController TuitionFeeController = new TuitionFeeController();
-
+        AuditTrailControl auditTrail = new AuditTrailControl();
         MiscController miscController = new MiscController();
         StudentBalance studentBalance = new StudentBalance();
         OrController orController = new OrController();
@@ -175,29 +175,30 @@ namespace CST
                                 neededToPay = balance / 9;
                                 neededToPay = Math.Round((Double)neededToPay, 2);
 
-                         /*   }
-                            else
-                            {
-                                if (double.Parse(textBox4.Text.ToString()) > total)
-                                {
-                                    MessageBox.Show("Cannot be greather than the total payment");
-                                    return;
-                                }
-                                else
-                                {
-                                    balance = total - double.Parse(textBox4.Text.ToString());
-                                    receivePayment = double.Parse(textBox4.Text.ToString());
-                                    receivePayment += reservationFee;
-                                    neededToPay = balance / 9;
-                                    neededToPay = Math.Round((Double)neededToPay, 2);
-                                }
+                            /*   }
+                               else
+                               {
+                                   if (double.Parse(textBox4.Text.ToString()) > total)
+                                   {
+                                       MessageBox.Show("Cannot be greather than the total payment");
+                                       return;
+                                   }
+                                   else
+                                   {
+                                       balance = total - double.Parse(textBox4.Text.ToString());
+                                       receivePayment = double.Parse(textBox4.Text.ToString());
+                                       receivePayment += reservationFee;
+                                       neededToPay = balance / 9;
+                                       neededToPay = Math.Round((Double)neededToPay, 2);
+                                   }
 
-                            }*/
-                           
+                               }*/
+                            
                             break;
 
                     }
-                   studentBalance.addBalance(sno, balance, mod, neededToPay,receivePayment,totalDisc,receivePayment);
+                    auditTrail.addAudit(label11.Text, textBox2.Text.Trim() + " Paid Tuition Fee");
+                    studentBalance.addBalance(sno, balance, mod, neededToPay,receivePayment,totalDisc,receivePayment);
 
                     StudentEnrolledController.updateEnrolled(sno);
                     textBox10.Text = String.Format("PHP " + "{0:0.00}", change);

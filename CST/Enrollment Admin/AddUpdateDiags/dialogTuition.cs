@@ -15,6 +15,7 @@ namespace CST.Enrollment_Admin.AddUpdateDiags
     public partial class dialogTuition : Form
     {
         TuitionFeeController tf = new TuitionFeeController();
+        AuditTrailControl auditTrail = new AuditTrailControl();
         bool isEdited = false;
         string grade, tfee, mode;
         int id;
@@ -42,7 +43,8 @@ namespace CST.Enrollment_Admin.AddUpdateDiags
 
         private void dialogTuition_Load(object sender, EventArgs e)
         {
-          
+            label3.Hide();
+            timer1.Start();
         }
 
         private bool validation()
@@ -71,12 +73,15 @@ namespace CST.Enrollment_Admin.AddUpdateDiags
                 {
                     tf.updateTuition(comboBox2.SelectedItem.ToString(), double.Parse(textBox1.Text), comboBox1.SelectedItem.ToString(), id);
                     MessageBox.Show("Succesfully Updated");
+                    auditTrail.addAudit(label3.Text, "Updated "+ comboBox2.SelectedItem.ToString()+ " Tuition Fee" );
+
                     this.Hide();
                 }
                 else
                 {
                     tf.addTuition(comboBox2.SelectedItem.ToString(), double.Parse(textBox1.Text),
                            comboBox1.SelectedItem.ToString());
+                    auditTrail.addAudit(label3.Text, "Added" + comboBox2.SelectedItem.ToString() + " Tuition Fee");
 
                     this.Hide();
                 }
@@ -95,6 +100,20 @@ namespace CST.Enrollment_Admin.AddUpdateDiags
         }
 
         private void textBox1_KeyDown(object sender, KeyEventArgs e)
+        {
+
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            DateTime my = DateTimeOffset.Now.DateTime.ToLocalTime().ToUniversalTime();
+            DateTime mys = DateTimeOffset.Now.UtcDateTime.ToLocalTime();
+            label3.Text = my.ToString("MM/dd/yyyy  hh:mm:ss tt");
+            timer1.Enabled = true;
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
         {
 
         }

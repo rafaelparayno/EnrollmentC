@@ -50,6 +50,7 @@
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.button4 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbClose)).BeginInit();
@@ -119,11 +120,11 @@
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button3.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button3.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.button3.Location = new System.Drawing.Point(488, 588);
+            this.button3.Location = new System.Drawing.Point(363, 585);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(102, 32);
             this.button3.TabIndex = 312;
-            this.button3.Text = "Add";
+            this.button3.Text = "Submit";
             this.button3.UseVisualStyleBackColor = false;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
@@ -134,7 +135,7 @@
             this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button5.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button5.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.button5.Location = new System.Drawing.Point(608, 588);
+            this.button5.Location = new System.Drawing.Point(483, 585);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(102, 32);
             this.button5.TabIndex = 314;
@@ -181,6 +182,10 @@
             this.label2.Size = new System.Drawing.Size(149, 16);
             this.label2.TabIndex = 316;
             this.label2.Text = "List of Requirements";
+            // 
+            // timer1
+            // 
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // pbClose
             // 
@@ -251,7 +256,7 @@
             this.comboBox1.IntegralHeight = false;
             this.comboBox1.ItemHeight = 20;
             this.comboBox1.Items.AddRange(new object[] {
-            "*",
+            "All",
             "SNO",
             "Name"});
             this.comboBox1.Location = new System.Drawing.Point(12, 117);
@@ -270,7 +275,7 @@
             this.cbType.IntegralHeight = false;
             this.cbType.ItemHeight = 20;
             this.cbType.Items.AddRange(new object[] {
-            "*",
+            "All",
             "Old Student",
             "New Student",
             "Transferee Student",
@@ -279,6 +284,7 @@
             this.cbType.Name = "cbType";
             this.cbType.Size = new System.Drawing.Size(514, 28);
             this.cbType.TabIndex = 325;
+            this.cbType.SelectedIndexChanged += new System.EventHandler(this.cbType_SelectedIndexChanged);
             // 
             // radioButton2
             // 
@@ -304,6 +310,20 @@
             this.radioButton1.Text = "Submitted";
             this.radioButton1.UseVisualStyleBackColor = true;
             // 
+            // button4
+            // 
+            this.button4.BackColor = System.Drawing.Color.DarkSeaGreen;
+            this.button4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button4.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button4.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.button4.Location = new System.Drawing.Point(602, 585);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(102, 32);
+            this.button4.TabIndex = 324;
+            this.button4.Text = "Print ";
+            this.button4.UseVisualStyleBackColor = false;
+            // 
             // ListRequirements
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -311,6 +331,7 @@
             this.BackgroundImage = global::CST.Properties.Resources.b;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(724, 632);
+            this.Controls.Add(this.button4);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.pbClose);
             this.Controls.Add(this.label7);
@@ -358,5 +379,6 @@
         private System.Windows.Forms.RadioButton radioButton1;
         public System.Windows.Forms.ComboBox cbType;
         public System.Windows.Forms.ComboBox comboBox1;
+        public System.Windows.Forms.Button button4;
     }
 }

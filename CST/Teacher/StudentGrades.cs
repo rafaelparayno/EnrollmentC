@@ -22,8 +22,9 @@ namespace CST
         SubjectController subjectController = new SubjectController();
         StudentGradesController gradesController = new StudentGradesController();
         SectionController sectionController = new SectionController();
+        AuditTrailControl auditTrail = new AuditTrailControl();
 
-        int [] subjectids = { };
+        int[] subjectids = { };
         int[] sectids = { };
         int teacherId = 0;
         int selectedSectionId = 0;
@@ -54,19 +55,17 @@ namespace CST
 
         private void StudentGrades_Load(object sender, EventArgs e)
         {
-            
+            label11.Hide();
+            timer1.Start();
         }
 
         private void timer1_Tick(object sender, EventArgs e)
         {
             DateTime my = DateTimeOffset.Now.DateTime.ToLocalTime().ToUniversalTime();
-
-
             DateTime mys = DateTimeOffset.Now.UtcDateTime.ToLocalTime();
-
-
-
+            label11.Text = my.ToString("MM/dd/yyyy  hh:mm:ss tt");
             timer1.Enabled = true;
+
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -190,7 +189,7 @@ namespace CST
             }
             else
             {
-                MessageBox.Show("Please Click the row you wanted to edit");
+                MessageBox.Show("Please select the row you wanted to edit");
             }
         }
 
@@ -214,6 +213,7 @@ namespace CST
                     gradesController.deleteGrade(listView1.SelectedItems[0].SubItems[0].Text,
                                            selectedSubId, selectedSectionId, teacherId);
                     MessageBox.Show("Succesfully Remove Selected Student Grade");
+                    auditTrail.addAudit(label11.Text, "Removed Student Grade");
                     refreshGrid();
 
                 }
@@ -265,6 +265,7 @@ namespace CST
 
         private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
         {
+            comboBox2.Items.Clear();
             sectids = sectionController.fillComboSect4(ref comboBox2, teacherId,comboBox3.SelectedItem.ToString());
             comboBox2.Enabled = true;
         }

@@ -18,6 +18,7 @@ namespace CST.Cashier
         StudentReserveController studentReserveController = new StudentReserveController();
         YearController YearController = new YearController();
         OrController orController = new OrController();
+        AuditTrailControl auditTrail = new AuditTrailControl();
         bool isValid = false;
         string sno = "";
         int orno = 0;
@@ -89,6 +90,7 @@ namespace CST.Cashier
 
                         textBox1.Text = "";
                         sno = "";
+                        auditTrail.addAudit(label11.Text, textBox2.Text.Trim() + " Paid Reservation");
                     }
                     else
                     {
@@ -109,6 +111,27 @@ namespace CST.Cashier
             }
 
             //studentReserveController.addReservation(textbo)
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            DateTime my = DateTimeOffset.Now.DateTime.ToLocalTime().ToUniversalTime();
+            DateTime mys = DateTimeOffset.Now.UtcDateTime.ToLocalTime();
+            label11.Text = my.ToString("MM/dd/yyyy  hh:mm:ss tt");
+            timer1.Enabled = true;
+
+        }
+
+        private void label11_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void studentreserve_Load(object sender, EventArgs e)
+        {
+            label11.Hide();
+            timer1.Start();
+
         }
     }
 }

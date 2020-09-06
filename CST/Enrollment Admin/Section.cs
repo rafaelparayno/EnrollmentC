@@ -17,7 +17,7 @@ namespace CST
 {
     public partial class Section : Form
     {
-
+        AuditTrailControl auditTrail = new AuditTrailControl();
         SectionController sectionController = new SectionController();
         YearController yr = new YearController();
 
@@ -99,6 +99,7 @@ namespace CST
                                                     yr.getSchoolYearId());
 
                     MessageBox.Show("Succesfully Remove a section");
+                    auditTrail.addAudit(label7.Text, "Remove Section");
                     refreshGrid();
                 }
             }

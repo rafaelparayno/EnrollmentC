@@ -15,6 +15,7 @@ namespace CST.Enrollment_Admin.AddUpdateDiags
     public partial class diagMisc : Form
     {
         MiscController misc = new MiscController();
+        AuditTrailControl auditTrail = new AuditTrailControl();
 
         bool isEdited = false;
    
@@ -42,7 +43,9 @@ namespace CST.Enrollment_Admin.AddUpdateDiags
 
         private void diagMisc_Load(object sender, EventArgs e)
         {
-            
+
+            label5.Hide();
+            timer1.Start();
 
         }
 
@@ -55,11 +58,13 @@ namespace CST.Enrollment_Admin.AddUpdateDiags
                 if (isEdited)
                 {
                     misc.updateMisc(textBox1.Text.Trim(), double.Parse(textBox2.Text.ToString()), comboBox2.SelectedItem.ToString(), id);
+                    auditTrail.addAudit(label5.Text, "Updated " + comboBox2.SelectedItem.ToString() + " Miscellaneous Fee");
                     MessageBox.Show("Succesfully Update Misc");
                 }
                 else
                 {
                     misc.addMisc(textBox1.Text.Trim(), double.Parse(textBox2.Text.ToString()), comboBox2.SelectedItem.ToString());
+                    auditTrail.addAudit(label5.Text, "Added " + comboBox2.SelectedItem.ToString() + " Miscellaneous Fee");
                     MessageBox.Show("Succesfully Added A new Misc");
                 }
 
@@ -100,6 +105,20 @@ namespace CST.Enrollment_Admin.AddUpdateDiags
             {
                 comboBox2.Items.Add(items);
             }
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            DateTime my = DateTimeOffset.Now.DateTime.ToLocalTime().ToUniversalTime();
+            DateTime mys = DateTimeOffset.Now.UtcDateTime.ToLocalTime();
+            label5.Text = my.ToString("MM/dd/yyyy  hh:mm:ss tt");
+            timer1.Enabled = true;
+
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

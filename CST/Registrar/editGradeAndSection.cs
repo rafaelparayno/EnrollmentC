@@ -14,7 +14,7 @@ namespace CST.Registrar
 {
     public partial class editGradeAndSection : Form
     {
-
+        AuditTrailControl auditTrail = new AuditTrailControl();
         StudentEnrolledController studentEnrolledController = new StudentEnrolledController();
         SectionController sectionController = new SectionController();
         int selectedSectIds = 0;
@@ -62,7 +62,7 @@ namespace CST.Registrar
             if (isValid())
             {
                 studentEnrolledController.updateSectionGrade(sno, comboBox1.SelectedItem.ToString(), selectedSectIds);
-
+                auditTrail.addAudit(label7.Text, "Update Student Section");
                 MessageBox.Show("Succesfully Updated Grade and Section");
                 this.Hide();
             }
@@ -132,6 +132,27 @@ namespace CST.Registrar
             }
 
             return isChange;
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            DateTime my = DateTimeOffset.Now.DateTime.ToLocalTime().ToUniversalTime();
+            DateTime mys = DateTimeOffset.Now.UtcDateTime.ToLocalTime();
+            label7.Text = my.ToString("MM/dd/yyyy  hh:mm:ss tt");
+            timer1.Enabled = true;
+
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void editGradeAndSection_Load(object sender, EventArgs e)
+        {
+            label7.Hide();
+            timer1.Start();
+
         }
     }
 }

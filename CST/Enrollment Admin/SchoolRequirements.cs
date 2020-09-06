@@ -16,7 +16,7 @@ namespace CST
 {
     public partial class SchoolRequirements : Form
     {
-
+        AuditTrailControl auditTrail = new AuditTrailControl();
         SchoolRequirementsController schoolRequirementsController = new SchoolRequirementsController();
         private int schoolYrId = 0;
         YearController yearController = new YearController();
@@ -100,6 +100,7 @@ namespace CST
                 {
                     schoolRequirementsController.removeSchoolReq(int.Parse(dataGridView1.SelectedRows[0].Cells[0].Value.ToString()));
                     MessageBox.Show("Succesfully Remove Requirements");
+                    auditTrail.addAudit(label7.Text, "Remove Requirements");
                     refreshGrid();
                 }
             }

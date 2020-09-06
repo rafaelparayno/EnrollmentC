@@ -16,6 +16,7 @@ namespace CST.Registrar
         SchoolRequirementsController schoolRequirements = new SchoolRequirementsController();
         StudentsDetailsController studentsDetails = new StudentsDetailsController();
         StudentRequirementController studentRequirementController = new StudentRequirementController();
+        AuditTrailControl auditTrail = new AuditTrailControl();
         string sno = "";
         string name = "";
         string studType = "";
@@ -83,6 +84,7 @@ namespace CST.Registrar
                 if (!studentRequirementController.findSame(sno, selectedReqId))
                 {
                     studentRequirementController.addStudentReq(sno,  selectedReqId);
+                    auditTrail.addAudit(label7.Text, name + "Submit " +comboBox2.SelectedItem.ToString());
                     this.Hide();
                 }
                 else
@@ -99,6 +101,17 @@ namespace CST.Registrar
 
         private void addRequirements_Load(object sender, EventArgs e)
         {
+            label7.Hide();
+            timer1.Start();
+
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            DateTime my = DateTimeOffset.Now.DateTime.ToLocalTime().ToUniversalTime();
+            DateTime mys = DateTimeOffset.Now.UtcDateTime.ToLocalTime();
+            label7.Text = my.ToString("MM/dd/yyyy  hh:mm:ss tt");
+            timer1.Enabled = true;
 
         }
     }

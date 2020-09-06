@@ -20,6 +20,8 @@ namespace CST
 
         YearController yr = new YearController();
         RoomController rm = new RoomController();
+        AuditTrailControl auditTrail = new AuditTrailControl();
+
         private int syid = 0;
         public Classroom()
         {
@@ -126,6 +128,8 @@ namespace CST
                 {
                     rm.removeRoom(int.Parse(dataGridView1.SelectedRows[0].Cells[0].Value.ToString()));
                     MessageBox.Show("Succesfully Remove Room");
+                    auditTrail.addAudit(label7.Text, "Remove Room");
+
                     refreshGrid();
                 }
             }

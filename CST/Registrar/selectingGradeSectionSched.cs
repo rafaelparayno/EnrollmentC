@@ -26,7 +26,7 @@ namespace CST.Registrar
         SectionController sectionController = new SectionController();
         SchedSectionController schedSectionController = new SchedSectionController();
         StudentGradesController StudentGradesController = new StudentGradesController();
-      
+        AuditTrailControl auditTrail = new AuditTrailControl();
         StudentEnrolledController studentEnrolledController = new StudentEnrolledController();
         public selectingGradeSectionSched(string studno, string name, string studentType)
         {
@@ -81,7 +81,9 @@ namespace CST.Registrar
 
         private void selectingGradeSectionSched_Load(object sender, EventArgs e)
         {
-           
+            label44.Hide();
+            timer1.Start();
+
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -99,7 +101,7 @@ namespace CST.Registrar
             schedSectionController.fillListSched(ref listView1, selectedSectIds);
             countTotalStuds = sectionController.totalStudentInSections(selectedSectIds);
             caps = sectionController.getCapacity(selectedSectIds);
-            caps--;
+            //caps--;
             if(caps> countTotalStuds)
             {
                 button1.Enabled = true;
@@ -129,6 +131,7 @@ namespace CST.Registrar
                 RegistrarForm frm = new RegistrarForm();
                 frm.Show();
                 MessageBox.Show("Succesfully Added Student section and grade");
+                auditTrail.addAudit(label44.Text, fn + " Register");
             }
             else
             {
@@ -198,6 +201,15 @@ namespace CST.Registrar
 
         private void label6_Click(object sender, EventArgs e)
         {
+
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            DateTime my = DateTimeOffset.Now.DateTime.ToLocalTime().ToUniversalTime();
+            DateTime mys = DateTimeOffset.Now.UtcDateTime.ToLocalTime();
+            label44.Text = my.ToString("MM/dd/yyyy  hh:mm:ss tt");
+            timer1.Enabled = true;
 
         }
     }

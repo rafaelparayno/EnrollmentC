@@ -16,6 +16,7 @@ namespace CST.Teacher
 
         StudentsDetailsController studentsDetailsController = new StudentsDetailsController();
         StudentGradesController gradesController = new StudentGradesController();
+        AuditTrailControl auditTrail = new AuditTrailControl();
         public string sno = "";
         public string StudName = "";
         public double g1 = 65;
@@ -95,7 +96,7 @@ namespace CST.Teacher
                 
                gradesController.addStudentGrade(sno, g1, g2, g3, g4, avg, subj, sect, teacher);
 
-                
+                auditTrail.addAudit(label11.Text, "Input " + textBox2.Text.Trim()+ "Grades");
                 MessageBox.Show("Succesfully Save Grade");
 
                 this.Hide();
@@ -148,6 +149,21 @@ namespace CST.Teacher
 
 
             return isValid;
+        }
+
+        private void addGradeStudent_Load(object sender, EventArgs e)
+        {
+            label11.Hide();
+            timer1.Start();
+
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            DateTime my = DateTimeOffset.Now.DateTime.ToLocalTime().ToUniversalTime();
+            DateTime mys = DateTimeOffset.Now.UtcDateTime.ToLocalTime();
+            label11.Text = my.ToString("MM/dd/yyyy  hh:mm:ss tt");
+            timer1.Enabled = true;
         }
     }
 }

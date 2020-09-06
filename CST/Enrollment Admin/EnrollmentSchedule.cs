@@ -15,7 +15,7 @@ namespace CST
 {
     public partial class EnrollmentSchedule : Form
     {
-
+        AuditTrailControl auditTrail = new AuditTrailControl();
         EnrollScheduleController en = new EnrollScheduleController();
         string OpenEnrollemnt = "";
         string[] dataEn = { };
@@ -146,11 +146,13 @@ namespace CST
             {
                 en.updateOpenEn();
                 MessageBox.Show("Open Enrollment");
+                auditTrail.addAudit(label7.Text, "Closed Enrollment");
             }
             else if(OpenEnrollemnt == "Open")
             {
                 en.updateCloseEn();
                 MessageBox.Show("Closed Enrollment");
+                auditTrail.addAudit(label7.Text, "Open Enrollment");
             }
             refreshData();
         }

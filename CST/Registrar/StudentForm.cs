@@ -22,8 +22,8 @@ namespace CST
         StudFamDetailsController studFam = new StudFamDetailsController();
         StudHistDetailsController studHis = new StudHistDetailsController();
         StudentRequirementController studReq = new StudentRequirementController();
-        
-       // StudentEnrolledController studentEnrolledController = new StudentEnrolledController();
+        AuditTrailControl auditTrail = new AuditTrailControl();
+        // StudentEnrolledController studentEnrolledController = new StudentEnrolledController();
         bool isUpdate = false;
         string sno = "";
         string[] studentDetails = new string[13];
@@ -204,6 +204,7 @@ namespace CST
                         studReq.addStudentReq(sno, reqIds[i]);
 
                     }
+                    auditTrail.addAudit(label44.Text, "Update Student Data " + txtStudentID.Text.Trim() );
                 }
 
                 
@@ -586,7 +587,6 @@ namespace CST
                     errorHandlingIsEmpty(ref txtMiddlename, "Enter Middlename");
                     errorHandlingIsEmpty(ref txtFirstname, "Enter Firstname");
                     errorHandlingIsEmpty(ref textBox19, "Enter Age");
-          
                     errorHandlingIsEmpty(ref txtNationality, "Enter Nationality");
                     errorHandlingIsEmpty(ref txtReligion, "Enter Religion");
                     errorHandlingIsEmpty(ref txtPOB, "Enter Place of birth");

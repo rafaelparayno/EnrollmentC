@@ -15,7 +15,8 @@ namespace CST.Registrar
     {
 
         StudentRequirementController studentRequirementController = new StudentRequirementController();
-        
+        AuditTrailControl auditTrail = new AuditTrailControl();
+
         public ListRequirements()
         {
             InitializeComponent();
@@ -24,6 +25,7 @@ namespace CST.Registrar
         private void ListRequirements_Load(object sender, EventArgs e)
         {
             label7.Hide();
+            timer1.Start();
             refreshGrid();
             cbType.SelectedIndex = 0;
             comboBox1.SelectedIndex = 0;
@@ -61,9 +63,12 @@ namespace CST.Registrar
 
             if (form1 == DialogResult.Yes)
             {
-
                 studentRequirementController.removeReq(int.Parse(dataGridView1.SelectedRows[0].Cells[0].Value.ToString()));
                 refreshGrid();
+                auditTrail.addAudit(label7.Text, "Removed Student Requirement");
+
+
+
             }
         }
 
@@ -219,6 +224,20 @@ namespace CST.Registrar
 
         private void groupBox1_Enter(object sender, EventArgs e)
         {
+
+        }
+
+        private void cbType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            DateTime my = DateTimeOffset.Now.DateTime.ToLocalTime().ToUniversalTime();
+            DateTime mys = DateTimeOffset.Now.UtcDateTime.ToLocalTime();
+            label7.Text = my.ToString("MM/dd/yyyy  hh:mm:ss tt");
+            timer1.Enabled = true;
 
         }
     }

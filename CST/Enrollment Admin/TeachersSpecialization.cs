@@ -14,6 +14,8 @@ namespace CST
     public partial class TeachersSpecialization : Form
     {
         SpecializationController specialization = new SpecializationController();
+        AuditTrailControl auditTrail = new AuditTrailControl();
+
         public TeachersSpecialization()
         {
             InitializeComponent();
@@ -81,6 +83,7 @@ namespace CST
 
                     specialization.removeTeacher(int.Parse(dataGridView1.SelectedRows[0].Cells[0].Value.ToString()));
                     MessageBox.Show("Succesfully Remove Data");
+                    auditTrail.addAudit(label7.Text, "Remove Teacher Specialization");
                     refreshGrid();
                 }
             }

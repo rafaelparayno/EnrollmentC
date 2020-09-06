@@ -15,6 +15,7 @@ namespace CST.Enrollment_Admin
     public partial class SubjectType : Form
     {
         SubjectTypeController subjectTypeController = new SubjectTypeController();
+        AuditTrailControl auditTrail = new AuditTrailControl();
         public SubjectType()
         {
             InitializeComponent();
@@ -23,6 +24,9 @@ namespace CST.Enrollment_Admin
         private void SubjectType_Load(object sender, EventArgs e)
         {
             fillGrid();
+            label7.Hide();
+            timer1.Start();
+
         }
 
         private void fillGrid()
@@ -65,6 +69,7 @@ namespace CST.Enrollment_Admin
                 {
                     subjectTypeController.removeSubjectType(int.Parse(dataGridView1.SelectedRows[0].Cells[0].Value.ToString()));
                     MessageBox.Show("Succesfully Remove Data");
+                    auditTrail.addAudit(label7.Text, "Remove Subject Type");
                 }
 
                 //frm.ShowDialog();
@@ -78,6 +83,15 @@ namespace CST.Enrollment_Admin
             Facilities frm = new Facilities();
             frm.Show();
             this.Hide();
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            DateTime my = DateTimeOffset.Now.DateTime.ToLocalTime().ToUniversalTime();
+            DateTime mys = DateTimeOffset.Now.UtcDateTime.ToLocalTime();
+            label7.Text = my.ToString("MM/dd/yyyy  hh:mm:ss tt");
+            timer1.Enabled = true;
+
         }
     }
 }

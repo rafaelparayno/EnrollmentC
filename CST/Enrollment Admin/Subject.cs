@@ -16,7 +16,7 @@ namespace CST
 {
     public partial class Subject : Form
     {
-
+        AuditTrailControl auditTrail = new AuditTrailControl();
         SubjectController SubjectController = new SubjectController();
         YearController YearController = new YearController();
         public Subject(string a, string b, string c)
@@ -106,6 +106,7 @@ namespace CST
                     SubjectController.removeSubjects(int.Parse(dataGridView1.SelectedRows[0].Cells[0].Value.ToString()));
 
                     MessageBox.Show("Succesfully Remove Selected Subject");
+                    auditTrail.addAudit(label7.Text, "Remove Subject");
                     refreshGrid();
                 }
             }

@@ -17,6 +17,7 @@ namespace CST
         SpecializationController specializationController = new SpecializationController();
         SubjectTypeController SubjectTypeController = new SubjectTypeController();
         SubjectController subj = new SubjectController();
+        AuditTrailControl auditTrail = new AuditTrailControl();
         private string[] user_ids = { };
         private string selectedId = "";
         private int[] subjectsids = { };
@@ -82,6 +83,8 @@ namespace CST
             {
                 specializationController.addSpecialization(selectedId,cbType.SelectedItem.ToString(),selectedSubIds);
                 MessageBox.Show("Succesfully Assign a teacher");
+                auditTrail.addAudit(label7.Text, "Assign Teacher");
+
                 this.Hide();
             }
         }

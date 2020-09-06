@@ -16,6 +16,8 @@ namespace CST.Enrollment_Admin.AddUpdateDiags
 
         YearController yearController = new YearController();
         EnrollScheduleController en = new EnrollScheduleController();
+        AuditTrailControl auditTrail = new AuditTrailControl();
+
         public addEnrollmentSched()
         {
             InitializeComponent();
@@ -37,14 +39,31 @@ namespace CST.Enrollment_Admin.AddUpdateDiags
         private void button3_Click(object sender, EventArgs e)
         {
             en.addEnrollmentSchedul(dateTimePicker1.Value.ToString("dd/MM/yyyy"), dateTimePicker2.Value.ToString("dd/MM/yyyy"));
+            auditTrail.addAudit(label3.Text, "Enrollment Schedule Starts On "+ dateTimePicker1.Value.ToString("dd/MM/yyyy") +" Ends On " + dateTimePicker2.Value.ToString("dd/MM/yyyy"));
             MessageBox.Show("Succesfully Save Date");
             this.Hide();
         }
 
         private void addEnrollmentSched_Load(object sender, EventArgs e)
         {
+            label3.Hide();
+            timer1.Start();
 
             dateTimePicker2.MinDate = dateTimePicker2.Value;
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            DateTime my = DateTimeOffset.Now.DateTime.ToLocalTime().ToUniversalTime();
+            DateTime mys = DateTimeOffset.Now.UtcDateTime.ToLocalTime();
+            label3.Text = my.ToString("MM/dd/yyyy  hh:mm:ss tt");
+            timer1.Enabled = true;
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

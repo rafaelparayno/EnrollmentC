@@ -21,6 +21,7 @@ namespace CST.Enrollment_Admin.PanelSched
         public string timestamp = "";
         SectionController sectionController = new SectionController();
         SubjectController subjectController = new SubjectController();
+        AuditTrailControl auditTrail = new AuditTrailControl();
 
         List<DateTime> timestampStart = new List<DateTime>();
         List<DateTime> timestampEnd = new List<DateTime>();
@@ -52,7 +53,9 @@ namespace CST.Enrollment_Admin.PanelSched
         }
         private void PanelScheduling_Load(object sender, EventArgs e)
         {
-          
+            label7.Hide();
+            timer1.Start();
+
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -250,6 +253,8 @@ namespace CST.Enrollment_Admin.PanelSched
                     int sect = sect_id;
                     schedSectionController.saveSchedSection(ts_id, subss_id, teach_id, c_id, sect);
                 }
+                    auditTrail.addAudit(label7.Text, "Save Schedule");
+
 
             }
             else
@@ -357,6 +362,15 @@ namespace CST.Enrollment_Admin.PanelSched
             timeStampId.Clear();
             listBox1.Items.Clear();
             fillListBox();
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            DateTime my = DateTimeOffset.Now.DateTime.ToLocalTime().ToUniversalTime();
+            DateTime mys = DateTimeOffset.Now.UtcDateTime.ToLocalTime();
+            label7.Text = my.ToString("MM/dd/yyyy  hh:mm:ss tt");
+            timer1.Enabled = true;
+
         }
     }
 }

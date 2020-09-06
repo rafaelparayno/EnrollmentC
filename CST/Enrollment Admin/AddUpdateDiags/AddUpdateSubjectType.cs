@@ -15,6 +15,8 @@ namespace CST.Enrollment_Admin.AddUpdateDiags
     {
 
         SubjectTypeController subjectTypeController = new SubjectTypeController();
+        AuditTrailControl auditTrail = new AuditTrailControl();
+
         bool isEdited = false;
         string name = "";
         int id = 0;
@@ -36,6 +38,8 @@ namespace CST.Enrollment_Admin.AddUpdateDiags
 
         private void AddUpdateSubjectType_Load(object sender, EventArgs e)
         {
+            label3.Hide();
+            timer1.Start();
 
         }
 
@@ -46,15 +50,31 @@ namespace CST.Enrollment_Admin.AddUpdateDiags
                 if (isEdited)
                 {
                     subjectTypeController.updateSubjectType(textBox1.Text.Trim(), id);
-                    
+                    auditTrail.addAudit(label3.Text,"Update Subject Type");
+
                 }
                 else
                 {
                     subjectTypeController.addSubjectType(textBox1.Text.Trim());
+                    auditTrail.addAudit(label3.Text, "Add Subject Type " + textBox1.Text.Trim());
                 }
                 this.Hide();
            
             }
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            DateTime my = DateTimeOffset.Now.DateTime.ToLocalTime().ToUniversalTime();
+            DateTime mys = DateTimeOffset.Now.UtcDateTime.ToLocalTime();
+            label3.Text = my.ToString("MM/dd/yyyy  hh:mm:ss tt");
+            timer1.Enabled = true;
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
