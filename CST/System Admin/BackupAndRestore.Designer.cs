@@ -46,6 +46,7 @@
             this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.btn_Refresh = new System.Windows.Forms.Button();
             this.datePick_Logs = new System.Windows.Forms.DateTimePicker();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.panel4.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -253,6 +254,12 @@
             this.datePick_Logs.TabIndex = 1045;
             this.datePick_Logs.ValueChanged += new System.EventHandler(this.datePick_Logs_ValueChanged);
             // 
+            // backgroundWorker1
+            // 
+            this.backgroundWorker1.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker1_DoWork);
+            this.backgroundWorker1.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.backgroundWorker1_ProgressChanged);
+            this.backgroundWorker1.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.backgroundWorker1_RunWorkerCompleted);
+            // 
             // BackupAndRestore
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -302,5 +309,6 @@
         private System.Windows.Forms.ColumnHeader columnHeader8;
         public System.Windows.Forms.Button btn_Refresh;
         public System.Windows.Forms.DateTimePicker datePick_Logs;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
     }
 }

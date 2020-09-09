@@ -10,6 +10,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using CST.Models;
+using System.Threading;
+using CST.Cashier;
 
 namespace CST
 {
@@ -20,6 +22,7 @@ namespace CST
         private string dateClicked = string.Empty;
         private string timeClicked = string.Empty;
         AuditTrailControl auditTrailControl = new AuditTrailControl();
+        loadingCashier loading = new loadingCashier();
         public BackupAndRestore()
         {
             InitializeComponent();
@@ -36,6 +39,9 @@ namespace CST
             if (form1 == DialogResult.Yes)
                 
             {
+
+                backgroundWorker1.RunWorkerAsync();
+                loading.Show();
                 csBackupAndRestore.DoBackup();
                 MessageBox.Show("Back Up Data Success");
 
@@ -167,6 +173,26 @@ namespace CST
             {
                 button3.Enabled = false;
             }
+        }
+
+        private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
+        {
+            for (int i = 1; i <= 100; i++)
+            {
+                Thread.Sleep(10);
+                backgroundWorker1.WorkerReportsProgress = true;
+                backgroundWorker1.ReportProgress(i);
+            }
+        }
+
+        private void backgroundWorker1_ProgressChanged(object sender, ProgressChangedEventArgs e)
+        {
+
+        }
+
+        private void backgroundWorker1_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            loading.Hide();
         }
     }
 }
