@@ -233,7 +233,7 @@ namespace CST
 
                 foreach (DataGridViewRow dgv in dataGridView1.Rows)
                 {
-                    dt.Rows.Add(dgv.Cells[0].Value, dgv.Cells[1].Value, dgv.Cells[2]);
+                    dt.Rows.Add(dgv.Cells[0].Value, dgv.Cells[1].Value, dgv.Cells[2].Value);
                 }
 
                 ds.Tables.Add(dt);

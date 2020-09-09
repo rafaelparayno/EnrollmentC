@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using CST.Models;
+using CST.Reports;
 
 namespace CST.Registrar
 {
@@ -151,8 +152,13 @@ namespace CST.Registrar
                     }
                     else
                     {
-                        //*
-                        refreshGrid();
+                    
+
+                        sql = String.Format(@"SELECT school_requirements.requirement_name AS 'Requirement Name',student_detail.sno, 
+                                            CONCAT(firstname,' ',lastname) AS 'StudentName' FROM `school_requirements` 
+                                            INNER JOIN students_requirement ON school_requirements.req_id != students_requirement.req_id 
+                                            INNER JOIN student_detail ON students_requirement.student_no = student_detail.sno");
+                        studentRequirementController.RawQuery(ref dataGridView1, sql);
                     }
 
 
@@ -238,6 +244,36 @@ namespace CST.Registrar
             DateTime mys = DateTimeOffset.Now.UtcDateTime.ToLocalTime();
             label7.Text = my.ToString("MM/dd/yyyy  hh:mm:ss tt");
             timer1.Enabled = true;
+
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.Rows.Count == 0)
+                return;
+
+            if (cbType.SelectedIndex != 0)
+                return;
+
+            if (radioButton1.Checked)
+                return;
+
+            DataSet ds = new DataSet();
+
+            DataTable dt = new DataTable();
+            dt.Columns.Add("Requirement Name", typeof(string));
+            dt.Columns.Add("Student no", typeof(string));
+            dt.Columns.Add("Student name", typeof(string));
+
+            foreach (DataGridViewRow dgv in dataGridView1.Rows)
+            {
+                dt.Rows.Add(dgv.Cells[0].Value, dgv.Cells[1].Value, dgv.Cells[2].Value);
+            }
+
+            ds.Tables.Add(dt);
+
+            RequirmentsRep frm = new RequirmentsRep(ds);
+            frm.ShowDialog();
 
         }
     }
