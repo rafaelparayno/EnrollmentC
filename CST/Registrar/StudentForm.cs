@@ -37,6 +37,7 @@ namespace CST
         {
             InitializeComponent();
             currentSy = yearcontroller.getSyActivated();
+            dateTimePicker1.MaxDate = DateTime.Now;
         }
 
         private void StudentForm_Load(object sender, EventArgs e)
@@ -486,7 +487,10 @@ namespace CST
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
         {
             StudentModel.setBd(dateTimePicker1.Value.ToString("MM/dd/yyyy"));
-         
+            int yrNow = DateTime.Now.Year;
+            int bdate = dateTimePicker1.Value.Year;
+            int age = yrNow - bdate;
+            textBox19.Text = age.ToString(); 
         }
 
         private void textBox24_TextChanged(object sender, EventArgs e)
