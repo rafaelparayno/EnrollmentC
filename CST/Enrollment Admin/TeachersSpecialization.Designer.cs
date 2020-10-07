@@ -41,6 +41,9 @@
             this.label9 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.txtUsername = new System.Windows.Forms.TextBox();
+            this.button2 = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -152,7 +155,7 @@
             this.label9.BackColor = System.Drawing.Color.Transparent;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.Black;
-            this.label9.Location = new System.Drawing.Point(262, 48);
+            this.label9.Location = new System.Drawing.Point(285, 48);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(43, 20);
             this.label9.TabIndex = 300;
@@ -170,13 +173,51 @@
             this.dataGridView1.AllowUserToResizeRows = false;
             this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(22, 86);
+            this.dataGridView1.Location = new System.Drawing.Point(22, 104);
             this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(545, 353);
+            this.dataGridView1.Size = new System.Drawing.Size(545, 335);
             this.dataGridView1.TabIndex = 304;
+            // 
+            // txtUsername
+            // 
+            this.txtUsername.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUsername.ForeColor = System.Drawing.Color.Black;
+            this.txtUsername.Location = new System.Drawing.Point(86, 71);
+            this.txtUsername.Name = "txtUsername";
+            this.txtUsername.Size = new System.Drawing.Size(242, 26);
+            this.txtUsername.TabIndex = 312;
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.DarkSeaGreen;
+            this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.button2.Location = new System.Drawing.Point(334, 70);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(236, 28);
+            this.button2.TabIndex = 313;
+            this.button2.Text = "Search";
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Black;
+            this.label1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.label1.Location = new System.Drawing.Point(19, 77);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(61, 16);
+            this.label1.TabIndex = 314;
+            this.label1.Text = "Search:";
             // 
             // TeachersSpecialization
             // 
@@ -185,6 +226,9 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(589, 511);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.txtUsername);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
@@ -219,5 +263,8 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.DataGridView dataGridView1;
+        public System.Windows.Forms.TextBox txtUsername;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Label label1;
     }
 }

@@ -88,5 +88,17 @@ namespace CST
                 }
             }
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if(txtUsername.Text.Trim() == "")
+            {
+                refreshGrid();
+            }
+            else
+            {
+                specialization.searchFillDataGridTeach(ref dataGridView1,txtUsername.Text.Trim());
+            }
+        }
     }
 }
