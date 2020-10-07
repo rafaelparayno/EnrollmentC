@@ -25,7 +25,7 @@ namespace CST.Enrollment_Admin.DialogsSched
         public AssignTeacher(string grade_level,string subject,string timeS,string timeE,int subjid)
         {
             InitializeComponent();
-            if (grade_level.Contains("Grade"))
+            /*if (grade_level.Contains("Grade"))
             {
                 gradeNo = int.Parse(grade_level.Split(' ')[1]);
                 if (gradeNo < 7)
@@ -45,9 +45,10 @@ namespace CST.Enrollment_Admin.DialogsSched
                 idsTeacher = specializationController.fillDataTeacherSect(ref cbTeacher);
                 timestart = timeS;
                 timeEnd = timeE;
-            }
-           
-
+            }*/
+            idsTeacher = specializationController.findTeacherWithAvailSub(ref cbTeacher, subjid);
+            timestart = timeS;
+            timeEnd = timeE;
         }
 
         private void AssignTeacher_Load(object sender, EventArgs e)
