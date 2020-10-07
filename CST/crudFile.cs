@@ -28,6 +28,33 @@ namespace CST
           
 
         }
+
+        public Task<DataSet> GetDataSetAsync(string sSQL, List<MySqlParameter> parameters)
+        {
+            return Task.Run(() =>
+            {
+                try
+                {
+                    cn.Open();
+
+                    cmd = new MySqlCommand(sSQL, cn);
+                    if (parameters != null) cmd.Parameters.AddRange(parameters.ToArray<MySqlParameter>());
+                    adptr = new MySqlDataAdapter(cmd);
+                    ds = new DataSet();
+                    adptr.FillAsync(ds);
+                    cn.Close();
+                    return ds;
+                }
+                catch (Exception e)
+                {
+                    cn.Close();
+                    MessageBox.Show("" + e.Message);
+                    return null;
+                }
+
+            });
+        }
+
         public  void FillDataGrid(string sql, ref DataGridView dg)
         {
             try

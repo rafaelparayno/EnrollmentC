@@ -1,6 +1,7 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,6 +17,20 @@ namespace CST.Models
         public StudentsDetailsController()
         {
             syid = yearController.getSchoolYearId();
+        }
+
+       public async Task <DataSet> getEnrolledStudent()
+        {
+            string sql = @"SELECT studentenrolledinfo.`sno`, CONCAT(firstname,' ',lastname) AS 'FullName',studentenrolledinfo.grade_level,sections.section_name FROM student_detail 
+                            LEFT JOIN studentenrolledinfo ON student_detail.sno = studentenrolledinfo.sno 
+                            INNER JOIN sections ON studentenrolledinfo.sect_id = sections.sect_id
+                            WHERE studentenrolledinfo.sy_id = @syid AND studentenrolledinfo.is_Enrolled = 1
+                            ORDER BY lastname ASC";
+            List<MySqlParameter> listparams = new List<MySqlParameter>();
+
+            listparams.Add(new MySqlParameter("@syid", syid));
+
+           return await cs.GetDataSetAsync(sql, listparams);
         }
 
         public void addStudDetails(string []arrDetails)

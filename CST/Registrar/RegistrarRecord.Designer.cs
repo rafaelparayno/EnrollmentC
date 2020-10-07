@@ -55,6 +55,7 @@
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
+            this.button13 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -103,7 +104,7 @@
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button2.Location = new System.Drawing.Point(48, 513);
+            this.button2.Location = new System.Drawing.Point(48, 527);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(152, 35);
             this.button2.TabIndex = 182;
@@ -369,9 +370,9 @@
             this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button4.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button4.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button4.Location = new System.Drawing.Point(48, 419);
+            this.button4.Location = new System.Drawing.Point(48, 396);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(152, 64);
+            this.button4.Size = new System.Drawing.Size(152, 48);
             this.button4.TabIndex = 229;
             this.button4.Text = "Student  Family Information";
             this.button4.UseVisualStyleBackColor = false;
@@ -384,7 +385,7 @@
             this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button5.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button5.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button5.Location = new System.Drawing.Point(48, 338);
+            this.button5.Location = new System.Drawing.Point(48, 328);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(152, 62);
             this.button5.TabIndex = 230;
@@ -399,13 +400,28 @@
             this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button7.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button7.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button7.Location = new System.Drawing.Point(48, 270);
+            this.button7.Location = new System.Drawing.Point(48, 260);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(152, 62);
             this.button7.TabIndex = 231;
             this.button7.Text = "Unofficially Enrolled";
             this.button7.UseVisualStyleBackColor = false;
             this.button7.Click += new System.EventHandler(this.button7_Click);
+            // 
+            // button13
+            // 
+            this.button13.BackColor = System.Drawing.Color.DarkSeaGreen;
+            this.button13.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.button13.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button13.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button13.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.button13.Location = new System.Drawing.Point(48, 450);
+            this.button13.Name = "button13";
+            this.button13.Size = new System.Drawing.Size(152, 68);
+            this.button13.TabIndex = 232;
+            this.button13.Text = "Print Enrolled Students";
+            this.button13.UseVisualStyleBackColor = false;
+            this.button13.Click += new System.EventHandler(this.button13_Click);
             // 
             // RegistrarRecord
             // 
@@ -414,6 +430,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(929, 600);
+            this.Controls.Add(this.button13);
             this.Controls.Add(this.button7);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button4);
@@ -468,5 +485,6 @@
         private System.Windows.Forms.Button button10;
         private System.Windows.Forms.Button button11;
         private System.Windows.Forms.Button button12;
+        private System.Windows.Forms.Button button13;
     }
 }
