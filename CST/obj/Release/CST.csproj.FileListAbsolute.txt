@@ -847,3 +847,4 @@ C:\Users\Melvin\Desktop\CST_FINAL\EnrollmentC\CST\obj\Release\CST.TeachersSpecia
 C:\Users\Melvin\Desktop\CST_FINAL\EnrollmentC\CST\obj\Release\CST.UpdateTeacherSpecialization.resources
 C:\Users\Melvin\Desktop\CST_FINAL\EnrollmentC\CST\obj\Release\CST.csproj.GenerateResource.Cache
 C:\Users\Xorn\Desktop\C#\versionRaf\EnrollmentC\CST\obj\Release\CST.Reports.RequirmentsRep.resources
+C:\Users\Xorn\Desktop\C#\versionRaf\EnrollmentC\CST\obj\Release\CST.Reports.enrolledstudent.resources

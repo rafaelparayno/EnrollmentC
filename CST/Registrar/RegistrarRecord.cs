@@ -412,10 +412,15 @@ namespace CST
 
         private async void button13_Click(object sender, EventArgs e)
         {
+
+            
            
              DataSet dss = await studentsDetailsController.getEnrolledStudent();
 
-            dss.WriteXmlSchema("enrolledstudent.xml");
+            enrolledstudent frm = new enrolledstudent(dss);
+            frm.ShowDialog();
+
+            //   dss.WriteXmlSchema("enrolledstudent.xml");
         }
     }
 }

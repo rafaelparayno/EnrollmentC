@@ -518,6 +518,18 @@
       <DependentUpon>CrystalReport1.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Reports\enrolledstudent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\enrolledstudent.Designer.cs">
+      <DependentUpon>enrolledstudent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\enrolledStudentsRep.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>enrolledStudentsRep.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Reports\GradeCsReport.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -924,6 +936,13 @@
     <EmbeddedResource Include="Reports\CrystalReport1.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>CrystalReport1.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\enrolledstudent.resx">
+      <DependentUpon>enrolledstudent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\enrolledStudentsRep.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>enrolledStudentsRep.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\GradeCsReport.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
