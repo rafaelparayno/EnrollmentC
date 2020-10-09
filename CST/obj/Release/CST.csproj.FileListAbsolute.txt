@@ -848,3 +848,5 @@ C:\Users\Melvin\Desktop\CST_FINAL\EnrollmentC\CST\obj\Release\CST.UpdateTeacherS
 C:\Users\Melvin\Desktop\CST_FINAL\EnrollmentC\CST\obj\Release\CST.csproj.GenerateResource.Cache
 C:\Users\Xorn\Desktop\C#\versionRaf\EnrollmentC\CST\obj\Release\CST.Reports.RequirmentsRep.resources
 C:\Users\Xorn\Desktop\C#\versionRaf\EnrollmentC\CST\obj\Release\CST.Reports.enrolledstudent.resources
+C:\Users\Xorn\Desktop\C#\versionRaf\EnrollmentC\CST\obj\Release\CST.Docs.DocsAdding.resources
+C:\Users\Xorn\Desktop\C#\versionRaf\EnrollmentC\CST\obj\Release\CST.Registrar.reqattachment.resources

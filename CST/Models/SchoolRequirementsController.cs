@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CST.Docs;
 using CST.Models.SchoolRequirementsMod;
 using MySql.Data.MySqlClient;
 
@@ -33,6 +34,28 @@ namespace CST.Models
             string sql = String.Format(@"SELECT req_id,type_of_student,requirement_name FROM school_requirements");
 
             cs.FillDataGrid(sql,ref dg);
+        }
+
+        public requirementmodel getRequirementModel(int id)
+        {
+            string sql = String.Format(@"SELECT * FROM school_requirements WHERE req_id = {0}", id);
+
+            MySqlDataReader reader = null;
+            cs.RetrieveRecords(sql, ref reader);
+
+            requirementmodel req = new requirementmodel();
+
+            while (reader.Read())
+            {
+             
+                req.name = reader["requirement_name"].ToString();
+                req.id = int.Parse(reader["req_id"].ToString());
+                req.type = reader["type_of_student"].ToString();
+            }
+
+            cs.CloseConnection();
+
+            return req;
         }
 
         public void fillDataGridForTypeStud(ref DataGridView dg,string stud_type)

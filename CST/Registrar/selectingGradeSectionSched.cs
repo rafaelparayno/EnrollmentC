@@ -128,8 +128,10 @@ namespace CST.Registrar
              
                 studentEnrolledController.addEnrolledStudents(sno, comboBox1.Text, selectedSectIds);
                 this.Hide();
-                RegistrarForm frm = new RegistrarForm();
+                reqattachment frm = new reqattachment();
                 frm.Show();
+                /*RegistrarForm frm = new RegistrarForm();
+                frm.Show();*/
                 MessageBox.Show("Succesfully Added Student section and grade");
                 auditTrail.addAudit(label44.Text, fn + " Register");
             }

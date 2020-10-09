@@ -55,6 +55,32 @@ namespace CST
             });
         }
 
+
+        public async Task<int> ExecuteAsync(string sql, List<MySqlParameter> parameters)
+        {
+            try
+            {
+                await cn.OpenAsync().ConfigureAwait(false);
+
+                cmd = new MySqlCommand(sql, cn);
+                if (parameters != null) cmd.Parameters.AddRange(parameters.ToArray<MySqlParameter>());
+
+                return await cmd.ExecuteNonQueryAsync().ConfigureAwait(false);
+
+            }
+            catch (Exception e)
+            {
+
+                MessageBox.Show("" + e.Message);
+                return 0;
+
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
+
         public  void FillDataGrid(string sql, ref DataGridView dg)
         {
             try

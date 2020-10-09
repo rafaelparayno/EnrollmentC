@@ -117,6 +117,14 @@
     <Compile Include="Data\DataClass.cs" />
     <Compile Include="DbSettings\dbConfigFile.cs" />
     <Compile Include="DbSettings\dbConnection.cs" />
+    <Compile Include="Docs\CreateDirectory.cs" />
+    <Compile Include="Docs\DocsAdding.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Docs\DocsAdding.Designer.cs">
+      <DependentUpon>DocsAdding.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Docs\requirementmodel.cs" />
     <Compile Include="Enrollment Admin\AddUpdateDiags\addEnrollmentSched.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -470,6 +478,12 @@
     <Compile Include="Registrar\RegRecordSched.Designer.cs">
       <DependentUpon>RegRecordSched.cs</DependentUpon>
     </Compile>
+    <Compile Include="Registrar\reqattachment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Registrar\reqattachment.Designer.cs">
+      <DependentUpon>reqattachment.cs</DependentUpon>
+    </Compile>
     <Compile Include="Registrar\selectingGradeSectionSched.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -787,6 +801,9 @@
     <EmbeddedResource Include="Cashier\ViewDueDates.resx">
       <DependentUpon>ViewDueDates.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Docs\DocsAdding.resx">
+      <DependentUpon>DocsAdding.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Enrollment Admin\AddMiscellaneousFee.resx">
       <DependentUpon>AddMiscellaneousFee.cs</DependentUpon>
     </EmbeddedResource>
@@ -909,6 +926,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Registrar\RegRecordSched.resx">
       <DependentUpon>RegRecordSched.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Registrar\reqattachment.resx">
+      <DependentUpon>reqattachment.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Registrar\selectingGradeSectionSched.resx">
       <DependentUpon>selectingGradeSectionSched.cs</DependentUpon>
@@ -1176,6 +1196,7 @@
     <None Include="System Admin\Resources\images.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\noimg.png" />
     <None Include="Resources\b.png" />
     <Content Include="Resources\icon-backup.png" />
     <Content Include="Resources\icon-database-connected.png" />

@@ -149,7 +149,7 @@ namespace CST
                 frm.Show();
                
             }
-            StudentModel.clearAll();
+         //   StudentModel.clearAll();
             this.Hide();
 
         }
