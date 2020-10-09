@@ -89,6 +89,7 @@ namespace CST.Registrar
             save();
             RegistrarForm frm = new RegistrarForm();
             frm.Show();
+            StudentModel.clearAll();
             this.Close();
         }
 

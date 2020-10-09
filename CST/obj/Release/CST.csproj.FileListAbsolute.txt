@@ -850,3 +850,4 @@ C:\Users\Xorn\Desktop\C#\versionRaf\EnrollmentC\CST\obj\Release\CST.Reports.Requ
 C:\Users\Xorn\Desktop\C#\versionRaf\EnrollmentC\CST\obj\Release\CST.Reports.enrolledstudent.resources
 C:\Users\Xorn\Desktop\C#\versionRaf\EnrollmentC\CST\obj\Release\CST.Docs.DocsAdding.resources
 C:\Users\Xorn\Desktop\C#\versionRaf\EnrollmentC\CST\obj\Release\CST.Registrar.reqattachment.resources
+C:\Users\Xorn\Desktop\C#\versionRaf\EnrollmentC\CST\obj\Release\CST.Registrar.showAttachment.resources

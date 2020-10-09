@@ -16,6 +16,27 @@ namespace CST.Models
 
         }
 
+
+        public string getFullPath(int id)
+        {
+            string sql = String.Format(@"SELECT CONCAT(path,filename) as 'fullpath' FROM `attach_requirements`
+            WHERE student_no in (SELECT student_no FROM students_requirement WHERE student_req_id = {0}) AND 
+            req_id in (SELECT req_id FROM students_requirement WHERE student_req_id = {0})", id);
+            string fullPath = "";
+            MySqlDataReader reader = null;
+         
+
+            cs.RetrieveRecords(sql, ref reader);
+
+            while (reader.Read())
+            {
+                fullPath = reader["fullpath"].ToString();
+
+
+            }
+            cs.CloseConnection();
+            return fullPath;
+        }
         public void addStudentReq(string sno,int req_id)
         {
             string sql = String.Format(@"INSERT INTO `students_requirement`(`student_no`, `req_id`) VALUES ('{0}',{1})",

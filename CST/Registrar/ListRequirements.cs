@@ -17,6 +17,7 @@ namespace CST.Registrar
 
         StudentRequirementController studentRequirementController = new StudentRequirementController();
         AuditTrailControl auditTrail = new AuditTrailControl();
+        crudFile cs = new crudFile();
 
         public ListRequirements()
         {
@@ -276,5 +277,43 @@ namespace CST.Registrar
             frm.ShowDialog();
 
         }
+
+        private void radioButton2_CheckedChanged(object sender, EventArgs e)
+        {
+            if(radioButton2.Checked)
+                button6.Enabled = false;
+        }
+
+        private void radioButton1_CheckedChanged(object sender, EventArgs e)
+        {
+            if(radioButton1.Checked)
+                button6.Enabled = true;
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.Rows.Count == 0)
+                return;
+
+            if (dataGridView1.SelectedRows.Count == 0)
+                return;
+
+            int id = int.Parse(dataGridView1.SelectedRows[0].Cells[0].Value.ToString());
+
+             string fullPath =  studentRequirementController.getFullPath(id);
+
+            showAttachment frm = new showAttachment(fullPath);
+            frm.ShowDialog();
+        }
+
+
+        //database
+
+        /*private async string getfullPath(int)
+        {
+           
+        }*/
+
+        //database
     }
 }

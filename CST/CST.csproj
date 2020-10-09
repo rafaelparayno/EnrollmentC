@@ -490,6 +490,12 @@
     <Compile Include="Registrar\selectingGradeSectionSched.Designer.cs">
       <DependentUpon>selectingGradeSectionSched.cs</DependentUpon>
     </Compile>
+    <Compile Include="Registrar\showAttachment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Registrar\showAttachment.Designer.cs">
+      <DependentUpon>showAttachment.cs</DependentUpon>
+    </Compile>
     <Compile Include="Registrar\StudentGradesReg.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -932,6 +938,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Registrar\selectingGradeSectionSched.resx">
       <DependentUpon>selectingGradeSectionSched.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Registrar\showAttachment.resx">
+      <DependentUpon>showAttachment.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Registrar\StudentGradesReg.resx">
       <DependentUpon>StudentGradesReg.cs</DependentUpon>
