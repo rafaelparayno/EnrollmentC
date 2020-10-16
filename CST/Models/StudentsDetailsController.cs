@@ -21,7 +21,7 @@ namespace CST.Models
 
        public async Task <DataSet> getEnrolledStudent()
         {
-            string sql = @"SELECT studentenrolledinfo.`sno`, CONCAT(firstname,' ',lastname) AS 'FullName',studentenrolledinfo.grade_level,sections.section_name FROM student_detail 
+            string sql = @"SELECT studentenrolledinfo.`sno`, CONCAT(lastname,', ',firstname) AS 'FullName',studentenrolledinfo.grade_level,sections.section_name FROM student_detail 
                             LEFT JOIN studentenrolledinfo ON student_detail.sno = studentenrolledinfo.sno 
                             INNER JOIN sections ON studentenrolledinfo.sect_id = sections.sect_id
                             WHERE studentenrolledinfo.sy_id = @syid AND studentenrolledinfo.is_Enrolled = 1

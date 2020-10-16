@@ -29,10 +29,8 @@ namespace CST.Reports
             enrolledStudentsRep rep = new enrolledStudentsRep();
             rep.SetDataSource(ds);
             rep.SetParameterValue("syParam", sy);
-
+            rep.SetParameterValue("nameLogParam", UserLog.getFullName());
             crystalReportViewer1.ReportSource = rep;
-
-
         }
     }
 }
