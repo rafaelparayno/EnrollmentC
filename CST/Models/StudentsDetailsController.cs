@@ -149,7 +149,7 @@ namespace CST.Models
         public string searchName(string sno)
         {
             string name = "";
-            string sql = String.Format(@"SELECT Concat(firstname, ' ', lastname ) as Fullname FROM student_detail WHERE sno = '{0}'", "STUD-" +sno);
+            string sql = String.Format(@"SELECT Concat(lastname, ',',firstname) as Fullname FROM student_detail WHERE sno = '{0}'", "STUD-" +sno);
             MySqlDataReader reader = null;
             cs.RetrieveRecords(sql, ref reader);
 

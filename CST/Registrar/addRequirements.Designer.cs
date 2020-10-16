@@ -40,6 +40,11 @@
             this.label3 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.label7 = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.pbAutomated = new System.Windows.Forms.PictureBox();
+            this.button3 = new System.Windows.Forms.Button();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbAutomated)).BeginInit();
             this.SuspendLayout();
             // 
             // textBox1
@@ -175,13 +180,46 @@
             this.label7.TabIndex = 323;
             this.label7.Text = "Date & Time";
             // 
+            // panel1
+            // 
+            this.panel1.AutoScroll = true;
+            this.panel1.Controls.Add(this.pbAutomated);
+            this.panel1.Controls.Add(this.button3);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel1.Location = new System.Drawing.Point(507, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(511, 385);
+            this.panel1.TabIndex = 324;
+            // 
+            // pbAutomated
+            // 
+            this.pbAutomated.Image = global::CST.Properties.Resources.noimg;
+            this.pbAutomated.Location = new System.Drawing.Point(3, 34);
+            this.pbAutomated.Name = "pbAutomated";
+            this.pbAutomated.Size = new System.Drawing.Size(191, 123);
+            this.pbAutomated.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbAutomated.TabIndex = 24;
+            this.pbAutomated.TabStop = false;
+            // 
+            // button3
+            // 
+            this.button3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button3.Location = new System.Drawing.Point(0, 0);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(511, 28);
+            this.button3.TabIndex = 25;
+            this.button3.Text = "upload";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
             // addRequirements
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::CST.Properties.Resources.b;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(486, 385);
+            this.ClientSize = new System.Drawing.Size(1018, 385);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.button2);
@@ -198,6 +236,8 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Submit Requirement";
             this.Load += new System.EventHandler(this.addRequirements_Load);
+            this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pbAutomated)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -216,5 +256,8 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.PictureBox pbAutomated;
+        private System.Windows.Forms.Button button3;
     }
 }
