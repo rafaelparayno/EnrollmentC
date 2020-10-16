@@ -91,23 +91,24 @@ namespace CST
 
         private void cbType_SelectedIndexChanged(object sender, EventArgs e)
         {
-           
-            if(cbType.SelectedIndex == 0)
-            {
+            /*
+             if(cbType.SelectedIndex == 0)
+             {
 
-                cbSubjects.Enabled = false;
-                label5.Visible = false;
-                cbSubjects.Visible = false;
-                sub = "none";
-                selectedSubIds = 0;
-            }
-            else
-            {
-                cbSubjects.Enabled = true;
-                label5.Visible = true;
-                cbSubjects.Visible = true;
-           
-            }
+                 cbSubjects.Enabled = false;
+                 label5.Visible = false;
+                 cbSubjects.Visible = false;
+                 sub = "none";
+                 selectedSubIds = 0;
+             }
+             else
+             {
+
+
+             }*/
+            cbSubjects.Enabled = true;
+            label5.Visible = true;
+            cbSubjects.Visible = true;
         }
 
         private void cbSubjects_SelectedIndexChanged(object sender, EventArgs e)

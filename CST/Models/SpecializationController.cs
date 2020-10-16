@@ -29,7 +29,8 @@ namespace CST.Models
 
         public string[] fillDataTeacher(ref ComboBox cb)
         {
-            string sql = String.Format(@"SELECT * FROM useraccounts WHERE acc_id NOT IN(SELECT acc_id FROM specialization) AND Role = 'Teacher'");
+            string sql = String.Format(@"SELECT * FROM useraccounts WHERE acc_id NOT IN(SELECT acc_id FROM specialization) AND Role = 'Teacher' 
+ORDER BY useraccounts.Lastname ASC");
 
             MySqlDataReader reader = null;
             cs.RetrieveRecords(sql, ref reader);
@@ -149,8 +150,9 @@ namespace CST.Models
 
         public string[] fillDataTeacherSect(ref ComboBox cb)
         {
-            string sql = String.Format(@"SELECT teacher_ID,CONCAT(Firstname,' ',LastName) as FullName 
-                                        FROM `specialization` LEFT JOIN useraccounts ON specialization.acc_id = useraccounts.acc_id");
+            string sql = String.Format(@"SELECT teacher_ID,CONCAT(LastName,', ',Firstname) as FullName 
+                                        FROM `specialization` LEFT JOIN useraccounts ON specialization.acc_id = useraccounts.acc_id
+                                        ORDER BY useraccounts.Lastname ASC");
             MySqlDataReader reader = null;
             cs.RetrieveRecords(sql, ref reader);
             int totalCount = 0;
@@ -193,7 +195,8 @@ namespace CST.Models
         {
             string sql = String.Format(@"SELECT teacher_ID,CONCAT(Firstname,' ',LastName) as FullName FROM `specialization` 
                                         LEFT JOIN useraccounts ON specialization.acc_id = useraccounts.acc_id 
-                                        WHERE specialization.subject_id in (SELECT subject_type_id FROM subjects WHERE subject_id = {0} )",
+                                        WHERE specialization.subject_id in (SELECT subject_type_id FROM subjects WHERE subject_id = {0} ) 
+                                        ORDER BY useraccounts.Lastname ASC",
                                         subjectid);
             MySqlDataReader reader = null;
             cs.RetrieveRecords(sql, ref reader);
@@ -257,10 +260,11 @@ namespace CST.Models
         {
             int[] ids;
             int count = 0;
-            string sql = String.Format(@"SELECT teacher_ID,CONCAT(useraccounts.Firstname,' ',useraccounts.Lastname) AS 'FullName' 
+            string sql = String.Format(@"SELECT teacher_ID,CONCAT(useraccounts.Lastname,' ,',useraccounts.Firstname) AS 'FullName' 
                                         FROM `specialization` LEFT JOIN useraccounts on specialization.acc_id = useraccounts.acc_id 
                                         WHERE subject_id = {0} AND teacher_ID in(SELECT teacher_ID FROM sched_section WHERE timestamp_id in 
-                                        (SELECT timestamp_id FROM timestamp WHERE start_time < '{1}' AND end_time > '{2}') AND SY_ID = {3})",
+                                        (SELECT timestamp_id FROM timestamp WHERE start_time < '{1}' AND end_time > '{2}') AND SY_ID = {3}) 
+                                        ORDER BY useraccounts.Lastname",
                                          sub,end,start,syId);
 
             MySqlDataReader reader = null;

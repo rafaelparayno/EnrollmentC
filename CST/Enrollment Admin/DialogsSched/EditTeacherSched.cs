@@ -28,27 +28,29 @@ namespace CST.Enrollment_Admin.DialogsSched
 
 
 
-            if (grade.Contains("Grade"))
-            {
-                gradeNo = int.Parse(grade.Split(' ')[1]);
-                if (gradeNo < 7)
-                {
-                    idsTeachers = specializationController.teacherAvailWithTime(starttime,endtime,ref cbTeacher);
-                }
-                else
-                {
-                    idsTeachers = specializationController.teacherAvailWithSubjsAndTime(starttime, endtime, subjid.ToString(), ref cbTeacher);
-                }
+            //if (grade.Contains("Grade"))
+            //{
+            //    gradeNo = int.Parse(grade.Split(' ')[1]);
+            //    if (gradeNo < 7)
+            //    {
+            //        idsTeachers = specializationController.teacherAvailWithTime(starttime, endtime, ref cbTeacher);
+            //    }
+            //    else
+            //    {
+            //        idsTeachers = specializationController.teacherAvailWithSubjsAndTime(starttime, endtime, subjid.ToString(), ref cbTeacher);
+            //    }
 
-                //  timestart = timeS;
-                //timeEnd = timeE;
-            }
-            else
-            {
-                idsTeachers = specializationController.teacherAvailWithTime(starttime, endtime, ref cbTeacher);
-                //timestart = timeS;
-                //timeEnd = timeE;
-            }
+            //    timestart = timeS;
+            //    timeEnd = timeE;
+            //}
+            //else
+            //{
+            //    idsTeachers = specializationController.teacherAvailWithTime(starttime, endtime, ref cbTeacher);
+            //    timestart = timeS;
+            //    timeEnd = timeE;
+            //}
+
+            idsTeachers = specializationController.teacherAvailWithSubjsAndTime(starttime, endtime, subjid.ToString(), ref cbTeacher);
 
         }
 
